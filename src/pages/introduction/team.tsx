@@ -45,7 +45,7 @@ const IntroductionTeam: NextPage = () => {
       </div>
       <div className="team-form">
         {teams.map((team) => (
-          <TeamCard team={team} />
+          <TeamCard team={team} key={team.imgUrl} />
         ))}
       </div>
     </section>

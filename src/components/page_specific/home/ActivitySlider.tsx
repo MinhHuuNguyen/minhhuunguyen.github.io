@@ -1,4 +1,5 @@
 import Slider from 'react-slick';
+import { LazyLoadTypes } from 'react-slick';
 import ActivityCard from './ActivityCard';
 
 const PrevArrow = (props: { onClick: any; }) => {
@@ -19,9 +20,11 @@ const NextArrow = (props: { onClick: any; }) => {
   )
 }
 
+const lazyLoad: LazyLoadTypes = 'ondemand';
+
 const defaultSettings = {
   infinite: true,
-  lazyLoad: 'ondemand',
+  lazyLoad: lazyLoad,
   dots: false,
   autoPlay: true,
   autoPlaySpeed: 500,
@@ -60,7 +63,7 @@ const ActivitySlider = ({activities}: { activities: Activity[] }) => {
     <div className="activities-slider">
       <Slider {...settings}>
         {activities.map((activity) => (
-          <ActivityCard activity={activity} />
+          <ActivityCard activity={activity} key={activity.imgUrl} />
         ))}
       </Slider>     
     </div>

@@ -16,12 +16,12 @@ const News: NextPage = () => {
             {news.title}
           </h2>
           {news.contents.map((content) => 
-            <p className="news-content">{content}</p>
+            <p className="news-content" key={content}>{content}</p>
           )}
         </div>
         <div className="flex flex-col align-center justify-start gap-4 lg:px-6 lg:w-1/3 pr-4 pl-4 w-full lg:mt-0 mt-4">
           {news.images.map((image) => 
-            <div className="news-image">
+            <div className="news-image" key={image.src}>
               <div className="news-image-frame">
                 <img src={image.src} alt={image.alt} />
               </div>
