@@ -63,7 +63,7 @@ const Activity: NextPage = () => {
       <div id="pills-tabContent">
         <div className="p-6 tab-pane opacity-0 opacity-100 block active flex flex-row">
           {activities.map((activity: Activity) => (
-            <ActivityCard activity={activity} />
+            <ActivityCard activity={activity} key={activity.imgUrl} />
           ))}
         </div>
       </div>

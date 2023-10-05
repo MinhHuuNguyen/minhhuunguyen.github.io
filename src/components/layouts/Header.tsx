@@ -1,17 +1,18 @@
 import Image from 'next/image';
 import logo50 from '../../../public/logo50.png';
 import styles from '@/styles/Header.module.css';
+import Link from 'next/link';
 
 const Header = () => {
   return (
     <header>
       <nav id="main-navbar" className="px-3 md:px-5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image className={styles.logo} src={logo50.src} height={50} width={50} alt="Logo" />
-          </a>
+          </Link>
           <div className="flex items-center lg:order-2">
-            <a href="#" className="btn-filled-pink">Tham gia cùng chúng tôi</a>
+            <Link href="#" className="btn-filled-pink">Tham gia cùng chúng tôi</Link>
             <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
@@ -26,10 +27,10 @@ const Header = () => {
                 <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                   <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                     <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Giới thiệu chung về KTCB</a>
+                      <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Giới thiệu chung về KTCB</Link>
                     </li>
                     <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Giới thiệu về nhân sự KTCB</a>
+                      <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Giới thiệu về nhân sự KTCB</Link>
                     </li>
                   </ul>
                 </div>

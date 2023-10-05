@@ -136,9 +136,9 @@ export default function Home() {
             <i className="fa-solid fa-quote-right d-none d-mflex" data-aos="flip-right" data-aos-duration="2000"></i>
           </h2>
           <span className="text-center mb-4">
-            <em>"Tại Khoảng Trời Của Bé, chúng tôi khát vọng về một tương lai nơi mà
+            <em>Tại Khoảng Trời Của Bé, chúng tôi khát vọng về một tương lai nơi mà
               sức khỏe và quyền
-              lợi bệnh nhân được cải thiện thông qua dịch vụ phẫu thuật an toàn."</em>
+              lợi bệnh nhân được cải thiện thông qua dịch vụ phẫu thuật an toàn.</em>
           </span>
         </div>
       </section>
