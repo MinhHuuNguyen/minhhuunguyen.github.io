@@ -1,14 +1,22 @@
 export interface INews {
-  status: string;
+  status?: string;
   time: string;
   title: string;
+  slug: string;
   banner_url: string;
-  contents: {
-    type: string;
-    content: string;
-  }[];
+  description: string;
+  contents: (IContentText | IContentImage)[];
+  author: string;
+  tags: string[];
 }
 
-export interface INewsData {
-  [slug: string]: INews;
+export interface IContentText {
+  type: "text";
+  content: string;
+}
+
+export interface IContentImage {
+  type: "image";
+  url: string;
+  caption: string;
 }

@@ -1,38 +1,217 @@
-{
-  "new-school-for-100-students-in-tra-vinh-at-the-beginning-of-the-new-school-year": {
-    "status": "Đã triển khai",
+[
+  {
     "time": "Thứ tư, 23/11/2022, 11:30 (GMT+7)",
     "title": "HOÀN THIỆN NGÔI TRƯỜNG MỚI CHO 100 HỌC SINH TRÀ VINH VÀO ĐẦU NĂM HỌC MỚI",
+    "slug": "new-school-for-100-students-in-tra-vinh-at-the-beginning-of-the-new-school-year",
     "banner_url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/banner-4.png",
+    "description": "Hai phòng học và một sân chơi với tổng diện tích 328m2 đặt tạị điểm Ô Trao của trường tiểu học Hiếu Tử C (huyện Tiểu Cần, tỉnh Trà Vinh) vừa được tổ chức Saigon Children’s Charity (saigonchildren) khánh thành sau 5 tháng xây dựng. Dự án do saigonchildren điều phối thuộc chương trình ‘Xây dựng Trường học và Môi trường Học đường’ sẽ mang đến một môi trường học tập an toàn và thoải mái hơn cho gần 100 em học sinh mỗi năm học. Với sự tài trợ từ BASF và các đối tác, đây là dự án cải tạo trường học thứ 7 mà BASF phối hợp với saigonchildren thực hiện tại Việt Nam.",
     "contents": [
       {
-        "type": "string",
+        "type": "text",
         "content": "Hai phòng học và một sân chơi với tổng diện tích 328m2 đặt tạị điểm Ô Trao của trường tiểu học Hiếu Tử C (huyện Tiểu Cần, tỉnh Trà Vinh) vừa được tổ chức Saigon Children’s Charity (saigonchildren) khánh thành sau 5 tháng xây dựng. Dự án do saigonchildren điều phối thuộc chương trình ‘Xây dựng Trường học và Môi trường Học đường’ sẽ mang đến một môi trường học tập an toàn và thoải mái hơn cho gần 100 em học sinh mỗi năm học. Với sự tài trợ từ BASF và các đối tác, đây là dự án cải tạo trường học thứ 7 mà BASF phối hợp với saigonchildren thực hiện tại Việt Nam."
       },
       {
         "type": "image",
-        "content": "https://www.saigonchildren.com/wp-content/uploads/2023/10/20230929-2-1024x683.jpg"
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/20230929-2-1024x683.jpg",
+        "caption": "Test image"
       },
       {
         "type": "image",
-        "content": "https://www.saigonchildren.com/wp-content/uploads/2023/10/z4736788958853_2b94c020787cf829cb66f6c9f789b117-1024x683.jpg"
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/z4736788958853_2b94c020787cf829cb66f6c9f789b117-1024x683.jpg",
+        "caption": "Test image"
       },
       {
-        "type": "string",
+        "type": "text",
         "content": "“Giáo dục là nền tảng cho một tương lai tươi sáng, và cùng nhau, chúng ta đã tạo nên con đường dẫn tới thành công cho 100 trẻ em tại Hiếu Tử C. Ngày hôm nay, khi khánh thành ngôi trường này, chúng ta không chỉ đang xây phòng học, mà còn là xây nên những giấc mơ, cơ hội, và hy vọng cho một ngày mai tươi sáng,” ông Damien Roberts, Giám đốc Điều hành tại Saigon Children’s Charity, chia sẻ tại buổi lễ."
       },
       {
-        "type": "string",
+        "type": "text",
         "content": "Cách TP. HCM khoảng 130 km, Trường Tiểu học Hiếu Tử C nằm ở vùng sâu vùng xa của tỉnh Trà Vinh, với nhiều cộng đồng dân tộc thiểu số, trong đó có dân tộc Khmer. Trường có một điểm chính và ba điểm lẻ. Dự án này được thực hiện tại điểm lẻ Ô Trao, được xây dựng năm 2009 và hiện trong điều kiện xuống cấp, không đảm bảo an toàn và vệ sinh. Điểm trường Ô Trao có 162 học sinh, trong đó 159 em là con em các gia đình dân tộc thiểu số, có thu nhập chủ yếu từ nghề nông hoặc buôn bán nhỏ."
       },
       {
         "type": "image",
-        "content": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-9.png"
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-9.png",
+        "caption": "Test image"
       },
       {
         "type": "image",
-        "content": "https://www.saigonchildren.com/wp-content/uploads/2023/10/z4736789041261_eee34c9b396e9a321bcff99b13f7842f-1024x683.jpg"
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/z4736789041261_eee34c9b396e9a321bcff99b13f7842f-1024x683.jpg",
+        "caption": "Test image"
       }
-    ]
+    ],
+    "author": "Pham Quoc Bao",
+    "tags": ["school", "tra-vinh", "children"]
+  },
+  {
+    "time": "Thứ tư, 03/11/2023, 11:30 (GMT+7)",
+    "title": "TRUNG THU ĐỦ ĐẦY, NIỀM VUI TRỌN VẸN CHO TRẺ EM ĐỒNG NAI",
+    "slug": "mid-autumn-festival-2023",
+    "banner_url": "https://www.saigonchildren.com/wp-content/themes/scc/images/banner10.jpg",
+    "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-4-e1696306718583.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-7-e1696306775241.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "text",
+        "content": "Năm nay, lễ hội Trung thu ở Đồng Nai diễn ra với sự tham gia của gần 400 trẻ em từ cấp tiểu học đến THPT. Những phần quà trao tặng đến các em cũng được đóng góp từ nhiều nhà tài trợ khác nhau, nhưng trong đó có một “nhà tài trợ” đặc biệt nhất: nhóm sinh viên và cựu sinh viên nhận học bổng của saigonchildren."
+      },
+      {
+        "type": "text",
+        "content": "Chính các em đã tự tổ chức các hoạt động gây quỹ để quyên góp được 29 triệu đồng, trao tặng 200 phần đèn học cho các em nhỏ giống như mình đã từng. Không chỉ là một phần quà, đó còn là lời gửi gắm tiếp bước từ các anh chị đi trước để các em nhỏ cố gắng vượt qua hoàn cảnh để theo đuổi tới cùng con đường tri thức."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-8-e1696306811773.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/383333712_714608190705944_3523504706442130711_n-1024x768.jpg",
+        "caption": "Test image"
+      }
+    ],
+    "author": "Pham Quoc Bao",
+    "tags": ["mid-autumn", "children"]
+  },
+  {
+    "time": "Thứ tư, 03/11/2023, 11:30 (GMT+7)",
+    "title": "TEST 1",
+    "slug": "test-1",
+    "banner_url": "https://www.saigonchildren.com/wp-content/themes/scc/images/banner10.jpg",
+    "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-4-e1696306718583.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-7-e1696306775241.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "text",
+        "content": "Năm nay, lễ hội Trung thu ở Đồng Nai diễn ra với sự tham gia của gần 400 trẻ em từ cấp tiểu học đến THPT. Những phần quà trao tặng đến các em cũng được đóng góp từ nhiều nhà tài trợ khác nhau, nhưng trong đó có một “nhà tài trợ” đặc biệt nhất: nhóm sinh viên và cựu sinh viên nhận học bổng của saigonchildren."
+      },
+      {
+        "type": "text",
+        "content": "Chính các em đã tự tổ chức các hoạt động gây quỹ để quyên góp được 29 triệu đồng, trao tặng 200 phần đèn học cho các em nhỏ giống như mình đã từng. Không chỉ là một phần quà, đó còn là lời gửi gắm tiếp bước từ các anh chị đi trước để các em nhỏ cố gắng vượt qua hoàn cảnh để theo đuổi tới cùng con đường tri thức."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-8-e1696306811773.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/383333712_714608190705944_3523504706442130711_n-1024x768.jpg",
+        "caption": "Test image"
+      }
+    ],
+    "author": "Pham Quoc Bao",
+    "tags": ["mid-autumn", "children"]
+  },
+  {
+    "time": "Thứ tư, 03/11/2023, 11:30 (GMT+7)",
+    "title": "TEST 2",
+    "slug": "test-2",
+    "banner_url": "https://www.saigonchildren.com/wp-content/themes/scc/images/banner10.jpg",
+    "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-4-e1696306718583.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-7-e1696306775241.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "text",
+        "content": "Năm nay, lễ hội Trung thu ở Đồng Nai diễn ra với sự tham gia của gần 400 trẻ em từ cấp tiểu học đến THPT. Những phần quà trao tặng đến các em cũng được đóng góp từ nhiều nhà tài trợ khác nhau, nhưng trong đó có một “nhà tài trợ” đặc biệt nhất: nhóm sinh viên và cựu sinh viên nhận học bổng của saigonchildren."
+      },
+      {
+        "type": "text",
+        "content": "Chính các em đã tự tổ chức các hoạt động gây quỹ để quyên góp được 29 triệu đồng, trao tặng 200 phần đèn học cho các em nhỏ giống như mình đã từng. Không chỉ là một phần quà, đó còn là lời gửi gắm tiếp bước từ các anh chị đi trước để các em nhỏ cố gắng vượt qua hoàn cảnh để theo đuổi tới cùng con đường tri thức."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-8-e1696306811773.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/383333712_714608190705944_3523504706442130711_n-1024x768.jpg",
+        "caption": "Test image"
+      }
+    ],
+    "author": "Pham Quoc Bao",
+    "tags": ["test"]
+  },
+  {
+    "time": "Thứ tư, 03/11/2023, 11:30 (GMT+7)",
+    "title": "TEST 3",
+    "slug": "test-3",
+    "banner_url": "https://www.saigonchildren.com/wp-content/themes/scc/images/banner10.jpg",
+    "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-4-e1696306718583.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-7-e1696306775241.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "text",
+        "content": "Năm nay, lễ hội Trung thu ở Đồng Nai diễn ra với sự tham gia của gần 400 trẻ em từ cấp tiểu học đến THPT. Những phần quà trao tặng đến các em cũng được đóng góp từ nhiều nhà tài trợ khác nhau, nhưng trong đó có một “nhà tài trợ” đặc biệt nhất: nhóm sinh viên và cựu sinh viên nhận học bổng của saigonchildren."
+      },
+      {
+        "type": "text",
+        "content": "Chính các em đã tự tổ chức các hoạt động gây quỹ để quyên góp được 29 triệu đồng, trao tặng 200 phần đèn học cho các em nhỏ giống như mình đã từng. Không chỉ là một phần quà, đó còn là lời gửi gắm tiếp bước từ các anh chị đi trước để các em nhỏ cố gắng vượt qua hoàn cảnh để theo đuổi tới cùng con đường tri thức."
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/thumbnail-8-e1696306811773.png",
+        "caption": "Test image"
+      },
+      {
+        "type": "image",
+        "url": "https://www.saigonchildren.com/wp-content/uploads/2023/10/383333712_714608190705944_3523504706442130711_n-1024x768.jpg",
+        "caption": "Test image"
+      }
+    ],
+    "author": "Pham Quoc Bao",
+    "tags": ["mid-autumn", "children"]
   }
-}
+]
