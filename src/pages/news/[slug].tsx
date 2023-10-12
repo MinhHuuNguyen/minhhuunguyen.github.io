@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { INews } from "@/@types/news";
-import { ItemNews } from "@/components/features/news/ItemNews";
+import { ItemNews } from "@/components/features/news/components/ItemNews";
 import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
 import { getNewsBySlug, getNewsByTags } from "@/utils/common";

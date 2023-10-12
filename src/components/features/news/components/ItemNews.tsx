@@ -9,6 +9,7 @@ interface Props {
   banner_url: string;
   description: string;
   slug: string;
+  hideBorder?: boolean;
 }
 
 export const ItemNews: React.FC<Props> = ({
@@ -16,13 +17,16 @@ export const ItemNews: React.FC<Props> = ({
   banner_url,
   description,
   slug,
+  hideBorder,
 }) => {
   return (
     <Stack
       sx={{
-        marginBottom: "12px",
-        paddingBottom: "20px",
-        borderBottom: "1px solid #e0e0e0",
+        ...(!hideBorder && {
+          borderBottom: "1px solid #e0e0e0",
+          marginBottom: "12px",
+          paddingBottom: "20px",
+        }),
       }}
     >
       <Link href={`/news/${slug}`}>

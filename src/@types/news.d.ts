@@ -8,6 +8,9 @@ export interface INews {
   contents: (IContentText | IContentImage)[];
   author: string;
   tags: string[];
+
+  is_highlight?: boolean;
+  is_medium?: boolean;
 }
 
 export interface IContentText {

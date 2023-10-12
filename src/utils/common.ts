@@ -29,3 +29,56 @@ export const getNewsWithoutTags = (title: string, tags: string[]) => {
 
   return res;
 };
+
+export const getHighlightNews = () => {
+  const data = newsData as INews[];
+
+  const res = data.find((news) => news?.is_highlight);
+
+  return res;
+};
+
+export const getMediumNews = () => {
+  const data = newsData as INews[];
+
+  const res = data.filter((news) => news?.is_medium);
+
+  return res;
+};
+
+export const getSmallNews = () => {
+  const data = newsData as INews[];
+
+  const res = data.filter((news) => !news?.is_medium && !news?.is_highlight);
+
+  return res;
+};
+
+export const loadMoreSmallNews = async (
+  _cursor?: number,
+  _pageSize?: number
+) => {
+  const cursor = _cursor || 0;
+  const pageSize = _pageSize || 6;
+
+  const smallNews = getSmallNews();
+
+  const res = smallNews.slice(cursor, cursor + pageSize);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return {
+    data: res,
+    pageKey:
+      smallNews?.length > cursor + pageSize ? cursor + pageSize : undefined,
+  };
+};
+export const ellipsisText = (lineClamp = 1) => {
+  return {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitLineClamp: `${lineClamp}`,
+    WebkitBoxOrient: "vertical",
+  };
+};
