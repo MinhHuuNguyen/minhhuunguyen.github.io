@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { Box, Stack, Typography } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
@@ -17,18 +18,25 @@ export const ItemNews: React.FC<Props> = ({
   slug,
 }) => {
   return (
-    <Stack>
-        <Link href={`/news/${slug}`}><Typography
-        variant="h3"
-        sx={{
-          fontSize: "15px",
-          fontWeight: 700,
-          marginBottom: "4px",
-        }}
-      >
-        {title}
-      </Typography></Link>
-      
+    <Stack
+      sx={{
+        marginBottom: "12px",
+        paddingBottom: "20px",
+        borderBottom: "1px solid #e0e0e0",
+      }}
+    >
+      <Link href={`/news/${slug}`}>
+        <Typography
+          variant="h3"
+          sx={{
+            fontSize: "15px",
+            fontWeight: 700,
+            marginBottom: "4px",
+          }}
+        >
+          {title}
+        </Typography>
+      </Link>
 
       <Box>
         <Box
@@ -52,7 +60,10 @@ export const ItemNews: React.FC<Props> = ({
               paddingBottom: "60%",
             }}
           >
-            <img
+            <Image
+              width={145}
+              height={87}
+              alt="banner_url"
               src={banner_url}
               style={{
                 position: "absolute",

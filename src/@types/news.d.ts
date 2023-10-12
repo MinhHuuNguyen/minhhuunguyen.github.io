@@ -2,6 +2,7 @@ export interface INews {
   status?: string;
   time: string;
   title: string;
+  slug: string;
   banner_url: string;
   description: string;
   contents: (IContentText | IContentImage)[];
@@ -18,8 +19,4 @@ export interface IContentImage {
   type: "image";
   url: string;
   caption: string;
-}
-
-export interface INewsData {
-  [slug: string]: INews;
 }

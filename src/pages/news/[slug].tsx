@@ -77,7 +77,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
                     <ItemNews
                       banner_url={news.banner_url}
                       description={news.description}
-                      slug={router.query.slug as string}
+                      slug={news.slug}
                       title={news.title}
                       key={index}
                     />
