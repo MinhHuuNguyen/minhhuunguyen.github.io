@@ -5,7 +5,7 @@ import { ItemNews } from "@/components/features/news/ItemNews";
 import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
 import { getNewsBySlug, getNewsByTags } from "@/utils/common";
-import { Container, Stack } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import Image from "next/image";
@@ -56,6 +56,19 @@ const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
                           }}
                           alt={content.caption}
                         />
+
+                        {content?.caption ? (
+                          <Typography
+                            sx={{
+                              fontSize: "14px",
+                              color: "#333",
+                              paddingTop: "6px",
+                              textAlign: "left",
+                            }}
+                          >
+                            {content?.caption}
+                          </Typography>
+                        ) : null}
                       </Stack>
                     ) : (
                       <p className="news-content" key={content.content}>
@@ -108,6 +121,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     if (news) {
       rightOtherNews = getNewsByTags(news?.title, news?.tags);
       bottomOtherNews = getNewsByTags(news?.title, news?.tags);
+    }
+
+    if (rightOtherNews && rightOtherNews?.length > 6) {
+      rightOtherNews = rightOtherNews?.slice(0, 6);
     }
 
     return {
