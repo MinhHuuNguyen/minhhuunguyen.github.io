@@ -30,6 +30,14 @@ export const getNewsWithoutTags = (title: string, tags: string[]) => {
   return res;
 };
 
+export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
+  const data = newsData as INews[];
+  const filteredItems = newsData.filter((news) => {
+    return !news.tags.find((tag) => tagsAlready.includes(tag));
+  }) as INews[];
+  return filteredItems;
+};
+
 export const getHighlightNews = () => {
   const data = newsData as INews[];
 

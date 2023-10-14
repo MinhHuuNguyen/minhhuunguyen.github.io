@@ -4,13 +4,18 @@ import { INews } from "@/@types/news";
 import { ItemNews } from "@/components/features/news/components/ItemNews";
 import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
-import { getNewsBySlug, getNewsByTags } from "@/utils/common";
+import {
+  getNewsBySlug,
+  getNewsByTags,
+  getOtherNewWithoutTags,
+} from "@/utils/common";
 import { Container, Stack, Typography } from "@mui/material";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
+import { SlideNew } from "./components/SlideNew";
 
 interface Props {
   news: INews;
@@ -20,6 +25,9 @@ interface Props {
 
 const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
   const router = useRouter();
+
+  const slideNewsData = getOtherNewWithoutTags(news.tags);
+  console.log({ slideNewsData, news });
 
   console.log("news", news);
   console.log("rightOtherNews", rightOtherNews);
@@ -100,6 +108,9 @@ const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
             </div>
           </section>
         </Container>
+      </Stack>
+      <Stack width="100%" alignItems="center">
+        <SlideNew slideNewsData={slideNewsData} />
       </Stack>
     </>
   );
