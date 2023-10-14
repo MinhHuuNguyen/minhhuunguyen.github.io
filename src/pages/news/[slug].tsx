@@ -25,13 +25,7 @@ interface Props {
 
 const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
   const router = useRouter();
-
   const slideNewsData = getOtherNewWithoutTags(news.tags);
-  console.log({ slideNewsData, news });
-
-  console.log("news", news);
-  console.log("rightOtherNews", rightOtherNews);
-  console.log("bottomOtherNews", bottomOtherNews);
 
   return (
     <>
