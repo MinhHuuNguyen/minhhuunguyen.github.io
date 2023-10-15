@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { INews } from "@/@types/news";
 import { ItemNews } from "@/components/features/news/components/ItemNews";
+import { SlideNews } from "@/components/features/news/components/SlideNews";
 import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
 import {
@@ -15,7 +15,6 @@ import { DefaultSeo } from "next-seo";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import { SlideNew } from "./components/SlideNew";
 
 interface Props {
   news: INews;
@@ -104,7 +103,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
         </Container>
       </Stack>
       <Stack width="100%" alignItems="center">
-        <SlideNew slideNewsData={slideNewsData} />
+        <SlideNews slideNewsData={slideNewsData} />
       </Stack>
     </>
   );

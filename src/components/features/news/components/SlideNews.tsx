@@ -63,7 +63,7 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
   </IconButton>
 );
 
-export const SlideNew: React.FC<SlideNewsProps> = ({ slideNewsData }) => {
+export const SlideNews: React.FC<SlideNewsProps> = ({ slideNewsData }) => {
   const listCard = slideNewsData.map((newsData) => (
     <NewsCard key={newsData.title} newsData={newsData} />
   ));
