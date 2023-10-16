@@ -1,7 +1,6 @@
 import { ChevronRightIcon } from "@/components/shared/icons/ChevronRightIcon";
 import { ellipsisText } from "@/utils/common";
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
@@ -21,7 +20,10 @@ export const HighlightNews: React.FC<Props> = ({
     <Grid
       container
       sx={{
-        minHeight: "350px",
+        height: "400px",
+        background: `url(${banner_url}) no-repeat center center`,
+        borderRadius: "12px",
+        overflow: "hidden",
       }}
     >
       <Grid
@@ -34,30 +36,16 @@ export const HighlightNews: React.FC<Props> = ({
             md: "inherit",
           },
         }}
-      >
-        <Link href={`/news/${slug}`}>
-          <Image
-            src={banner_url}
-            alt="banner_url"
-            sizes="100vw"
-            width={300}
-            height={120}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-        </Link>
-      </Grid>
+      ></Grid>
 
-      <Grid item md={4} xs={12}>
+      <Grid item md={4} xs={4}>
         <Stack
           sx={{
             gap: "20px",
-            backgroundColor: "#00aeef",
-            padding: "20px",
+            // backgroundColor: "#00aeef",
+            padding: "40px",
             height: "100%",
+            backdropFilter: "blur(10px)",
           }}
         >
           <Link href={`/news/${slug}`}>

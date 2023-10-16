@@ -1,8 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { INews } from "@/@types/news";
 import { CardNews, HighlightNews } from "@/components/features/news";
 import { ListSmallNews } from "@/components/features/news/ListSmallNews";
 import { SEO } from "@/configs/seo.config";
+import styles from "@/styles/News.module.css";
 import { getHighlightNews, getMediumNews } from "@/utils/common";
+import { BANNER_LIST_NEWS_URL } from "@/utils/constants";
 import { Container, Grid, Stack } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
@@ -10,22 +14,21 @@ import { DefaultSeo } from "next-seo";
 interface Props {
   highlightNews: INews;
   mediumNews: INews[];
-  //   smallNews: INews[];
 }
 
-const ListNews: NextPage<Props> = ({
-  highlightNews,
-  mediumNews,
-  //   smallNews,
-}) => {
+const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
   return (
     <>
       <DefaultSeo {...SEO} title={"Danh sách bài viết"} />
 
       <Stack>
-        {/* <img className={styles.banner} src={news?.banner_url} alt="banner" /> */}
+        <img
+          className={styles.banner}
+          src={BANNER_LIST_NEWS_URL}
+          alt="banner"
+        />
 
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Stack
             sx={{
               paddingTop: "60px",
@@ -66,13 +69,11 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const highlightNews = getHighlightNews();
     const mediumNews = getMediumNews();
-    // const smallNews = getSmallNews();
 
     return {
       props: {
         highlightNews,
         mediumNews,
-        // smallNews,
       },
     };
   } catch (err) {
