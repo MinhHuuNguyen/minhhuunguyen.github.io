@@ -9,21 +9,17 @@ import {
   getNewsByTags,
   getOtherNewWithoutTags,
 } from "@/utils/common";
-import { Container, Stack, Typography } from "@mui/material";
+import { Container, Stack } from "@mui/material";
+import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import React from "react";
-
 interface Props {
   news: INews;
   rightOtherNews?: INews[];
-  bottomOtherNews?: INews[];
+  content: string;
 }
 
-const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
-  const router = useRouter();
+const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
   const slideNewsData = getOtherNewWithoutTags(news.tags);
 
   return (
@@ -36,55 +32,26 @@ const News: NextPage<Props> = ({ news, rightOtherNews, bottomOtherNews }) => {
         <Container maxWidth="xl">
           <section className="news lg:pt-4 pt-4 mb-5">
             <div className="flex flex-wrap">
-              <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-2/3 pr-4 pl-4 w-full">
+              <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-3/4 pr-4 pl-4 w-full">
                 <div className="flex justify-between items-center w-full">
-                  {/* <span className="news-status">{news?.status}</span> */}
-                  <span className="news-posted">{news?.time}</span>
+                  <span className="news-posted">
+                    {format(new Date(news?.time), "dd/MM/yyyy")}
+                  </span>
+                  <strong>{news.author}</strong>
                 </div>
-                <h2 className="news-title">{news?.title}</h2>
-                {news?.contents?.map((content, index) => (
-                  <React.Fragment key={index}>
-                    {content.type === "image" ? (
-                      <Stack>
-                        <Image
-                          src={content.url}
-                          height={400}
-                          width={400}
-                          sizes="100vw"
-                          style={{
-                            width: "100%",
-                            height: "auto",
-                          }}
-                          alt={content.caption}
-                        />
+                <h2 className="news-title text-2xl">{news?.title}</h2>
 
-                        {content?.caption ? (
-                          <Typography
-                            sx={{
-                              fontSize: "14px",
-                              color: "#333",
-                              paddingTop: "6px",
-                              textAlign: "left",
-                            }}
-                          >
-                            {content?.caption}
-                          </Typography>
-                        ) : null}
-                      </Stack>
-                    ) : (
-                      <p className="news-content" key={content.content}>
-                        {content.content}
-                      </p>
-                    )}
-                  </React.Fragment>
-                ))}
-
-                <span className="self-end">
-                  Tác giả: <strong>{news.author}</strong>
-                </span>
+                {content ? (
+                  <div
+                    style={{
+                      textAlign: "justify",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: JSON.parse(content) }}
+                  />
+                ) : null}
               </div>
 
-              <div className="flex flex-col align-center justify-start gap-4 lg:px-6 lg:w-1/3 pr-4 pl-4 w-full lg:mt-0 mt-4">
+              <div className="flex flex-col align-center justify-start gap-4 lg:px-6 lg:w-1/4 pr-4 pl-4 w-full lg:mt-0 mt-4">
                 <Stack>
                   <h3 className="news-title">Tin liên quan</h3>
                   {rightOtherNews?.map((news, index) => (
@@ -118,32 +85,38 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     let rightOtherNews = null;
-    let bottomOtherNews = null;
 
     const news = getNewsBySlug(params?.slug as string);
 
     if (news) {
       rightOtherNews = getNewsByTags(news?.title, news?.tags);
-      bottomOtherNews = getNewsByTags(news?.title, news?.tags);
     }
 
     if (rightOtherNews && rightOtherNews?.length > 6) {
       rightOtherNews = rightOtherNews?.slice(0, 6);
     }
 
+    const content = await import(`@/utils/data/html/${params?.slug}`)
+      .then((response) => JSON.stringify(response?.default))
+      .catch((err) => {
+        console.log(err);
+        return "";
+      });
+
     return {
       props: {
         news,
         rightOtherNews,
-        bottomOtherNews,
+        content: content,
       },
     };
   } catch (err) {
+    console.log("err", err);
+
     return {
       props: {
         news: {},
-        rightOtherNews: {},
-        bottomOtherNews: {},
+        rightOtherNews: [],
       },
     };
   }
