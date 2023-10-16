@@ -1,5 +1,5 @@
 import { INews } from "@/@types/news";
-import newsData from "./data/news.json";
+import newsData from "./data/json/news.json";
 
 export const getNewsBySlug = (slug: string) => {
   const data = newsData as INews[];
@@ -11,9 +11,15 @@ export const getNewsBySlug = (slug: string) => {
 export const getNewsByTags = (title: string, tags: string[]) => {
   const data = newsData as INews[];
 
-  const res = data.filter((news) => {
-    return tags.some((tag) => news.tags.includes(tag)) && news.title !== title;
-  });
+  const res = data
+    .filter((news) => {
+      return (
+        tags.some((tag) => news.tags.includes(tag)) && news.title !== title
+      );
+    })
+    .sort((a, b) => {
+      return new Date(b.time).getTime() - new Date(a.time).getTime();
+    });
 
   return res;
 };
@@ -33,7 +39,7 @@ export const getNewsWithoutTags = (title: string, tags: string[]) => {
 export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
   const data = newsData as INews[];
   const filteredItems = newsData.filter((news) => {
-    return !news.tags.find((tag) => tagsAlready.includes(tag));
+    return !news.tags.find((tag) => tagsAlready?.includes(tag));
   }) as INews[];
   return filteredItems;
 };
@@ -49,7 +55,11 @@ export const getHighlightNews = () => {
 export const getMediumNews = () => {
   const data = newsData as INews[];
 
-  const res = data.filter((news) => news?.is_medium);
+  const res = data
+    .filter((news) => news?.is_medium)
+    .sort((a, b) => {
+      return new Date(b.time).getTime() - new Date(a.time).getTime();
+    });
 
   return res;
 };
@@ -57,7 +67,11 @@ export const getMediumNews = () => {
 export const getSmallNews = () => {
   const data = newsData as INews[];
 
-  const res = data.filter((news) => !news?.is_medium && !news?.is_highlight);
+  const res = data
+    .filter((news) => !news?.is_medium && !news?.is_highlight)
+    .sort((a, b) => {
+      return new Date(b.time).getTime() - new Date(a.time).getTime();
+    });
 
   return res;
 };

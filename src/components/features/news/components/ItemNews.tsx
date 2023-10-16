@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { ellipsisText } from "@/utils/common";
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,11 +32,11 @@ export const ItemNews: React.FC<Props> = ({
     >
       <Link href={`/news/${slug}`}>
         <Typography
-          variant="h3"
           sx={{
             fontSize: "15px",
             fontWeight: 700,
             marginBottom: "4px",
+            ...ellipsisText(),
           }}
         >
           {title}
@@ -45,7 +46,8 @@ export const ItemNews: React.FC<Props> = ({
       <Box>
         <Box
           sx={{
-            width: "145px",
+            width: "120px",
+            height: "87px",
             float: "left",
             marginRight: "10px",
             marginTop: "4px",
@@ -56,16 +58,15 @@ export const ItemNews: React.FC<Props> = ({
             style={{
               display: "block",
               overflow: "hidden",
-              height: "0",
               position: "relative",
               width: "100%",
+              height: "100%",
               background: "#f4f4f4",
-
               paddingBottom: "60%",
             }}
           >
             <Image
-              width={145}
+              width={120}
               height={87}
               alt="banner_url"
               src={banner_url}
@@ -78,6 +79,7 @@ export const ItemNews: React.FC<Props> = ({
                 transform: "translateX(-50%)",
                 width: "100%",
                 height: "100%",
+                objectFit: "cover",
               }}
             />
           </Link>
@@ -88,6 +90,8 @@ export const ItemNews: React.FC<Props> = ({
             fontSize: "14px",
             lineHeight: "140%",
             color: "#4f4f4f",
+            textAlign: "justify",
+            ...ellipsisText(5),
           }}
         >
           <Link href={`/news/${slug}`}>{description}</Link>
