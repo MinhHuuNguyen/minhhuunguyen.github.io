@@ -1,4 +1,4 @@
-import introductionData from "@/utils/data/introduction.json";
+import introductionData from "@/utils/data/json/introduction.json";
 import { NextPage } from "next";
 
 const Introduction: NextPage = () => {
