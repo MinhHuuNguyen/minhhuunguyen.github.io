@@ -1,6 +1,5 @@
-import { ChevronRightIcon } from "@/components/shared/icons/ChevronRightIcon";
 import { ellipsisText } from "@/utils/common";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
 interface Props {
@@ -29,7 +28,8 @@ export const HighlightNews: React.FC<Props> = ({
       <Grid
         item
         md={8}
-        xs={12}
+        sm={5}
+        xs={0}
         sx={{
           height: {
             xs: "300px",
@@ -38,14 +38,32 @@ export const HighlightNews: React.FC<Props> = ({
         }}
       ></Grid>
 
-      <Grid item md={4} xs={4}>
+      <Grid
+        item
+        md={4}
+        sm={7}
+        xs={12}
+        sx={{
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.15)",
+          }}
+        />
         <Stack
           sx={{
             gap: "20px",
-            // backgroundColor: "#00aeef",
-            padding: "40px",
+            padding: {
+              xs: "40px",
+              md: "20px",
+            },
             height: "100%",
             backdropFilter: "blur(10px)",
+            justifyContent: "space-evenly",
           }}
         >
           <Link href={`/news/${slug}`}>
@@ -65,43 +83,18 @@ export const HighlightNews: React.FC<Props> = ({
           <Typography
             sx={{
               color: "#fff",
+              textAlign: "justify",
+
               ...ellipsisText(5),
 
               WebkitLineClamp: {
-                xs: 3,
-                sm: 4,
-                md: 5,
+                xs: 5,
+                md: 7,
               },
             }}
           >
             {description}
           </Typography>
-
-          <Link
-            href={`/news/${slug}`}
-            style={{
-              width: "fit-content",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                width: "fit-content",
-                padding: "4px 0",
-              }}
-            >
-              <ChevronRightIcon width={20} height={20} fill={"#fff"} />
-              <span
-                style={{
-                  color: "#fff",
-                  alignSelf: "flex-end",
-                }}
-              >
-                Xem thêm
-              </span>
-            </Box>
-          </Link>
         </Stack>
       </Grid>
     </Grid>
