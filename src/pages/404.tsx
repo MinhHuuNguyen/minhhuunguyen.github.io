@@ -3,6 +3,7 @@ import { SEO } from "@/configs/seo.config";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { DefaultSeo } from "next-seo";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function Error404() {
@@ -22,9 +23,11 @@ function Error404() {
             <Grid item xs={6}>
               <Typography variant="h1">404</Typography>
               <Typography variant="h6">Trang tìm kiếm không tồn tại</Typography>
-              <button className="btn-filled-pink mt-2">
-                Quay lại trang chủ
-              </button>
+              <Link href={"/"}>
+                <button className="btn-filled-pink mt-2">
+                  Quay lại trang chủ
+                </button>
+              </Link>
             </Grid>
             <Grid item xs={6}>
               <Image

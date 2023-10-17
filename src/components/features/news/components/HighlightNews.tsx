@@ -1,7 +1,5 @@
-import { ChevronRightIcon } from "@/components/shared/icons/ChevronRightIcon";
 import { ellipsisText } from "@/utils/common";
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
 interface Props {
@@ -21,43 +19,51 @@ export const HighlightNews: React.FC<Props> = ({
     <Grid
       container
       sx={{
-        minHeight: "350px",
+        height: "400px",
+        background: `url(${banner_url}) no-repeat center center`,
+        borderRadius: "12px",
+        overflow: "hidden",
       }}
     >
       <Grid
         item
         md={8}
-        xs={12}
+        sm={5}
+        xs={0}
         sx={{
           height: {
             xs: "300px",
             md: "inherit",
           },
         }}
-      >
-        <Link href={`/news/${slug}`}>
-          <Image
-            src={banner_url}
-            alt="banner_url"
-            sizes="100vw"
-            width={300}
-            height={120}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-        </Link>
-      </Grid>
+      ></Grid>
 
-      <Grid item md={4} xs={12}>
+      <Grid
+        item
+        md={4}
+        sm={7}
+        xs={12}
+        sx={{
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+          }}
+        />
         <Stack
           sx={{
             gap: "20px",
-            backgroundColor: "#00aeef",
-            padding: "20px",
+            padding: {
+              xs: "40px",
+              md: "20px",
+            },
             height: "100%",
+            backdropFilter: "blur(10px)",
+            justifyContent: "space-evenly",
           }}
         >
           <Link href={`/news/${slug}`}>
@@ -77,43 +83,18 @@ export const HighlightNews: React.FC<Props> = ({
           <Typography
             sx={{
               color: "#fff",
+              textAlign: "justify",
+
               ...ellipsisText(5),
 
               WebkitLineClamp: {
-                xs: 3,
-                sm: 4,
-                md: 5,
+                xs: 5,
+                md: 7,
               },
             }}
           >
             {description}
           </Typography>
-
-          <Link
-            href={`/news/${slug}`}
-            style={{
-              width: "fit-content",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                width: "fit-content",
-                padding: "4px 0",
-              }}
-            >
-              <ChevronRightIcon width={20} height={20} fill={"#fff"} />
-              <span
-                style={{
-                  color: "#fff",
-                  alignSelf: "flex-end",
-                }}
-              >
-                Xem thêm
-              </span>
-            </Box>
-          </Link>
         </Stack>
       </Grid>
     </Grid>
