@@ -80,6 +80,8 @@ export const ItemNews: React.FC<Props> = ({
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                borderRadius: "8px",
+                overflow: "hidden",
               }}
             />
           </Link>

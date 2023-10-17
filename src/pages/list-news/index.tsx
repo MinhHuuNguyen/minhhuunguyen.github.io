@@ -45,11 +45,12 @@ const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
 
             <Grid container spacing={2}>
               {mediumNews.map((news, index) => (
-                <Grid item xs={6} md={4} key={index}>
+                <Grid item xs={12} md={6} lg={4} key={index}>
                   <CardNews
                     banner_url={news.banner_url}
                     slug={news.slug}
                     title={news.title}
+                    description={news.description}
                   />
                 </Grid>
               ))}

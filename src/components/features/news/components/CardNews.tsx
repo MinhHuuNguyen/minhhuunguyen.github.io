@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { ChevronRightIcon } from "@/components/shared/icons/ChevronRightIcon";
 import { ellipsisText } from "@/utils/common";
-import { Box, Skeleton, Stack, Typography } from "@mui/material";
+import { Skeleton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,9 +10,15 @@ interface Props {
   title: string;
   banner_url: string;
   slug: string;
+  description: string;
 }
 
-export const CardNews: React.FC<Props> = ({ title, banner_url, slug }) => {
+export const CardNews: React.FC<Props> = ({
+  title,
+  banner_url,
+  slug,
+  description,
+}) => {
   const [loadedFile, setLoadedFile] = useState(false);
   const [imgUrl, setImgUrl] = useState(banner_url);
 
@@ -27,6 +32,8 @@ export const CardNews: React.FC<Props> = ({ title, banner_url, slug }) => {
         height: "100%",
         overflow: "hidden",
         boxShadow: "rgba(0, 0, 0, 0.08) 0px 4px 15px",
+        borderRadius: "12px",
+        position: "relative",
       }}
     >
       <Link
@@ -81,10 +88,26 @@ export const CardNews: React.FC<Props> = ({ title, banner_url, slug }) => {
       <Stack
         sx={{
           padding: "12px 16px",
-          backgroundColor: "#00aeef",
+          backdropFilter: "blur(10px)",
           flex: 1,
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          minHeight: "40%",
+
+          justifyContent: "space-evenly",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            zIndex: -1,
+          }}
+        />
+
         <Link
           href={`/news/${slug}`}
           style={{
@@ -97,21 +120,16 @@ export const CardNews: React.FC<Props> = ({ title, banner_url, slug }) => {
               flex: 1,
               fontWeight: 600,
               fontSize: {
-                xs: "14px",
-                sm: "16px",
-                md: "18px",
+                xs: "16px",
+                sm: "18px",
+                md: "20px",
               },
               lineHeight: {
-                xs: "24px",
-                sm: "26px",
-                md: "28px",
+                xs: "26px",
+                sm: "28px",
+                md: "30px",
               },
-              ...ellipsisText(3),
-
-              WebkitLineClamp: {
-                xs: 2,
-                md: 3,
-              },
+              ...ellipsisText(1),
             }}
           >
             {title}
@@ -124,24 +142,16 @@ export const CardNews: React.FC<Props> = ({ title, banner_url, slug }) => {
             width: "fit-content",
           }}
         >
-          <Box
+          <Typography
             sx={{
-              display: "flex",
-              alignItems: "center",
-              width: "fit-content",
-              padding: "4px 0",
+              color: "#fff",
+              textAlign: "justify",
+
+              ...ellipsisText(3),
             }}
           >
-            <ChevronRightIcon width={20} height={20} fill={"#fff"} />
-            <span
-              style={{
-                color: "#fff",
-                alignSelf: "flex-end",
-              }}
-            >
-              Xem thêm
-            </span>
-          </Box>
+            {description}
+          </Typography>
         </Link>
       </Stack>
     </Stack>
