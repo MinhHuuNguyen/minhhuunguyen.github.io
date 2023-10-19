@@ -1,7 +1,7 @@
 import { INews } from "@/@types/news";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 
 type NewsCardProps = {
   newsData: INews;
@@ -9,18 +9,26 @@ type NewsCardProps = {
 
 export const NewsCard: React.FC<NewsCardProps> = ({ newsData }) => {
   const router = useRouter();
+  const [isTextOverflow, setIsTextOverflow] = useState(false);
+  const descriptionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const descriptionElement = descriptionRef.current;
+
+    if (descriptionElement) {
+      const descriptionHeight = descriptionElement.clientHeight;
+      setIsTextOverflow(descriptionHeight > 90);
+    }
+  }, []);
+
   return (
-    <Stack px={2} sx={{ cursor: "pointer" }}>
+    <Stack sx={{ cursor: "pointer" }}>
       <Box
         sx={{
-          padding: 1,
+          padding: 2,
           borderRadius: "10px",
           "&:hover": {
             backgroundColor: "lightblue",
-            "& .MuiIconButton-root": {
-              backgroundColor: "#fa4996",
-              color: "white",
-            },
           },
         }}
         onClick={() => router.push(newsData.slug)}
@@ -36,12 +44,13 @@ export const NewsCard: React.FC<NewsCardProps> = ({ newsData }) => {
           mt={2}
           fontWeight="bold"
           sx={{
-            minHeight: "65px",
+            minHeight: "35px",
             overflow: "hidden",
             textOverflow: "ellipsis",
             display: "-webkit-box",
-            WebkitLineClamp: 2,
+            WebkitLineClamp: isTextOverflow ? 1 : "unset",
             WebkitBoxOrient: "vertical",
+            textAlign: "justify",
           }}
         >
           {newsData.title}
@@ -53,21 +62,23 @@ export const NewsCard: React.FC<NewsCardProps> = ({ newsData }) => {
             overflow: "hidden",
             textOverflow: "ellipsis",
             display: "-webkit-box",
-            WebkitLineClamp: 4,
+            WebkitLineClamp: isTextOverflow ? 5 : "unset",
             WebkitBoxOrient: "vertical",
+            textAlign: "justify",
           }}
+          ref={descriptionRef}
         >
           {newsData.description}
         </Typography>
-        <IconButton
-          sx={{
-            width: 50,
-            height: 50,
-            backgroundColor: "#eee",
-          }}
-        >
-          <ArrowForwardIcon />
-        </IconButton>
+        {isTextOverflow && (
+          <Typography
+            variant="body1"
+            color="primary"
+            sx={{ cursor: "pointer" }}
+          >
+            Đọc tiếp
+          </Typography>
+        )}
       </Box>
     </Stack>
   );
