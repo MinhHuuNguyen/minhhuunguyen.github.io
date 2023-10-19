@@ -30,8 +30,8 @@ const renderNextButton = (props: { isDisabled?: boolean }) => (
     disabled={props.isDisabled}
     sx={{
       position: "absolute",
-      top: "48%",
-      right: 0,
+      top: "40%",
+      right: -55,
       width: 50,
       height: 50,
       backgroundColor: "#eee",
@@ -49,8 +49,8 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
     disabled={props.isDisabled}
     sx={{
       position: "absolute",
-      top: "48%",
-      left: 0,
+      top: "40%",
+      left: -55,
       width: 50,
       height: 50,
       backgroundColor: "#eee",
@@ -70,8 +70,6 @@ export const SlideNews: React.FC<SlideNewsProps> = ({ slideNewsData }) => {
 
   return (
     <AliceCarousel
-      paddingLeft={30}
-      paddingRight={30}
       disableDotsControls
       responsive={responsive}
       items={listCard}
