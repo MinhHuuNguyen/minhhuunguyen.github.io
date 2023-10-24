@@ -23,6 +23,15 @@ export const HighlightNews: React.FC<Props> = ({
         background: `url(${banner_url}) no-repeat center center`,
         borderRadius: "12px",
         overflow: "hidden",
+
+        "&:hover": {
+          "& .read-more": {
+            transform: "translateY(0)",
+            opacity: 1,
+            visibility: "visible",
+            transition: "all 0.3s ease-in-out",
+          },
+        },
       }}
     >
       <Grid
@@ -64,6 +73,7 @@ export const HighlightNews: React.FC<Props> = ({
             height: "100%",
             backdropFilter: "blur(10px)",
             justifyContent: "space-evenly",
+            position: "relative",
           }}
         >
           <Link href={`/news/${slug}`}>
@@ -94,6 +104,26 @@ export const HighlightNews: React.FC<Props> = ({
             }}
           >
             {description}
+          </Typography>
+
+          <Typography
+            className="read-more"
+            sx={{
+              position: "absolute",
+              bottom: "20px",
+              right: "20px",
+
+              color: "#fff",
+              textAlign: "right",
+              fontSize: "14px",
+              fontWeight: 600,
+              transition: "all 0.3s ease-in-out",
+              transform: "translateY(100%)",
+              opacity: 0,
+              visibility: "hidden",
+            }}
+          >
+            Đọc tiếp
           </Typography>
         </Stack>
       </Grid>
