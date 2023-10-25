@@ -21,36 +21,37 @@ export const SmallNews: React.FC<Props> = ({
   return (
     <Grid container spacing={1}>
       <Grid item xs={3}>
-          <Link
-            href={`/news/${slug}`}
+        <Link
+          href={`/news/${slug}`}
+          style={{
+            display: "block",
+            overflow: "hidden",
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            background: "#f4f4f4",
+            paddingBottom: "60%",
+          }}
+        >
+          <Image
+            width={120}
+            height={87}
+            alt="banner_url"
+            src={banner_url}
+            sizes="100vw"
             style={{
-              display: "block",
-              overflow: "hidden",
-              position: "relative",
+              position: "absolute",
+              top: "0",
+              right: "0",
+              bottom: "0",
+              left: "50%",
+              transform: "translateX(-50%)",
               width: "100%",
               height: "100%",
-              background: "#f4f4f4",
-              paddingBottom: "60%",
+              objectFit: "cover",
             }}
-          >
-            <Image
-              width={120}
-              height={87}
-              alt="banner_url"
-              src={banner_url}
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "0",
-                bottom: "0",
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-          </Link>
+          />
+        </Link>
       </Grid>
       <Grid item xs={9}>
         <Stack>
