@@ -6,7 +6,7 @@ const footerData = [];
 
 const Footer = () => {
   return (
-    <Stack px={[5, 10, 20]} bgcolor="lightblue" width="100%" py={4}>
+    <Stack px={[5, 10, 20]} bgcolor="lightblue" width="100%" py={4} mt={2}>
       <Stack
         direction={["column", "row"]}
         justifyContent={["flex-start", "space-between"]}
