@@ -30,6 +30,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
         onClick={handleClick}
         onMouseOver={handleClick}
         sx={{
+          whiteSpace: "nowrap",
           cursor: "pointer",
           color: "black",
           "&:hover": {
@@ -64,7 +65,11 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
               );
             }
             return (
-              <MenuItem key={subMenu.name} onClick={handleClose}>
+              <MenuItem
+                key={subMenu.name}
+                onClick={handleClose}
+                sx={{ marginLeft: -0.5 }}
+              >
                 {subMenu.name}
               </MenuItem>
             );

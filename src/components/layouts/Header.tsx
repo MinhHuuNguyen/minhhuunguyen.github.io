@@ -1,4 +1,6 @@
-import { Box, Paper, Stack } from "@mui/material";
+import LanguageIcon from "@mui/icons-material/Language";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Box, IconButton, Paper, Stack } from "@mui/material";
 import Link from "next/link";
 import logo50 from "../../../public/logo50.png";
 import MenuSection from "./Menu";
@@ -61,27 +63,35 @@ const Header = () => {
       px={20}
       sx={{ py: 2 }}
     >
+      <IconButton sx={{ display: ["block", "block", "block", "none"] }}>
+        <MenuIcon sx={{ fontSize: 30 }} />
+      </IconButton>
       <Link href="/" className="flex items-center">
         <Box
           component="img"
+          minWidth={"50px"}
           width={50}
           height={50}
           src={logo50.src}
           alt="Logo"
         ></Box>
       </Link>
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={5}
-      >
-        {menuData.map((menu, index) => (
-          <MenuSection key={`${index}menu`} menuData={menu} />
-        ))}
-      </Stack>
+      <Box display={["none", "none", "none", "block"]}>
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={5}
+        >
+          {menuData.map((menu, index) => (
+            <MenuSection key={`${index}menu`} menuData={menu} />
+          ))}
+        </Stack>
+      </Box>
 
-      <Box sx={{ width: 50, height: 50, backgroundColor: "red" }}></Box>
+      <IconButton>
+        <LanguageIcon sx={{ fontSize: 30 }} />
+      </IconButton>
     </Stack>
   );
 };
