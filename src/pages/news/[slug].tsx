@@ -9,12 +9,13 @@ import {
   getNewsByTags,
   getOtherNewWithoutTags,
 } from "@/utils/common";
-import { Container, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
+import { useEffect } from "react";
+import {} from "../../../public/ktcb-logo-512.png";
 import Error404 from "../404";
-
 interface Props {
   news: INews;
   rightOtherNews?: INews[];
@@ -23,6 +24,35 @@ interface Props {
 
 const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
   const slideNewsData = getOtherNewWithoutTags(news?.tags);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const contentEl = document.getElementById("content");
+
+      if (!contentEl) return;
+
+      const images = contentEl.querySelectorAll("img");
+
+      images.forEach((image) => {
+        if (
+          // @ts-ignore
+          !Array.from(image.parentNode?.classList).includes("image-wrapper")
+        ) {
+          const divWrapper = document.createElement("div");
+          divWrapper.classList.add("image-wrapper");
+
+          const logo = document.createElement("img");
+          logo.src = "../../../public/ktcb-logo-512.png";
+          logo.classList.add("logo");
+
+          image.parentNode?.insertBefore(divWrapper, image);
+
+          divWrapper.appendChild(image);
+          divWrapper.appendChild(logo);
+        }
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -51,9 +81,32 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                     <h2 className="news-title text-2xl">{news?.title}</h2>
 
                     {content ? (
-                      <div
-                        style={{
+                      <Box
+                        id="content"
+                        sx={{
                           textAlign: "justify",
+
+                          "& .image-wrapper": {
+                            background: "#f5f5f5",
+                            position: "relative",
+                            overflow: "hidden",
+
+                            "& .logo": {
+                              position: "absolute",
+                              top: "3%",
+                              left: "3%",
+                              width: "50px",
+                              height: "50px",
+                              objectFit: "cover",
+                            },
+                          },
+
+                          "& img": {
+                            maxWidth: "1200px",
+                            width: "100%",
+                            maxHeight: "675px",
+                            height: "auto",
+                          },
                         }}
                         dangerouslySetInnerHTML={{
                           __html: JSON.parse(content),
