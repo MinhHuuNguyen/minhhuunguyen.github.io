@@ -1,11 +1,11 @@
 import { DataResponseInfinite } from "@/@types/common";
 import { INews } from "@/@types/news";
-import { ItemNews } from "@/components/features/news";
 import { loadMoreSmallNews } from "@/utils/common";
 import { Box, CircularProgress, Grid, Stack } from "@mui/material";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useEffect, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
+import { SmallNews } from "./components/SmallNews";
 
 const ListSmallNews = () => {
   const { ref, inView } = useInView();
@@ -55,12 +55,11 @@ const ListSmallNews = () => {
         <Grid container spacing={2}>
           {dataFlat?.map((news, index) => (
             <Grid item xs={12} md={6} key={index}>
-              <ItemNews
+              <SmallNews
                 banner_url={news.banner_url}
                 description={news.description}
                 slug={news.slug}
                 title={news.title}
-                hideBorder={true}
               />
             </Grid>
           ))}
