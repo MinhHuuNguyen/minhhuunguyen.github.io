@@ -1,4 +1,6 @@
 import { INews } from "@/@types/news";
+import { IIntroData, TeamName } from "@/@types/team";
+import introData from "./data/json/intro-text.json";
 import newsData from "./data/json/news.json";
 
 export const getNewsBySlug = (slug: string) => {
@@ -95,6 +97,15 @@ export const loadMoreSmallNews = async (
       smallNews?.length > cursor + pageSize ? cursor + pageSize : undefined,
   };
 };
+
+export const getIntroByTeam = (team?: TeamName) => {
+  const data = introData as unknown as IIntroData;
+
+  const res = data[team || "home"];
+
+  return res;
+};
+
 export const ellipsisText = (lineClamp = 1) => {
   return {
     overflow: "hidden",
