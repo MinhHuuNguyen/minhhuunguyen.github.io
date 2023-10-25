@@ -1,51 +1,61 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import logo512 from '../../public/ktcb-logo-512.png';
-import arrows from '../../public/arrows.png';
-import youth from '../../public/youth.png';
-import love from '../../public/love.png';
-import children from '../../public/children.png';
-import Header from '@/components/layouts/Header';
-import styles from '@/styles/Home.module.css';
-import Footer from '@/components/layouts/Footer';
-import ActivitySlider from '@/components/page_specific/home/ActivitySlider';
+import ActivitySlider from "@/components/page_specific/home/ActivitySlider";
+import { SEO } from "@/configs/seo.config";
+import { DefaultSeo } from "next-seo";
+import Image from "next/image";
+import arrows from "../../public/arrows.png";
+import children from "../../public/children.png";
+import logo512 from "../../public/ktcb-logo-512.png";
+import love from "../../public/love.png";
+import youth from "../../public/youth.png";
 
 const activities: Activity[] = [
   {
-    imgUrl: "https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    tag: 'done',
-    title: 'Lorem ipsum dolor sit amet',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.'
+    imgUrl:
+      "https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    tag: "done",
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
   },
   {
-    imgUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    tag: 'done',
-    title: 'Lorem ipsum dolor sit amet',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.'
+    imgUrl:
+      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    tag: "done",
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
   },
   {
-    imgUrl: "https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    tag: 'done',
-    title: 'Lorem ipsum dolor sit amet',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.'
+    imgUrl:
+      "https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+    tag: "done",
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
   },
   {
-    imgUrl: "https://images.unsplash.com/photo-1444840535719-195841cb6e2b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    tag: 'done',
-    title: 'Lorem ipsum dolor sit amet',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.'
+    imgUrl:
+      "https://images.unsplash.com/photo-1444840535719-195841cb6e2b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+    tag: "done",
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
   },
   {
-    imgUrl: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    tag: 'done',
-    title: 'Lorem ipsum dolor sit amet',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.'
-  }
-]
+    imgUrl:
+      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+    tag: "done",
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
+  },
+];
 
 export default function Home() {
   return (
     <>
+      <DefaultSeo {...SEO} />
+
       {/* <Head>
         <title>Create Next App</title>
         <meta name="description" content="Generated by create next app" />
@@ -54,32 +64,111 @@ export default function Home() {
       </Head> */}
       <section className="hero-banner-wrapper w-100 relative" id="hero-banner">
         <div className="single-item">
-          <div id="default-carousel" className="relative w-full" data-carousel="slide">
+          <div
+            id="default-carousel"
+            className="relative w-full"
+            data-carousel="slide"
+          >
             <div className="relative overflow-hidden hero-background">
-              <div className="hidden duration-700 ease-in-out hero-background" data-carousel-item>
-                <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+              <div
+                className="hidden duration-700 ease-in-out hero-background"
+                data-carousel-item
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
               </div>
-              <div className="hidden duration-700 ease-in-out hero-background" data-carousel-item>
-                <img src="https://img.freepik.com/free-vector/volunteers-trash-out-composition-with-cityscape-illustration-group-flat-human-characters-with-cleaning-utensils_1284-61784.jpg?size=626&ext=jpg&uid=R79996222&ga=GA1.2.1113200829.1670333508&semt=sph" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+              <div
+                className="hidden duration-700 ease-in-out hero-background"
+                data-carousel-item
+              >
+                <img
+                  src="https://img.freepik.com/free-vector/volunteers-trash-out-composition-with-cityscape-illustration-group-flat-human-characters-with-cleaning-utensils_1284-61784.jpg?size=626&ext=jpg&uid=R79996222&ga=GA1.2.1113200829.1670333508&semt=sph"
+                  className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
               </div>
-              <div className="hidden duration-700 ease-in-out hero-background" data-carousel-item>
-                <img src="https://img.freepik.com/premium-vector/environment-care-campaign-illustration-collection-set_106954-1461.jpg?size=626&ext=jpg&uid=R79996222&ga=GA1.2.1113200829.1670333508" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+              <div
+                className="hidden duration-700 ease-in-out hero-background"
+                data-carousel-item
+              >
+                <img
+                  src="https://img.freepik.com/premium-vector/environment-care-campaign-illustration-collection-set_106954-1461.jpg?size=626&ext=jpg&uid=R79996222&ga=GA1.2.1113200829.1670333508"
+                  className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
               </div>
             </div>
             <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-              <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-              <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-              <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+              <button
+                type="button"
+                className="w-3 h-3 rounded-full"
+                aria-current="true"
+                aria-label="Slide 1"
+                data-carousel-slide-to="0"
+              ></button>
+              <button
+                type="button"
+                className="w-3 h-3 rounded-full"
+                aria-current="false"
+                aria-label="Slide 2"
+                data-carousel-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                className="w-3 h-3 rounded-full"
+                aria-current="false"
+                aria-label="Slide 3"
+                data-carousel-slide-to="2"
+              ></button>
             </div>
-            <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <button
+              type="button"
+              className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-prev
+            >
               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
                 <span className="sr-only">Previous</span>
               </span>
             </button>
-            <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <button
+              type="button"
+              className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-next
+            >
               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
                 <span className="sr-only">Next</span>
               </span>
             </button>
@@ -94,37 +183,95 @@ export default function Home() {
         <div className="px-4 px-md-5">
           <div className="title-wrapper">
             <div className="flex flex-col justify-center align-center mb-5">
-              <h1 className="title-section mb-2 text-3xl" data-aos="fade-right">Sứ mệnh</h1>
-              <span className="span-section" data-aos="fade-right" data-aos-delay="200">Chúng tôi khát vọng về
-                một tương lai tươi sáng</span>
+              <h1 className="title-section mb-2 text-3xl" data-aos="fade-right">
+                Sứ mệnh
+              </h1>
+              <span
+                className="span-section"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
+                Chúng tôi khát vọng về một tương lai tươi sáng
+              </span>
             </div>
           </div>
           <div className="vision" data-aos="fade-up" data-aos-duration="1500">
             <div className="vision-items">
-              <Image src={arrows.src} width={20} height={20} alt="" className="vision-arrows arrow1" />
+              <Image
+                src={arrows.src}
+                width={20}
+                height={20}
+                sizes="100vw"
+                alt=""
+                className="vision-arrows arrow1"
+              />
               <h4>Các bạn trẻ</h4>
-              <Image className="vision-img" width={20} height={20} src={youth.src} alt="" />
+              <Image
+                className="vision-img"
+                sizes="100vw"
+                width={20}
+                height={20}
+                src={youth.src}
+                alt=""
+              />
             </div>
-            <div className="flex flex-col relative" style={{gap: 100}}>
-              <Image src={arrows.src} width={20} height={20} alt="" className="vision-arrows arrow2" />
+            <div className="flex flex-col relative" style={{ gap: 100 }}>
+              <Image
+                src={arrows.src}
+                width={20}
+                height={20}
+                sizes="100vw"
+                alt=""
+                className="vision-arrows arrow2"
+              />
               <div className="vision-items">
                 <h4>Trẻ em khó khăn</h4>
-                <Image className="vision-img" width={20} height={20} src={children.src} alt="" />
+                <Image
+                  className="vision-img"
+                  sizes="100vw"
+                  width={20}
+                  height={20}
+                  src={children.src}
+                  alt=""
+                />
               </div>
               <div className="vision-items">
                 <h4>Khoảng Trời Của Bé</h4>
-                <Image className="vision-img" width={20} height={20} src={logo512.src} alt="" />
+                <Image
+                  className="vision-img"
+                  sizes="100vw"
+                  width={20}
+                  height={20}
+                  src={logo512.src}
+                  alt=""
+                />
               </div>
             </div>
             <div className="vision-items">
-              <Image src={arrows.src} width={20} height={20} alt="" className="vision-arrows arrow3" />
+              <Image
+                src={arrows.src}
+                sizes="100vw"
+                width={20}
+                height={20}
+                alt=""
+                className="vision-arrows arrow3"
+              />
 
               <h4>Các nhà hảo tâm</h4>
-              <Image className="vision-img" width={20} height={20} src={love.src} alt="" />
+              <Image
+                className="vision-img"
+                sizes="100vw"
+                width={20}
+                height={20}
+                src={love.src}
+                alt=""
+              />
             </div>
           </div>
           <div className="flex justify-center">
-            <a href="/pages/introduction.html" className="btn-filled-pink">Tìm Hiểu Thêm</a>
+            <a href="/pages/introduction.html" className="btn-filled-pink">
+              Tìm Hiểu Thêm
+            </a>
           </div>
         </div>
       </section>
@@ -133,12 +280,18 @@ export default function Home() {
         <div className="background-intro-text overflow-auto">
           <h2 className="mb-5 font-bold text-center relative">
             Hãy Hợp Tác Cùng Chúng Tôi
-            <i className="fa-solid fa-quote-right d-none d-mflex" data-aos="flip-right" data-aos-duration="2000"></i>
+            <i
+              className="fa-solid fa-quote-right d-none d-mflex"
+              data-aos="flip-right"
+              data-aos-duration="2000"
+            ></i>
           </h2>
           <span className="text-center mb-4">
-            <em>Tại Khoảng Trời Của Bé, chúng tôi khát vọng về một tương lai nơi mà
-              sức khỏe và quyền
-              lợi bệnh nhân được cải thiện thông qua dịch vụ phẫu thuật an toàn.</em>
+            <em>
+              Tại Khoảng Trời Của Bé, chúng tôi khát vọng về một tương lai nơi
+              mà sức khỏe và quyền lợi bệnh nhân được cải thiện thông qua dịch
+              vụ phẫu thuật an toàn.
+            </em>
           </span>
         </div>
       </section>
@@ -146,12 +299,20 @@ export default function Home() {
       <section className="activities pb-5 md:px-5" id="activities">
         <div className="title-wrapper">
           <div className="flex flex-col justify-center align-center mb-5">
-            <h1 className="title-section mb-2" data-aos="fade-right">Hoạt Động</h1>
-            <span className="span-section" data-aos="fade-right" data-aos-delay="200">Các hoạt động gần đây</span>
+            <h1 className="title-section mb-2" data-aos="fade-right">
+              Hoạt Động
+            </h1>
+            <span
+              className="span-section"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              Các hoạt động gần đây
+            </span>
           </div>
         </div>
         <ActivitySlider activities={activities} />
       </section>
     </>
-  )
+  );
 }
