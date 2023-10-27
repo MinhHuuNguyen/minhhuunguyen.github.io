@@ -65,7 +65,6 @@ export const HighlightNews: React.FC<Props> = ({
         />
         <Stack
           sx={{
-            gap: "20px",
             padding: {
               xs: "40px",
               md: "20px",
