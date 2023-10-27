@@ -259,8 +259,6 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const intro = getIntroByTeam();
 
-    console.log("intro", intro);
-
     return {
       props: {
         intro,
