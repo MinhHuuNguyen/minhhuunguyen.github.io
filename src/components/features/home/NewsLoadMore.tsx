@@ -49,16 +49,17 @@ export const NewsLoadMore = () => {
       ["smallNews"],
       async ({ pageParam = null }) => {
         const res = await loadMoreNews(pageParam);
-        
+
         const data = res.data.map((item) => ({
           ...item,
           src: item.banner_url,
-        }))
+        }));
 
         console.log("res", res.data);
 
         return {
-          ...res, data
+          ...res,
+          data,
         };
       },
       {
@@ -185,10 +186,10 @@ export const NewsLoadMore = () => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              maxWidth: "1000px",
+              maxWidth: "80vw",
               width: "100%",
               height: "auto",
-              minHeight: "500px",
+              minHeight: "700px",
               bgcolor: "background.paper",
             }}
           >

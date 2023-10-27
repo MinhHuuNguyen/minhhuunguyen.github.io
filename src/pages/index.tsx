@@ -11,49 +11,6 @@ import logo512 from "../../public/ktcb-logo-512.png";
 import love from "../../public/love.png";
 import youth from "../../public/youth.png";
 
-const activities: Activity[] = [
-  {
-    imgUrl:
-      "https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    tag: "done",
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
-  },
-  {
-    imgUrl:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    tag: "done",
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
-  },
-  {
-    imgUrl:
-      "https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    tag: "done",
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
-  },
-  {
-    imgUrl:
-      "https://images.unsplash.com/photo-1444840535719-195841cb6e2b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    tag: "done",
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
-  },
-  {
-    imgUrl:
-      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    tag: "done",
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sequi aut dolore aspernatur ad iure officia sit aperiam, culpa in.",
-  },
-];
-
 interface Props {
   intro: IIntro;
 }
@@ -306,8 +263,6 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const intro = getIntroByTeam();
-
-    console.log("intro", intro);
 
     return {
       props: {
