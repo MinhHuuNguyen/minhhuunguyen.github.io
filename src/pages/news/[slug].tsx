@@ -14,8 +14,9 @@ import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
-import {} from "../../../public/ktcb-logo-512.png";
+import logoImg from "../../../public/ktcb_logo_no_background.png";
 import Error404 from "../404";
+
 interface Props {
   news: INews;
   rightOtherNews?: INews[];
@@ -42,7 +43,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
           divWrapper.classList.add("image-wrapper");
 
           const logo = document.createElement("img");
-          logo.src = "../../../public/ktcb-logo-512.png";
+          logo.src = logoImg.src;
           logo.classList.add("logo");
 
           image.parentNode?.insertBefore(divWrapper, image);
@@ -52,7 +53,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
         }
       });
     }
-  }, []);
+  }, [news]);
 
   return (
     <>
