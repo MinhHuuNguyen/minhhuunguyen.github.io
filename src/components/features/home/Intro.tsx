@@ -3,12 +3,17 @@ import React from "react";
 interface Props {
   title: string;
   content: string;
-  img_url?: string;
+  banner_url?: string;
 }
 
-export const Intro: React.FC<Props> = ({ title, content, img_url }) => {
+export const Intro: React.FC<Props> = ({ title, content, banner_url }) => {
   return (
-    <section className="background-intro mb-5">
+    <section
+      className="background-intro mb-5"
+      style={{
+        backgroundImage: `url(${banner_url})`,
+      }}
+    >
       <div className="background-intro-text overflow-auto">
         <h2 className="mb-5 font-bold text-center relative">
           {title}

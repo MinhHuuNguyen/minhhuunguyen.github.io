@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { IIntro } from "@/@types/team";
 import { Intro, NewsLoadMore } from "@/components/features/home";
 import { SEO } from "@/configs/seo.config";
@@ -228,27 +230,15 @@ const Home: NextPage<Props> = ({ intro }) => {
         </div>
       </section> */}
 
-      {intro ? <Intro title={intro.title} content={intro.content} /> : null}
+      {intro ? (
+        <Intro
+          title={intro.title}
+          content={intro.content}
+          banner_url={intro?.banner_url}
+        />
+      ) : null}
 
       <NewsLoadMore />
-
-      {/* <section className="activities pb-5 md:px-5" id="activities">
-        <div className="title-wrapper">
-          <div className="flex flex-col justify-center align-center mb-5">
-            <h1 className="title-section mb-2" data-aos="fade-right">
-              Hoạt Động
-            </h1>
-            <span
-              className="span-section"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              Các hoạt động gần đây
-            </span>
-          </div>
-        </div>
-        <ActivitySlider activities={activities} />
-      </section> */}
     </>
   );
 };
@@ -258,6 +248,14 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const intro = getIntroByTeam();
+
+    if (!intro?.title || !intro?.content || !intro?.banner_url) {
+      return {
+        props: {
+          intro: null,
+        },
+      };
+    }
 
     return {
       props: {

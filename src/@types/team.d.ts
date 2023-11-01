@@ -15,6 +15,7 @@ export type TeamName =
 export interface IIntro {
   title: string;
   content: string;
+  banner_url: string;
 }
 
 export interface IIntroData {
