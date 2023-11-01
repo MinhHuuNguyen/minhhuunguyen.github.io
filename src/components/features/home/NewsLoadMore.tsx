@@ -15,29 +15,7 @@ import {
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Gallery } from "react-grid-gallery";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
-const images = [
-  {
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    // width: 320,
-    // height: 174,
-    caption: "After Rain (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    // width: 320,
-    // height: 212,
-
-    alt: "Boats (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-    // width: 320,
-    // height: 212,
-  },
-];
 
 export const NewsLoadMore = () => {
   const [newsSelected, setNewsSelected] = useState<INews>();
@@ -54,8 +32,6 @@ export const NewsLoadMore = () => {
           ...item,
           src: item.banner_url,
         }));
-
-        console.log("res", res.data);
 
         return {
           ...res,
@@ -93,15 +69,6 @@ export const NewsLoadMore = () => {
           },
         }}
       >
-        <Gallery
-          enableImageSelection={false}
-          onClick={(e) => {
-            console.log(e);
-            console.log(dataFlat[e]);
-          }}
-          images={dataFlat}
-        />
-
         {!(isFetching && !isFetchingNextPage) ? (
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1400: 4 }}
