@@ -34,6 +34,15 @@ export const CardNews: React.FC<Props> = ({
         boxShadow: "rgba(0, 0, 0, 0.08) 0px 4px 15px",
         borderRadius: "12px",
         position: "relative",
+
+        "&:hover": {
+          "& .read-more": {
+            transform: "translateY(0)",
+            opacity: 1,
+            visibility: "visible",
+            transition: "all 0.3s ease-in-out",
+          },
+        },
       }}
     >
       <Link
@@ -87,7 +96,7 @@ export const CardNews: React.FC<Props> = ({
       </Link>
       <Stack
         sx={{
-          padding: "12px 16px",
+          padding: "12px 16px 4px",
           backdropFilter: "blur(10px)",
           flex: 1,
           position: "absolute",
@@ -147,10 +156,26 @@ export const CardNews: React.FC<Props> = ({
               color: "#fff",
               textAlign: "justify",
 
-              ...ellipsisText(3),
+              ...ellipsisText(2),
             }}
           >
             {description}
+          </Typography>
+
+          <Typography
+            className="read-more"
+            sx={{
+              color: "#fff",
+              textAlign: "right",
+              fontSize: "14px",
+              fontWeight: 600,
+              transition: "all 0.3s ease-in-out",
+              transform: "translateY(100%)",
+              opacity: 0,
+              visibility: "hidden",
+            }}
+          >
+            Đọc tiếp
           </Typography>
         </Link>
       </Stack>
