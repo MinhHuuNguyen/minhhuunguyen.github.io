@@ -70,6 +70,7 @@ export const ItemNews: React.FC<Props> = ({
               height={87}
               alt="banner_url"
               src={banner_url}
+              sizes="100vw"
               style={{
                 position: "absolute",
                 top: "0",

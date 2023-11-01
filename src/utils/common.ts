@@ -1,4 +1,6 @@
 import { INews } from "@/@types/news";
+import { IIntroData, TeamName } from "@/@types/team";
+import introData from "./data/json/intro-text.json";
 import newsData from "./data/json/news.json";
 
 export const getNewsBySlug = (slug: string) => {
@@ -95,6 +97,35 @@ export const loadMoreSmallNews = async (
       smallNews?.length > cursor + pageSize ? cursor + pageSize : undefined,
   };
 };
+
+export const loadMoreNews = async (_cursor?: number, _pageSize?: number) => {
+  const cursor = _cursor || 0;
+  const pageSize = _pageSize || 24;
+
+  const data = newsData as INews[];
+
+  const dataSort = data.sort((a, b) => {
+    return new Date(b.time).getTime() - new Date(a.time).getTime();
+  });
+
+  const res = dataSort.slice(cursor, cursor + pageSize);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return {
+    data: res,
+    pageKey: data?.length > cursor + pageSize ? cursor + pageSize : undefined,
+  };
+};
+
+export const getIntroByTeam = (team?: TeamName) => {
+  const data = introData as unknown as IIntroData;
+
+  const res = data[team || "home"];
+
+  return res;
+};
+
 export const ellipsisText = (lineClamp = 1) => {
   return {
     overflow: "hidden",
