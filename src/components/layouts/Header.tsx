@@ -9,20 +9,20 @@ const menuData = [
   {
     name: "Giới thiệu",
     subMenus: [
-      { name: "Tầm nhìn và sứ mệnh" },
+      { name: "Tầm nhìn và sứ mệnh", path: "/vision" },
       {
         name: "Bộ máy tổ chức",
         subMenu2: [
-          "Team Trải nghiệm",
-          "Team Phim nhạc sách",
-          "Team Nhân sự",
-          "Team KTSTN",
-          "Team Truyền thông",
-          "Team Nghiên cứu và phát triển",
-          "Quỹ KTCB",
+          { name: "Team Trải nghiệm", path: "/teams/experience" },
+          { name: "Team Phim nhạc sách", path: "/teams/art" },
+          { name: "Team Nhân sự", path: "/teams/personnel" },
+          { name: "Team KTSTN", path: "/teams/ktstn" },
+          { name: "Team Truyền thông", path: "/teams/media" },
+          { name: "Team Nghiên cứu và phát triển", path: "/teams/study" },
+          { name: "Quỹ KTCB", path: "/teams/fund" },
         ],
       },
-      { name: "Thông tin liên hệ" },
+      { name: "Thông tin liên hệ", path: "contact" },
     ],
   },
   {

@@ -1,12 +1,12 @@
-import { HomeContent } from "@/components/features/home";
+import { StudyTeamContent } from "@/components/features/home/teams/study";
 import { SEO } from "@/configs/seo.config";
 import { DefaultSeo } from "next-seo";
 
-export default function Home() {
+export default function StudyTeam() {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <HomeContent />
+      <StudyTeamContent />
     </>
   );
 }
