@@ -47,47 +47,41 @@ export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
 };
 
 export const getHighlightNews = () => {
-  const data = newsData as INews[];
-
-  const res = data.find((news) => news?.is_highlight);
-
-  return res;
+  return sortNews()?.[0];
 };
 
 export const getMediumNews = () => {
-  const data = newsData as INews[];
-
-  const res = data
-    .filter((news) => !news?.is_highlight)
-    .sort((a, b) => {
-      return new Date(b.time).getTime() - new Date(a.time).getTime();
-    });
-
-  return res;
+  return sortNews()?.slice(1, 7);
 };
 
-export const getSmallNews = () => {
+export const sortNews = () => {
   const data = newsData as INews[];
 
-  const res = data
-    .filter((news) => !news?.is_medium && !news?.is_highlight)
-    .sort((a, b) => {
-      return new Date(b.time).getTime() - new Date(a.time).getTime();
-    });
+  const highlightedPosts = data.filter((post) => post.is_highlight);
+  const nonHighlightedPosts = data.filter((post) => !post.is_highlight);
 
-  return res;
+  highlightedPosts.sort(
+    (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+  );
+  nonHighlightedPosts.sort(
+    (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+  );
+
+  const sortedData = [...highlightedPosts, ...nonHighlightedPosts];
+
+  return sortedData;
 };
 
 export const loadMoreSmallNews = async (
   _cursor?: number,
   _pageSize?: number
 ) => {
-  const cursor = _cursor || 0;
+  const cursor = _cursor || 7;
   const pageSize = _pageSize || 6;
 
-  const smallNews = getSmallNews();
+  const smallNews = sortNews();
 
-  const res = smallNews.slice(cursor, cursor + pageSize);
+  const res = smallNews?.slice(cursor, cursor + pageSize);
 
   await new Promise((resolve) => setTimeout(resolve, 500));
 

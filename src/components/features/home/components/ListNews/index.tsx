@@ -13,7 +13,6 @@ interface Props {
 
 const ListNewsHome: NextPage<Props> = () => {
   const mediumNews = getMediumNews().slice(0, 6);
-  console.log(111, { mediumNews });
 
   return (
     <Container maxWidth="xl">
