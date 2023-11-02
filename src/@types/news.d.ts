@@ -10,7 +10,6 @@ export interface INews {
   tags: string[];
 
   is_highlight?: boolean;
-  is_medium?: boolean;
 }
 
 export interface IContentText {
