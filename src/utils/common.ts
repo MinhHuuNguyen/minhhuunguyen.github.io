@@ -58,7 +58,7 @@ export const getMediumNews = () => {
   const data = newsData as INews[];
 
   const res = data
-    .filter((news) => news?.is_medium)
+    .filter((news) => !news?.is_highlight)
     .sort((a, b) => {
       return new Date(b.time).getTime() - new Date(a.time).getTime();
     });

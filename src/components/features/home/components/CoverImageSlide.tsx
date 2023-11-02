@@ -1,27 +1,19 @@
-import { INews } from "@/@types/news";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { CardNews } from "./CardNews";
 
-type SlideNewsProps = {
-  slideNewsData: INews[];
+type CoverImageSlideProps = {
+  coverImageData: string[];
 };
 
 const responsive = {
   0: {
     items: 1,
   },
-  600: {
-    items: 2,
-  },
-  1024: {
-    items: 3,
-  },
   1200: {
-    items: 4,
+    items: 1,
   },
 };
 
@@ -31,12 +23,14 @@ const renderNextButton = (props: { isDisabled?: boolean }) => (
     sx={{
       position: "absolute",
       top: "40%",
-      right: -55,
+      right: 0,
       width: 50,
       height: 50,
       backgroundColor: "#eee",
+      opacity: 0.5,
       "&:hover": {
         backgroundColor: "#eee",
+        opacity: 1,
       },
     }}
   >
@@ -50,12 +44,14 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
     sx={{
       position: "absolute",
       top: "40%",
-      left: -55,
+      left: 0,
       width: 50,
       height: 50,
       backgroundColor: "#eee",
+      opacity: 0.5,
       "&:hover": {
         backgroundColor: "#eee",
+        opacity: 1,
       },
     }}
   >
@@ -63,33 +59,26 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
   </IconButton>
 );
 
-export const SlideNews: React.FC<SlideNewsProps> = ({ slideNewsData }) => {
-  const listCard = slideNewsData.map((newsData) => (
+export const CoverImageSlide: React.FC<CoverImageSlideProps> = ({
+  coverImageData,
+}) => {
+  const listImageCard = coverImageData.map((url, index) => (
     <Box
-      key={newsData.title}
-      p={2}
-      sx={{
-        borderRadius: "10px",
-        "&:hover": {
-          backgroundColor: "lightblue",
-        },
-      }}
-    >
-      <CardNews
-        title={newsData.title}
-        banner_url={newsData.banner_url}
-        slug={newsData.slug}
-        description={newsData.description}
-      />
-    </Box>
-    // <NewsCard key={newsData.title} newsData={newsData} />
+      key={`${index}${url}`}
+      component="img"
+      width="100%"
+      height="100%"
+      src={url}
+    ></Box>
   ));
 
   return (
     <AliceCarousel
       disableDotsControls
-      responsive={responsive}
-      items={listCard}
+      autoPlay
+      infinite
+      autoPlayInterval={8000}
+      items={listImageCard}
       disableButtonsControls={false}
       renderPrevButton={renderPrevButton}
       renderNextButton={renderNextButton}
