@@ -1,11 +1,16 @@
 import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { NestedMenuItem } from "mui-nested-menu";
+import Link from "next/link";
 import { useState } from "react";
 
 type MenuSectionProps = {
   menuData: {
     name: string;
-    subMenus?: { name: string; subMenu2?: string[] }[];
+    subMenus?: {
+      name: string;
+      path?: string;
+      subMenu2?: { name: string; path: string }[];
+    }[];
   };
 };
 
@@ -56,22 +61,22 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
                   label={subMenu.name}
                   parentMenuOpen={open}
                 >
-                  {subMenu.subMenu2.map((name) => (
-                    <MenuItem key={name} data-value={"sub-menu-item"}>
-                      {name}
-                    </MenuItem>
+                  {subMenu.subMenu2.map((item) => (
+                    <Link key={item.name} href={item.path}>
+                      <MenuItem data-value={"sub-menu-item"}>
+                        {item.name}
+                      </MenuItem>
+                    </Link>
                   ))}
                 </NestedMenuItem>
               );
             }
             return (
-              <MenuItem
-                key={subMenu.name}
-                onClick={handleClose}
-                sx={{ marginLeft: -0.5 }}
-              >
-                {subMenu.name}
-              </MenuItem>
+              <Link key={subMenu.name} href={subMenu.path ?? ""}>
+                <MenuItem onClick={handleClose} sx={{ marginLeft: -0.5 }}>
+                  {subMenu.name}
+                </MenuItem>
+              </Link>
             );
           })}
         </Menu>
