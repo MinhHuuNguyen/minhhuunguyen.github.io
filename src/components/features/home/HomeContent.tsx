@@ -1,4 +1,4 @@
-import ktstnTeamMissionData from "../../../utils/data/json/teams/mission/ktstn.json";
+import home from "../../../utils/data/json/teams/mission/home.json";
 import { CoverImageSlide } from "./components/CoverImageSlide";
 import ListNewsHome from "./components/ListNews";
 import { MissionComponent } from "./components/MissionComponent";
@@ -13,7 +13,7 @@ export const HomeContent = () => {
   return (
     <>
       <CoverImageSlide coverImageData={coverImageDatas} />
-      <MissionComponent missionCartData={ktstnTeamMissionData} />
+      <MissionComponent missionCartData={home} />
       <ListNewsHome />
     </>
   );

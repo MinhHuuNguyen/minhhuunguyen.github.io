@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { IIntro } from "@/@types/team";
-import { Intro, NewsLoadMore } from "@/components/features/home";
+import { HomeContent, Intro, NewsLoadMore } from "@/components/features/home";
 import { SEO } from "@/configs/seo.config";
 import { getIntroByTeam } from "@/utils/common";
 import { GetStaticProps, NextPage } from "next";
