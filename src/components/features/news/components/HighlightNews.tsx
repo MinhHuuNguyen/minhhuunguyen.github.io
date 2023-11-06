@@ -2,6 +2,7 @@ import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import { hoverReadMore } from "@/styles/commonStyles";
 
 interface Props {
   title: string;
@@ -25,14 +26,7 @@ export const HighlightNews: React.FC<Props> = ({
         borderRadius: "12px",
         overflow: "hidden",
 
-        "&:hover": {
-          "& .read-more": {
-            transform: "translateY(0)",
-            opacity: 1,
-            visibility: "visible",
-            transition: "all 0.3s ease-in-out",
-          },
-        },
+        ...hoverReadMore,
       }}
     >
       <Grid

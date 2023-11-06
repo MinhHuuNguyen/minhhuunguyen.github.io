@@ -6,7 +6,7 @@ import { Skeleton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import {hoverReadMore} from '@/styles/commonStyles'
 interface Props {
   title: string;
   banner_url: string;
@@ -36,14 +36,9 @@ export const CardNews: React.FC<Props> = ({
         borderRadius: "12px",
         position: "relative",
 
-        "&:hover": {
-          "& .read-more": {
-            transform: "translateY(0)",
-            opacity: 1,
-            visibility: "visible",
-            transition: "all 0.3s ease-in-out",
-          },
-        },
+        ...hoverReadMore
+
+        
       }}
     >
       <Link
