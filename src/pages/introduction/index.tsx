@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import introductionData from "@/utils/data/json/introduction.json";
 import { NextPage } from "next";
 

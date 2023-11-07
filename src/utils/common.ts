@@ -1,4 +1,6 @@
 import { INews } from "@/@types/news";
+import { IIntroData, TeamName } from "@/@types/team";
+import introData from "./data/json/intro-text.json";
 import newsData from "./data/json/news.json";
 
 export const getNewsBySlug = (slug: string) => {
@@ -45,47 +47,41 @@ export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
 };
 
 export const getHighlightNews = () => {
-  const data = newsData as INews[];
-
-  const res = data.find((news) => news?.is_highlight);
-
-  return res;
+  return sortNews()?.[0];
 };
 
 export const getMediumNews = () => {
-  const data = newsData as INews[];
-
-  const res = data
-    .filter((news) => news?.is_medium)
-    .sort((a, b) => {
-      return new Date(b.time).getTime() - new Date(a.time).getTime();
-    });
-
-  return res;
+  return sortNews()?.slice(1, 7);
 };
 
-export const getSmallNews = () => {
+export const sortNews = () => {
   const data = newsData as INews[];
 
-  const res = data
-    .filter((news) => !news?.is_medium && !news?.is_highlight)
-    .sort((a, b) => {
-      return new Date(b.time).getTime() - new Date(a.time).getTime();
-    });
+  const highlightedPosts = data.filter((post) => post.is_highlight);
+  const nonHighlightedPosts = data.filter((post) => !post.is_highlight);
 
-  return res;
+  highlightedPosts.sort(
+    (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+  );
+  nonHighlightedPosts.sort(
+    (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+  );
+
+  const sortedData = [...highlightedPosts, ...nonHighlightedPosts];
+
+  return sortedData;
 };
 
 export const loadMoreSmallNews = async (
   _cursor?: number,
   _pageSize?: number
 ) => {
-  const cursor = _cursor || 0;
+  const cursor = _cursor || 7;
   const pageSize = _pageSize || 6;
 
-  const smallNews = getSmallNews();
+  const smallNews = sortNews();
 
-  const res = smallNews.slice(cursor, cursor + pageSize);
+  const res = smallNews?.slice(cursor, cursor + pageSize);
 
   await new Promise((resolve) => setTimeout(resolve, 500));
 
@@ -95,6 +91,35 @@ export const loadMoreSmallNews = async (
       smallNews?.length > cursor + pageSize ? cursor + pageSize : undefined,
   };
 };
+
+export const loadMoreNews = async (_cursor?: number, _pageSize?: number) => {
+  const cursor = _cursor || 0;
+  const pageSize = _pageSize || 24;
+
+  const data = newsData as INews[];
+
+  const dataSort = data.sort((a, b) => {
+    return new Date(b.time).getTime() - new Date(a.time).getTime();
+  });
+
+  const res = dataSort.slice(cursor, cursor + pageSize);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return {
+    data: res,
+    pageKey: data?.length > cursor + pageSize ? cursor + pageSize : undefined,
+  };
+};
+
+export const getIntroByTeam = (team?: TeamName) => {
+  const data = introData as unknown as IIntroData;
+
+  const res = data[team || "home"];
+
+  return res;
+};
+
 export const ellipsisText = (lineClamp = 1) => {
   return {
     overflow: "hidden",

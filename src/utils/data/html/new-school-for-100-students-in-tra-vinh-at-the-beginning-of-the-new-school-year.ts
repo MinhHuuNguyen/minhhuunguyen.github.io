@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default `<em
 >Phim Up - Một tác phẩm điện ảnh thú vị mang đầy ý nghĩa. Đây là bộ phim được
 Khoảng Trời Của Bé chọn trong buổi công chiếu dành riêng cho các bạn nhỏ tại
