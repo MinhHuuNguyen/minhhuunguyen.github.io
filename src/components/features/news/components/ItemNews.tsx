@@ -4,6 +4,7 @@ import { ellipsisText } from "@/utils/common";
 import { Box, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { imageAbsolute } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb_logo_no_background.png";
 
 interface Props {
   title: string;
@@ -65,6 +66,12 @@ export const ItemNews: React.FC<Props> = ({
               paddingBottom: "60%",
             }}
           >
+            <img
+              className="absolute top-0.5 left-0.5 w-6 h-6 object-cover z-10"
+              src={logoImg.src}
+              alt="banner"
+            />
+
             <Box
               component="img"
               alt="banner_url"

@@ -4,6 +4,7 @@ import { ellipsisText } from "@/utils/common";
 import { Grid, Stack, Typography, Box } from "@mui/material";
 import Link from "next/link";
 import { imageAbsolute } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb_logo_no_background.png";
 
 interface Props {
   title: string;
@@ -34,6 +35,12 @@ export const SmallNews: React.FC<Props> = ({
             borderRadius: "10px",
           }}
         >
+          <img
+            className="absolute top-1 left-1 w-10 h-10 object-cover z-10"
+            src={logoImg.src}
+            alt="banner"
+          />
+
           <Box
             component="img"
             alt="banner_url"

@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { hoverReadMore } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb_logo_no_background.png";
 
 interface Props {
   title: string;
@@ -40,6 +41,12 @@ export const CardNews: React.FC<Props> = ({
         ...hoverReadMore,
       }}
     >
+      <img
+        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+        src={logoImg.src}
+        alt="banner"
+      />
+
       <Link
         href={`/news/${slug}`}
         style={{

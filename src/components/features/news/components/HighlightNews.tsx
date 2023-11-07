@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { hoverReadMore } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb_logo_no_background.png";
 
 interface Props {
   title: string;
@@ -19,6 +21,7 @@ export const HighlightNews: React.FC<Props> = ({
 }) => {
   return (
     <Grid
+      className="relative"
       container
       sx={{
         height: "400px",
@@ -29,6 +32,12 @@ export const HighlightNews: React.FC<Props> = ({
         ...hoverReadMore,
       }}
     >
+      <img
+        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+        src={logoImg.src}
+        alt="banner"
+      />
+
       <Grid
         item
         md={8}

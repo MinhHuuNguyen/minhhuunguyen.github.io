@@ -62,11 +62,19 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
       {news ? (
         <>
           <Stack>
-            <img
-              className={styles.banner}
-              src={news?.banner_url}
-              alt="banner"
-            />
+            <Box className="relative">
+              <img
+                className={styles.banner}
+                src={news?.banner_url}
+                alt="banner"
+              />
+
+              <img
+                className="absolute top-3 left-3 w-12 h-12 object-cover"
+                src={logoImg.src}
+                alt="banner"
+              />
+            </Box>
 
             <Container maxWidth="xl">
               <section className="news lg:pt-4 pt-4 mb-5">

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { DataResponseInfinite } from "@/@types/common";
 import { INews } from "@/@types/news";
 import { useDisclosure } from "@/libs/hooks/useDisclosure";
@@ -16,6 +17,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { imageAbsolute } from "@/styles/commonStyles";
+import logoImg from "../../../../public/ktcb_logo_no_background.png";
 
 export const NewsLoadMore = () => {
   const [newsSelected, setNewsSelected] = useState<INews>();
@@ -87,6 +89,12 @@ export const NewsLoadMore = () => {
                         borderRadius: "10px",
                       }}
                     >
+                      <img
+                        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+                        src={logoImg.src}
+                        alt="banner"
+                      />
+
                       <Box
                         component="img"
                         src={item.banner_url}
@@ -169,6 +177,12 @@ export const NewsLoadMore = () => {
                 paddingLeft: "16px",
               }}
             >
+              <img
+                className="absolute top-6 left-6 w-12 h-12 object-cover z-10"
+                src={logoImg.src}
+                alt="banner"
+              />
+
               <Box
                 component="img"
                 src={newsSelected.banner_url}
