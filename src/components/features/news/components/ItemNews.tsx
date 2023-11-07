@@ -2,8 +2,8 @@
 
 import { ellipsisText } from "@/utils/common";
 import { Box, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
+import { imageAbsolute } from "@/styles/commonStyles";
 
 interface Props {
   title: string;
@@ -65,22 +65,16 @@ export const ItemNews: React.FC<Props> = ({
               paddingBottom: "60%",
             }}
           >
-            <Image
-              width={120}
-              height={87}
+            <Box
+              component="img"
               alt="banner_url"
               src={banner_url}
               sizes="100vw"
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "0",
-                bottom: "0",
+              sx={{
+                ...imageAbsolute,
+
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
                 borderRadius: "8px",
                 overflow: "hidden",
               }}

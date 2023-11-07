@@ -15,7 +15,7 @@ import {
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { imageAbsolute } from "@/styles/commonStyles";
 
 export const NewsLoadMore = () => {
   const [newsSelected, setNewsSelected] = useState<INews>();
@@ -81,6 +81,7 @@ export const NewsLoadMore = () => {
                         position: "relative",
                         width: "100%",
                         height: "100%",
+
                         background: "#f4f4f4",
                         paddingTop: "60%",
                         borderRadius: "10px",
@@ -91,14 +92,7 @@ export const NewsLoadMore = () => {
                         src={item.banner_url}
                         alt="banner_url"
                         sx={{
-                          position: "absolute",
-                          top: "0",
-                          right: "0",
-                          bottom: "0",
-                          left: "0",
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
+                          ...imageAbsolute,
 
                           cursor: "pointer",
                           transform: "scale(1)",
