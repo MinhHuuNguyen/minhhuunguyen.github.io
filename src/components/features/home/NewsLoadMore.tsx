@@ -70,53 +70,57 @@ export const NewsLoadMore = () => {
         }}
       >
         {!(isFetching && !isFetchingNextPage) ? (
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1400: 4 }}
-          >
-            <Masonry gutter="16px" style={{ paddingRight: "16px" }}>
-              {dataFlat && dataFlat?.length > 0
-                ? dataFlat.map((item, index) => {
-                    return (
+          <Grid container spacing={1}>
+            {dataFlat && dataFlat?.length > 0
+              ? dataFlat.map((item, index) => (
+                  <Grid item key={index} xs={6} md={4}>
+                    <Box
+                      sx={{
+                        display: "block",
+                        overflow: "hidden",
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                        background: "#f4f4f4",
+                        paddingTop: "60%",
+                        borderRadius: "10px",
+                      }}
+                    >
                       <Box
-                        key={index}
+                        component="img"
+                        src={item.banner_url}
+                        alt="banner_url"
                         sx={{
-                          borderRadius: "10px",
+                          position: "absolute",
+                          top: "0",
+                          right: "0",
+                          bottom: "0",
+                          left: "0",
                           width: "100%",
-                          overflow: "hidden",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          src={item.banner_url}
-                          alt="banner_url"
-                          sx={{
-                            cursor: "pointer",
-                            borderRadius: "10px",
-                            width: "100%",
-                            display: "block",
-                            objectFit: "cover",
-                            transform: "scale(1)",
-                            transition: "transform 0.3s ease-in-out",
-                            overflow: "hidden",
+                          height: "100%",
+                          objectFit: "cover",
 
-                            "&:hover": {
-                              transform: "scale(1.1) !important",
-                              transition:
-                                "transform 0.3s ease-in-out !important",
-                            },
-                          }}
-                          onClick={() => {
-                            setNewsSelected(item);
-                            open();
-                          }}
-                          loading="lazy"
-                        />
-                      </Box>
-                    );
-                  })
-                : null}
-            </Masonry>
-          </ResponsiveMasonry>
+                          cursor: "pointer",
+                          transform: "scale(1)",
+                          transition: "transform 0.3s ease-in-out",
+                          overflow: "hidden",
+
+                          "&:hover": {
+                            transform: "scale(1.1) !important",
+                            transition: "transform 0.3s ease-in-out !important",
+                          },
+                        }}
+                        onClick={() => {
+                          setNewsSelected(item);
+                          open();
+                        }}
+                        loading="lazy"
+                      />
+                    </Box>
+                  </Grid>
+                ))
+              : null}
+          </Grid>
         ) : (
           <Box sx={{ display: "flex" }}>
             <CircularProgress
@@ -153,7 +157,7 @@ export const NewsLoadMore = () => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              maxWidth: "80vw",
+              maxWidth: "94vw",
               width: "100%",
               height: "auto",
               minHeight: "700px",
