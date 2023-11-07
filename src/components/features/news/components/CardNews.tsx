@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Skeleton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import {hoverReadMore} from '@/styles/commonStyles'
 interface Props {
   title: string;
   banner_url: string;
@@ -35,14 +36,9 @@ export const CardNews: React.FC<Props> = ({
         borderRadius: "6px",
         position: "relative",
 
-        "&:hover": {
-          "& .read-more": {
-            transform: "translateY(0)",
-            opacity: 1,
-            visibility: "visible",
-            transition: "all 0.3s ease-in-out",
-          },
-        },
+        ...hoverReadMore
+
+        
       }}
     >
       <Link
@@ -162,21 +158,11 @@ export const CardNews: React.FC<Props> = ({
             {description}
           </Typography>
 
-          <Typography
+          <ReadMore
             className="read-more"
-            sx={{
-              color: "#fff",
-              textAlign: "right",
-              fontSize: "14px",
-              fontWeight: 600,
-              transition: "all 0.3s ease-in-out",
-              transform: "translateY(100%)",
-              opacity: 0,
-              visibility: "hidden",
-            }}
           >
             Đọc tiếp
-          </Typography>
+          </ReadMore>
         </Link>
       </Stack>
     </Stack>

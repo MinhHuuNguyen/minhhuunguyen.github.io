@@ -70,11 +70,10 @@ export const SmallNews: React.FC<Props> = ({
 
           <Typography
             sx={{
-              fontSize: "16px",
-              lineHeight: "140%",
+              fontSize: "18px",
               color: "#4f4f4f",
               textAlign: "justify",
-              ...ellipsisText(3),
+              ...ellipsisText(4),
             }}
           >
             <Link href={`/news/${slug}`}>{description}</Link>

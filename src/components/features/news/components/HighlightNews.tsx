@@ -1,6 +1,8 @@
+import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import { hoverReadMore } from "@/styles/commonStyles";
 
 interface Props {
   title: string;
@@ -24,14 +26,7 @@ export const HighlightNews: React.FC<Props> = ({
         borderRadius: "12px",
         overflow: "hidden",
 
-        "&:hover": {
-          "& .read-more": {
-            transform: "translateY(0)",
-            opacity: 1,
-            visibility: "visible",
-            transition: "all 0.3s ease-in-out",
-          },
-        },
+        ...hoverReadMore,
       }}
     >
       <Grid
@@ -105,25 +100,16 @@ export const HighlightNews: React.FC<Props> = ({
             {description}
           </Typography>
 
-          <Typography
+          <ReadMore
             className="read-more"
             sx={{
               position: "absolute",
               bottom: "20px",
               right: "20px",
-
-              color: "#fff",
-              textAlign: "right",
-              fontSize: "14px",
-              fontWeight: 600,
-              transition: "all 0.3s ease-in-out",
-              transform: "translateY(100%)",
-              opacity: 0,
-              visibility: "hidden",
             }}
           >
             Đọc tiếp
-          </Typography>
+          </ReadMore>
         </Stack>
       </Grid>
     </Grid>
