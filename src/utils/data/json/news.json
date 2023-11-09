@@ -11,12 +11,22 @@
   },
   {
     "time": "2023/11/11",
+<<<<<<< HEAD
     "title": "Kiến Trúc Sư Tình Nguyện: Chắp cánh ước mơ, đóng góp xã hội",
     "slug": "kien-truc-su-tinh-nguyen-chap-canh-uoc-mo-dong-gop-xa-hoi",
     "banner_url": "http://ktcb.top/wp-content/uploads/2023/11/MG_9450.jpg",
     "description": "Nếu bạn là người yêu thích nhân sự và đam mê phát triển, xây dựng cộng đồng, vị trí team Kiến Trúc Sư Tình Nguyện tại Khoảng Trời Của Bé (KTCB) không chỉ đơn thuần là một công việc mà còn là hoạt động đầy ý nghĩa để xây dựng một xã hội tốt hơn. Tại đây, bạn sẽ không chỉ là thành viên trong team Kiến Trúc Sư Tình Nguyện mà còn là người định hình tương lai cho các thành viên và hướng phát triển của KTCB.",
     "author": "Lê Thị Vân",
     "tags": []
+=======
+    "title": "Chắp cánh ước mơ, đóng góp xã hội với vị trí team nhân sự KTCB",
+    "slug": "chap-canh-uoc-mo-dong-gop-xa-hoi-voi-vi-tri-team-nhan-su-ktcb",
+    "banner_url": "https://www.saigonchildren.com/wp-content/themes/scc/images/banner10.jpg",
+    "description": "Chắp cánh ước mơ, đóng góp xã hội với vị trí team nhân sự KTCB",
+    "author": "Lê Thị Vân",
+    "tags": [],
+    "is_medium": true
+>>>>>>> ac0e216 (Add chap-canh-uoc-mo-dong-gop-xa-hoi-voi-vi-tri-team-nhan-su-ktcb)
   },
   {
     "time": "2023/11/11",
