@@ -182,7 +182,7 @@ export const NewsLoadMore = () => {
               }}
             >
               <img
-                className="absolute top-6 left-6 w-12 h-12 object-cover z-10"
+                className="logo absolute top-6 left-6 w-12 h-12 object-cover z-10"
                 src={logoImg.src}
                 alt="banner"
               />
@@ -201,6 +201,22 @@ export const NewsLoadMore = () => {
 
                   maxWidth: "100%",
                   maxHeight: "100%",
+                }}
+                onLoad={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  const parent = target.parentElement as HTMLDivElement;
+
+                  const top = (parent.offsetHeight - target.height) / 2;
+                  const left = (parent.offsetWidth - target.width) / 2;
+
+                  const logo = parent.querySelector(
+                    ".logo"
+                  ) as HTMLImageElement;
+
+                  if (logo) {
+                    logo.style.top = `${top + 8}px`;
+                    logo.style.left = `${left + 8}px`;
+                  }
                 }}
               />
             </Grid>
