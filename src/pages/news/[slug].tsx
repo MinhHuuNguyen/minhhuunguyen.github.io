@@ -14,7 +14,7 @@ import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
-import logoImg from "../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../public/ktcb-logo-512.png";
 import Error404 from "../404";
 
 interface Props {
@@ -102,8 +102,8 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
 
                             "& .logo": {
                               position: "absolute",
-                              top: "3%",
-                              left: "3%",
+                              top: "10px",
+                              left: "10px",
                               width: "50px",
                               height: "50px",
                               objectFit: "cover",

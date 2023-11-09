@@ -4,7 +4,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import logoImg from "../../../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 type CoverImageSlideProps = {
   coverImageData: string[];

@@ -10,7 +10,7 @@ import { BANNER_LIST_NEWS_URL } from "@/utils/constants";
 import { Box, Container, Grid, Stack } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
-import logoImg from "../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../public/ktcb-logo-512.png";
 
 interface Props {
   highlightNews: INews;

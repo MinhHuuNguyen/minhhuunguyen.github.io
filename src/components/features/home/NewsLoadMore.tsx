@@ -17,7 +17,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { imageAbsolute } from "@/styles/commonStyles";
-import logoImg from "../../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../../public/ktcb-logo-512.png";
 
 export const NewsLoadMore = () => {
   const [newsSelected, setNewsSelected] = useState<INews>();
@@ -61,7 +61,11 @@ export const NewsLoadMore = () => {
   };
 
   return (
-    <Container maxWidth="xl">
+    <Container
+      sx={{
+        maxWidth: "1900px !important",
+      }}
+    >
       <Stack
         sx={{
           gap: {
@@ -192,7 +196,6 @@ export const NewsLoadMore = () => {
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  width: "100%",
                   height: "auto",
                   objectFit: "contain",
 

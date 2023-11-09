@@ -4,7 +4,7 @@ import { ellipsisText } from "@/utils/common";
 import { Box, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { imageAbsolute } from "@/styles/commonStyles";
-import logoImg from "../../../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;

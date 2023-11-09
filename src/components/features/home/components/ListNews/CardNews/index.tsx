@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { hoverReadMore } from "@/styles/commonStyles";
-import logoImg from "../../../../../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;

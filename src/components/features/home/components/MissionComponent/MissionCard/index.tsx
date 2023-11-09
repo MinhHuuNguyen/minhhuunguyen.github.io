@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Paper, Stack, Typography } from "@mui/material";
-import logoImg from "../../../../../../../public/ktcb_logo_no_background.png";
+import logoImg from "../../../../../../../public/ktcb-logo-512.png";
 
 type MissionCardProps = {
   missionCard: { title: string; imageUrl: string; description: string };
