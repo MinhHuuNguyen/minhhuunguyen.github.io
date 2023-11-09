@@ -27,7 +27,7 @@ export default function App(props: MyAppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
+            {/* <CssBaseline /> */}
             <Layout>
               <Component {...pageProps} />
             </Layout>
