@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 type CoverImageSlideProps = {
   coverImageData: string[];
@@ -63,13 +65,15 @@ export const CoverImageSlide: React.FC<CoverImageSlideProps> = ({
   coverImageData,
 }) => {
   const listImageCard = coverImageData.map((url, index) => (
-    <Box
-      key={`${index}${url}`}
-      component="img"
-      width="100%"
-      height="100%"
-      src={url}
-    ></Box>
+    <Box className="relative w-full h-full" key={`${index}${url}`}>
+      <Box component="img" width="100%" height="100%" src={url} />
+
+      <img
+        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+        src={logoImg.src}
+        alt="banner"
+      />
+    </Box>
   ));
 
   return (

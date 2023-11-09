@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { ellipsisText } from "@/utils/common";
-import { Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import { Grid, Stack, Typography, Box } from "@mui/material";
 import Link from "next/link";
+import { imageAbsolute } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;
@@ -31,24 +32,25 @@ export const SmallNews: React.FC<Props> = ({
             height: "100%",
             background: "#f4f4f4",
             paddingBottom: "60%",
+            borderRadius: "10px",
           }}
         >
-          <Image
-            width={120}
-            height={87}
+          <img
+            className="absolute top-1 left-1 w-10 h-10 object-cover z-10"
+            src={logoImg.src}
+            alt="banner"
+          />
+
+          <Box
+            component="img"
             alt="banner_url"
             src={banner_url}
             sizes="100vw"
-            style={{
-              position: "absolute",
-              top: "0",
-              right: "0",
-              bottom: "0",
+            sx={{
+              ...imageAbsolute,
+
               left: "50%",
               transform: "translateX(-50%)",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
             }}
           />
         </Link>
@@ -70,11 +72,10 @@ export const SmallNews: React.FC<Props> = ({
 
           <Typography
             sx={{
-              fontSize: "16px",
-              lineHeight: "140%",
+              fontSize: "18px",
               color: "#4f4f4f",
               textAlign: "justify",
-              ...ellipsisText(3),
+              ...ellipsisText(4),
             }}
           >
             <Link href={`/news/${slug}`}>{description}</Link>

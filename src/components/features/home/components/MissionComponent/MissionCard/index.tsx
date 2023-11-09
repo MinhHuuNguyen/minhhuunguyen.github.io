@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { Box, Paper, Stack, Typography } from "@mui/material";
+import logoImg from "../../../../../../../public/ktcb-logo-512.png";
 
 type MissionCardProps = {
   missionCard: { title: string; imageUrl: string; description: string };
@@ -12,8 +14,15 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
         borderRadius: "10px",
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
         height: "100%",
+        position: "relative",
       }}
     >
+      <img
+        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+        src={logoImg.src}
+        alt="banner"
+      />
+
       <Stack>
         <Box
           width="100%"

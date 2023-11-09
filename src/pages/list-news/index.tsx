@@ -7,9 +7,10 @@ import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
 import { getHighlightNews, getMediumNews } from "@/utils/common";
 import { BANNER_LIST_NEWS_URL } from "@/utils/constants";
-import { Container, Grid, Stack } from "@mui/material";
+import { Box, Container, Grid, Stack } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
+import logoImg from "../../../public/ktcb-logo-512.png";
 
 interface Props {
   highlightNews: INews;
@@ -22,11 +23,19 @@ const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
       <DefaultSeo {...SEO} title={"Danh sách bài viết"} />
 
       <Stack>
-        <img
-          className={styles.banner}
-          src={BANNER_LIST_NEWS_URL}
-          alt="banner"
-        />
+        <Box className="relative">
+          <img
+            className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+            src={logoImg.src}
+            alt="banner"
+          />
+
+          <img
+            className={styles.banner}
+            src={BANNER_LIST_NEWS_URL}
+            alt="banner"
+          />
+        </Box>
 
         <Container maxWidth="xl">
           <Stack

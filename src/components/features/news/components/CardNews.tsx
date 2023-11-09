@@ -1,10 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Skeleton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { hoverReadMore } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;
@@ -35,16 +38,15 @@ export const CardNews: React.FC<Props> = ({
         borderRadius: "6px",
         position: "relative",
 
-        "&:hover": {
-          "& .read-more": {
-            transform: "translateY(0)",
-            opacity: 1,
-            visibility: "visible",
-            transition: "all 0.3s ease-in-out",
-          },
-        },
+        ...hoverReadMore,
       }}
     >
+      <img
+        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+        src={logoImg.src}
+        alt="banner"
+      />
+
       <Link
         href={`/news/${slug}`}
         style={{
@@ -162,21 +164,7 @@ export const CardNews: React.FC<Props> = ({
             {description}
           </Typography>
 
-          <Typography
-            className="read-more"
-            sx={{
-              color: "#fff",
-              textAlign: "right",
-              fontSize: "14px",
-              fontWeight: 600,
-              transition: "all 0.3s ease-in-out",
-              transform: "translateY(100%)",
-              opacity: 0,
-              visibility: "hidden",
-            }}
-          >
-            Đọc tiếp
-          </Typography>
+          <ReadMore className="read-more">Đọc tiếp</ReadMore>
         </Link>
       </Stack>
     </Stack>

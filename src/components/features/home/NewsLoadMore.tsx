@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { DataResponseInfinite } from "@/@types/common";
 import { INews } from "@/@types/news";
 import { useDisclosure } from "@/libs/hooks/useDisclosure";
@@ -15,7 +16,8 @@ import {
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { imageAbsolute } from "@/styles/commonStyles";
+import logoImg from "../../../../public/ktcb-logo-512.png";
 
 export const NewsLoadMore = () => {
   const [newsSelected, setNewsSelected] = useState<INews>();
@@ -59,7 +61,11 @@ export const NewsLoadMore = () => {
   };
 
   return (
-    <Container maxWidth="xl">
+    <Container
+      sx={{
+        maxWidth: "1900px !important",
+      }}
+    >
       <Stack
         sx={{
           gap: {
@@ -70,53 +76,57 @@ export const NewsLoadMore = () => {
         }}
       >
         {!(isFetching && !isFetchingNextPage) ? (
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1400: 4 }}
-          >
-            <Masonry gutter="16px" style={{ paddingRight: "16px" }}>
-              {dataFlat && dataFlat?.length > 0
-                ? dataFlat.map((item, index) => {
-                    return (
-                      <Box
-                        key={index}
-                        sx={{
-                          borderRadius: "10px",
-                          width: "100%",
-                          overflow: "hidden",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          src={item.banner_url}
-                          alt="banner_url"
-                          sx={{
-                            cursor: "pointer",
-                            borderRadius: "10px",
-                            width: "100%",
-                            display: "block",
-                            objectFit: "cover",
-                            transform: "scale(1)",
-                            transition: "transform 0.3s ease-in-out",
-                            overflow: "hidden",
+          <Grid container spacing={1}>
+            {dataFlat && dataFlat?.length > 0
+              ? dataFlat.map((item, index) => (
+                  <Grid item key={index} xs={6} md={4}>
+                    <Box
+                      sx={{
+                        display: "block",
+                        overflow: "hidden",
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
 
-                            "&:hover": {
-                              transform: "scale(1.1) !important",
-                              transition:
-                                "transform 0.3s ease-in-out !important",
-                            },
-                          }}
-                          onClick={() => {
-                            setNewsSelected(item);
-                            open();
-                          }}
-                          loading="lazy"
-                        />
-                      </Box>
-                    );
-                  })
-                : null}
-            </Masonry>
-          </ResponsiveMasonry>
+                        background: "#f4f4f4",
+                        paddingTop: "60%",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      <img
+                        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+                        src={logoImg.src}
+                        alt="banner"
+                      />
+
+                      <Box
+                        component="img"
+                        src={item.banner_url}
+                        alt="banner_url"
+                        sx={{
+                          ...imageAbsolute,
+
+                          cursor: "pointer",
+                          transform: "scale(1)",
+                          transition: "transform 0.3s ease-in-out",
+                          overflow: "hidden",
+
+                          "&:hover": {
+                            transform: "scale(1.1) !important",
+                            transition: "transform 0.3s ease-in-out !important",
+                          },
+                        }}
+                        onClick={() => {
+                          setNewsSelected(item);
+                          open();
+                        }}
+                        loading="lazy"
+                      />
+                    </Box>
+                  </Grid>
+                ))
+              : null}
+          </Grid>
         ) : (
           <Box sx={{ display: "flex" }}>
             <CircularProgress
@@ -153,7 +163,7 @@ export const NewsLoadMore = () => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              maxWidth: "80vw",
+              maxWidth: "94vw",
               width: "100%",
               height: "auto",
               minHeight: "700px",
@@ -171,6 +181,12 @@ export const NewsLoadMore = () => {
                 paddingLeft: "16px",
               }}
             >
+              <img
+                className="logo absolute top-6 left-6 w-12 h-12 object-cover z-10"
+                src={logoImg.src}
+                alt="banner"
+              />
+
               <Box
                 component="img"
                 src={newsSelected.banner_url}
@@ -180,12 +196,27 @@ export const NewsLoadMore = () => {
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  width: "100%",
                   height: "auto",
                   objectFit: "contain",
 
                   maxWidth: "100%",
                   maxHeight: "100%",
+                }}
+                onLoad={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  const parent = target.parentElement as HTMLDivElement;
+
+                  const top = (parent.offsetHeight - target.height) / 2;
+                  const left = (parent.offsetWidth - target.width) / 2;
+
+                  const logo = parent.querySelector(
+                    ".logo"
+                  ) as HTMLImageElement;
+
+                  if (logo) {
+                    logo.style.top = `${top + 8}px`;
+                    logo.style.left = `${left + 8}px`;
+                  }
                 }}
               />
             </Grid>
