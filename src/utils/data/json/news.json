@@ -7,6 +7,7 @@
     "description": "Hai phòng học và một sân chơi với tổng diện tích 328m2 đặt tạị điểm Ô Trao của trường tiểu học Hiếu Tử C (huyện Tiểu Cần, tỉnh Trà Vinh) vừa được tổ chức Saigon Children’s Charity (saigonchildren) khánh thành sau 5 tháng xây dựng. Dự án do saigonchildren điều phối thuộc chương trình ‘Xây dựng Trường học và Môi trường Học đường’ sẽ mang đến một môi trường học tập an toàn và thoải mái hơn cho gần 100 em học sinh mỗi năm học. Với sự tài trợ từ BASF và các đối tác, đây là dự án cải tạo trường học thứ 7 mà BASF phối hợp với saigonchildren thực hiện tại Việt Nam.",
     "author": "Pham Quoc Bao",
     "tags": ["school", "tra-vinh", "children"],
+    "teams": ["art", "experience"],
     "is_highlight": true
   },
   {
@@ -17,6 +18,7 @@
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
     "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"],
     "is_highlight": true
   },
   {
@@ -27,6 +29,7 @@
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
     "tags": ["test"],
+    "teams": ["art", "experience"],
     "is_highlight": true
   },
   {
@@ -37,6 +40,7 @@
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
     "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"],
     "is_highlight": true
   },
   {
@@ -46,7 +50,8 @@
     "banner_url": "https://i.pinimg.com/564x/d5/76/28/d5762888fb76b02cb455a834c2605bc3.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn"]
+    "tags": ["mid-autumn"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/04",
@@ -55,7 +60,8 @@
     "banner_url": "https://i.pinimg.com/564x/dc/98/92/dc9892e0972259b01237243c9cf61087.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/05",
@@ -64,7 +70,8 @@
     "banner_url": "https://i.pinimg.com/564x/ab/0e/c0/ab0ec029da1e8a6de74b8f290272eb61.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["fund", "ktstn"]
   },
   {
     "time": "2023/11/06",
@@ -74,6 +81,7 @@
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
     "tags": ["mid-autumn", "children"],
+    "teams": ["fund", "ktstn"],
     "is_highlight": true
   },
   {
@@ -84,6 +92,7 @@
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
     "tags": ["mid-autumn", "children"],
+    "teams": ["fund", "ktstn"],
     "is_highlight": true
   },
   {
@@ -93,7 +102,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["fund", "ktstn"]
   },
   {
     "time": "2023/11/10",
@@ -102,7 +112,8 @@
     "banner_url": "https://i.pinimg.com/564x/34/e5/4a/34e54a0b72190ddf13b14e51a08ad50c.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["fund", "ktstn"]
   },
   {
     "time": "2023/11/13",
@@ -111,7 +122,8 @@
     "banner_url": "https://www.saigonchildren.com/wp-content/themes/scc/images/banner10.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Thế nhưng không phải em bé nào cũng có điều kiện được tận hưởng những khoảnh khắc của Trung thu như xem múa lân, rước lồng đèn, ăn bánh dẻo bánh nướng. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["fund", "ktstn"]
   },
   {
     "time": "2023/11/09",
@@ -120,7 +132,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "personnel"]
   },
   {
     "time": "2023/11/03",
@@ -129,7 +142,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["test3"]
+    "tags": ["test3"],
+    "teams": ["media", "personnel"]
   },
   {
     "time": "2023/11/03",
@@ -138,7 +152,8 @@
     "banner_url": "https://i.pinimg.com/564x/34/e5/4a/34e54a0b72190ddf13b14e51a08ad50c.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["test4"]
+    "tags": ["test4"],
+    "teams": ["media", "personnel"]
   },
   {
     "time": "2023/11/03",
@@ -147,7 +162,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["test5"]
+    "tags": ["test5"],
+    "teams": ["media", "personnel"]
   },
   {
     "time": "2023/11/03",
@@ -156,7 +172,8 @@
     "banner_url": "https://i.pinimg.com/564x/34/e5/4a/34e54a0b72190ddf13b14e51a08ad50c.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["test6"]
+    "tags": ["test6"],
+    "teams": ["media", "personnel"]
   },
   {
     "time": "2023/11/03",
@@ -165,7 +182,8 @@
     "banner_url": "https://i.pinimg.com/564x/be/5c/c3/be5cc3bf58c8ea28d25000e6151c4c88.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "personnel"]
   },
   {
     "time": "2023/11/03",
@@ -174,7 +192,8 @@
     "banner_url": "https://i.pinimg.com/564x/be/5c/c3/be5cc3bf58c8ea28d25000e6151c4c88.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "study"]
   },
   {
     "time": "2023/11/03",
@@ -183,7 +202,8 @@
     "banner_url": "https://i.pinimg.com/564x/be/5c/c3/be5cc3bf58c8ea28d25000e6151c4c88.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "study"]
   },
   {
     "time": "2023/11/03",
@@ -192,7 +212,8 @@
     "banner_url": "https://i.pinimg.com/564x/be/5c/c3/be5cc3bf58c8ea28d25000e6151c4c88.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "study"]
   },
 
   {
@@ -202,7 +223,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "study"]
   },
   {
     "time": "2023/11/03",
@@ -211,7 +233,8 @@
     "banner_url": "https://i.pinimg.com/564x/3a/ac/01/3aac01ba37b9ac5c8796a3e1c6aa43de.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "study"]
   },
   {
     "time": "2023/11/03",
@@ -220,7 +243,8 @@
     "banner_url": "https://i.pinimg.com/564x/3a/ac/01/3aac01ba37b9ac5c8796a3e1c6aa43de.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["media", "study"]
   },
   {
     "time": "2023/11/03",
@@ -229,7 +253,8 @@
     "banner_url": "https://i.pinimg.com/564x/3a/ac/01/3aac01ba37b9ac5c8796a3e1c6aa43de.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -238,7 +263,8 @@
     "banner_url": "https://i.pinimg.com/564x/3a/ac/01/3aac01ba37b9ac5c8796a3e1c6aa43de.jpg",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -247,7 +273,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -256,7 +283,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -265,7 +293,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -274,7 +303,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -283,7 +313,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -292,7 +323,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -301,7 +333,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -310,7 +343,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -319,7 +353,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -328,7 +363,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -337,7 +373,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -346,7 +383,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -355,7 +393,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -364,7 +403,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -373,7 +413,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -382,7 +423,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -391,7 +433,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -400,7 +443,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -409,7 +453,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -418,7 +463,8 @@
     "banner_url": "https://picsum.photos/300/300",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -427,7 +473,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -436,7 +483,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -445,7 +493,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -454,7 +503,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -463,7 +513,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -472,7 +523,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -481,7 +533,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -490,7 +543,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -499,7 +553,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -508,7 +563,8 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   },
   {
     "time": "2023/11/03",
@@ -517,6 +573,7 @@
     "banner_url": "https://picsum.photos/300/600",
     "description": "Trung thu – lễ rước đèn tháng 8, có thể coi là một trong những lễ hội trong trẻo nhất của trẻ em Việt Nam. Chính vì thế, hàng năm, chương trình học bổng của saigonchildren lại luân phiên tổ chức lễ hội Trung thu cho trẻ em khó khăn tại mỗi tỉnh thành mà chương trình hoạt động.",
     "author": "Pham Quoc Bao",
-    "tags": ["mid-autumn", "children"]
+    "tags": ["mid-autumn", "children"],
+    "teams": ["art", "experience"]
   }
 ]

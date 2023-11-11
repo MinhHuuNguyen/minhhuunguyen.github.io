@@ -1,9 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { IIntro } from "@/@types/team";
-import { HomeContent, Intro, NewsLoadMore } from "@/components/features/home";
+import {
+  HomeContent,
+  Intro,
+  NewsLoadMore,
+  Opportunity,
+} from "@/components/features/home";
 import { SEO } from "@/configs/seo.config";
 import { getIntroByTeam } from "@/utils/common";
+import { Stack, Typography } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
@@ -24,7 +30,13 @@ const Home: NextPage<Props> = ({ intro }) => {
           banner_url={intro?.banner_url}
         />
       ) : null}
+      <Opportunity />
 
+      <Stack py={2} alignItems="center">
+        <Typography variant="h5" fontWeight="bold">
+          KHO ẢNH KỈ NIỆM
+        </Typography>
+      </Stack>
       <NewsLoadMore />
     </>
   );

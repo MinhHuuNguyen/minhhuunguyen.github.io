@@ -46,19 +46,32 @@ export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
   return filteredItems;
 };
 
-export const getHighlightNews = () => {
+export const getHighlightNews = (team?: string) => {
+  if (team) {
+    return sortNews(team)?.[0];
+  }
   return sortNews()?.[0];
 };
 
-export const getMediumNews = () => {
-  return sortNews()?.slice(1, 7);
+export const getMediumNews = (team?: string) => {
+  return sortNews(team)?.slice(1, 7);
 };
 
-export const sortNews = () => {
+export const sortNews = (team?: string) => {
   const data = newsData as INews[];
 
-  const highlightedPosts = data.filter((post) => post.is_highlight);
-  const nonHighlightedPosts = data.filter((post) => !post.is_highlight);
+  const highlightedPosts = data.filter((post) => {
+    if (team) {
+      return post.is_highlight && post.teams.includes(team);
+    }
+    return post.is_highlight;
+  });
+  const nonHighlightedPosts = data.filter((post) => {
+    if (team) {
+      return !post.is_highlight && post.teams.includes(team);
+    }
+    return !post.is_highlight;
+  });
 
   highlightedPosts.sort(
     (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
