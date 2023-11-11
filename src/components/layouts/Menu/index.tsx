@@ -102,6 +102,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
                   </NestedMenuItem>
                 );
               }
+
               return (
                 <Link key={subMenu.name} href={subMenu.path ?? ""}>
                   <MenuItem onClick={handleClose} sx={{ marginLeft: -0.5 }}>

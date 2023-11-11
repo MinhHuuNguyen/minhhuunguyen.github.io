@@ -5,12 +5,12 @@ import {
   Divider,
   IconButton,
   Stack,
-  Typography,
   styled,
+  Typography,
 } from "@mui/material";
 import Link from "next/link";
-import footerData from "../../utils/data/json/footer.json";
 import logo50 from "../../../public/logo50.png";
+import footerData from "../../utils/data/json/footer.json";
 
 const TikTokIcon = ({ color = "#000000" }) => {
   return (
@@ -104,8 +104,8 @@ const Footer = () => {
         </Typography>
         <Box display={["none", "none", "none", "block"]}>
           <Stack direction={"row"} spacing={2}>
-            {footerData.optionFooter.map((option) => (
-              <Link key={option.text} href={option.link}>
+            {footerData.optionFooter.map((option, index) => (
+              <Link key={index} href={option.link}>
                 <Typography color="GrayText">{option.text}</Typography>
               </Link>
             ))}
