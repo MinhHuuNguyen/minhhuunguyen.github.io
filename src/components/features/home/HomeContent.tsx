@@ -8,7 +8,7 @@ export const HomeContent = () => {
     <>
       <CoverImageSlide />
       <MissionComponent missionCartData={home} />
-      <ListNewsHome team={""} />
+      <ListNewsHome team="" />
     </>
   );
 };

@@ -2,11 +2,13 @@
 import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { NestedMenuItem } from "mui-nested-menu";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 
 type MenuSectionProps = {
   menuData: {
     name: string;
+    path: string;
     subMenus?: {
       name: string;
       path?: string;
@@ -19,9 +21,17 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
   const menuRef = useRef<HTMLDivElement | null | undefined>();
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const router = useRouter();
   const open = Boolean(anchorEl);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    isNotHover?: boolean
+  ) => {
+    if (isNotHover && menuData.path) {
+      router.push(menuData.path);
+      return;
+    }
     if (anchorEl) return;
     setAnchorEl(e.currentTarget);
   };
@@ -55,7 +65,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
           ref={buttonRef}
           aria-owns={anchorEl ? "simple-menu" : undefined}
           aria-haspopup="true"
-          onClick={handleClick}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+            handleClick(e, true)
+          }
           onMouseOver={handleClick}
           onMouseLeave={handleClose}
           sx={{
