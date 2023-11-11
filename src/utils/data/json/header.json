@@ -1,6 +1,7 @@
 [
     {
       "name": "Giới thiệu",
+      "path": "/",
       "subMenus": [
         { "name": "Tầm nhìn và sứ mệnh", "path": "/vision" },
         {
@@ -20,11 +21,12 @@
     },
     {
       "name": "Chương trình",
+      "path": "",
       "subMenus": [
-        { "name": "Dự án Cùng bé Trải nghiệm", "path": "" },
+        { "name": "Dự án Cùng bé Trải nghiệm", "path": "/teams/experience" },
         {
           "name": "Dự án Phim Nhạc Sách",
-          "path": ""
+          "path": "/teams/art"
         },
         { "name": "Các chương trình khác", "path": "" }
       ]
@@ -35,10 +37,11 @@
     },
     {
       "name": "Bài viết",
-      "path": ""
+      "path": "/list-news"
     },
     {
       "name": "Tham Gia",
+      "path": "",
       "subMenus": [
         { "name": "Tình nguyện viên", "path": "" },
         {
