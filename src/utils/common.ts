@@ -4,14 +4,14 @@ import introData from "./data/json/intro-text.json";
 import newsData from "./data/json/news.json";
 
 export const getNewsBySlug = (slug: string) => {
-  const data = newsData as INews[];
+  const data = newsData as unknown as INews[];
 
   const news = data?.find((item) => item.slug == slug) || null;
   return news;
 };
 
 export const getNewsByTags = (title: string, tags: string[]) => {
-  const data = newsData as INews[];
+  const data = newsData as unknown as INews[];
 
   const res = data
     .filter((news) => {
@@ -27,7 +27,7 @@ export const getNewsByTags = (title: string, tags: string[]) => {
 };
 
 export const getNewsWithoutTags = (title: string, tags: string[]) => {
-  const data = newsData as INews[];
+  const data = newsData as unknown as INews[];
 
   const res = data.filter((news) => {
     return (
@@ -39,10 +39,10 @@ export const getNewsWithoutTags = (title: string, tags: string[]) => {
 };
 
 export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
-  const data = newsData as INews[];
+  const data = newsData as unknown as INews[];
   const filteredItems = newsData.filter((news) => {
     return !news.tags.find((tag) => tagsAlready?.includes(tag));
-  }) as INews[];
+  }) as unknown as INews[];
   return filteredItems;
 };
 
@@ -58,17 +58,17 @@ export const getMediumNews = (team?: string) => {
 };
 
 export const sortNews = (team?: string) => {
-  const data = newsData as INews[];
+  const data = newsData as unknown as INews[];
 
   const highlightedPosts = data.filter((post) => {
-    if (team) {
-      return post.is_highlight && post.teams.includes(team);
+    if (team && post?.teams) {
+      return post.is_highlight && post?.teams.includes(team);
     }
     return post.is_highlight;
   });
   const nonHighlightedPosts = data.filter((post) => {
-    if (team) {
-      return !post.is_highlight && post.teams.includes(team);
+    if (team && post?.teams) {
+      return !post.is_highlight && post?.teams.includes(team);
     }
     return !post.is_highlight;
   });
@@ -109,7 +109,7 @@ export const loadMoreNews = async (_cursor?: number, _pageSize?: number) => {
   const cursor = _cursor || 0;
   const pageSize = _pageSize || 24;
 
-  const data = newsData as INews[];
+  const data = newsData as unknown as INews[];
 
   const dataSort = data.sort((a, b) => {
     return new Date(b.time).getTime() - new Date(a.time).getTime();
