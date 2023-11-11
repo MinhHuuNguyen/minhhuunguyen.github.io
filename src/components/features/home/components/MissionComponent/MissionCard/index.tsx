@@ -17,14 +17,13 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
         position: "relative",
       }}
     >
-      <img
-        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
-        src={logoImg.src}
-        alt="banner"
-      />
-
       <Stack>
-        <Stack mx={8} my={4}>
+        <Stack mx={8} my={4} className="relative">
+          <img
+            className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+            src={logoImg.src}
+            alt="banner"
+          />
           <Box
             width="100%"
             height="50%"

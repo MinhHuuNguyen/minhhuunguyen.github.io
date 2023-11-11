@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { imageAbsolute, imageRelative } from "@/styles/commonStyles";
 import { ellipsisText } from "@/utils/common";
-import { Grid, Stack, Typography, Box } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import { imageAbsolute } from "@/styles/commonStyles";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
@@ -25,11 +25,8 @@ export const SmallNews: React.FC<Props> = ({
         <Link
           href={`/news/${slug}`}
           style={{
-            display: "block",
-            overflow: "hidden",
-            position: "relative",
-            width: "100%",
-            height: "100%",
+            ...imageRelative,
+
             background: "#f4f4f4",
             paddingBottom: "60%",
             borderRadius: "10px",

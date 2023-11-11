@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 export const hoverReadMore = {
   "&:hover": {
     "& .read-more": {
@@ -9,7 +11,7 @@ export const hoverReadMore = {
   },
 };
 
-export const imageAbsolute = {
+export const imageAbsolute: CSSProperties = {
   position: "absolute",
   top: "0",
   right: "0",
@@ -20,7 +22,7 @@ export const imageAbsolute = {
   objectFit: "cover",
 };
 
-export const imageRelative = {
+export const imageRelative: CSSProperties = {
   display: "block",
   overflow: "hidden",
   position: "relative",

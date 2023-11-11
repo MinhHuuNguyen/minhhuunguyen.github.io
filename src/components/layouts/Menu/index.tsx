@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { NestedMenuItem } from "mui-nested-menu";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type MenuSectionProps = {
   menuData: {

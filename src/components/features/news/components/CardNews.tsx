@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { hoverReadMore, imageAbsolute } from "@/styles/commonStyles";
 import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Skeleton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { hoverReadMore } from "@/styles/commonStyles";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
@@ -57,8 +57,6 @@ export const CardNews: React.FC<Props> = ({
       >
         {!loadedFile && (
           <Skeleton
-            width={"100%"}
-            height={"100%"}
             sx={{
               transform: "unset",
               display: "block",
@@ -79,13 +77,8 @@ export const CardNews: React.FC<Props> = ({
           height={120}
           sizes="100vw"
           style={{
-            display: "block",
-            position: "absolute",
-            top: 0,
-            left: 0,
+            ...imageAbsolute,
             width: loadedFile ? "100%" : "0%",
-            height: "100%",
-            objectFit: "cover",
           }}
           loading="lazy"
           onLoad={() => {
