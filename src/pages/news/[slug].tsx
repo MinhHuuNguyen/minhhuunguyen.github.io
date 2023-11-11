@@ -26,6 +26,28 @@ interface Props {
 const innerHtmlStyle = {
   textAlign: "justify",
 
+  "& .image-wrapper": {
+    background: "#f5f5f5",
+    position: "relative",
+    overflow: "hidden",
+
+    "& .logo": {
+      position: "absolute",
+      top: "10px",
+      left: "10px",
+      width: "50px",
+      height: "50px",
+      objectFit: "cover",
+    },
+  },
+
+  "& img": {
+    maxWidth: "1200px",
+    width: "100%",
+    maxHeight: "675px",
+    height: "auto",
+  },
+
   "& ul": {
     listStyleType: "disc",
     listStylePosition: "inside",
@@ -139,6 +161,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
 
                     {content ? (
                       <Box
+                        id="content"
                         sx={innerHtmlStyle}
                         dangerouslySetInnerHTML={{
                           __html: JSON.parse(content),
