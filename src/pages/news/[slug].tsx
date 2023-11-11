@@ -21,6 +21,54 @@ interface Props {
   content: string;
 }
 
+const innerHtmlStyle = {
+  textAlign: "justify",
+
+  "& ul": {
+    listStyleType: "disc",
+    listStylePosition: "inside",
+
+    display: "block",
+    marginBlockStart: "0.5em",
+    marginBlockEnd: "0.5em",
+    marginInlineStart: "0px",
+    marginInlineEnd: "0px",
+    paddingInlineStart: "40px",
+    margin: 0,
+    marginBottom: "8px",
+  },
+  "& ol": {
+    listStyleType: "decimal",
+    listStylePosition: "inside",
+
+    display: "block",
+    marginBlockStart: "1em",
+    marginBlockEnd: "1em",
+    marginInlineStart: "0px",
+    marginInlineEnd: "0px",
+    paddingInlineStart: "40px",
+  },
+  "& ul ul, ol ul": {
+    listStyleType: "circle",
+    listStylePosition: "inside",
+    marginLeft: "15px",
+  },
+  "& ol ol, ul ol": {
+    listStyleType: "lower-latin",
+    listStylePosition: "inside",
+    marginLeft: "15px",
+  },
+  "& h2, h3, h4": {
+    marginTop: "8px",
+  },
+  "& p+p": {
+    marginTop: "16px",
+  },
+  "& span, p": {
+    lineHeight: 1.8,
+  },
+};
+
 const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
   const slideNewsData = getOtherNewWithoutTags(news?.tags);
 
@@ -52,48 +100,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
 
                     {content ? (
                       <Box
-                        sx={{
-                          textAlign: "justify",
-
-                          "& ul": {
-                            listStyleType: "disc",
-                            listStylePosition: "inside",
-
-                            display: "block",
-                            marginBlockStart: "0.5em",
-                            marginBlockEnd: "0.5em",
-                            marginInlineStart: "0px",
-                            marginInlineEnd: "0px",
-                            paddingInlineStart: "40px",
-                          },
-                          "& ol": {
-                            listStyleType: "decimal",
-                            listStylePosition: "inside",
-
-                            display: "block",
-                            marginBlockStart: "1em",
-                            marginBlockEnd: "1em",
-                            marginInlineStart: "0px",
-                            marginInlineEnd: "0px",
-                            paddingInlineStart: "40px",
-                          },
-                          "& ul ul, ol ul": {
-                            listStyleType: "circle",
-                            listStylePosition: "inside",
-                            marginLeft: "15px",
-                          },
-                          "& ol ol, ul ol": {
-                            listStyleType: "lower-latin",
-                            listStylePosition: "inside",
-                            marginLeft: "15px",
-                          },
-                          "& h2": {
-                            margin: "8px, 0",
-                          },
-                          "& span, p": {
-                            lineHeight: 1.8,
-                          },
-                        }}
+                        sx={innerHtmlStyle}
                         dangerouslySetInnerHTML={{
                           __html: JSON.parse(content),
                         }}
