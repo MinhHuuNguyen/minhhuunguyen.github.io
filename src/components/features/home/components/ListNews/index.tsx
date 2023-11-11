@@ -1,21 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { INews } from "@/@types/news";
-import { getMediumNews } from "@/utils/common";
-import { Container, Grid, Stack } from "@mui/material";
+import { getHighlightNews, getMediumNews } from "@/utils/common";
+import { Container, Grid, Stack, Typography } from "@mui/material";
 import { NextPage } from "next";
 import { CardNews } from "./CardNews";
 
 interface Props {
-  highlightNews?: INews;
-  mediumNews?: INews[];
+  team: string;
 }
 
-const ListNewsHome: NextPage<Props> = () => {
-  const mediumNews = getMediumNews().slice(0, 6);
+const ListNewsHome: NextPage<Props> = ({ team }) => {
+  const highlightNews = getHighlightNews(team);
+  const mediumNews = getMediumNews(team);
+  const listNew = [highlightNews, ...mediumNews.slice(0, 5)];
 
   return (
-    <Container maxWidth="xl">
+    <Container sx={{ maxWidth: "1900px !important" }}>
+      <Stack alignItems="center">
+        <Typography variant="h5" fontWeight="bold">
+          DANH SÁCH BÀI VIẾT
+        </Typography>
+      </Stack>
       <Stack
         sx={{
           paddingTop: "60px",
@@ -24,7 +30,7 @@ const ListNewsHome: NextPage<Props> = () => {
         }}
       >
         <Grid container spacing={2}>
-          {mediumNews.map((news, index) => (
+          {listNew.map((news, index) => (
             <Grid item xs={12} md={6} lg={4} key={index}>
               <CardNews
                 banner_url={news.banner_url}

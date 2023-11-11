@@ -182,7 +182,7 @@ export const NewsLoadMore = () => {
               }}
             >
               <img
-                className="logo absolute top-6 left-6 w-12 h-12 object-cover z-10"
+                className="logo absolute opacity-0 w-12 h-12 object-cover z-10"
                 src={logoImg.src}
                 alt="banner"
               />
@@ -216,6 +216,7 @@ export const NewsLoadMore = () => {
                   if (logo) {
                     logo.style.top = `${top + 8}px`;
                     logo.style.left = `${left + 8}px`;
+                    logo.style.opacity = "1";
                   }
                 }}
               />

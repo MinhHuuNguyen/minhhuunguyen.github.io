@@ -6,7 +6,7 @@ const Layout = ({ children }: any) => {
     <>
       <Header />
       <div id="primary" className="content-area pt-0">
-        <main id="main" className="site-main mt-[80px]" role="main">
+        <main id="main" className="site-main mt-[0px]" role="main">
           {children}
         </main>
       </div>

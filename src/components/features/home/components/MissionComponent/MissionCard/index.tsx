@@ -24,18 +24,20 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
       />
 
       <Stack>
-        <Box
-          width="100%"
-          height="50%"
-          component="img"
-          src={missionCard.imageUrl}
-          alt="mission-image"
-          sx={{
-            objectFit: "cover",
-            borderTopLeftRadius: "10px",
-            borderTopRightRadius: "10px",
-          }}
-        ></Box>
+        <Stack mx={8} my={4}>
+          <Box
+            width="100%"
+            height="50%"
+            component="img"
+            src={missionCard.imageUrl}
+            alt="mission-image"
+            sx={{
+              objectFit: "cover",
+              borderRadius: "10px",
+            }}
+          ></Box>
+        </Stack>
+
         <Box sx={{ padding: 2 }}>
           <Typography variant="h5" textAlign="center" fontWeight="bold">
             {missionCard.title}

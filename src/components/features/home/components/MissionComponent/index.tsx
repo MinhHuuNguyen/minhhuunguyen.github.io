@@ -1,5 +1,7 @@
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import { MissionCard } from "./MissionCard";
+import missionIntro from "../../../../../utils/data/json/mision-intro.json";
+import missionBackground from "../../../../../../public/mission-background.jpg";
 
 type MissionProps = {
   missionCartData: {
@@ -13,16 +15,23 @@ export const MissionComponent: React.FC<MissionProps> = ({
   missionCartData,
 }) => {
   return (
-    <Container maxWidth="xl">
+    <Container
+      sx={{
+        maxWidth: "1900px !important",
+        paddingBottom: 8,
+        backgroundImage: `url(${missionBackground.src})`,
+        backgroundSize: "100% 100%;",
+        backgroundPosition: "center",
+      }}
+    >
       <Stack alignItems="center">
-        <Typography variant="h5">Sứ Mệnh Và Mục Đích Ra Đời</Typography>
+        <Typography variant="h5" fontWeight="bold">
+          {missionIntro.title}
+        </Typography>
         <Typography mt={1} textAlign="center">
-          Tại Khoảng Trời Của Bé, chúng tôi khát vọng về một tương lai
+          {missionIntro.description1}
         </Typography>
-        <Typography textAlign="center">
-          sức khỏe và quyền lợi bệnh nhân được cải thiện thông qua dịch vụ phẫu
-          thuật an toàn
-        </Typography>
+        <Typography textAlign="center">{missionIntro.description2}</Typography>
       </Stack>
 
       <Grid container spacing={2} my={4} sx={{ justifyContent: "center" }}>
@@ -32,18 +41,6 @@ export const MissionComponent: React.FC<MissionProps> = ({
           </Grid>
         ))}
       </Grid>
-
-      {/* <Stack
-      direction="row"
-      rowGap={2}
-      columnGap={[2, 10]}
-      flexWrap="wrap"
-      justifyContent="center"
-    >
-      {missionCartData.map((mission) => (
-        <MissionCard key={mission.title} missionCard={mission} />
-      ))}
-    </Stack> */}
     </Container>
   );
 };

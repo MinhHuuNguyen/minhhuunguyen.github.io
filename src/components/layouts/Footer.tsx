@@ -1,10 +1,16 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { Box, Divider, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  IconButton,
+  Stack,
+  Typography,
+  styled,
+} from "@mui/material";
 import Link from "next/link";
+import footerData from "../../utils/data/json/footer.json";
 import logo50 from "../../../public/logo50.png";
-
-const footerData = [];
 
 const TikTokIcon = ({ color = "#000000" }) => {
   return (
@@ -20,36 +26,43 @@ const TikTokIcon = ({ color = "#000000" }) => {
   );
 };
 
+const StyledIconButton = styled(IconButton)(({ theme }) => ({
+  width: "40px",
+  height: "40px",
+  borderRadius: "100%",
+  backgroundColor: theme.palette.common.white,
+}));
+
 const Footer = () => {
   return (
-    <Stack px={[5, 10, 20]} bgcolor="lightblue" width="100%" py={4} mt={2}>
+    <Stack px={[5, 10, 20]} bgcolor="#a7dbffff" width="100%" py={4} mt={2}>
       <Stack
         direction={["column", "row"]}
         justifyContent={["flex-start", "space-between"]}
         flexWrap={["wrap"]}
         alignItems={["flex-start", "center"]}
-        bgcolor="lightblue"
+        bgcolor="#a7dbffff"
         py={2}
       >
         <Stack direction={["column", "column", "row"]} flexWrap="wrap">
           <Stack spacing={2} mr={[0, 0, 0, 20]}>
             <Typography variant="h5" fontWeight="bold">
-              Địa chỉ
+              {footerData.title1}
             </Typography>
-            <Typography color="grey">Khương Thượng, Đống Đa, Hà Nội</Typography>
+            <Typography color="GrayText">{footerData.content1}</Typography>
           </Stack>
           <Stack spacing={2} ml={[0, 0, 4]} mt={[4, 4, 0]}>
             <Typography variant="h5" fontWeight="bold">
-              Liên hệ
+              {footerData.title2}
             </Typography>
-            <Typography color="grey">
-              khoangtroicuabe.kby@gmail.com <br />
-              (+84) 346535857
+            <Typography color="GrayText">
+              {footerData.content2.mail} <br />
+              {footerData.content2.phone}
             </Typography>
           </Stack>
         </Stack>
 
-        <Stack mt={[4, 0, 0]} spacing={2}>
+        <Stack mt={[4, 0, 0]} spacing={2} alignItems="center">
           <Link href="/">
             <Box
               component="img"
@@ -60,51 +73,22 @@ const Footer = () => {
             ></Box>
           </Link>
           <Stack direction="row" spacing={2}>
-            <Link
-              href="https://www.facebook.com/khoangtroicuabektcb"
-              target="_blank"
-            >
-              <IconButton
-                sx={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "100%",
-                  bgcolor: "white",
-                }}
-              >
+            <Link href={footerData.facebookLink} target="_blank">
+              <StyledIconButton>
                 <FacebookIcon sx={{ fontSize: 30, color: "blue" }} />
-              </IconButton>
+              </StyledIconButton>
             </Link>
-            <Link
-              href="https://www.youtube.com/channel/UC1whOBKBQJWXzpHLknb1fhw"
-              target="_blank"
-            >
-              <IconButton
-                sx={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "100%",
-                  bgcolor: "white",
-                }}
-              >
+            <Link href={footerData.youtubeLink} target="_blank">
+              <StyledIconButton>
                 <YouTubeIcon sx={{ fontSize: 30, color: "red" }} />
-              </IconButton>
+              </StyledIconButton>
             </Link>
-            <Link
-              href="https://www.tiktok.com/@khoangtroicuabe"
-              target="_blank"
-            >
-              <IconButton
-                sx={{
-                  width: "40px",
-                  borderRadius: "100%",
-                  bgcolor: "white",
-                }}
-              >
+            <Link href={footerData.tiktokLink} target="_blank">
+              <StyledIconButton>
                 <div style={{ width: "40px" }}>
                   <TikTokIcon color="black" />
                 </div>
-              </IconButton>
+              </StyledIconButton>
             </Link>
           </Stack>
         </Stack>
@@ -115,17 +99,16 @@ const Footer = () => {
         justifyContent={["center", "center", "center", "space-between"]}
         pt={2}
       >
-        <Typography color="grey">
+        <Typography color="GrayText">
           © Copyright 2023. All Rights Reserved.
         </Typography>
         <Box display={["none", "none", "none", "block"]}>
           <Stack direction={"row"} spacing={2}>
-            <Typography color="grey.500">Home</Typography>
-            <Typography color="grey.500">What we do</Typography>
-            <Typography color="grey.500">Our team</Typography>
-            <Typography color="grey.500">News</Typography>
-            <Typography color="black">Blogs</Typography>
-            <Typography color="grey.500">Careers</Typography>
+            {footerData.optionFooter.map((option) => (
+              <Link key={option.text} href={option.link}>
+                <Typography color="GrayText">{option.text}</Typography>
+              </Link>
+            ))}
           </Stack>
         </Box>
       </Stack>

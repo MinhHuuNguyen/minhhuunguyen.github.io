@@ -4,6 +4,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import coverImagesData from "../../../../utils/data/json/cover-image-home-screen.json";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 type CoverImageSlideProps = {
@@ -61,10 +62,8 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
   </IconButton>
 );
 
-export const CoverImageSlide: React.FC<CoverImageSlideProps> = ({
-  coverImageData,
-}) => {
-  const listImageCard = coverImageData.map((url, index) => (
+export const CoverImageSlide = () => {
+  const listImageCard = coverImagesData.map((url, index) => (
     <Box className="relative w-full h-full" key={`${index}${url}`}>
       <Box component="img" width="100%" height="100%" src={url} />
 
