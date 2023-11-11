@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { hoverReadMore, imageAbsolute } from "@/styles/commonStyles";
+import { ImageLoader, ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
-import { Skeleton, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { hoverReadMore } from "@/styles/commonStyles";
 import logoImg from "../../../../../../../public/ktcb-logo-512.png";
 
 interface Props {
@@ -54,22 +55,7 @@ export const CardNews: React.FC<Props> = ({
           paddingTop: "70%",
         }}
       >
-        {!loadedFile && (
-          <Skeleton
-            width={"100%"}
-            height={"100%"}
-            sx={{
-              transform: "unset",
-              display: "block",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              borderRadius: "unset",
-            }}
-          />
-        )}
+        {!loadedFile && <ImageLoader />}
 
         <Image
           alt="nft"
@@ -78,13 +64,8 @@ export const CardNews: React.FC<Props> = ({
           height={120}
           sizes="100vw"
           style={{
-            display: "block",
-            position: "absolute",
-            top: 0,
-            left: 0,
+            ...imageAbsolute,
             width: loadedFile ? "100%" : "0%",
-            height: "100%",
-            objectFit: "cover",
           }}
           loading="lazy"
           onLoad={() => {
@@ -163,21 +144,7 @@ export const CardNews: React.FC<Props> = ({
             {description}
           </Typography>
 
-          <Typography
-            className="read-more"
-            sx={{
-              color: "#fff",
-              textAlign: "right",
-              fontSize: "14px",
-              fontWeight: 600,
-              transition: "all 0.3s ease-in-out",
-              transform: "translateY(100%)",
-              opacity: 0,
-              visibility: "hidden",
-            }}
-          >
-            Đọc tiếp
-          </Typography>
+          <ReadMore className="read-more">Đọc tiếp</ReadMore>
         </Link>
       </Stack>
     </Stack>

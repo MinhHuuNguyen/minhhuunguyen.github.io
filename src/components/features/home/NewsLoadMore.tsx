@@ -2,6 +2,7 @@
 import { DataResponseInfinite } from "@/@types/common";
 import { INews } from "@/@types/news";
 import { useDisclosure } from "@/libs/hooks/useDisclosure";
+import { imageAbsolute, imageRelative } from "@/styles/commonStyles";
 import { ellipsisText, loadMoreNews } from "@/utils/common";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {
@@ -16,7 +17,6 @@ import {
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { imageAbsolute } from "@/styles/commonStyles";
 import logoImg from "../../../../public/ktcb-logo-512.png";
 
 export const NewsLoadMore = () => {
@@ -82,11 +82,7 @@ export const NewsLoadMore = () => {
                   <Grid item key={index} xs={6} md={4}>
                     <Box
                       sx={{
-                        display: "block",
-                        overflow: "hidden",
-                        position: "relative",
-                        width: "100%",
-                        height: "100%",
+                        ...imageRelative,
 
                         background: "#f4f4f4",
                         paddingTop: "60%",

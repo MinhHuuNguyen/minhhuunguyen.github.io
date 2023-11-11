@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { hoverReadMore, imageAbsolute } from "@/styles/commonStyles";
-import { ReadMore } from "@/styles/styled";
+import { ImageLoader, ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
-import { Skeleton, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -55,20 +55,7 @@ export const CardNews: React.FC<Props> = ({
           paddingTop: "70%",
         }}
       >
-        {!loadedFile && (
-          <Skeleton
-            sx={{
-              transform: "unset",
-              display: "block",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              borderRadius: "unset",
-            }}
-          />
-        )}
+        {!loadedFile && <ImageLoader />}
 
         <Image
           alt="nft"

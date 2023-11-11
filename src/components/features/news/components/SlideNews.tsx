@@ -25,19 +25,23 @@ const responsive = {
   },
 };
 
+const styleIcon = {
+  position: "absolute",
+  top: "40%",
+  width: 50,
+  height: 50,
+  backgroundColor: "#eee",
+  "&:hover": {
+    backgroundColor: "#eee",
+  },
+};
+
 const renderNextButton = (props: { isDisabled?: boolean }) => (
   <IconButton
     disabled={props.isDisabled}
     sx={{
-      position: "absolute",
-      top: "40%",
+      ...styleIcon,
       right: -55,
-      width: 50,
-      height: 50,
-      backgroundColor: "#eee",
-      "&:hover": {
-        backgroundColor: "#eee",
-      },
     }}
   >
     <ArrowForwardIosIcon sx={{ fontSize: "15px" }} />
@@ -48,15 +52,8 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
   <IconButton
     disabled={props.isDisabled}
     sx={{
-      position: "absolute",
-      top: "40%",
+      ...styleIcon,
       left: -55,
-      width: 50,
-      height: 50,
-      backgroundColor: "#eee",
-      "&:hover": {
-        backgroundColor: "#eee",
-      },
     }}
   >
     <ArrowBackIosNewIcon sx={{ fontSize: "15px" }} />

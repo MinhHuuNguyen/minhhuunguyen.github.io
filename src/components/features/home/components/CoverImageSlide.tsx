@@ -4,19 +4,19 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import coverImagesData from "../../../../utils/data/json/cover-image-home-screen.json";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
+import coverImagesData from "../../../../utils/data/json/cover-image-home-screen.json";
 
-type CoverImageSlideProps = {
-  coverImageData: string[];
-};
-
-const responsive = {
-  0: {
-    items: 1,
-  },
-  1200: {
-    items: 1,
+const styleBtn = {
+  position: "absolute",
+  top: "40%",
+  width: 50,
+  height: 50,
+  backgroundColor: "#eee",
+  opacity: 0.5,
+  "&:hover": {
+    backgroundColor: "#eee",
+    opacity: 1,
   },
 };
 
@@ -24,17 +24,8 @@ const renderNextButton = (props: { isDisabled?: boolean }) => (
   <IconButton
     disabled={props.isDisabled}
     sx={{
-      position: "absolute",
-      top: "40%",
+      ...styleBtn,
       right: 0,
-      width: 50,
-      height: 50,
-      backgroundColor: "#eee",
-      opacity: 0.5,
-      "&:hover": {
-        backgroundColor: "#eee",
-        opacity: 1,
-      },
     }}
   >
     <ArrowForwardIosIcon sx={{ fontSize: "15px" }} />
@@ -45,17 +36,8 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
   <IconButton
     disabled={props.isDisabled}
     sx={{
-      position: "absolute",
-      top: "40%",
+      ...styleBtn,
       left: 0,
-      width: 50,
-      height: 50,
-      backgroundColor: "#eee",
-      opacity: 0.5,
-      "&:hover": {
-        backgroundColor: "#eee",
-        opacity: 1,
-      },
     }}
   >
     <ArrowBackIosNewIcon sx={{ fontSize: "15px" }} />

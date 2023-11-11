@@ -1,41 +1,40 @@
 {
-    "title1": "Địa chỉ",
-    "content1": "Khương Thượng, Đống Đa, Hà Nội",
-    "title2": "Liên hệ",
-    "content2": {
-        "mail": "khoangtroicuabe.kby@gmail.com",
-        "phone": "(+84) 346535857"
+  "title1": "Địa chỉ",
+  "content1": "Khương Thượng, Đống Đa, Hà Nội",
+  "title2": "Liên hệ",
+  "content2": {
+    "mail": "khoangtroicuabe.kby@gmail.com",
+    "phone": "(+84) 346535857"
+  },
+  "logoLink": "/",
+  "facebookLink": "https://www.facebook.com/khoangtroicuabektcb",
+  "youtubeLink": "https://www.youtube.com/channel/UC1whOBKBQJWXzpHLknb1fhw",
+  "tiktokLink": "https://www.tiktok.com/@khoangtroicuabe",
+  "copyright": "© Copyright 2023. All Rights Reserved.",
+  "optionFooter": [
+    {
+      "text:": "Trang chủ",
+      "link": "/"
     },
-    "logoLink": "/",
-    "facebookLink": "https://www.facebook.com/khoangtroicuabektcb",
-    "youtubeLink": "https://www.youtube.com/channel/UC1whOBKBQJWXzpHLknb1fhw",
-    "tiktokLink": "https://www.tiktok.com/@khoangtroicuabe",
-    "copyright": "© Copyright 2023. All Rights Reserved.",
-    "optionFooter": [
-        {
-            "text:": "Trang chủ",
-            "link": "/"
-        },
-         {
-            "text": "Giới thiệu",
-            "link": "/"
-        },
-        {
-            "text": "Chương trình",
-            "link": ""
-        },
-        {
-            "text": "Tài chính",
-            "link": "/teams/experience"
-        },
-         {
-            "text": "Bài viết",
-            "link": "/list-news"
-        },
-        {
-            "text": "Tham gia",
-            "link": ""
-        }
-
-    ]
+    {
+      "text": "Giới thiệu",
+      "link": "/"
+    },
+    {
+      "text": "Chương trình",
+      "link": "/"
+    },
+    {
+      "text": "Tài chính",
+      "link": "/"
+    },
+    {
+      "text": "Bài viết",
+      "link": "/list-news"
+    },
+    {
+      "text": "Tham gia",
+      "link": "/"
+    }
+  ]
 }
