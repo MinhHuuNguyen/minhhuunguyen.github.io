@@ -116,6 +116,39 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                             maxHeight: "675px",
                             height: "auto",
                           },
+
+                          "& ul": {
+                            listStyleType: "disc",
+                            listStylePosition: "inside",
+
+                            display: "block",
+                            marginBlockStart: "1em",
+                            marginBlockEnd: "1em",
+                            marginInlineStart: "0px",
+                            marginInlineEnd: "0px",
+                            paddingInlineStart: "40px",
+                          },
+                          "& ol": {
+                            listStyleType: "decimal",
+                            listStylePosition: "inside",
+
+                            display: "block",
+                            marginBlockStart: "1em",
+                            marginBlockEnd: "1em",
+                            marginInlineStart: "0px",
+                            marginInlineEnd: "0px",
+                            paddingInlineStart: "40px",
+                          },
+                          "& ul ul, ol ul": {
+                            listStyleType: "circle",
+                            listStylePosition: "inside",
+                            marginLeft: "15px",
+                          },
+                          "& ol ol, ul ol": {
+                            listStyleType: "lower-latin",
+                            listStylePosition: "inside",
+                            marginLeft: "15px",
+                          },
                         }}
                         dangerouslySetInnerHTML={{
                           __html: JSON.parse(content),
