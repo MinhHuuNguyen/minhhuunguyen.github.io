@@ -60,8 +60,8 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                             listStylePosition: "inside",
 
                             display: "block",
-                            marginBlockStart: "1em",
-                            marginBlockEnd: "1em",
+                            marginBlockStart: "0.5em",
+                            marginBlockEnd: "0.5em",
                             marginInlineStart: "0px",
                             marginInlineEnd: "0px",
                             paddingInlineStart: "40px",
@@ -86,6 +86,12 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                             listStyleType: "lower-latin",
                             listStylePosition: "inside",
                             marginLeft: "15px",
+                          },
+                          "& h2": {
+                            margin: "8px, 0",
+                          },
+                          "& span, p": {
+                            lineHeight: 1.8,
                           },
                         }}
                         dangerouslySetInnerHTML={{
