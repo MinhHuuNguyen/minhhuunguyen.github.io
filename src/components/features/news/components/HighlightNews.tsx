@@ -1,6 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
+import { ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import { hoverReadMore } from "@/styles/commonStyles";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;
@@ -17,14 +21,23 @@ export const HighlightNews: React.FC<Props> = ({
 }) => {
   return (
     <Grid
+      className="relative"
       container
       sx={{
         height: "400px",
         background: `url(${banner_url}) no-repeat center center`,
         borderRadius: "12px",
         overflow: "hidden",
+
+        ...hoverReadMore,
       }}
     >
+      <img
+        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+        src={logoImg.src}
+        alt="banner"
+      />
+
       <Grid
         item
         md={8}
@@ -56,7 +69,6 @@ export const HighlightNews: React.FC<Props> = ({
         />
         <Stack
           sx={{
-            gap: "20px",
             padding: {
               xs: "40px",
               md: "20px",
@@ -64,6 +76,7 @@ export const HighlightNews: React.FC<Props> = ({
             height: "100%",
             backdropFilter: "blur(10px)",
             justifyContent: "space-evenly",
+            position: "relative",
           }}
         >
           <Link href={`/news/${slug}`}>
@@ -95,6 +108,17 @@ export const HighlightNews: React.FC<Props> = ({
           >
             {description}
           </Typography>
+
+          <ReadMore
+            className="read-more"
+            sx={{
+              position: "absolute",
+              bottom: "20px",
+              right: "20px",
+            }}
+          >
+            Đọc tiếp
+          </ReadMore>
         </Stack>
       </Grid>
     </Grid>

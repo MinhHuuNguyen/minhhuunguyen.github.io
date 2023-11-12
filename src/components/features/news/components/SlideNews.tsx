@@ -1,10 +1,10 @@
 import { INews } from "@/@types/news";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { NewsCard } from "./NewsCard";
+import { CardNews } from "./CardNews";
 
 type SlideNewsProps = {
   slideNewsData: INews[];
@@ -21,7 +21,18 @@ const responsive = {
     items: 3,
   },
   1200: {
-    items: 4,
+    items: 3,
+  },
+};
+
+const styleIcon = {
+  position: "absolute",
+  top: "40%",
+  width: 50,
+  height: 50,
+  backgroundColor: "#eee",
+  "&:hover": {
+    backgroundColor: "#eee",
   },
 };
 
@@ -29,15 +40,8 @@ const renderNextButton = (props: { isDisabled?: boolean }) => (
   <IconButton
     disabled={props.isDisabled}
     sx={{
-      position: "absolute",
-      top: "40%",
+      ...styleIcon,
       right: -55,
-      width: 50,
-      height: 50,
-      backgroundColor: "#eee",
-      "&:hover": {
-        backgroundColor: "#eee",
-      },
     }}
   >
     <ArrowForwardIosIcon sx={{ fontSize: "15px" }} />
@@ -48,15 +52,8 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
   <IconButton
     disabled={props.isDisabled}
     sx={{
-      position: "absolute",
-      top: "40%",
+      ...styleIcon,
       left: -55,
-      width: 50,
-      height: 50,
-      backgroundColor: "#eee",
-      "&:hover": {
-        backgroundColor: "#eee",
-      },
     }}
   >
     <ArrowBackIosNewIcon sx={{ fontSize: "15px" }} />
@@ -65,7 +62,24 @@ const renderPrevButton = (props: { isDisabled?: boolean }) => (
 
 export const SlideNews: React.FC<SlideNewsProps> = ({ slideNewsData }) => {
   const listCard = slideNewsData.map((newsData) => (
-    <NewsCard key={newsData.title} newsData={newsData} />
+    <Box
+      key={newsData.title}
+      p={2}
+      sx={{
+        borderRadius: "10px",
+        "&:hover": {
+          backgroundColor: "lightblue",
+        },
+      }}
+    >
+      <CardNews
+        title={newsData.title}
+        banner_url={newsData.banner_url}
+        slug={newsData.slug}
+        description={newsData.description}
+      />
+    </Box>
+    // <NewsCard key={newsData.title} newsData={newsData} />
   ));
 
   return (

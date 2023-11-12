@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { imageAbsolute, imageRelative } from "@/styles/commonStyles";
 import { ellipsisText } from "@/utils/common";
 import { Box, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
+import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;
@@ -56,30 +57,27 @@ export const ItemNews: React.FC<Props> = ({
           <Link
             href={`/news/${slug}`}
             style={{
-              display: "block",
-              overflow: "hidden",
-              position: "relative",
-              width: "100%",
-              height: "100%",
+              ...imageRelative,
               background: "#f4f4f4",
               paddingBottom: "60%",
             }}
           >
-            <Image
-              width={120}
-              height={87}
+            <img
+              className="absolute top-0.5 left-0.5 w-6 h-6 object-cover z-10"
+              src={logoImg.src}
+              alt="banner"
+            />
+
+            <Box
+              component="img"
               alt="banner_url"
               src={banner_url}
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "0",
-                bottom: "0",
+              sizes="100vw"
+              sx={{
+                ...imageAbsolute,
+
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
                 borderRadius: "8px",
                 overflow: "hidden",
               }}

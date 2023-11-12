@@ -1,0 +1,53 @@
+[
+    {
+      "name": "Giới thiệu",
+      "path": "/",
+      "subMenus": [
+        { "name": "Tầm nhìn và sứ mệnh", "path": "/vision" },
+        {
+          "name": "Bộ máy tổ chức",
+          "subMenu2": [
+            { "name": "Team Trải nghiệm", "path": "/teams/experience" },
+            { "name": "Team Phim nhạc sách", "path": "/teams/art" },
+            { "name": "Team Nhân sự", "path": "/teams/personnel" },
+            { "name": "Team KTSTN", "path": "/teams/ktstn" },
+            { "name": "Team Truyền thông", "path": "/teams/media" },
+            { "name": "Team Nghiên cứu và phát triển", "path": "/teams/study" },
+            { "name": "Quỹ KTCB", "path": "/teams/fund" }
+          ]
+        },
+        { "name": "Thông tin liên hệ", "path": "contact" }
+      ]
+    },
+    {
+      "name": "Chương trình",
+      "path": "",
+      "subMenus": [
+        { "name": "Dự án Cùng bé Trải nghiệm", "path": "/teams/experience" },
+        {
+          "name": "Dự án Phim Nhạc Sách",
+          "path": "/teams/art"
+        },
+        { "name": "Các chương trình khác", "path": "" }
+      ]
+    },
+    {
+      "name": "Tài chính",
+      "path": "/teams/experience"
+    },
+    {
+      "name": "Bài viết",
+      "path": "/list-news"
+    },
+    {
+      "name": "Tham Gia",
+      "path": "",
+      "subMenus": [
+        { "name": "Tình nguyện viên", "path": "" },
+        {
+          "name": "Nhà hảo tâm",
+          "path": ""
+        }
+      ]
+    }
+  ]
