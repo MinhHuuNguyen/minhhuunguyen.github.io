@@ -10,13 +10,13 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const MenuSection = ({ menuData }) => {
-  const { name, subMenus } = menuData;
+  const { name, path, subMenus } = menuData;
 
   return (
     <Accordion>
       {!subMenus ? (
         <MenuItem>
-          <Typography>{name}</Typography>
+          <a href={path}>{name}</a>
         </MenuItem>
       ) : (
         <AccordionSummary

@@ -1,6 +1,7 @@
 import React from "react";
 import opportunityData from "../../../utils/data/json/oppotunity.json";
 import { Stack, Typography, Button, Paper, Box } from "@mui/material";
+import { COLORS } from "@/utils/constants";
 
 export const Opportunity: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ export const Opportunity: React.FC = () => {
             <Button
               variant="contained"
               sx={{
-                backgroundColor: "#faafd0",
+                backgroundColor: COLORS.PINK,
                 minWidth: "110px",
                 marginRight: 2,
               }}
@@ -36,7 +37,7 @@ export const Opportunity: React.FC = () => {
             </Button>
             <Button
               variant="contained"
-              sx={{ backgroundColor: "#faafd0", minWidth: "110px" }}
+              sx={{ backgroundColor: COLORS.PINK, minWidth: "110px" }}
             >
               {opportunityData.button2}
             </Button>

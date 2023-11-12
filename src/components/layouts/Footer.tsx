@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import logo50 from "../../../public/logo50.png";
 import footerData from "../../utils/data/json/footer.json";
+import { COLORS } from "@/utils/constants";
 
 const TikTokIcon = ({ color = "#000000" }) => {
   return (
@@ -35,13 +36,13 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 
 const Footer = () => {
   return (
-    <Stack px={[5, 10, 20]} bgcolor="#a7dbffff" width="100%" py={4} mt={2}>
+    <Stack px={[5, 10, 20]} bgcolor={COLORS.BLUE} width="100%" py={4} mt={2}>
       <Stack
         direction={["column", "row"]}
         justifyContent={["flex-start", "space-between"]}
         flexWrap={["wrap"]}
         alignItems={["flex-start", "center"]}
-        bgcolor="#a7dbffff"
+        bgcolor={COLORS.BLUE}
         py={2}
       >
         <Stack direction={["column", "column", "row"]} flexWrap="wrap">
