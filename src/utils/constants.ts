@@ -11,3 +11,12 @@ export const COLORS = {
   PINK: "#faafd0",
   BLUE: "#a7dbff",
 };
+
+export const TEAM_NAME = {
+  CUNG_BE_TRAI_NGHIEM: "cung-be-trai-nghiem",
+  YEU_CUNG_BE: "yeu-cung-be",
+  KIEN_TRUC_SU_TINH_NGUYEN: "kien-truc-su-tinh-nguyen",
+  TRUYEN_THONG: "truyen-thong",
+  NOI_DUNG: "noi-dung",
+  QUY_KTCB: "quy-ktcb",
+};

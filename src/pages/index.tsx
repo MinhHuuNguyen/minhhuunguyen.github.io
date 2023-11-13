@@ -14,20 +14,20 @@ import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
 interface Props {
-  qquote: QQuote;
+  quote: QQuote;
 }
 
-const Home: NextPage<Props> = ({ qquote }) => {
+const Home: NextPage<Props> = ({ quote }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
       <HomeContent />
 
-      {qquote ? (
+      {quote ? (
         <Intro
-          title={qquote.title}
-          content={qquote.content}
-          banner_url={qquote?.banner_url}
+          title={quote.title}
+          content={quote.content}
+          banner_url={quote?.banner_url}
         />
       ) : null}
       <Opportunity />
