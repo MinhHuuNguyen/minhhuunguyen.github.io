@@ -89,11 +89,11 @@ export const NewsLoadMore = () => {
                         borderRadius: "10px",
                       }}
                     >
-                      <img
+                      {/* <img
                         className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
                         src={logoImg.src}
                         alt="banner"
-                      />
+                      /> */}
 
                       <Box
                         component="img"
@@ -177,11 +177,11 @@ export const NewsLoadMore = () => {
                 paddingLeft: "16px",
               }}
             >
-              <img
+              {/* <img
                 className="logo absolute opacity-0 w-12 h-12 object-cover z-10"
                 src={logoImg.src}
                 alt="banner"
-              />
+              /> */}
 
               <Box
                 component="img"

@@ -4,7 +4,7 @@
   "title2": "Liên hệ",
   "content2": {
     "mail": "khoangtroicuabe.kby@gmail.com",
-    "phone": "(+84) 346535857"
+    "phone": "(+84) 346.535.857"
   },
   "logoLink": "/",
   "facebookLink": "https://www.facebook.com/khoangtroicuabektcb",
@@ -13,16 +13,12 @@
   "copyright": "© Copyright 2023. All Rights Reserved.",
   "optionFooter": [
     {
-      "text:": "Trang chủ",
-      "link": "/"
-    },
-    {
       "text": "Giới thiệu",
       "link": "/"
     },
     {
       "text": "Chương trình",
-      "link": "/"
+      "link": "/list-news"
     },
     {
       "text": "Tài chính",

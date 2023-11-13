@@ -4,11 +4,12 @@ import { Box, IconButton, Paper, Stack, Typography } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import menuData from "../../utils/data/json/header.json";
-import logo50 from "../../../public/logo50.png";
+import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
 
 import MenuSection from "./Menu";
 import { useState } from "react";
 import VerticalMenu from "./Menu/SideMenu/SideMenuSection";
+// import { COLORS } from "@/utils/constants";
 
 export type MenuType = typeof menuData;
 
@@ -28,6 +29,7 @@ const Header = () => {
         justifyContent="space-between"
         alignItems="center"
         px={20}
+        my={0}
         sx={{ py: 2 }}
       >
         <IconButton
@@ -40,10 +42,9 @@ const Header = () => {
           <Box
             component="img"
             minWidth={"50px"}
-            width={50}
             height={50}
-            src={logo50.src}
-            alt="Logo"
+            src={logoNoBackground.src}
+            alt="logoNoBackground"
           ></Box>
         </Link>
         <Box display={["none", "none", "none", "block"]}>
@@ -51,7 +52,7 @@ const Header = () => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            spacing={5}
+            spacing={7}
           >
             {menuData.map((menu, index) => (
               <MenuSection key={`${index}menu`} menuData={menu} />
@@ -60,7 +61,7 @@ const Header = () => {
         </Box>
 
         <IconButton>
-          <LanguageIcon sx={{ fontSize: 30 }} />
+          <LanguageIcon sx={{ fontSize: 25 }} />
         </IconButton>
       </Stack>
 

@@ -17,16 +17,15 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
         position: "relative",
       }}
     >
-      <Stack>
-        <Stack mx={8} my={4} className="relative">
-          <img
+      <Stack mx={8} my={2}>
+        <Stack mx={8} my={4} className="relative" alignItems="center">
+          {/* <img
             className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
             src={logoImg.src}
             alt="banner"
-          />
+          /> */}
           <Box
-            width="100%"
-            height="50%"
+            height="100px"
             component="img"
             src={missionCard.imageUrl}
             alt="mission-image"
@@ -37,7 +36,7 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
           ></Box>
         </Stack>
 
-        <Box sx={{ padding: 2 }}>
+        <Box sx={{ padding: 1 }}>
           <Typography variant="h5" textAlign="center" fontWeight="bold">
             {missionCard.title}
           </Typography>

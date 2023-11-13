@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import logo50 from "../../../public/logo50.png";
+import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
 import footerData from "../../utils/data/json/footer.json";
 import { COLORS } from "@/utils/constants";
 
@@ -67,9 +67,8 @@ const Footer = () => {
           <Link href="/">
             <Box
               component="img"
-              width={50}
               height={50}
-              src={logo50.src}
+              src={logoNoBackground.src}
               alt="Logo"
             ></Box>
           </Link>
