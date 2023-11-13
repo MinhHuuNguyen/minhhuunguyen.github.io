@@ -1,6 +1,5 @@
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import { MissionCard } from "./MissionCard";
-import missionIntro from "../../../../../utils/data/json/mision-intro.json";
 import missionBackground from "../../../../../../public/mission-background.jpg";
 
 type MissionProps = {
@@ -25,16 +24,10 @@ export const MissionComponent: React.FC<MissionProps> = ({
       }}
     >
       <Stack alignItems="center">
-        <Typography variant="h5" fontWeight="bold">
-          {missionIntro.title}
-        </Typography>
-        <Typography mt={1} textAlign="center">
-          {missionIntro.description1}
-        </Typography>
-        <Typography textAlign="center">{missionIntro.description2}</Typography>
+        <Typography variant="h4" fontWeight="bold">SỨ MỆNH RA ĐỜI VÀ HOẠT ĐỘNG</Typography>
       </Stack>
 
-      <Grid container spacing={2} my={4} sx={{ justifyContent: "center" }}>
+      <Grid container spacing={2} my={0} sx={{ justifyContent: "center" }}>
         {missionCartData.map((mission, index) => (
           <Grid item xs={12} md={6} lg={4} key={index}>
             <MissionCard key={mission.title} missionCard={mission} />
