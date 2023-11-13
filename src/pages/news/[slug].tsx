@@ -175,10 +175,10 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                       <h3 className="news-title">Tin liên quan</h3>
                       {rightOtherNews?.map((news, index) => (
                         <ItemNews
-                          banner_url={news.banner_url}
-                          description={news.description}
-                          slug={news.slug}
-                          title={news.title}
+                          banner_url={news?.banner_url}
+                          description={news?.description}
+                          slug={news?.slug}
+                          title={news?.title}
                           key={index}
                         />
                       ))}

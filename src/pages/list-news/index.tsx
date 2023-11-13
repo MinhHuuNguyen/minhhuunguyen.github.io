@@ -35,37 +35,43 @@ const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
           <CoverImageSlide coverImageData={homeBanner} />
         </Box>
 
-        <Container maxWidth="xl">
-          <Stack
-            sx={{
-              paddingTop: "40px",
-              paddingBottom: "40px",
-              gap: "30px",
-            }}
-          >
-            <HighlightNews
-              banner_url={highlightNews.banner_url}
-              description={highlightNews.description}
-              slug={highlightNews.slug}
-              title={highlightNews.title}
-            />
+        {highlightNews || mediumNews ? (
+          <Container maxWidth="xl">
+            <Stack
+              sx={{
+                paddingTop: "40px",
+                paddingBottom: "40px",
+                gap: "30px",
+              }}
+            >
+              {highlightNews ? (
+                <HighlightNews
+                  banner_url={highlightNews?.banner_url}
+                  description={highlightNews?.description}
+                  slug={highlightNews?.slug}
+                  title={highlightNews?.title}
+                />
+              ) : null}
 
-            <Grid container spacing={2}>
-              {mediumNews.map((news, index) => (
-                <Grid item xs={12} md={6} lg={4} key={index}>
-                  <CardNews
-                    banner_url={news.banner_url}
-                    slug={news.slug}
-                    title={news.title}
-                    description={news.description}
-                  />
+              {mediumNews && mediumNews.length > 0 ? (
+                <Grid container spacing={2}>
+                  {mediumNews.map((news, index) => (
+                    <Grid item xs={12} md={6} lg={4} key={index}>
+                      <CardNews
+                        banner_url={news?.banner_url}
+                        slug={news?.slug}
+                        title={news?.title}
+                        description={news?.description}
+                      />
+                    </Grid>
+                  ))}
                 </Grid>
-              ))}
-            </Grid>
+              ) : null}
 
-            <ListSmallNews />
-          </Stack>
-        </Container>
+              <ListSmallNews />
+            </Stack>
+          </Container>
+        ) : null}
       </Stack>
     </>
   );

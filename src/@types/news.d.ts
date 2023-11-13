@@ -1,4 +1,5 @@
 export interface INews {
+  time: string;
   title: string;
   slug: string;
   banner_url: string;
