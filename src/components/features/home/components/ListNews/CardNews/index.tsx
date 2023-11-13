@@ -58,7 +58,7 @@ export const CardNews: React.FC<Props> = ({
         {!loadedFile && <ImageLoader />}
 
         <Image
-          alt="nft"
+          alt="img"
           src={imgUrl}
           width={300}
           height={120}

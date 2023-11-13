@@ -56,10 +56,10 @@ const ListSmallNews = () => {
           {dataFlat?.map((news, index) => (
             <Grid item xs={12} md={6} key={index}>
               <SmallNews
-                banner_url={news.banner_url}
-                description={news.description}
-                slug={news.slug}
-                title={news.title}
+                banner_url={news?.banner_url}
+                description={news?.description}
+                slug={news?.slug}
+                title={news?.title}
               />
             </Grid>
           ))}
