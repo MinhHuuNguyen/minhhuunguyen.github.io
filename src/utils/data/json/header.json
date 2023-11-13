@@ -7,13 +7,12 @@
         {
           "name": "Bộ máy tổ chức",
           "subMenu2": [
-            { "name": "Team Trải nghiệm", "path": "/teams/experience" },
-            { "name": "Team Phim nhạc sách", "path": "/teams/art" },
-            { "name": "Team Nhân sự", "path": "/teams/personnel" },
-            { "name": "Team KTSTN", "path": "/teams/ktstn" },
-            { "name": "Team Truyền thông", "path": "/teams/media" },
-            { "name": "Team Nghiên cứu và phát triển", "path": "/teams/study" },
-            { "name": "Quỹ KTCB", "path": "/teams/fund" }
+            { "name": "Team Cùng Bé Trải Nghiệm", "path": "/teams/cung-be-trai-nghiem" },
+            { "name": "Team Yêu Cùng Bé", "path": "/teams/yeu-cung-be" },
+            { "name": "Team Nội Dung", "path": "/teams/noi-dung" },
+            { "name": "Team Truyền Thông", "path": "/teams/truyen-thong" },
+            { "name": "Team Kiến Trúc Sư Tình Nguyện", "path": "/teams/kien-truc-su-tinh-nguyen" },
+            { "name": "Quỹ KTCB", "path": "/teams/quy-ktcb" }
           ]
         },
         { "name": "Thông tin liên hệ", "path": "contact" }
@@ -21,13 +20,10 @@
     },
     {
       "name": "Chương trình",
-      "path": "",
+      "path": "/list-news",
       "subMenus": [
-        { "name": "Dự án Cùng bé Trải nghiệm", "path": "/teams/experience" },
-        {
-          "name": "Dự án Phim Nhạc Sách",
-          "path": "/teams/art"
-        },
+        { "name": "Dự án Cùng Bé Trải Nghiệm", "path": "/teams/cung-be-trai-nghiem" },
+        { "name": "Dự án Yêu Cùng Bé", "path": "/teams/yeu-cung-be"},
         { "name": "Các chương trình khác", "path": "" }
       ]
     },
@@ -43,11 +39,8 @@
       "name": "Tham Gia",
       "path": "",
       "subMenus": [
-        { "name": "Tình nguyện viên", "path": "" },
-        {
-          "name": "Nhà hảo tâm",
-          "path": ""
-        }
+        { "name": "Thành viên", "path": ""},
+        { "name": "Nhà hảo tâm", "path": ""}
       ]
     }
   ]
