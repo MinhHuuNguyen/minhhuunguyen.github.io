@@ -4,20 +4,19 @@ interface Team {
 }
 
 export type TeamName =
-  | "team-trai-nghiem"
-  | "team-phim-nhac-sach"
-  | "team-nhan-su"
-  | "team-KTSTN"
-  | "team-truyen-thong"
-  | "team-nghien-cuu-va-phat-trien"
+  | "cung-be-trai-nghiem"
+  | "yeu-cung-be"
+  | "kien-truc-su-tinh-nguyen"
+  | "truyen-thong"
+  | "noi-dung"
   | "quy-ktcb";
 
-export interface IIntro {
+export interface QQuote {
   title: string;
   content: string;
   banner_url: string;
 }
 
-export interface IIntroData {
-  [key: string]: IIntro;
+export interface QQuoteData {
+  [key: string]: QQuote;
 }

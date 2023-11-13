@@ -1,6 +1,6 @@
 import { INews } from "@/@types/news";
-import { IIntroData, TeamName } from "@/@types/team";
-import introData from "./data/json/intro-text.json";
+import { QQuoteData, TeamName } from "@/@types/team";
+import quoteData from "./data/json/quote.json";
 import newsData from "./data/json/news.json";
 
 export const getNewsBySlug = (slug: string) => {
@@ -125,8 +125,8 @@ export const loadMoreNews = async (_cursor?: number, _pageSize?: number) => {
   };
 };
 
-export const getIntroByTeam = (team?: TeamName) => {
-  const data = introData as unknown as IIntroData;
+export const getQuoteByTeam = (team?: TeamName) => {
+  const data = quoteData as unknown as QQuoteData;
 
   const res = data[team || "home"];
 

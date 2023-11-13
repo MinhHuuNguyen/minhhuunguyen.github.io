@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { IIntro } from "@/@types/team";
+import { QQuote } from "@/@types/team";
 import {
   HomeContent,
   Intro,
@@ -8,26 +8,26 @@ import {
   Opportunity,
 } from "@/components/features/home";
 import { SEO } from "@/configs/seo.config";
-import { getIntroByTeam } from "@/utils/common";
+import { getQuoteByTeam } from "@/utils/common";
 import { Stack, Typography } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
 interface Props {
-  intro: IIntro;
+  qquote: QQuote;
 }
 
-const Home: NextPage<Props> = ({ intro }) => {
+const Home: NextPage<Props> = ({ qquote }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
       <HomeContent />
 
-      {intro ? (
+      {qquote ? (
         <Intro
-          title={intro.title}
-          content={intro.content}
-          banner_url={intro?.banner_url}
+          title={qquote.title}
+          content={qquote.content}
+          banner_url={qquote?.banner_url}
         />
       ) : null}
       <Opportunity />
@@ -46,19 +46,19 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const intro = getIntroByTeam();
+    const quote = getQuoteByTeam();
 
-    if (!intro?.title || !intro?.content || !intro?.banner_url) {
+    if (!quote?.title || !quote?.content || !quote?.banner_url) {
       return {
         props: {
-          intro: null,
+          quote: null,
         },
       };
     }
 
     return {
       props: {
-        intro,
+        quote,
       },
     };
   } catch (err) {
@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
       props: {
-        intro: {},
+        quote: {},
       },
     };
   }
