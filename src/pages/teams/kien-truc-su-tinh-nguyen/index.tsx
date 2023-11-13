@@ -1,4 +1,4 @@
-import { KtstnTeamContent } from "@/components/features/home/teams/ktstn";
+import { KtstnTeamContent } from "@/components/features/home/teams/kien-truc-su-tinh-nguyen";
 import { SEO } from "@/configs/seo.config";
 import { DefaultSeo } from "next-seo";
 
