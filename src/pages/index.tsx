@@ -34,7 +34,7 @@ const Home: NextPage<Props> = ({ intro }) => {
 
       <Stack py={2} alignItems="center">
         <Typography variant="h5" fontWeight="bold">
-          KHO ẢNH KỈ NIỆM
+          KHO ẢNH KỶ NIỆM
         </Typography>
       </Stack>
       <NewsLoadMore />
