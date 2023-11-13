@@ -32,11 +32,11 @@ export const HighlightNews: React.FC<Props> = ({
         ...hoverReadMore,
       }}
     >
-      <img
+      {/* <img
         className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
         src={logoImg.src}
         alt="banner"
-      />
+      /> */}
 
       <Grid
         item

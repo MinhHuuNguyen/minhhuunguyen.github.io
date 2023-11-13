@@ -3,6 +3,8 @@
 import { INews } from "@/@types/news";
 import { CardNews, HighlightNews } from "@/components/features/news";
 import { ListSmallNews } from "@/components/features/news/ListSmallNews";
+import { CoverImageSlide } from "@/components/features/home/components/CoverImageSlide";
+import homeBanner from "../../utils/data/json/teams/banner/home.json";
 import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
 import { getHighlightNews, getMediumNews } from "@/utils/common";
@@ -24,24 +26,20 @@ const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
 
       <Stack>
         <Box className="relative">
-          <img
+          {/* <img
             className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
             src={logoImg.src}
             alt="banner"
-          />
+          /> */}
 
-          <img
-            className={styles.banner}
-            src={BANNER_LIST_NEWS_URL}
-            alt="banner"
-          />
+          <CoverImageSlide coverImageData={homeBanner} />
         </Box>
 
         <Container maxWidth="xl">
           <Stack
             sx={{
-              paddingTop: "60px",
-              paddingBottom: "60px",
+              paddingTop: "40px",
+              paddingBottom: "40px",
               gap: "30px",
             }}
           >
