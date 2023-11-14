@@ -12,7 +12,7 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
       elevation={1}
       sx={{
         borderRadius: "10px",
-        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+        boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.1)",
         height: "100%",
         position: "relative",
       }}
@@ -25,7 +25,7 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
             alt="banner"
           /> */}
           <Box
-            height="100px"
+            height="170px"
             component="img"
             src={missionCard.imageUrl}
             alt="mission-image"
@@ -36,11 +36,11 @@ export const MissionCard: React.FC<MissionCardProps> = ({ missionCard }) => {
           ></Box>
         </Stack>
 
-        <Box sx={{ padding: 1 }}>
+        <Box sx={{ padding: 2 }}>
           <Typography variant="h5" textAlign="center" fontWeight="bold">
             {missionCard.title}
           </Typography>
-          <Typography mt={1} textAlign="center" color="GrayText">
+          <Typography mt={1} fontSize="22px" textAlign="center" color="GrayText">
             {missionCard.description}
           </Typography>
         </Box>
