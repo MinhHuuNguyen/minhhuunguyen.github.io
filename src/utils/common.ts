@@ -61,14 +61,14 @@ export const sortNews = (team?: string) => {
   const data = newsData as unknown as INews[];
 
   const highlightedPosts = data.filter((post) => {
-    if (team && post?.teams) {
-      return post.is_highlight && post?.teams.includes(team);
+    if (team && post?.team) {
+      return post.is_highlight && post?.team.includes(team);
     }
     return post.is_highlight;
   });
   const nonHighlightedPosts = data.filter((post) => {
-    if (team && post?.teams) {
-      return !post.is_highlight && post?.teams.includes(team);
+    if (team && post?.team) {
+      return !post.is_highlight && post?.team.includes(team);
     }
     return !post.is_highlight;
   });

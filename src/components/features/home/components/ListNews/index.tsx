@@ -21,8 +21,8 @@ const ListNewsHome: NextPage<Props> = ({ team }) => {
   return listNew && listNew?.length > 0 ? (
     <Container sx={{ maxWidth: "1900px !important" }}>
       <Stack alignItems="center">
-        <Typography variant="h5" fontWeight="bold">
-          DANH SÁCH BÀI VIẾT
+        <Typography variant="h4" fontWeight="bold">
+          BÀI VIẾT GẦN ĐÂY
         </Typography>
       </Stack>
       <Stack
