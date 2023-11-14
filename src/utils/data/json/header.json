@@ -24,12 +24,12 @@
       "subMenus": [
         { "name": "Dự án Cùng Bé Trải Nghiệm", "path": "/teams/cung-be-trai-nghiem" },
         { "name": "Dự án Yêu Cùng Bé", "path": "/teams/yeu-cung-be"},
-        { "name": "Các chương trình khác", "path": "" }
+        { "name": "Các chương trình khác", "path": "/list-news?team=chuong-trinh-khac" }
       ]
     },
     {
       "name": "Tài chính",
-      "path": "/teams/fund"
+      "path": "/list-news?team=quy-ktcb"
     },
     {
       "name": "Bài viết",
