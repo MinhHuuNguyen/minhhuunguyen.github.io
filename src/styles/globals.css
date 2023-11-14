@@ -407,7 +407,7 @@ body {
   font-size: 20px;
   position: absolute;
   top: -50px;
-  right: -60px;
+  right: -30px;
   background-image: linear-gradient(to left bottom, #fa78b0, #fa4996);
 }
 .background-intro::before {

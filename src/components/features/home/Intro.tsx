@@ -14,7 +14,7 @@ export const Intro: React.FC<Props> = ({ title, content, banner_url }) => {
         backgroundImage: `url(${banner_url})`,
       }}
     >
-      <div className="background-intro-text overflow-auto">
+      <div className="background-intro-text">
         <h2 className="mb-5 font-bold text-center relative">
           {title}
           <i
