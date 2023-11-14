@@ -6,6 +6,7 @@ import { Container, Grid, Stack, Typography } from "@mui/material";
 import { NextPage } from "next";
 import { CardNews } from "./CardNews";
 import { useMemo } from "react";
+import ktcbBackground from "../../../../../../public/posts-background.jpg";
 
 interface Props {
   team: string;
@@ -19,10 +20,16 @@ const ListNewsHome: NextPage<Props> = ({ team }) => {
   }, [highlightNews, mediumNews]);
 
   return listNew && listNew?.length > 0 ? (
-    <Container sx={{ maxWidth: "1900px !important" }}>
+    <Container sx={{
+        maxWidth: "1900px !important",
+        paddingTop: 0,
+        backgroundImage: `url(${ktcbBackground.src})`,
+        backgroundSize: "100% 100%;",
+        backgroundPosition: "center",
+      }}>
       <Stack alignItems="center">
-        <Typography variant="h5" fontWeight="bold">
-          DANH SÁCH BÀI VIẾT
+        <Typography variant="h3" fontWeight="bold">
+          TIN TỨC GẦN ĐÂY
         </Typography>
       </Stack>
       <Stack

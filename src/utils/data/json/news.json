@@ -7,7 +7,7 @@
     "description": "Bạn đang tìm kiếm một cơ hội để kết nối với cộng đồng, lan tỏa những giá trị tích cực và đồng lòng xây dựng một xã hội tươi đẹp? Hãy gia nhập vào đội ngũ Team Truyền Thông của Khoảng Trời Của Bé - nơi bạn có thể biến những ý tưởng thành hiện thực, lan truyền yêu thương và sự chia sẻ đến mỗi ngóc ngách của Hà Nội.",
     "author": "Lê Thị Vân",
     "tags": [],
-    "teams": "truyen-thong",
+    "team": "truyen-thong",
     "is_highlight": true
   },
   {
@@ -18,7 +18,7 @@
     "description": "Nếu bạn là người yêu thích nhân sự và đam mê phát triển, xây dựng cộng đồng, vị trí team Kiến Trúc Sư Tình Nguyện tại Khoảng Trời Của Bé (KTCB) không chỉ đơn thuần là một công việc mà còn là hoạt động đầy ý nghĩa để xây dựng một xã hội tốt hơn. Tại đây, bạn sẽ không chỉ là thành viên trong team Kiến Trúc Sư Tình Nguyện mà còn là người định hình tương lai cho các thành viên và hướng phát triển của KTCB.",
     "author": "Lê Thị Vân",
     "tags": [],
-    "teams": "kien-truc-su-tinh-nguyen",
+    "team": "kien-truc-su-tinh-nguyen",
     "is_highlight": false
   },
   {
@@ -29,7 +29,7 @@
     "description": "Chào mừng các bạn trẻ yêu thích hoạt động ngoại khóa và tình nguyện tới với Tổ Chức Khoảng Trời Của Bé (KTCB). Chúng tôi hiện đang mở cửa đón nhận ứng tuyển cho vị trí thành viên của team Nội Dung. Đây là cơ hội tuyệt vời để tham gia vào một tổ chức tình nguyện đầy ý nghĩa, nơi bạn có thể thể hiện sự sáng tạo, đam mê, lòng trách nhiệm của mình đối với xã hội và giáo dục. Hãy cùng nhau xây dựng những dự án và chương trình ý nghĩa, mang lại niềm vui, tri thức cho trẻ em Việt Nam!",
     "author": "Lê Thị Vân",
     "tags": [],
-    "teams": "noi-dung",
+    "team": "noi-dung",
     "is_highlight": false
   },
   {
@@ -40,7 +40,7 @@
     "description": "Cùng Bé Trải Nghiệm là dự án giáo dục hướng đến các em nhỏ có hoàn cảnh khó khăn tại những trung tâm bảo trợ xã hội trong và ngoài Hà Nội. Với nhiều chủ đề gần gũi, thiết thực nhưng nhưng cũng không kém phần thú vị như “Biết yêu thương bản thân”, “Khéo tay hay làm”, “Ứng phó với tình huống nguy hiểm”,.. dự án tạo cơ hội cho trẻ có thêm những nhận thức, kĩ năng cần thiết, tăng khả năng thích ứng với cuộc sống, môi trường và nghề nghiệp tương lai.",
     "author": "Lê Thị Vân",
     "tags": [],
-    "teams": "cung-be-trai-nghiem",
+    "team": "cung-be-trai-nghiem",
     "is_highlight": false
   },
   {
@@ -51,7 +51,7 @@
     "description": "Team Yêu Cùng Bé của Khoảng Trời Của Bé là một dự án tình nguyện, là cơ hội để mỗi bạn trẻ trở thành nguồn động viên, người hướng dẫn và người kết nối cho những giấc mơ bé nhỏ. Hãy cùng nhau mở cánh cửa hạnh phúc, sáng tạo và tương tác, để chúng ta chứng minh rằng mỗi cá nhân, từng ngày, có thể làm thay đổi thế giới xung quanh mình. Chào mừng bạn đến với gia đình của team Yêu Cùng Bé!",
     "author": "Lê Thị Vân",
     "tags": [],
-    "teams": "yeu-cung-be",
+    "team": "yeu-cung-be",
     "is_highlight": false
   }
 ]
