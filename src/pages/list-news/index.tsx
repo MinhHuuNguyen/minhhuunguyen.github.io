@@ -1,25 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { INews } from "@/@types/news";
 import { CardNews, HighlightNews } from "@/components/features/news";
 import { ListSmallNews } from "@/components/features/news/ListSmallNews";
 import { CoverImageSlide } from "@/components/features/home/components/CoverImageSlide";
 import homeBanner from "../../utils/data/json/teams/banner/home.json";
 import { SEO } from "@/configs/seo.config";
-import styles from "@/styles/News.module.css";
 import { getHighlightNews, getMediumNews } from "@/utils/common";
-import { BANNER_LIST_NEWS_URL } from "@/utils/constants";
 import { Box, Container, Grid, Stack } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import logoImg from "../../../public/ktcb-logo-512.png";
+import { useRouter } from "next/router";
 
-interface Props {
-  highlightNews: INews;
-  mediumNews: INews[];
-}
+const ListNews = () => {
+  const route = useRouter();
+  const { team } = route.query;
 
-const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
+  const highlightNews = getHighlightNews(team as string | undefined);
+  const mediumNews = getMediumNews(team as string | undefined);
+
   return (
     <>
       <DefaultSeo {...SEO} title={"Danh sách bài viết"} />
@@ -78,25 +77,3 @@ const ListNews: NextPage<Props> = ({ highlightNews, mediumNews }) => {
 };
 
 export default ListNews;
-
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const highlightNews = getHighlightNews();
-    const mediumNews = getMediumNews();
-
-    return {
-      props: {
-        highlightNews,
-        mediumNews,
-      },
-    };
-  } catch (err) {
-    return {
-      props: {
-        highlightNews: {},
-        mediumNews: {},
-        // smallNews: {},
-      },
-    };
-  }
-};
