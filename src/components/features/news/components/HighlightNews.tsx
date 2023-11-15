@@ -20,66 +20,65 @@ export const HighlightNews: React.FC<Props> = ({
   slug,
 }) => {
   return (
-    <Grid
-      className="relative"
-      container
-      sx={{
-        height: "400px",
-        background: `url(${banner_url}) no-repeat center center`,
-        borderRadius: "12px",
-        overflow: "hidden",
-
-        ...hoverReadMore,
-      }}
-    >
-      {/* <img
-        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
-        src={logoImg.src}
-        alt="banner"
-      /> */}
-
+    <Link href={`/news/${slug}`}>
       <Grid
-        item
-        md={8}
-        sm={5}
-        xs={0}
+        className="relative"
+        container
         sx={{
-          height: {
-            xs: "300px",
-            md: "inherit",
-          },
-        }}
-      ></Grid>
+          height: "400px",
+          background: `url(${banner_url}) no-repeat center center`,
+          borderRadius: "12px",
+          overflow: "hidden",
 
-      <Grid
-        item
-        md={4}
-        sm={7}
-        xs={12}
-        sx={{
-          position: "relative",
+          ...hoverReadMore,
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-          }}
-        />
-        <Stack
+        {/* <img
+          className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
+          src={logoImg.src}
+          alt="banner"
+        /> */}
+
+        <Grid
+          item
+          md={8}
+          sm={5}
+          xs={0}
           sx={{
-            padding: {
-              xs: "40px",
-              md: "20px",
+            height: {
+              xs: "300px",
+              md: "inherit",
             },
-            height: "100%",
-            backdropFilter: "blur(10px)",
-            justifyContent: "space-evenly",
+          }}
+        ></Grid>
+        <Grid
+          item
+          md={4}
+          sm={7}
+          xs={12}
+          sx={{
             position: "relative",
           }}
         >
-          <Link href={`/news/${slug}`}>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.3)",
+            }}
+          />
+          <Stack
+            sx={{
+              padding: {
+                xs: "40px",
+                md: "20px",
+              },
+              height: "100%",
+              backdropFilter: "blur(10px)",
+              justifyContent: "space-evenly",
+              position: "relative",
+            }}
+          >
             <Typography
               sx={{
                 color: "#fff",
@@ -91,36 +90,34 @@ export const HighlightNews: React.FC<Props> = ({
             >
               {title}
             </Typography>
-          </Link>
+            <Typography
+              sx={{
+                color: "#fff",
+                textAlign: "justify",
 
-          <Typography
-            sx={{
-              color: "#fff",
-              textAlign: "justify",
+                ...ellipsisText(5),
 
-              ...ellipsisText(5),
-
-              WebkitLineClamp: {
-                xs: 5,
-                md: 7,
-              },
-            }}
-          >
-            {description}
-          </Typography>
-
-          <ReadMore
-            className="read-more"
-            sx={{
-              position: "absolute",
-              bottom: "20px",
-              right: "20px",
-            }}
-          >
-            Đọc tiếp
-          </ReadMore>
-        </Stack>
+                WebkitLineClamp: {
+                  xs: 5,
+                  md: 7,
+                },
+              }}
+            >
+              {description}
+            </Typography>
+            <ReadMore
+              className="read-more"
+              sx={{
+                position: "absolute",
+                bottom: "20px",
+                right: "20px",
+              }}
+            >
+              Đọc tiếp
+            </ReadMore>
+          </Stack>
+        </Grid>
       </Grid>
-    </Grid>
+    </Link>
   );
 };
