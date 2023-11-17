@@ -20,15 +20,28 @@ const ListNewsHome: NextPage<Props> = ({ team }) => {
   }, [highlightNews, mediumNews]);
 
   return listNew && listNew?.length > 0 ? (
-    <Container sx={{
+    <Container
+      sx={{
         maxWidth: "1900px !important",
         paddingTop: 0,
         backgroundImage: `url(${ktcbBackground.src})`,
         backgroundSize: "100% 100%;",
         backgroundPosition: "center",
-      }}>
+      }}
+    >
       <Stack alignItems="center">
-        <Typography variant="h3" fontWeight="bold">
+        <Typography
+          variant="h3"
+          fontWeight="bold"
+          textAlign="center"
+          sx={{
+            fontSize: {
+              xs: "1.5rem",
+              sm: "2rem",
+              md: "3rem",
+            },
+          }}
+        >
           TIN TỨC GẦN ĐÂY
         </Typography>
       </Stack>
