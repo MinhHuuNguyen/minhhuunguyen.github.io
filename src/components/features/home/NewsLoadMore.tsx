@@ -79,7 +79,7 @@ export const NewsLoadMore = () => {
           <Grid container spacing={1}>
             {dataFlat && dataFlat?.length > 0
               ? dataFlat.map((item, index) => (
-                  <Grid item key={index} xs={6} md={4}>
+                  <Grid item key={index} xs={12} sm={6} md={4}>
                     <Box
                       sx={{
                         ...imageRelative,
@@ -168,7 +168,8 @@ export const NewsLoadMore = () => {
           >
             <Grid
               item
-              xs={9}
+              md={9}
+              xs={12}
               sx={{
                 position: "relative",
                 paddingTop: "50%",
@@ -219,7 +220,8 @@ export const NewsLoadMore = () => {
             </Grid>
             <Grid
               item
-              xs={3}
+              md={3}
+              xs={12}
               p={2}
               sx={{
                 backgroundColor: "#242526",
