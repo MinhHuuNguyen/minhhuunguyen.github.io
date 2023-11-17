@@ -21,16 +21,25 @@ const Header = () => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        boxShadow: "rgba(0, 0, 0, 0.08) 0px 4px 15px",
+        px: {
+          xs: 1,
+          md: 2,
+        },
+      }}
+    >
       <Stack
-        component={Paper}
-        elevation={4}
         direction="row"
         justifyContent="space-between"
         alignItems="center"
-        px={20}
         my={0}
-        sx={{ py: 2 }}
+        sx={{
+          py: 2,
+          maxWidth: "1400px",
+          margin: "0 auto",
+        }}
       >
         <IconButton
           sx={{ display: ["block", "block", "block", "none"] }}
@@ -41,10 +50,11 @@ const Header = () => {
         <Link href="/" className="flex items-center">
           <Box
             component="img"
-            minWidth={"50px"}
-            height={50}
+            maxHeight={70}
+            width={70}
             src={logoNoBackground.src}
             alt="logoNoBackground"
+            loading="lazy"
           ></Box>
         </Link>
         <Box display={["none", "none", "none", "block"]}>
@@ -68,7 +78,7 @@ const Header = () => {
       <Drawer anchor="left" open={openSideMenu} onClose={handleToggleSideMenu}>
         <VerticalMenu menuDatas={menuData} />
       </Drawer>
-    </>
+    </Box>
   );
 };
 

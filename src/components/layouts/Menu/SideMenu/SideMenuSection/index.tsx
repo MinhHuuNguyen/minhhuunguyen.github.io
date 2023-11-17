@@ -15,11 +15,18 @@ const MenuSection = ({ menuData }) => {
   return (
     <Accordion>
       {!subMenus ? (
-        <MenuItem>
+        <MenuItem
+          sx={{
+            height: "48px",
+          }}
+        >
           <a href={path}>{name}</a>
         </MenuItem>
       ) : (
         <AccordionSummary
+          sx={{
+            height: "48px",
+          }}
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
         >
