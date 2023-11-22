@@ -59,7 +59,10 @@ export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
       >
         <Typography color="white">
           DANH SÁCH BÀI VIẾT{" "}
-          {textConvertTeam[team as keyof typeof textConvertTeam].toUpperCase()}
+          {!!team &&
+            textConvertTeam[
+              team as keyof typeof textConvertTeam
+            ]?.toUpperCase()}
         </Typography>
       </Stack>
     </Box>
