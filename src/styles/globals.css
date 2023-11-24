@@ -369,34 +369,12 @@ body {
   justify-content: center;
   padding: 70px;
   width: 50%;
-  height: 70%;
+  height: 80%;
   font-size: 25px;
   border: 0;
   border-radius: 10px;
   backdrop-filter: blur(8px);
   outline: 15px solid #fff;
-}
-@media (max-width: 1200px) {
-  .background-intro-text {
-    width: 70%;
-  }
-}
-@media (max-width: 576px) {
-  .background-intro-text {
-    justify-content: flex-start;
-  }
-}
-.background-intro-text h2::before {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 5px;
-  border: 0;
-  border-radius: 10px;
-  background-image: linear-gradient(to left bottom, #fa78b0, #fa4996);
 }
 .background-intro-text i {
   display: flex;
@@ -411,6 +389,47 @@ body {
   right: -30px;
   background-image: linear-gradient(to left bottom, #fa78b0, #fa4996);
 }
+@media (max-width: 1200px) {
+  .background-intro-text {
+    width: 70%;
+  }
+}
+@media (max-width: 576px) {
+  .background-intro-text {
+    padding-right: 35px;
+    padding-left: 35px;
+    width: 80%;
+  }
+
+  .background-intro-text i {
+    top: -55px;
+    right: -20px;
+  }
+
+  .background-intro-text span em {
+   font-size: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .background-intro-text i {
+    display: none;
+  }
+}
+.background-intro-text h2::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 5px;
+  border: 0;
+  border-radius: 10px;
+  background-image: linear-gradient(to left bottom, #fa78b0, #fa4996);
+}
+
 .background-intro::before {
   content: "";
   position: absolute;

@@ -33,7 +33,18 @@ const Home: NextPage<Props> = ({ quote }) => {
       <Opportunity />
 
       <Stack py={2} alignItems="center">
-        <Typography variant="h3" fontWeight="bold">
+        <Typography
+          variant="h3"
+          fontWeight="bold"
+          textAlign="center"
+          sx={{
+            fontSize: {
+              xs: "1.5rem",
+              sm: "2rem",
+              md: "3rem",
+            },
+          }}
+        >
           KHO ẢNH KỶ NIỆM
         </Typography>
       </Stack>
