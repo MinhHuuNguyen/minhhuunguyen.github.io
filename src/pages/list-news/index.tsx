@@ -11,10 +11,12 @@ import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import logoImg from "../../../public/ktcb-logo-512.png";
 import { useRouter } from "next/router";
+import { CoverImageBrand } from "@/components/features/home/components/CoverImageBrand";
 
 const ListNews = () => {
   const route = useRouter();
   const { team } = route.query;
+  const teamParam = team as string | undefined;
 
   const highlightNews = getHighlightNews(team as string | undefined);
   const mediumNews = getMediumNews(team as string | undefined);
@@ -31,7 +33,7 @@ const ListNews = () => {
             alt="banner"
           /> */}
 
-          <CoverImageSlide coverImageData={homeBanner} />
+          <CoverImageBrand team={teamParam} />
         </Box>
 
         {highlightNews || mediumNews ? (
