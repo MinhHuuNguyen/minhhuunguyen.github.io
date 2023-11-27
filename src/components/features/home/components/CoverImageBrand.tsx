@@ -19,28 +19,22 @@ type CoverImageBrandType = {
 };
 
 const textConvertTeam = {
-  home: "trang chủ",
-  "cung-be-trai-nghiem": "cùng bé trải nghiệm",
-  "yeu-cung-be": "yêu cùng bé",
-  "kien-truc-su-tinh-nguyen": "kiến trúc sư tình nguyện",
-  "truyen-thong": "truyền thông",
-  "noi-dung": "nội dung",
+  "cung-be-trai-nghiem": "dự án cùng bé trải nghiệm",
+  "yeu-cung-be": "dự án yêu cùng bé",
+  "kien-truc-su-tinh-nguyen": "team kiến trúc sư tình nguyện",
+  "truyen-thong": "team truyền thông",
+  "noi-dung": "team nội dung",
   "quy-ktcb": "quỹ ktcb",
-  "chuong-trinh-khac": "chương trình khác",
+  "chuong-trinh-khac": "của các chương trình khác",
 };
 
 export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
-  const imageUrl = team
-    ? brandImages[team as keyof typeof brandImages]
-    : brandImages["home"];
-  const [isHovered, setIsHovered] = React.useState(false);
+  const imageUrl = brandImages[team as keyof typeof brandImages];
 
   return (
     <Box
       className="relative w-full h-[90vh]"
       position="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <Box
         position="absolute"
@@ -55,10 +49,10 @@ export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
         height="100%"
         justifyContent="center"
         alignItems="center"
-        sx={{ ...overlayStyle, opacity: isHovered ? 0.3 : 0 }}
+        sx={{ ...overlayStyle, opacity: 0.7}}
       >
-        <Typography color="white">
-          DANH SÁCH BÀI VIẾT{" "}
+        <Typography sx={{ color: "#e4e6eb", fontSize: "50px", fontWeight: "700" }}>
+          CÁC BÀI VIẾT VỀ {" "}
           {!!team &&
             textConvertTeam[
               team as keyof typeof textConvertTeam

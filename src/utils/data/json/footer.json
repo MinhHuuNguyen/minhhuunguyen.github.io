@@ -14,7 +14,7 @@
   "optionFooter": [
     {
       "text": "Giới thiệu",
-      "link": "/"
+      "link": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai"
     },
     {
       "text": "Chương trình",
@@ -22,7 +22,7 @@
     },
     {
       "text": "Tài chính",
-      "link": "/"
+      "link": "/list-news?team=quy-ktcb"
     },
     {
       "text": "Bài viết",
@@ -30,7 +30,7 @@
     },
     {
       "text": "Tham gia",
-      "link": "/"
+      "link": "/contact"
     }
   ]
 }

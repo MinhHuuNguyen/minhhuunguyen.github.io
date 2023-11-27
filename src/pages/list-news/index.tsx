@@ -2,14 +2,12 @@
 
 import { CardNews, HighlightNews } from "@/components/features/news";
 import { ListSmallNews } from "@/components/features/news/ListSmallNews";
-import { CoverImageSlide } from "@/components/features/home/components/CoverImageSlide";
-import homeBanner from "../../utils/data/json/teams/banner/home.json";
 import { SEO } from "@/configs/seo.config";
 import { getHighlightNews, getMediumNews } from "@/utils/common";
-import { Box, Container, Grid, Stack } from "@mui/material";
-import { GetStaticProps, NextPage } from "next";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import { DefaultSeo } from "next-seo";
 import logoImg from "../../../public/ktcb-logo-512.png";
+import styles from "@/styles/News.module.css";
 import { useRouter } from "next/router";
 import { CoverImageBrand } from "@/components/features/home/components/CoverImageBrand";
 

@@ -1,11 +1,15 @@
 [
     {
       "name": "Giới thiệu",
-      "path": "/",
+      "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai",
       "subMenus": [
-        { "name": "Tầm nhìn và sứ mệnh", "path": "/vision" },
+        {
+          "name": "Tầm nhìn và sứ mệnh",
+          "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai/#su-menh-ra-doi-va-hoat-dong"
+        },
         {
           "name": "Bộ máy tổ chức",
+          "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai/#so-do-bo-may-to-chuc",
           "subMenu2": [
             { "name": "Team Cùng Bé Trải Nghiệm", "path": "/teams/cung-be-trai-nghiem" },
             { "name": "Team Yêu Cùng Bé", "path": "/teams/yeu-cung-be" },
@@ -15,7 +19,10 @@
             { "name": "Quỹ KTCB", "path": "/list-news?team=quy-ktcb" }
           ]
         },
-        { "name": "Thông tin liên hệ", "path": "contact" }
+        {
+          "name": "Thông tin liên hệ",
+          "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai/#thong-tin-lien-he"
+        }
       ]
     },
     {
@@ -37,7 +44,7 @@
     },
     {
       "name": "Tham Gia",
-      "path": "",
+      "path": "/contact",
       "subMenus": [
         { "name": "Thành viên", "path": ""},
         { "name": "Nhà hảo tâm", "path": ""}
