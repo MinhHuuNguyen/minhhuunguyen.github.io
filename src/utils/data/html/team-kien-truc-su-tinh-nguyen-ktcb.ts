@@ -4,7 +4,7 @@ export default `
 <h4><strong><span style="font-size: 12pt;">VỊ TRÍ ỨNG TUYỂN</span></strong></h4>
 <ul>
 	<li><span style="font-size: 12pt;">Thành viên tổ chức sự kiện</span></li>
-	<li><span style="font-size: 12pt;">Thành viên quản lý và tuyển nhân sự </span></li>
+	<li><span style="font-size: 12pt;">Thành viên quản lý và tuyển nhân sự</span></li>
 	<li><span style="font-size: 12pt;">Thành viên định hình chiến lược, văn hóa của tổ chức</span></li>
 </ul>
 <h4 style="text-align: left;"><strong><span style="font-size: 12pt;"><span style="vertical-align: inherit;">ĐỐI TƯỢNG THAM GIA</span></span></strong></h4>
@@ -18,7 +18,7 @@ export default `
 	<li><span style="vertical-align: inherit; font-size: 12pt;">Làm việc chặt chẽ để đảm bảo các dự án và hoạt động của tổ chức được hỗ trợ, tiến hành tốt đẹp.</span></li>
 </ul>
 <h4><img class="alignnone size-full wp-image-84" src="http://ktcb.top/wp-content/uploads/2023/11/16112540_1849176555364457_8774161543186166302_o.jpg" alt="" width="1776" height="999" /></h4>
-<h4 style="text-align: left;"><strong><span style="font-size: 12pt;"><span style="vertical-align: inherit;">YÊU CẦU ỨNG VIÊN </span></span></strong></h4>
+<h4 style="text-align: left;"><strong><span style="font-size: 12pt;"><span style="vertical-align: inherit;">YÊU CẦU ỨNG VIÊN</span></span></strong></h4>
 <ul>
 	<li style="text-align: left;"><span style="font-size: 12pt;"><span style="vertical-align: inherit;">Về thái độ:</span></span>
 <ul>
@@ -50,6 +50,6 @@ export default `
 </ul>
 <p><img class="alignnone size-full wp-image-86" src="http://ktcb.top/wp-content/uploads/2023/11/IMG_7978-scaled.jpg" alt="" width="2560" height="1707" /></p>
 <p style="text-align: left;"><span style="vertical-align: inherit; font-size: 12pt;">Ở Khoảng Trời Của Bé, chúng tôi không chỉ tìm kiếm những người làm việc, chúng tôi tìm kiếm những người truyền cảm hứng. Nếu bạn tự tin thử thách, dám làm và mong muốn đóng góp vào một môi trường tình nguyện, sáng tạo, hãy ứng tuyển ngay hôm nay, hãy trở thành thành viên team Kiến Trúc Sư Tình Nguyện tại Khoảng Trời Của Bé.</span></p>
-<p style="text-align: left;"><span style="font-size: 12pt;"><span style="vertical-align: inherit;">Chúng tôi đang chờ các bạn cùng nhau viết nên những câu chuyện thành công, đầy ý nghĩa và mang lại giá trị cho cộng đồng. Hãy bắt đầu quá trình làm việc, học hỏi của bạn cùng KTCB! </span></span></p>
+<p style="text-align: left;"><span style="font-size: 12pt;"><span style="vertical-align: inherit;">Chúng tôi đang chờ các bạn cùng nhau viết nên những câu chuyện thành công, đầy ý nghĩa và mang lại giá trị cho cộng đồng. Hãy bắt đầu quá trình làm việc, học hỏi của bạn cùng KTCB!</span></span></p>
 <h4><span style="font-size: 12pt;"><strong>ĐĂNG KÝ NGAY <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnW4kvTgjuLViGyr9rhDe6g8cCPtPoJiw4_ob_fuZjNhzo3g/viewform">TẠI ĐÂY</a>!</strong></span></h4>
 `;
