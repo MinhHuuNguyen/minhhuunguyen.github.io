@@ -1,5 +1,5 @@
 export default `
-<p><em><strong>Sau khoảng thời gian tuyển thành viên thì cuối tháng 3 vừa qua, Khoảng Trời Của Bé đã tổ chức buổi gặp mặt, giới thiệu và làm quen giữa thành viên cũ và các tình nguyện viên mới nhằm giúp các bạn mới tìm hiểu sâu hơn về tổ chức cũng như tạo dựng được các mối quan hệ khăng khít khác.</strong></em></p>
+<p><em>Sau khoảng thời gian tuyển thành viên thì cuối tháng 3 vừa qua, Khoảng Trời Của Bé đã tổ chức buổi gặp mặt, giới thiệu và làm quen giữa thành viên cũ và các tình nguyện viên mới nhằm giúp các bạn mới tìm hiểu sâu hơn về tổ chức cũng như tạo dựng được các mối quan hệ khăng khít khác.</em></p>
 <h3>Tổ chức Khoảng Trời Của Bé là tổ chức tình nguyện hướng về những điều tốt đẹp!</h3>
 <p>Tổ chức tình nguyện Khoảng Trời Của Bé được thành lập vào ngày 06/09/2016, hoạt động ở khu vực Hà Nội và các tỉnh ở phía Bắc. Với sứ mệnh: Mang lại cho các em nhỏ khó khăn các giá trị về cả vật chất lẫn tinh thần; Khai phá và phát triển các kỹ năng của các thành viên bằng môi trường tình nguyện chuyên nghiệp; Xây dựng thương hiệu từ thiện uy tín, minh bạch và ý nghĩa dành cho các nhà hảo tâm, Khoảng Trời Của Bé mong muốn xây dựng một tổ chức tình nguyện bền vững, sáng tạo, nhân đạo.</p>
 <p><img class="alignnone size-full wp-image-267" src="http://ktcb.top/wp-content/uploads/2024/01/3.jpg" alt="" width="2048" height="1536" /></p>

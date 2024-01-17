@@ -30,25 +30,23 @@ const innerHtmlStyle = {
   "& .image-wrapper": {
     background: "#ffffff",
     position: "relative",
-    overflow: "hidden",
+
+    marginTop: "20px",
+    marginBottom: "20px",
+    maxWidth: "700px",
+    width: "100%",
+    maxHeight: "675px",
+    height: "auto",
+    marginLeft: "auto",
+    marginRight: "auto",
 
     "& .logo": {
       position: "absolute",
       top: "10px",
       left: "10px",
       width: "50px",
-      height: "50px",
-      objectFit: "cover",
+      height: "50px"
     },
-  },
-
-  "& img": {
-    marginTop: "15px",
-    marginBottom: "15px",
-    maxWidth: "1200px",
-    width: "100%",
-    maxHeight: "675px",
-    height: "auto",
   },
 
   "& ul": {
@@ -93,7 +91,10 @@ const innerHtmlStyle = {
   },
   "& p": {
     marginTop: "15px"
-  }
+  },
+  "& em": {
+    fontStyle: "italic",
+  },
 };
 
 const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
@@ -160,8 +161,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                       </span>
                       <strong>{news?.author}</strong>
                     </div>
-                    <h2 className="news-title text-2xl">{news?.title}</h2>
-
+                    <h1 className="news-title text-4xl">{news?.title}</h1>
                     {content ? (
                       <Box
                         id="content"

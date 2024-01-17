@@ -1,5 +1,5 @@
 export default `
-<p><em><strong>Lại một mùa Tết nữa đang đến, chúng ta vẫn luôn phải quay cuồng với những tất bật về cuộc sống và nhiều mối bận tâm. Nhưng có khi nào bạn thấy rằng còn rất nhiều mảnh đời kém may mắn hơn chúng ta. Hãy cùng nhau chia sẻ một chút tấm lòng tới các em nhỏ trong dịp Tết đầy ý nghĩa này.</strong></em></p>
+<p><em>Lại một mùa Tết nữa đang đến, chúng ta vẫn luôn phải quay cuồng với những tất bật về cuộc sống và nhiều mối bận tâm. Nhưng có khi nào bạn thấy rằng còn rất nhiều mảnh đời kém may mắn hơn chúng ta. Hãy cùng nhau chia sẻ một chút tấm lòng tới các em nhỏ trong dịp Tết đầy ý nghĩa này.</em></p>
 <h3>Dự án thiện nguyện - Bán hàng gây quỹ </h3>
 <p>Để sớm mang đến cho các em nhỏ kém may mắn tại điểm trường Trung Tâm Hy Vọng một mùa Tết ấm áp và trọn vẹn cũng như thực hiện các hoạt động cho 2 dự án là Cùng Bé Trải Nghiệm và Yêu Cùng Bé có hiệu quả tốt hơn. Chúng mình - những thành viên của team Truyền Thông cùng sự đồng hành của De L'archi- Giấc mơ đồ chơi Việt thực hiện dự án bán hàng gây quỹ đang mở bán các món đồ chơi được thiết kế và sáng tạo hoàn toàn bằng gỗ.</p>
 <p><img class="size-full wp-image-317 aligncenter" src="http://ktcb.top/wp-content/uploads/2024/01/f00e47b7384a9314ca5b.jpg" alt="" width="940" height="788" /></p>
