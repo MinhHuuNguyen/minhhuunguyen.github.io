@@ -25,9 +25,10 @@ interface Props {
 
 const innerHtmlStyle = {
   textAlign: "justify",
+  fontSize: "20px",
 
   "& .image-wrapper": {
-    background: "#f5f5f5",
+    background: "#ffffff",
     position: "relative",
     overflow: "hidden",
 
@@ -42,6 +43,8 @@ const innerHtmlStyle = {
   },
 
   "& img": {
+    marginTop: "15px",
+    marginBottom: "15px",
     maxWidth: "1200px",
     width: "100%",
     maxHeight: "675px",
@@ -82,15 +85,15 @@ const innerHtmlStyle = {
     listStylePosition: "inside",
     marginLeft: "15px",
   },
-  "& h2, h3, h4": {
-    marginTop: "8px",
+  "& h2, h3, h4, blockquote": {
+    fontWeight: "bold",
+    fontSize: "1.3em",
+    marginTop: "20px",
+    marginBottom: "10px",
   },
-  "& p+p": {
-    marginTop: "16px",
-  },
-  "& span, p": {
-    lineHeight: 1.8,
-  },
+  "& p": {
+    marginTop: "15px"
+  }
 };
 
 const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {

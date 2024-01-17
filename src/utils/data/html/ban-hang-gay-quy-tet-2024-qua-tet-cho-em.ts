@@ -18,7 +18,6 @@ export default `
 	<li>Giá chỉ 150k mang lại không gian trang trí ấn tượng và ý nghĩa.</li>
 </ul>
 <p><img class="size-full wp-image-314 aligncenter" src="http://ktcb.top/wp-content/uploads/2024/01/29ac590526f88da6d4e9.jpg" alt="" width="940" height="788" /></p>
-<p>&nbsp;</p>
 <p>️ BỘ TÔ MÀU LÀM MÓC KHÓA - SÁNG TẠO VÔ TẬN️</p>
 <ul>
 	<li>Bộ tô màu độc đáo với 30 hình vẽ đáng yêu giúp trẻ phát triển tư duy và sáng tạo.</li>
