@@ -1,15 +1,15 @@
 [
     {
       "name": "Giới thiệu",
-      "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai",
+      "path": "/khoang-troi-cua-be",
       "subMenus": [
         {
           "name": "Tầm nhìn và sứ mệnh",
-          "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai/#su-menh-ra-doi-va-hoat-dong"
+          "path": "/khoang-troi-cua-be#su-menh-ra-doi-va-hoat-dong"
         },
         {
           "name": "Bộ máy tổ chức",
-          "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai/#so-do-bo-may-to-chuc",
+          "path": "/khoang-troi-cua-be#so-do-bo-may-to-chuc",
           "subMenu2": [
             { "name": "Team Cùng Bé Trải Nghiệm", "path": "/teams/cung-be-trai-nghiem" },
             { "name": "Team Yêu Cùng Bé", "path": "/teams/yeu-cung-be" },
@@ -21,7 +21,7 @@
         },
         {
           "name": "Thông tin liên hệ",
-          "path": "/news/khoang-troi-cua-be-buoc-len-phi-thuyen-bay-toi-tuong-lai/#thong-tin-lien-he"
+          "path": "/khoang-troi-cua-be#thong-tin-lien-he"
         }
       ]
     },
@@ -31,7 +31,7 @@
       "subMenus": [
         { "name": "Dự án Cùng Bé Trải Nghiệm", "path": "/teams/cung-be-trai-nghiem" },
         { "name": "Dự án Yêu Cùng Bé", "path": "/teams/yeu-cung-be"},
-        { "name": "Các chương trình khác", "path": "/list-news?team=chuong-trinh-khac" }
+        { "name": "Các chương trình khác", "path": "/list-news?team=noi-dung" }
       ]
     },
     {

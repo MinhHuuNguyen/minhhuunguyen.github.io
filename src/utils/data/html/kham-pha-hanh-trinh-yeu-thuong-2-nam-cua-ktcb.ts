@@ -1,5 +1,5 @@
 export default `
-<p><em><strong>Chào mừng quý độc giả đến với hành trình yêu thương của KHOẢNG TRỜI CỦA BÉ trong suốt 2 năm qua. Hãy cùng chúng tôi khám phá sâu hơn vào những chương mới, những khoảnh khắc đáng nhớ và những tình cảm ấm áp qua những chương trình kỉ niệm 2 năm hành trình yêu thương này.</strong></em></p>
+<p><em>Chào mừng quý độc giả đến với hành trình yêu thương của KHOẢNG TRỜI CỦA BÉ trong suốt 2 năm qua. Hãy cùng chúng tôi khám phá sâu hơn vào những chương mới, những khoảnh khắc đáng nhớ và những tình cảm ấm áp qua những chương trình kỉ niệm 2 năm hành trình yêu thương này.</em></p>
 <h3>Hành trình yêu thương - Chuỗi sinh nhật 2 tuổi KTCB bắt đầu </h3>
 <p>Ngày 30/8/2018, chuỗi hoạt động SINH NHẬT 2 TUỔI của Khoảng Trời Của Bé đã khởi đầu một cách trọn vẹn và ý nghĩa tại Bệnh Viện Nhi Trung Ương. Chương trình Bé Làm Nghệ Sĩ đã bắt đầu không khí sôi động bằng những đoạn phim hoạt hình Tom &amp; Jerry, mang đến cho các em nhỏ niềm vui và thích thú khó tả.</p>
 <p>Xuyên suất sự kiện không chỉ dừng lại ở việc giới thiệu đoạn phim, mà còn mở rộng ra những phút giây đầy sôi động khi các em nhỏ tham gia vào hoạt động ca hát. Các giọng hát trong trẻo, vui tươi của các em đã làm cho không gian trong phòng chơi nhỏ trở nên tràn ngập âm nhạc và năng lượng tích cực.</p>

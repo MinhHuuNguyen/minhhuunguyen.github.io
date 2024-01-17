@@ -1,5 +1,5 @@
 export default `
-<p><em><strong>Vào ngày 10/12 vừa qua, Khoảng trời của bé đã có một buổi bonding để gặp gỡ những người bạn mới - tình nguyện viên sẽ cùng đồng hành với tổ chức trong thời gian tới.</strong></em></p>
+<p><em>Vào ngày 10/12 vừa qua, Khoảng trời của bé đã có một buổi bonding để gặp gỡ những người bạn mới - tình nguyện viên sẽ cùng đồng hành với tổ chức trong thời gian tới.</em></p>
 <h3>Khoảng Trời Của Bé đã tuyển tình nguyện viên như thế nào?</h3>
 <p>Chúng mình đã nhận được gần 200 bạn tình nguyện viên đăng kí vào lần tuyển này, một con số khá ấn tượng phải không? Bước vào vòng phỏng vấn với tâm thế hào hứng, bạn nào cũng đã chuẩn bị cho mình thật nhiều “vũ khí” để thể hiện khả năng của bản thân. Các anh chị leader cũng đã rất đau đầu để có thể lựa chọn ra những ứng cử viên sáng giá, phù hợp với những vị trí trong Khoảng Trời Của Bé.</p>
 <p><img class="alignnone size-full wp-image-220" src="http://ktcb.top/wp-content/uploads/2023/12/1-scaled.jpg" alt="" width="2560" height="1920" /></p>

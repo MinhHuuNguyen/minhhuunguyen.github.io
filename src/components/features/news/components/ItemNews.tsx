@@ -31,7 +31,7 @@ export const ItemNews: React.FC<Props> = ({
         }),
       }}
     >
-      <Link href={`/news/${slug}`}>
+      <Link href={`/${slug}`}>
         <Typography
           sx={{
             fontSize: "15px",
@@ -55,7 +55,7 @@ export const ItemNews: React.FC<Props> = ({
           }}
         >
           <Link
-            href={`/news/${slug}`}
+            href={`/${slug}`}
             style={{
               ...imageRelative,
               background: "#f4f4f4",
@@ -94,7 +94,7 @@ export const ItemNews: React.FC<Props> = ({
             ...ellipsisText(5),
           }}
         >
-          <Link href={`/news/${slug}`}>{description}</Link>
+          <Link href={`/${slug}`}>{description}</Link>
         </Typography>
       </Box>
     </Stack>
