@@ -23,7 +23,7 @@ export const SmallNews: React.FC<Props> = ({
     <Grid container spacing={1}>
       <Grid item xs={4}>
         <Link
-          href={`/news/${slug}`}
+          href={`/${slug}`}
           style={{
             ...imageRelative,
 
@@ -54,7 +54,7 @@ export const SmallNews: React.FC<Props> = ({
       </Grid>
       <Grid item xs={8}>
         <Stack>
-          <Link href={`/news/${slug}`}>
+          <Link href={`/${slug}`}>
             <Typography
               sx={{
                 fontSize: "18px",
@@ -75,7 +75,7 @@ export const SmallNews: React.FC<Props> = ({
               ...ellipsisText(4),
             }}
           >
-            <Link href={`/news/${slug}`}>{description}</Link>
+            <Link href={`/${slug}`}>{description}</Link>
           </Typography>
         </Stack>
       </Grid>

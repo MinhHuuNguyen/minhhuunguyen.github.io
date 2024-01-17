@@ -48,7 +48,7 @@ export const CardNews: React.FC<Props> = ({
       /> */}
 
       <Link
-        href={`/news/${slug}`}
+        href={`/${slug}`}
         style={{
           overflow: "hidden",
           position: "relative",
@@ -100,7 +100,7 @@ export const CardNews: React.FC<Props> = ({
         />
 
         <Link
-          href={`/news/${slug}`}
+          href={`/${slug}`}
           style={{
             width: "fit-content",
           }}
@@ -128,7 +128,7 @@ export const CardNews: React.FC<Props> = ({
         </Link>
 
         <Link
-          href={`/news/${slug}`}
+          href={`/${slug}`}
           style={{
             width: "fit-content",
           }}

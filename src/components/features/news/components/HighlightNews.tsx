@@ -20,7 +20,7 @@ export const HighlightNews: React.FC<Props> = ({
   slug,
 }) => {
   return (
-    <Link href={`/news/${slug}`}>
+    <Link href={`/${slug}`}>
       <Grid
         className="relative"
         container

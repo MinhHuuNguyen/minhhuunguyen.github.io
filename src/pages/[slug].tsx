@@ -14,8 +14,8 @@ import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
-import logoImg from "../../../public/ktcb-logo-512.png";
-import Error404 from "../404";
+import logoImg from "../../public/ktcb-logo-512.png";
+import Error404 from "./404";
 
 interface Props {
   news: INews;

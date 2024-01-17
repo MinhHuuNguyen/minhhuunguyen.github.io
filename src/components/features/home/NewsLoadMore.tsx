@@ -257,7 +257,7 @@ export const NewsLoadMore = () => {
                 {newsSelected.time}
               </Typography>
 
-              <Link href={`/news/${newsSelected.slug}`}>
+              <Link href={`/${newsSelected.slug}`}>
                 <Typography
                   sx={{
                     cursor: "pointer",
