@@ -9,8 +9,9 @@ import { Hydrate, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CssBaseline } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const clientSideEmotionCache = createEmotionCache();
 export interface MyAppProps extends AppProps {
@@ -19,6 +20,12 @@ export interface MyAppProps extends AppProps {
 
 export default function App(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
+  const [hydated, seHydrated] = useState(false);
+
+  useEffect(() => {
+    seHydrated(true);
+  }, []);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -29,9 +36,11 @@ export default function App(props: MyAppProps) {
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            {hydated && (
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            )}
           </ThemeProvider>
         </Hydrate>
       </QueryClientProvider>
