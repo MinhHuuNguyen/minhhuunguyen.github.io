@@ -9,6 +9,7 @@ import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
 import MenuSection from "./Menu";
 import { useState } from "react";
 import VerticalMenu from "./Menu/SideMenu/SideMenuSection";
+import Image from "next/image";
 // import { COLORS } from "@/utils/constants";
 
 export type MenuType = typeof menuData;
@@ -48,14 +49,12 @@ const Header = () => {
           <MenuIcon sx={{ fontSize: 30 }} />
         </IconButton>
         <Link href="/" className="flex items-center">
-          <Box
-            component="img"
-            maxHeight={70}
-            width={70}
+          <Image
             src={logoNoBackground.src}
             alt="logoNoBackground"
-            loading="lazy"
-          ></Box>
+            width={70}
+            height={70}
+          />
         </Link>
         <Box display={["none", "none", "none", "block"]}>
           <Stack
