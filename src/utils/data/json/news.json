@@ -1,5 +1,16 @@
 [
   {
+    "time": "2022/03/01",
+    "title": "Gây quỹ Tháng Ba Yêu Thương",
+    "slug": "gay-quy-thang-ba-yeu-thuong",
+    "banner_url": "http://ktcb.top/wp-content/uploads/2024/03/1-1.png",
+    "description": "Mỗi năm, tháng 3 đưa đến không chỉ là sự khởi đầu của mùa xuân, mà còn là thời điểm của những nỗ lực tuyệt vời nhằm hỗ trợ cộng đồng và tạo ra những thay đổi tích cực trong xã hội. Trong không khí của sự tươi mới và hy vọng, Khoảng Trời Của Bé đã thực hiện chương trình gây quỹ 'Tháng Ba Yêu Thương' với mục đích gây quỹ để hỗ trợ bữa ăn cho các em nhỏ tại Trung tâm bảo trợ xã hội số III - cơ sở 3, toàn bộ lợi nhuận từ chương trình sẽ được sử dụng để hỗ trợ sữa cho các em nhỏ.",
+    "author": "Lê Nguyễn Ngọc Hân",
+    "tags": [],
+    "team": "truyen-thong",
+    "is_highlight": false
+  },
+  {
     "time": "2024/01/15",
     "title": "Bán hàng gây quỹ Tết 2024, quà Tết cho em",
     "slug": "ban-hang-gay-quy-tet-2024-qua-tet-cho-em",
@@ -8,7 +19,7 @@
     "author": "Đào Khánh Linh",
     "tags": [],
     "team": "truyen-thong",
-    "is_highlight": true
+    "is_highlight": false
   },
   {
     "time": "2024/01/16",
@@ -19,7 +30,7 @@
     "author": "Lê Thị Vân",
     "tags": [],
     "team": "truyen-thong",
-    "is_highlight": true
+    "is_highlight": false
   },
   {
     "time": "2018/09/06",
