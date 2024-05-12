@@ -205,7 +205,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
 export default News;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [], fallback: "blocking" };
+  return { paths: [], fallback: false }; // <=== enables static exports
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
