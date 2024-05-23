@@ -27,7 +27,12 @@
     },
     {
       "name": "Resume",
-      "path": "/resume"
+      "path": "/resume",
+      "subMenus": [
+        {
+          "name": "Download PDF"
+        }
+      ]
     },
     {
       "name": "Blog",
