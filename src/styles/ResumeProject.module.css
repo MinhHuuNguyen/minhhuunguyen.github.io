@@ -1,0 +1,35 @@
+/* styles/ResumeProject.module.css */
+
+.container {
+	background-color: white;
+	max-width: 1100px;
+	margin: 60px auto;
+	height: auto;
+	padding: 20px;
+	line-height: 2;
+  }
+  
+  .project h4{
+	font-size: 18px;
+	font-weight: bold;
+  }
+
+  .project ul li{
+	list-style:circle;
+	list-style-position: inside;
+	margin-left: 20px;
+  }
+  
+.container h1{
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.container h2{
+	font-size: 20px;
+	font-weight: 450;
+}
+
+.container p{
+	font-size: 16px;
+}

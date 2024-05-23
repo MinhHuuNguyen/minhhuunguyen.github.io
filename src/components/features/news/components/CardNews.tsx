@@ -76,6 +76,7 @@ export const CardNews: React.FC<Props> = ({
           }}
         />
       </Link>
+      
       <Stack
         sx={{
           padding: "12px 16px 4px",

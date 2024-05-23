@@ -4,6 +4,9 @@ import { NestedMenuItem } from "mui-nested-menu";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import GetAppIcon from '@mui/icons-material/GetApp';
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 type MenuSectionProps = {
   menuData: {
@@ -40,6 +43,22 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
     if (!anchorEl) return;
     setAnchorEl(null);
   };
+
+      const handleDownloadPDF = async () => {
+      const pdf = new jsPDF();
+      const element = document.getElementById('resume'); // The id of the Resume component's root element
+    
+      if (element) {
+        const canvas = await html2canvas(element);
+        const imgData = canvas.toDataURL('image/jpg');
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("resume.pdf");
+      }
+    };
 
   useEffect(() => {
     const handleMenuMouseEnter = () => {
@@ -112,6 +131,14 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
                       </Link>
                     ))}
                   </NestedMenuItem>
+                );
+              }
+
+              if (subMenu.name === 'Download PDF') {
+                return (
+                  <MenuItem onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>
+                    <GetAppIcon /> {subMenu.name}
+                  </MenuItem>
                 );
               }
 
