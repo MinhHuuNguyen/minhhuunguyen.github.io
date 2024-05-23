@@ -69,7 +69,7 @@ interface Resume {
 
 const Resume = () => {
   return (
-    <div>
+    <div id="resume">
       <div className={styles.container}>
         <div className={styles.header}>
           <section className={styles.jobTitle}>
@@ -106,10 +106,10 @@ const Resume = () => {
               const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
               const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30));
 
-              const yearString = diffYears > 1 ? 'years' : 'year';
-              const monthString = diffMonths > 1 ? 'months' : 'month';
+              const yearString = diffYears > 1 ? `${diffYears} years` : diffYears === 1 ? `${diffYears} year` : '';
+              const monthString = diffMonths > 1 ? `${diffMonths} months` : diffMonths === 1 ? `${diffMonths} month` : '';
 
-              const duration = `${diffYears} ${yearString}, ${diffMonths} ${monthString}`;
+              const duration = [yearString, monthString].filter(Boolean).join(', ');
 
               return (
                 <div key={index}>
@@ -118,7 +118,9 @@ const Resume = () => {
                   <p>{job.startDate} - {job.endDate} ({duration})</p>
                   <ul>
                     {job.details.map((detail, i) => (
-                      <li key={i}>{detail}</li>
+                      <li key={i}>
+                        <a href={`#project-${i + 1}`}>{detail}</a>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -156,24 +158,22 @@ const Resume = () => {
 
       <div className={style.container} >
         <h1>Project Detail</h1>
-        <h2>Data Scientist - AI Engineer</h2>
-        <p>PIXTA Vietnam Co. Ltd. (May 2019 - Present)</p>
-        {data.project.details.map((item, index) => (
-          <div key={index}>
-            <div className={style.project}>
-              <h4>{index + 1}. {item.projectName} ({item.projectYear})</h4>
-              <ul>
-                <li>
-                  Overall: {item.overall}
-                </li>
-                <li>
-                  Domain: {item.domain}
-                </li>
-                <li>
-                  Techstack: {item.techStack.join(", ")}
-                </li>
-              </ul>
-            </div>
+        {data.project.job.map((job, jobIndex) => (
+          <div key={jobIndex}>
+            <h2>{job.info.service}</h2>
+            <p>{job.info.company} ({job.info.startDate} - {job.info.endDate})</p>
+            {job.details.map((project, projectIndex) => (
+              <div key={projectIndex}>
+                <div className={style.project}>
+                  <h4 id={`project-${projectIndex + 1}`}>{projectIndex + 1}. {project.projectName} ({project.projectYear})</h4>
+                  <ul>
+                    <li>Overall: {project.overall}</li>
+                    <li>Domain: {project.domain}</li>
+                    <li>Techstack: {project.techStack.join(", ")}</li>
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         ))}
       </div>

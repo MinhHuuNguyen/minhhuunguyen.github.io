@@ -67,9 +67,6 @@ const Header = () => {
               <MenuSection key={`${index}menu`} menuData={menu} />
             ))}
 
-            <Button variant="contained" color="primary" component="a" href="/path/to/your/pdf" download>
-              Download PDF
-            </Button>
           </Stack>
 
         </Box>
