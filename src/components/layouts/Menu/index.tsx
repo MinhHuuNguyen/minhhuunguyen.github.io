@@ -44,21 +44,22 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
     setAnchorEl(null);
   };
 
-      const handleDownloadPDF = async () => {
-      const pdf = new jsPDF();
-      const element = document.getElementById('resume'); // The id of the Resume component's root element
-    
-      if (element) {
-        const canvas = await html2canvas(element);
-        const imgData = canvas.toDataURL('image/jpg');
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save("resume.pdf");
-      }
-    };
+  //download pdf
+  const handleDownloadPDF = async () => {
+    const pdf = new jsPDF();
+    const element = document.getElementById('resume'); // The id of the Resume component's root element
+
+    if (element) {
+      const canvas = await html2canvas(element);
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, undefined, 'NONE');
+      pdf.save("resume.pdf");
+    }
+  };
 
   useEffect(() => {
     const handleMenuMouseEnter = () => {
