@@ -139,7 +139,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
             <Box className="relative">
               <img
                 className={styles.banner}
-                src={news?.banner_url}
+                // src={news?.banner_url}
                 alt="banner"
               />
 
@@ -173,7 +173,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                     ) : null}
                   </div>
 
-                  <div className="flex flex-col align-center justify-start gap-4 lg:px-6 lg:w-1/4 pr-4 pl-4 w-full lg:mt-0 mt-4">
+                  {/* <div className="flex flex-col align-center justify-start gap-4 lg:px-6 lg:w-1/4 pr-4 pl-4 w-full lg:mt-0 mt-4">
                     <Stack>
                       <h3 className="news-title">Tin liên quan</h3>
                       {rightOtherNews?.map((news, index) => (
@@ -186,7 +186,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
                         />
                       ))}
                     </Stack>
-                  </div>
+                  </div> */}
                 </div>
               </section>
             </Container>
