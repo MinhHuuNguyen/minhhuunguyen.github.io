@@ -9,25 +9,16 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
 
-interface Props {
-  title: string;
-  banner_url: string;
-  slug: string;
-  description: string;
-}
 
-export const CardNews: React.FC<Props> = ({
-  title,
-  banner_url,
-  slug,
-  description,
-}) => {
+
+export const CardNews= ({ post }: { post: any }) => {
+  console.log(post);
   const [loadedFile, setLoadedFile] = useState(false);
-  const [imgUrl, setImgUrl] = useState(banner_url);
+  // const [imgUrl, setImgUrl] = useState(banner_url);
 
-  useEffect(() => {
-    setImgUrl(banner_url);
-  }, [banner_url]);
+  // useEffect(() => {
+  //   setImgUrl(banner_url);
+  // }, [banner_url]);
 
   return (
     <Stack
@@ -41,14 +32,8 @@ export const CardNews: React.FC<Props> = ({
         ...hoverReadMore,
       }}
     >
-      {/* <img
-        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
-        src={logoImg.src}
-        alt="banner"
-      /> */}
-
       <Link
-        href={`/${slug}`}
+        href={`blog/${post.slug}`}
         style={{
           overflow: "hidden",
           position: "relative",
@@ -59,7 +44,7 @@ export const CardNews: React.FC<Props> = ({
 
         <Image
           alt="nft"
-          src={imgUrl}
+          src="https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh32.jpg"
           width={300}
           height={120}
           sizes="100vw"
@@ -87,7 +72,6 @@ export const CardNews: React.FC<Props> = ({
           left: 0,
           right: 0,
           minHeight: "40%",
-
           justifyContent: "space-evenly",
         }}
       >
@@ -101,7 +85,7 @@ export const CardNews: React.FC<Props> = ({
         />
 
         <Link
-          href={`/${slug}`}
+          href={`blog/${post.slug}`}
           style={{
             width: "fit-content",
           }}
@@ -124,12 +108,12 @@ export const CardNews: React.FC<Props> = ({
               ...ellipsisText(1),
             }}
           >
-            {title}
+            {post.data.title}
           </Typography>
         </Link>
 
         <Link
-          href={`/${slug}`}
+          href={`blog/${post.slug}`}
           style={{
             width: "fit-content",
           }}
@@ -142,7 +126,7 @@ export const CardNews: React.FC<Props> = ({
               ...ellipsisText(2),
             }}
           >
-            {description}
+           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero repellat ratione ipsam tempore harum ipsum deleniti deserunt asperiores inventore. Quaerat unde labore nulla cupiditate commodi at soluta officiis nihil velit.
           </Typography>
 
           <ReadMore className="read-more">Đọc tiếp</ReadMore>
