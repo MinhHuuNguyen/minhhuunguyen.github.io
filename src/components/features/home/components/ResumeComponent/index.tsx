@@ -46,13 +46,13 @@ export const ResumeComponent: React.FC<ResumeProps> = ({
           ABOUT ME
         </Typography>
 
-        <Stack direction="row" justifyContent="space-between" spacing={20}>
-          <Box flexBasis="33%" p={2}>
-            <img src={data.header.imgArea.imgSrc} alt="Profile" style={{ width: '350px', height: '350px', borderRadius: '50%', border: '2px solid white' }} />
+        <Stack direction="row" justifyContent="space-between" spacing={10}>
+          <Box flexBasis="30%" p={2}>
+            <img src={data.personal.imgSrc} alt="Profile" style={{ width: '350px', height: '350px', borderRadius: '50%', border: '2px solid white' }} />
           </Box>
 
-          <Box flexBasis="33%" p={2}>
-            {data.main.left.Experience.slice(0, 5).map((job: { title: string; company: string; startDate: string; endDate: string; }, index: number) => {
+          <Box flexBasis="40%" p={2}  display="flex" flexWrap="wrap">
+            {data.experience.slice(0, 5).map((job: { title: string; company: string; startDate: string; endDate: string; }, index: number) => {
               const startDate = new Date(job.startDate);
               let endDate = new Date(); // Default to current date
 
@@ -70,7 +70,7 @@ export const ResumeComponent: React.FC<ResumeProps> = ({
               const duration = [yearString, monthString].filter(Boolean).join(', ');
 
               return (
-                <Box key={index} style={{ margin: '10px 0', padding: '10px' }}>
+                <Box key={index} flexBasis="50%" style={{ margin: '10px 0', padding: '10px' }}>
                   <Typography variant="h6" style={{ fontWeight: 'bold',color: 'white' }}>{job.title}</Typography>
                   <Typography style={{ fontStyle: 'italic', color: 'white' }}>{job.company}</Typography>
                   <Typography style={{ fontStyle: 'italic',color: 'white' }}>{job.startDate} - {job.endDate} ({duration})</Typography>
@@ -79,8 +79,8 @@ export const ResumeComponent: React.FC<ResumeProps> = ({
             })}
           </Box>
 
-          <Box flexBasis="33%" p={2}>
-            {data.main.right.Education.map((education: { degree: string; field: string; school: string; duration: string; }, index: number) => (
+          <Box flexBasis="30%" p={2}>
+            {data.education.map((education: { degree: string; field: string; school: string; duration: string; }, index: number) => (
               <Box key={index} style={{ margin: '10px 0', padding: '10px' }}>
                 <Typography variant="h6" style={{ fontWeight: 'bold',color: 'white' }}>{education.degree}</Typography>
                 <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.field}</Typography>
