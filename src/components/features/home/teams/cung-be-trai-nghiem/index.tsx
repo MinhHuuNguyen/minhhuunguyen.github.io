@@ -2,7 +2,7 @@ import cbtnTeamMissionData from "../../../../../utils/data/json/teams/mission/cu
 import cbtnTeamCoverImageData from "../../../../../utils/data/json/teams/banner/cung-be-trai-nghiem.json";
 import { CoverImageSlide } from "../../components/CoverImageSlide";
 import ListNewsHome from "../../components/ListNews";
-import { MissionComponent } from "../../components/ResumeComponent";
+import { MissionComponent } from "../../components/MissionComponent";
 
 export const CbtnTeamContent = () => {
   return (

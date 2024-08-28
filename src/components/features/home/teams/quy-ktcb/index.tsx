@@ -2,7 +2,7 @@ import quyktcbTeamMissionData from "../../../../../utils/data/json/teams/mission
 import quyktcbTeamCoverImageData from "../../../../../utils/data/json/teams/banner/quy-ktcb.json";
 import { CoverImageSlide } from "../../components/CoverImageSlide";
 import ListNewsHome from "../../components/ListNews";
-import { MissionComponent } from "../../components/ResumeComponent";
+import { MissionComponent } from "../../components/MissionComponent";
 
 export const QuyktcbTeamContent = () => {
   return (

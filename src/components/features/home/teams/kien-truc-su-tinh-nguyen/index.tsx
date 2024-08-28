@@ -2,7 +2,7 @@ import ktstnTeamMissionData from "../../../../../utils/data/json/teams/mission/k
 import ktstnTeamCoverImageData from "../../../../../utils/data/json/teams/banner/kien-truc-su-tinh-nguyen.json";
 import { CoverImageSlide } from "../../components/CoverImageSlide";
 import ListNewsHome from "../../components/ListNews";
-import { MissionComponent } from "../../components/ResumeComponent";
+import { MissionComponent } from "../../components/MissionComponent";
 
 export const KtstnTeamContent = () => {
   return (
