@@ -125,7 +125,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
                   >
                     {subMenu.subMenu2.map((item) => (
                       <Link key={item.name} href={item.path}>
-                        <MenuItem data-value={"sub-menu-item"}>
+                        <MenuItem key={item.name} data-value={"sub-menu-item"}>
                           {item.name}
                         </MenuItem>
                       </Link>
@@ -136,7 +136,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
 
               if (subMenu.name === 'Download PDF') {
                 return (
-                  <MenuItem onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>
+                  <MenuItem key={subMenu.name} onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>
                     <GetAppIcon /> {subMenu.name}
                   </MenuItem>
                 );
@@ -144,7 +144,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
 
               return (
                 <Link key={subMenu.name} href={subMenu.path ?? ""}>
-                  <MenuItem onClick={handleClose} sx={{ marginLeft: -0.5 }}>
+                  <MenuItem key={subMenu.name} onClick={handleClose} sx={{ marginLeft: -0.5 }}>
                     {subMenu.name}
                   </MenuItem>
                 </Link>

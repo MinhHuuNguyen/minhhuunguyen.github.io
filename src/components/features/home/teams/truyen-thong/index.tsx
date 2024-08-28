@@ -2,7 +2,7 @@ import ttTeamMissionData from "../../../../../utils/data/json/teams/mission/truy
 import ttTeamCoverImageData from "../../../../../utils/data/json/teams/banner/truyen-thong.json";
 import { CoverImageSlide } from "../../components/CoverImageSlide";
 import ListNewsHome from "../../components/ListNews";
-import { MissionComponent } from "../../components/ResumeComponent";
+import { MissionComponent } from "../../components/MissionComponent";
 
 export const TtTeamContent = () => {
   return (
