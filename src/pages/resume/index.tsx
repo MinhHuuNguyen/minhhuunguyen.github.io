@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Resume.module.css'; // adjust the path according to your project structure
-import data from '../../utils/data/json/resume.json';
+import data from '../../utils/data/resume.json';
 import { useEffect, useState } from 'react';
 import style from '../../styles/ResumeProject.module.css';
 

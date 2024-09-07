@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Box, IconButton, Button, Paper, Stack, Typography } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
-import menuData from "../../utils/data/json/header.json";
+import menuData from "../../utils/data/header.json";
 import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
 
 import MenuSection from "./Menu";

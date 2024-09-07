@@ -1,19 +1,19 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
 import ktcbBackground from "../../../../../../public/background-dep-4k.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
-import data from '../../../../../utils/data/json/resume.json';
+import data from '../../../../../utils/data/resume.json';
 import { useRouter } from 'next/router';
 
-type ResumeProps = {
-  missionCartData: {
-    title: string;
-    imageUrl: string;
-    description: string;
-  }[];
-};
+// type ResumeProps = {
+//   missionCartData: {
+//     title: string;
+//     imageUrl: string;
+//     description: string;
+//   }[];
+// };
 
 
-export const ResumeComponent: React.FC<ResumeProps> = ({
+export const ResumeComponent = ({
 }) => {
   const router = useRouter();
   return (

@@ -1,7 +1,7 @@
 import { INews } from "@/@types/news";
 import { QQuoteData, TeamName } from "@/@types/team";
-import quoteData from "./data/json/quote.json";
-import newsData from "./data/json/news.json";
+import quoteData from "./data/quote.json";
+import newsData from "./data/news.json";
 
 export const getNewsBySlug = (slug: string) => {
   const data = newsData as unknown as INews[];
