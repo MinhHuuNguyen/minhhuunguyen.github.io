@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { QQuote } from "@/@types/team";
 import {
   HomeContent,
   Intro,
   NewsLoadMore,
-  Opportunity,
 } from "@/components/features/home";
 import { SEO } from "@/configs/seo.config";
 import { getQuoteByTeam } from "@/utils/common";
@@ -13,24 +11,12 @@ import { Stack, Typography } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
-interface Props {
-  quote: QQuote;
-}
 
-const Home: NextPage<Props> = ({ quote }) => {
+const Home = () => {
   return (
     <>
       <DefaultSeo {...SEO} />
       <HomeContent />
-
-      {quote ? (
-        <Intro
-          title={quote.title}
-          content={quote.content}
-          banner_url={quote?.banner_url}
-        />
-      ) : null}
-      <Opportunity />
 
       <Stack py={2} alignItems="center">
         <Typography
