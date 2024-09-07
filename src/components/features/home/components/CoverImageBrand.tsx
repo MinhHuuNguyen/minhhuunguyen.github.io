@@ -3,8 +3,6 @@ import { Box, Stack, Typography } from "@mui/material";
 import "react-alice-carousel/lib/alice-carousel.css";
 import React from "react";
 
-import brandImages from "../../../../utils/data/json/teams/bannerListNew/banner-list-new.json";
-
 const overlayStyle = {
   backgroundColor: "black",
   position: "absolute",
@@ -19,7 +17,6 @@ type CoverImageBrandType = {
 };
 
 export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
-  const imageUrl = brandImages[team as keyof typeof brandImages];
 
   return (
     <Box

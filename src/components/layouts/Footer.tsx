@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
-import footerData from "../../utils/data/json/footer.json";
+import footerData from "../../utils/data/footer.json";
 import { COLORS } from "@/utils/constants";
 
 const TikTokIcon = ({ color = "#000000" }) => {
