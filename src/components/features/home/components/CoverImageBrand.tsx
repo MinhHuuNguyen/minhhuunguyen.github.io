@@ -18,16 +18,6 @@ type CoverImageBrandType = {
   team?: string;
 };
 
-const textConvertTeam = {
-  "cung-be-trai-nghiem": "dự án cùng bé trải nghiệm",
-  "yeu-cung-be": "dự án yêu cùng bé",
-  "kien-truc-su-tinh-nguyen": "team kiến trúc sư tình nguyện",
-  "truyen-thong": "team truyền thông",
-  "noi-dung": "team nội dung",
-  "quy-ktcb": "quỹ ktcb",
-  "chuong-trinh-khac": "của các chương trình khác",
-};
-
 export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
   const imageUrl = brandImages[team as keyof typeof brandImages];
 
@@ -42,7 +32,7 @@ export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
         component="img"
         width="100%"
         height="100%"
-        src={imageUrl}
+        src="https://thuthuatnhanh.com/wp-content/uploads/2023/06/hinh-nen-4k-cho-may-tinh.jpg"
       />
       <Stack
         width="100%"
@@ -52,11 +42,7 @@ export const CoverImageBrand: React.FC<CoverImageBrandType> = ({ team }) => {
         sx={{ ...overlayStyle, opacity: 0.7}}
       >
         <Typography sx={{ color: "#e4e6eb", fontSize: "50px", fontWeight: "700" }}>
-          CÁC BÀI VIẾT VỀ {" "}
-          {!!team &&
-            textConvertTeam[
-              team as keyof typeof textConvertTeam
-            ]?.toUpperCase()}
+          DANH SÁCH BÀI VIẾT {" "}
         </Typography>
       </Stack>
     </Box>

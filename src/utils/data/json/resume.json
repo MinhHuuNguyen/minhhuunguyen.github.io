@@ -1,12 +1,8 @@
 {
-  "header": {
-    "jobTitle": {
-      "name": "NGUYEN HUU MINH",
-      "titles": ["Data Scientist", "AI Engineer", "Lecturer"]
-    },
-    "imgArea": {
-      "imgSrc": "pic1.jpg"
-    },
+  "personal": {
+    "name": "NGUYEN HUU MINH",
+    "work": ["Data Scientist", "AI Engineer", "Lecturer"],
+    "imgSrc": "pic1.jpg",
     "social": {
       "linkedin": "linkedin.com/in/minhhuunguyen",
       "email": "minhhuunguyen1511@gmail.com",
@@ -15,74 +11,72 @@
     }
   },
 
-  "main": {
-    "left": {
-      "Experience": [
-        {
-          "title": "Data Scientist - AI Engineer",
-          "company": "PIXTA Vietnam Co. Ltd.",
-          "startDate": "May 2019",
-          "endDate": "Present",
-          "details": [
-            "Large language model finetuning",
-            "Multi-model image auto review",
-            "Text-to-Image generation",
-            "Image aesthetics assessment",
-            "Computer vision SaaS product",
-            "Face recognition and classification",
-            "Face detection in high resolution images",
-            "Image synthesis and translation by GANs",
-            "Video and tags extractive summarization"
-          ]
-        },
-        {
-          "title": "Lecturer",
-          "company": "MCI Vietnam Consultant Joint Stock Company",
-          "startDate": "Nov 2021",
-          "endDate": "Present",
-          "details": [
-            "Python for data science",
-            "Machine learning",
-            "Deep learning"
-          ]
-        },
-        {
-          "title": "Founder & Chairman",
-          "company": "Khoang troi cua be",
-          "startDate": "Sep 2016",
-          "endDate": "Present",
-          "details": [
-            "Training soft-skills for students in Hanoi",
-            "Organizing volunteer projects to support children"
-          ]
-        }
+  "experience": [
+    {
+      "title": "Data Scientist - AI Engineer",
+      "company": "PIXTA Vietnam Co. Ltd.",
+      "startDate": "May 2019",
+      "endDate": "Present",
+      "details": [
+        "Large language model finetuning",
+        "Multi-model image auto review",
+        "Text-to-Image generation",
+        "Image aesthetics assessment",
+        "Computer vision SaaS product",
+        "Face recognition and classification",
+        "Face detection in high resolution images",
+        "Image synthesis and translation by GANs",
+        "Video and tags extractive summarization"
       ]
     },
-    "right": {
-      "Education": [
-        {
-          "degree": "Master of Science",
-          "field": "Mathematics and informatics",
-          "school": "Hanoi University of Science and Technology",
-          "duration": "Oct 2020 - Aug 2022"
-        },
-        {
-          "degree": "Engineer's degree",
-          "field": "Mathematics and informatics",
-          "school": "Hanoi University of Science and Technology",
-          "duration": "Aug 2015 - June 2020"
-        }
-      ],
-      "Language": "English - TOEIC 755",
-      "Award": [
-        "Self-learner at PIXTA Vietnam Co. Ltd., in 2019",
-        "First Prize at Student Scientific Research Contest, in 2020",
-        "Innovator at PIXTA Vietnam Co. Ltd., in 2021",
-        "Project of the Quarter at PIXTA Vietnam Co. Ltd., in 2022"
-      ],
-      "Skill": ["Research / Coding", "Presentation / Training", "Leadership"]
+
+    {
+      "title": "Lecturer",
+      "company": "MCI Vietnam Consultant Joint Stock Company",
+      "startDate": "Nov 2021",
+      "endDate": "Present",
+      "details": [
+        "Python for data science",
+        "Machine learning",
+        "Deep learning"
+      ]
+    },
+
+    {
+      "title": "Founder & Chairman",
+      "company": "Khoang troi cua be",
+      "startDate": "Sep 2016",
+      "endDate": "Present",
+      "details": [
+        "Training soft-skills for students in Hanoi",
+        "Organizing volunteer projects to support children"
+      ]
     }
-  },
+  ],
+
+  "education": [
+    {
+      "degree": "Master of Science",
+      "field": "Mathematics and informatics",
+      "school": "Hanoi University of Science and Technology",
+      "duration": "Oct 2020 - Aug 2022"
+    },
+    {
+      "degree": "Engineer's degree",
+      "field": "Mathematics and informatics",
+      "school": "Hanoi University of Science and Technology",
+      "duration": "Aug 2015 - June 2020"
+    }
+  ],
+  "language": "English - TOEIC 755",
+  "award": [
+    "Self-learner at PIXTA Vietnam Co. Ltd., in 2019",
+    "First Prize at Student Scientific Research Contest, in 2020",
+    "Innovator at PIXTA Vietnam Co. Ltd., in 2021",
+    "Project of the Quarter at PIXTA Vietnam Co. Ltd., in 2022"
+  ],
+  "skill": ["Research / Coding", "Presentation / Training", "Leadership"],
+
 
   "project": {
     "job": [
