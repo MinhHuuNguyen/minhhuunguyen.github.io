@@ -73,28 +73,28 @@ const Resume = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <section className={styles.jobTitle}>
-            <h2>{data.header.jobTitle.name}</h2>
-            {data.header.jobTitle.titles.map((title, index) => (
+            <h2>{data.personal.name}</h2>
+            {data.personal.work.map((title, index) => (
               <h3 key={index}>{title}</h3>
             ))}
           </section>
 
           <section className={styles.imgArea}>
-            <img src={data.header.imgArea.imgSrc} alt="" />
+            <img src={data.personal.imgSrc} alt="" />
           </section>
 
           <section className={styles.social}>
-            <p>{data.header.social.linkedin}<i className="fa-brands fa-linkedin-in"></i></p>
-            <p>{data.header.social.email}<i className="fa fa-envelope" aria-hidden="true"></i></p>
-            <p>{data.header.social.phone}<i className="fa fa-phone"></i></p>
-            <p>{data.header.social.location}<i className="fa fa-map-marker" aria-hidden="true"></i></p>
+            <p>{data.personal.social.linkedin}<i className="fa-brands fa-linkedin-in"></i></p>
+            <p>{data.personal.social.email}<i className="fa fa-envelope" aria-hidden="true"></i></p>
+            <p>{data.personal.social.phone}<i className="fa fa-phone"></i></p>
+            <p>{data.personal.social.location}<i className="fa fa-map-marker" aria-hidden="true"></i></p>
           </section>
         </div>
 
         <div className={styles.main}>
           <div className={styles.left}>
             <h2>Experience</h2>
-            {data.main.left.Experience.map((job, index) => {
+            {data.experience.map((job, index) => {
               const startDate = new Date(job.startDate);
               let endDate = new Date(); // Default to current date
 
@@ -129,7 +129,7 @@ const Resume = () => {
           </div>
           <div className={styles.right}>
             <h2>Education</h2>
-            {data.main.right.Education.map((education, index) => (
+            {data.education.map((education, index) => (
               <div key={index}>
                 <h3>{education.degree}</h3>
                 <p>{education.field}</p>
@@ -138,16 +138,16 @@ const Resume = () => {
               </div>
             ))}
             <h3>Language</h3>
-            <p>{data.main.right.Language}</p>
+            <p>{data.language}</p>
             <h2>Award</h2>
             <ul>
-              {data.main.right.Award.map((award, index) => (
+              {data.award.map((award, index) => (
                 <li key={index}>{award}</li>
               ))}
             </ul>
             <h2>Skill</h2>
             <ul className={styles.skill}>
-              {data.main.right.Skill.map((skill, index) => (
+              {data.skill.map((skill, index) => (
                 <li key={index}>{skill}</li>
               ))}
             </ul>
