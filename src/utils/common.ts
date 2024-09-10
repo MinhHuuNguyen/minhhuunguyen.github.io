@@ -1,137 +1,135 @@
 import { INews } from "@/@types/news";
-import { QQuoteData, TeamName } from "@/@types/team";
-import quoteData from "./data/quote.json";
-import newsData from "./data/news.json";
 
-export const getNewsBySlug = (slug: string) => {
-  const data = newsData as unknown as INews[];
 
-  const news = data?.find((item) => item.slug == slug) || null;
-  return news;
-};
+// export const getNewsBySlug = (slug: string) => {
+//   const data = newsData as unknown as INews[];
 
-export const getNewsByTags = (title: string, tags: string[]) => {
-  const data = newsData as unknown as INews[];
+//   const news = data?.find((item) => item.slug == slug) || null;
+//   return news;
+// };
 
-  const res = data
-    .filter((news) => {
-      return (
-        tags.some((tag) => news.tags.includes(tag)) && news.title !== title
-      );
-    })
-    .sort((a, b) => {
-      return new Date(b.time).getTime() - new Date(a.time).getTime();
-    });
+// export const getNewsByTags = (title: string, tags: string[]) => {
+//   const data = newsData as unknown as INews[];
 
-  return res;
-};
+//   const res = data
+//     .filter((news) => {
+//       return (
+//         tags.some((tag) => news.tags.includes(tag)) && news.title !== title
+//       );
+//     })
+//     .sort((a, b) => {
+//       return new Date(b.time).getTime() - new Date(a.time).getTime();
+//     });
 
-export const getNewsWithoutTags = (title: string, tags: string[]) => {
-  const data = newsData as unknown as INews[];
+//   return res;
+// };
 
-  const res = data.filter((news) => {
-    return (
-      tags.every((tag) => !news.tags.includes(tag)) && news.title !== title
-    );
-  });
+// export const getNewsWithoutTags = (title: string, tags: string[]) => {
+//   const data = newsData as unknown as INews[];
 
-  return res;
-};
+//   const res = data.filter((news) => {
+//     return (
+//       tags.every((tag) => !news.tags.includes(tag)) && news.title !== title
+//     );
+//   });
 
-export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
-  const data = newsData as unknown as INews[];
-  const filteredItems = newsData.filter((news) => {
-    return !news.tags.find((tag) => tagsAlready?.includes(tag));
-  }) as unknown as INews[];
-  return filteredItems;
-};
+//   return res;
+// };
 
-export const getHighlightNews = (team?: string) => {
-  if (team) {
-    return sortNews(team)?.[0];
-  }
-  return sortNews()?.[0];
-};
+// export const getOtherNewWithoutTags = (tagsAlready: string[]) => {
+//   const data = newsData as unknown as INews[];
+//   const filteredItems = newsData.filter((news:any) => {
+//     return !news.tags.find((tag:any) => tagsAlready?.includes(tag));
+//   }) as unknown as INews[];
+//   return filteredItems;
+// };
 
-export const getMediumNews = (team?: string) => {
-  return sortNews(team)?.slice(1, 7);
-};
+// export const getHighlightNews = (team?: string) => {
+//   if (team) {
+//     return sortNews(team)?.[0];
+//   }
+//   return sortNews()?.[0];
+// };
 
-export const sortNews = (team?: string) => {
-  const data = newsData as unknown as INews[];
+// export const getMediumNews = (team?: string) => {
+//   return sortNews(team)?.slice(1, 7);
+// };
 
-  const highlightedPosts = data.filter((post) => {
-    if (team && post?.team) {
-      return post.is_highlight && post?.team.includes(team);
-    }
-    return post.is_highlight;
-  });
-  const nonHighlightedPosts = data.filter((post) => {
-    if (team && post?.team) {
-      return !post.is_highlight && post?.team.includes(team);
-    }
-    return !post.is_highlight;
-  });
+// export const sortNews = (team?: string) => {
+//   const data = newsData as unknown as INews[];
 
-  highlightedPosts.sort(
-    (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
-  );
-  nonHighlightedPosts.sort(
-    (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
-  );
+//   const highlightedPosts = data.filter((post) => {
+//     if (team && post?.team) {
+//       return post.is_highlight && post?.team.includes(team);
+//     }
+//     return post.is_highlight;
+//   });
+//   const nonHighlightedPosts = data.filter((post) => {
+//     if (team && post?.team) {
+//       return !post.is_highlight && post?.team.includes(team);
+//     }
+//     return !post.is_highlight;
+//   });
 
-  const sortedData = [...highlightedPosts, ...nonHighlightedPosts];
+//   highlightedPosts.sort(
+//     (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+//   );
+//   nonHighlightedPosts.sort(
+//     (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+//   );
 
-  return sortedData;
-};
+//   const sortedData = [...highlightedPosts, ...nonHighlightedPosts];
 
-export const loadMoreSmallNews = async (
-  _cursor?: number,
-  _pageSize?: number
-) => {
-  const cursor = _cursor || 7;
-  const pageSize = _pageSize || 6;
+//   return sortedData;
+// };
 
-  const smallNews = sortNews();
+// export const loadMoreSmallNews = async (
+//   _cursor?: number,
+//   _pageSize?: number
+// ) => {
+//   const cursor = _cursor || 7;
+//   const pageSize = _pageSize || 6;
 
-  const res = smallNews?.slice(cursor, cursor + pageSize);
+//   const smallNews = sortNews();
 
-  await new Promise((resolve) => setTimeout(resolve, 500));
+//   const res = smallNews?.slice(cursor, cursor + pageSize);
 
-  return {
-    data: res,
-    pageKey:
-      smallNews?.length > cursor + pageSize ? cursor + pageSize : undefined,
-  };
-};
+//   await new Promise((resolve) => setTimeout(resolve, 500));
 
-export const loadMoreNews = async (_cursor?: number, _pageSize?: number) => {
-  const cursor = _cursor || 0;
-  const pageSize = _pageSize || 24;
+//   return {
+//     data: res,
+//     pageKey:
+//       smallNews?.length > cursor + pageSize ? cursor + pageSize : undefined,
+//   };
+// };
 
-  const data = newsData as unknown as INews[];
+// export const loadMoreNews = async (_cursor?: number, _pageSize?: number) => {
+//   const cursor = _cursor || 0;
+//   const pageSize = _pageSize || 24;
 
-  const dataSort = data.sort((a, b) => {
-    return new Date(b.time).getTime() - new Date(a.time).getTime();
-  });
+//   const data = newsData as unknown as INews[];
 
-  const res = dataSort.slice(cursor, cursor + pageSize);
+//   const dataSort = data.sort((a, b) => {
+//     return new Date(b.time).getTime() - new Date(a.time).getTime();
+//   });
 
-  await new Promise((resolve) => setTimeout(resolve, 500));
+//   const res = dataSort.slice(cursor, cursor + pageSize);
 
-  return {
-    data: res,
-    pageKey: data?.length > cursor + pageSize ? cursor + pageSize : undefined,
-  };
-};
+//   await new Promise((resolve) => setTimeout(resolve, 500));
 
-export const getQuoteByTeam = (team?: TeamName) => {
-  const data = quoteData as unknown as QQuoteData;
+//   return {
+//     data: res,
+//     pageKey: data?.length > cursor + pageSize ? cursor + pageSize : undefined,
+//   };
+// };
 
-  const res = data[team || "home"];
+// export const getQuoteByTeam = (team?: TeamName) => {
+//   const data = quoteData as unknown as QQuoteData;
 
-  return res;
-};
+//   const res = data[team || "home"];
+
+//   return res;
+// };
 
 export const ellipsisText = (lineClamp = 1) => {
   return {

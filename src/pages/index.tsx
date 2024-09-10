@@ -3,10 +3,10 @@
 import {
   HomeContent,
   Intro,
-  NewsLoadMore,
+  // NewsLoadMore,
 } from "@/components/features/home";
 import { SEO } from "@/configs/seo.config";
-import { getQuoteByTeam } from "@/utils/common";
+// import { getQuoteByTeam } from "@/utils/common";
 import { Stack, Typography } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
@@ -17,7 +17,7 @@ const Home = () => {
     <>
       <DefaultSeo {...SEO} />
       <HomeContent />
-
+{/* 
       <Stack py={2} alignItems="center">
         <Typography
           variant="h3"
@@ -33,38 +33,38 @@ const Home = () => {
         >
           KHO ẢNH KỶ NIỆM
         </Typography>
-      </Stack>
-      <NewsLoadMore />
+      </Stack> */}
+      {/* <NewsLoadMore /> */}
     </>
   );
 };
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const quote = getQuoteByTeam();
+// export const getStaticProps: GetStaticProps = async () => {
+//   try {
+//     const quote = getQuoteByTeam();
 
-    if (!quote?.title || !quote?.content || !quote?.banner_url) {
-      return {
-        props: {
-          quote: null,
-        },
-      };
-    }
+//     if (!quote?.title || !quote?.content || !quote?.banner_url) {
+//       return {
+//         props: {
+//           quote: null,
+//         },
+//       };
+//     }
 
-    return {
-      props: {
-        quote,
-      },
-    };
-  } catch (err) {
-    console.log("err", err);
+//     return {
+//       props: {
+//         quote,
+//       },
+//     };
+//   } catch (err) {
+//     console.log("err", err);
 
-    return {
-      props: {
-        quote: {},
-      },
-    };
-  }
-};
+//     return {
+//       props: {
+//         quote: {},
+//       },
+//     };
+//   }
+// };

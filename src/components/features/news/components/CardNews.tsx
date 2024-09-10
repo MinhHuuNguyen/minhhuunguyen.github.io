@@ -9,8 +9,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
 
-
-
 export const CardNews= ({ post }: { post: any }) => {
   console.log(post);
   const [loadedFile, setLoadedFile] = useState(false);
