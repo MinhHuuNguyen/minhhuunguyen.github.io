@@ -1,15 +1,14 @@
 import fs from "fs";
 import matter from "gray-matter";
-import md from "markdown-it";
+import MarkdownIt from "markdown-it";
 import path from "path";
 import { Box, Container, Stack } from "@mui/material";
-import { SlideNews } from "@/components/features/news/components/SlideNews";
-import {
-  getNewsBySlug,
-  getNewsByTags,
-  getOtherNewWithoutTags,
-} from "@/utils/common";
 import { format } from "date-fns";
+
+const md = new MarkdownIt({
+  html: true, 
+});
+
 const innerHtmlStyle = {
   textAlign: "justify",
   fontSize: "20px",
@@ -85,11 +84,6 @@ const innerHtmlStyle = {
 };
 
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
-
-  console.log(frontmatter);
-  console.log(content);
-  const slideNewsData = getOtherNewWithoutTags(frontmatter.tags);
-
   return (
     <div className="w-100">
       <Container maxWidth="xl">
@@ -109,7 +103,7 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
                  id="content"
                  sx={innerHtmlStyle}
                  dangerouslySetInnerHTML={{
-                   __html: md().render(content),
+                   __html: md.render(content),
                  }}
                />
               ) : null}

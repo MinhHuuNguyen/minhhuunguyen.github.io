@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { INews } from "@/@types/news";
 import { ItemNews } from "@/components/features/news/components/ItemNews";
-import { SlideNews } from "@/components/features/news/components/SlideNews";
+// import { SlideNews } from "@/components/features/news/components/SlideNews";
 import { SEO } from "@/configs/seo.config";
 import styles from "@/styles/News.module.css";
-import {
-  getNewsBySlug,
-  getNewsByTags,
-  getOtherNewWithoutTags,
-} from "@/utils/common";
+// import {
+//   getNewsBySlug,
+//   getNewsByTags,
+//   getOtherNewWithoutTags,
+// } from "@/utils/common";
 import { Box, Container, Stack } from "@mui/material";
 import { format } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -98,7 +98,7 @@ const innerHtmlStyle = {
 };
 
 const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
-  const slideNewsData = getOtherNewWithoutTags(news?.tags);
+  // const slideNewsData = getOtherNewWithoutTags(news?.tags);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -192,7 +192,7 @@ const News: NextPage<Props> = ({ news, rightOtherNews, content }) => {
             </Container>
           </Stack>
           <Stack alignItems="center" px={7}>
-            <SlideNews slideNewsData={slideNewsData} />
+            {/* <SlideNews slideNewsData={slideNewsData} /> */}
           </Stack>
         </>
       ) : (
@@ -212,12 +212,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     let rightOtherNews = null;
 
-    const news = getNewsBySlug(params?.slug as string);
-
-    if (news) {
-      rightOtherNews = getNewsByTags(news?.title, news?.tags);
-    }
-
     const content = await import(`@/utils/data/html/${params?.slug}`)
       .then((response) => JSON.stringify(response?.default))
       .catch((err) => {
@@ -226,8 +220,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
       props: {
-        news,
-        rightOtherNews: rightOtherNews?.slice(0, 6),
         content: content,
       },
     };
