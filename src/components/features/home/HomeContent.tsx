@@ -1,6 +1,6 @@
 import homeBanner from "../../../utils/data/home_banner.json";
 import { CoverImageSlide } from "./components/CoverImageSlide";
-import ListNewsHome from "./components/ListNews";
+// import ListNewsHome from "./components/ListNews";
 import { ResumeComponent } from "./components/ResumeComponent";
 
 
@@ -9,7 +9,7 @@ export const HomeContent = () => {
     <>
       <CoverImageSlide coverImageData={homeBanner} />
       <ResumeComponent />
-      <ListNewsHome team="" />
+      {/* <ListNewsHome team="" /> */}
     </>
   );
 };
