@@ -42,7 +42,7 @@ export const CardNews= ({ post }: { post: any }) => {
 
         <Image
           alt="nft"
-          src="https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh32.jpg"
+          src={post.banner_url}
           width={300}
           height={120}
           sizes="100vw"
@@ -106,7 +106,7 @@ export const CardNews= ({ post }: { post: any }) => {
               ...ellipsisText(1),
             }}
           >
-            {post.data.title}
+            {post.title}
           </Typography>
         </Link>
 
@@ -124,7 +124,7 @@ export const CardNews= ({ post }: { post: any }) => {
               ...ellipsisText(2),
             }}
           >
-           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero repellat ratione ipsam tempore harum ipsum deleniti deserunt asperiores inventore. Quaerat unde labore nulla cupiditate commodi at soluta officiis nihil velit.
+           {post.description}
           </Typography>
 
           <ReadMore className="read-more">Đọc tiếp</ReadMore>

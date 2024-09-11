@@ -1,9 +1,7 @@
-import fs from "fs";
-import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
-import path from "path";
 import { Box, Container, Stack } from "@mui/material";
 import { format } from "date-fns";
+import { getPostsList } from "@/utils/posts";
 
 const md = new MarkdownIt({
   html: true, 
@@ -92,8 +90,8 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
             <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-3/4 pr-4 pl-4 w-full">
               <div className="flex justify-between items-center w-full">
                 <span className="news-posted">
-                  {frontmatter.date &&
-                    format(new Date(frontmatter.date), "dd/MM/yyyy")}
+                  {frontmatter.time &&
+                    format(new Date(frontmatter.time), "dd/MM/yyyy")}
                 </span>
                 <strong>{frontmatter.author}</strong>
               </div>
@@ -116,45 +114,41 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
 }
 
 export async function getStaticPaths() {
-  // Get all the directories from the root directory
-  const root = 'ai-lectures'; // replace with your root directory
-  const dirs = fs.readdirSync(root).filter((file) => fs.statSync(path.join(root, file)).isDirectory());
 
-  // Loop over each directory to get all the paths
-  const paths = dirs.flatMap((dir) => {
-    // Get all the files from the current directory
-    const files = fs.readdirSync(path.join(root, dir));
+  const posts = await getPostsList();
 
-    // Map each file to a path
-    return files.map((file) => ({
-      params: {
-        id: file.replace(".md", ""),
-      },
-    }));
-  });
+  const paths = posts.map((post) => ({
+    params: { id: post.slug }, 
+  }));
 
-  console.log("paths", paths)
   return {
     paths,
-    fallback: false
-  }
+    fallback: false, 
+  };
 }
 
 export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  // Get all the directories from the root directory
-  const root = 'ai-lectures'; // replace with your root directory
-  const dirs = fs.readdirSync(root).filter((file) => fs.statSync(path.join(root, file)).isDirectory());
+  const posts = await getPostsList();
 
-  // Find the directory that contains the file
-  const dir = dirs.find((dir) => fs.existsSync(path.join(root, dir, `${id}.md`)));
+  const post = posts.find((post) => post.slug === id);
 
-  // Read the file from the directory if dir is not undefined
-  const fileName = dir ? fs.readFileSync(path.join(root, dir, `${id}.md`), "utf-8") : '';
-  const { data: frontmatter, content } = matter(fileName);
+  if (!post) {
+    return {
+      notFound: true, 
+    };
+  }
+
   return {
     props: {
-      frontmatter,
-      content,
+      frontmatter: {
+        time: post.time,
+        title: post.title,
+        description: post.description,
+        author: post.author,
+        banner_url: post.banner_url,
+        tags: post.tags,
+      },
+      content: post.mdContent, 
     },
   };
 }
