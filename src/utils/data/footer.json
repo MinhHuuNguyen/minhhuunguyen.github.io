@@ -3,34 +3,31 @@
   "content1": "Khương Thượng, Đống Đa, Hà Nội",
   "title2": "Liên hệ",
   "content2": {
-    "mail": "khoangtroicuabe.kby@gmail.com",
+    "mail": "minhhuunguyen1511@gmail.com",
     "phone": "(+84) 346.535.857"
   },
   "logoLink": "/",
-  "facebookLink": "https://www.facebook.com/khoangtroicuabektcb",
-  "youtubeLink": "https://www.youtube.com/channel/UC1whOBKBQJWXzpHLknb1fhw",
-  "tiktokLink": "https://www.tiktok.com/@khoangtroicuabe",
+  "facebookLink": "https://www.facebook.com/minhhuunguyen1511/",
+  "linkedinLink": "https://www.linkedin.com/in/minhhuunguyen/",
+  "youtubeLink": "",
+  "tiktokLink": "",
   "copyright": "© Copyright 2023. All Rights Reserved.",
   "optionFooter": [
     {
-      "text": "Giới thiệu",
-      "link": "/khoang-troi-cua-be"
+      "text": "Home",
+      "link": "/"
     },
     {
-      "text": "Chương trình",
-      "link": "/list-news"
+      "text": "Resume",
+      "link": "/resume"
     },
     {
-      "text": "Tài chính",
-      "link": "/list-news?team=quy-ktcb"
+      "text": "Blog",
+      "link": "/blog"
     },
     {
-      "text": "Bài viết",
-      "link": "/list-news"
-    },
-    {
-      "text": "Tham gia",
-      "link": "/contact"
+      "text": "Github Stats",
+      "link": "/minhhuunguyen"
     }
   ]
 }
