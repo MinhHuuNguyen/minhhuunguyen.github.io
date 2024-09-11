@@ -1,9 +1,9 @@
 import { DefaultSeoProps } from "next-seo";
 
 const SEO: DefaultSeoProps = {
-  title: "Khoảng Trời Của Bé",
-  description: "Khoảng Trời Của Bé",
-  titleTemplate: "%s | Khoảng Trời Của Bé",
+  title: "MinhHuuNguyen",
+  description: "MinhHuuNguyen",
+  titleTemplate: "%s | MinhHuuNguyen",
   openGraph: {
     type: "website",
     locale: "en",
