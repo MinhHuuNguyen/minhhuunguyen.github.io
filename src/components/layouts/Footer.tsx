@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
+import logoSquare from "../../../public/ktcb_logo_no_background.png";
 import footerData from "../../utils/data/footer.json";
 import { COLORS } from "@/utils/constants";
 
@@ -68,7 +68,7 @@ const Footer = () => {
             <Box
               component="img"
               height={50}
-              src={logoNoBackground.src}
+              src={logoSquare.src}
               alt="Logo"
             ></Box>
           </Link>

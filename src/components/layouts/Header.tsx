@@ -4,7 +4,7 @@ import { Box, IconButton, Button, Paper, Stack, Typography } from "@mui/material
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import menuData from "../../utils/data/header.json";
-import logoNoBackground from "../../../public/ktcb_logo_no_background.png";
+import logoRectangle from "../../../public/minhhuunguyen-logo-square.jpg";
 
 import MenuSection from "./Menu";
 import { useState } from "react";
@@ -50,8 +50,8 @@ const Header = () => {
         </IconButton>
         <Link href="/" className="flex items-center">
           <Image
-            src={logoNoBackground.src}
-            alt="logoNoBackground"
+            src={logoRectangle.src}
+            alt="logoRectangle"
             width={70}
             height={70}
           />
