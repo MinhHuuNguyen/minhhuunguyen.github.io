@@ -134,7 +134,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
                 );
               }
 
-              if (subMenu.name === 'Download') {
+              if (subMenu.name === 'Download PDF') {
                 return (
                   <MenuItem key={subMenu.name} onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>{subMenu.name}</MenuItem>
                 );
