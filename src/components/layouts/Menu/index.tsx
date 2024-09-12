@@ -4,6 +4,7 @@ import { NestedMenuItem } from "mui-nested-menu";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import GetAppIcon from '@mui/icons-material/GetApp';
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
@@ -136,7 +137,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
 
               if (subMenu.name === 'Download PDF') {
                 return (
-                  <MenuItem key={subMenu.name} onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>{subMenu.name}</MenuItem>
+                  <MenuItem key={subMenu.name} onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>
+                    <GetAppIcon /> {subMenu.name}
+                  </MenuItem>
                 );
               }
 
