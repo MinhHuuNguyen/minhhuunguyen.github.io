@@ -1,4 +1,5 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import {
   Box,
@@ -9,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import logoSquare from "../../../public/ktcb_logo_no_background.png";
+import logoSquare from "../../../public/minhhuunguyen-logo-square.jpg";
 import footerData from "../../utils/data/footer.json";
 import { COLORS } from "@/utils/constants";
 
@@ -28,8 +29,8 @@ const TikTokIcon = ({ color = "#000000" }) => {
 };
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  width: "40px",
-  height: "40px",
+  width: "60px",
+  height: "60px",
   borderRadius: "100%",
   backgroundColor: theme.palette.common.white,
 }));
@@ -64,15 +65,22 @@ const Footer = () => {
         </Stack>
 
         <Stack mt={[4, 0, 0]} spacing={2} alignItems="center">
+          <Stack direction="row" spacing={2}>
           <Link href="/">
+          <StyledIconButton>
             <Box
               component="img"
-              height={50}
+              height={40}
               src={logoSquare.src}
               alt="Logo"
             ></Box>
+          </StyledIconButton>
           </Link>
-          <Stack direction="row" spacing={2}>
+          <Link href={footerData.linkedinLink} target="_blank">
+              <StyledIconButton>
+                <LinkedInIcon sx={{ fontSize: 30, color: "blue" }} />
+              </StyledIconButton>
+            </Link>
             <Link href={footerData.facebookLink} target="_blank">
               <StyledIconButton>
                 <FacebookIcon sx={{ fontSize: 30, color: "blue" }} />
