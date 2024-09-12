@@ -6,5 +6,5 @@ export interface PostList {
   banner_url: string;
   tags: string[];
   slug: string;
-  mdContent: string;
+  filePath: string;
   }

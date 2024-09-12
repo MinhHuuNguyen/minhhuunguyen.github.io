@@ -20,7 +20,7 @@ export function getPostsList(): PostList[] {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const parsedContent = matter(fileContents);
         const { data } = parsedContent;
-        const slug = filePath.replace('.md', ''); // Lấy slug từ tên tệp
+        const slug = data.slug; // Lấy slug từ markdown
 
         postList.push({
           time: data.time || null,
@@ -29,8 +29,8 @@ export function getPostsList(): PostList[] {
           author: data.author || null,
           banner_url: data.banner_url || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKfYwYSdOzb_g_JJKD17oGpFZhjGl8aFTHMw&s",
           tags: data.tags || null,
-          mdContent: parsedContent.content,
           slug,
+          filePath: fullPath,
         });
       }
     }
