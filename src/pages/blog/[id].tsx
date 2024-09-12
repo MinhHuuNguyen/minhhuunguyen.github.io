@@ -2,6 +2,10 @@ import MarkdownIt from "markdown-it";
 import { Box, Container, Stack } from "@mui/material";
 import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
+import { PostList } from "@/@types/post";
+import matter from "gray-matter";
+import path from "path";
+import fs from "fs";
 
 const md = new MarkdownIt({
   html: true, 
@@ -112,17 +116,10 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
     </div>
   );
 }
-
 export async function getStaticPaths() {
-
   const posts = await getPostsList();
-
-  const paths = posts.map((post) => ({
-    params: { id: post.slug }, 
-  }));
-
   return {
-    paths,
+    paths: posts.map((post: PostList) => ({ params: { id: post.slug } })),
     fallback: false, 
   };
 }
@@ -131,14 +128,16 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
   const posts = await getPostsList();
 
   const post = posts.find((post) => post.slug === id);
-
   if (!post) {
     return {
       notFound: true, 
     };
   }
 
-  return {
+  const fileContents = fs.readFileSync(post.filePath, 'utf8');
+  const parsedContent = matter(fileContents);
+
+  return { 
     props: {
       frontmatter: {
         time: post.time,
@@ -148,7 +147,7 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
         banner_url: post.banner_url,
         tags: post.tags,
       },
-      content: post.mdContent, 
+      content: parsedContent.content, 
     },
   };
 }
