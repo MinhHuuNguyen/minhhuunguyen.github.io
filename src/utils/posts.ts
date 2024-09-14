@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { PostList } from '@/@types/post';
 
-const BLOG_FOLDER = path.join(process.cwd(), 'ai-lectures');
+const BLOG_FOLDER = path.join(process.cwd(), 'posts');
 
 export function getPostsList(): PostList[] {
   const postList: PostList[] = [];
