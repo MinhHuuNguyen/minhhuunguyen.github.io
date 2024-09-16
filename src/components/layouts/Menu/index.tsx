@@ -44,21 +44,36 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
     setAnchorEl(null);
   };
 
-  //download pdf
   const handleDownloadPDF = async () => {
-    const pdf = new jsPDF();
-    const element = document.getElementById('resume'); // The id of the Resume component's root element
-
-    if (element) {
-      const canvas = await html2canvas(element);
+    const pdf = new jsPDF('p', 'mm', 'a4');
+  
+    // Add Resume Section
+    const resumeElement = document.getElementById('resume');
+    if (resumeElement) {
+      const canvas = await html2canvas(resumeElement);
       const imgData = canvas.toDataURL('image/png');
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, undefined, 'NONE');
-      pdf.save("resume.pdf");
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.addPage(); // Add a new page for the next section
     }
+  
+    // Add Project Details Section
+    const projectDetailsElement = document.getElementById('project-details');
+    if (projectDetailsElement) {
+      const canvas = await html2canvas(projectDetailsElement);
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    }
+  
+    // Save the PDF
+    pdf.save("resume.pdf");
   };
 
   useEffect(() => {
