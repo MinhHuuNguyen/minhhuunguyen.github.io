@@ -6,11 +6,13 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import { getPostsList } from '@/utils/posts';
 import { PostList } from '@/@types/post';
 import { GetStaticProps } from 'next';
+import { SmallNews } from "@/components/features/news/components/SmallNews";
 
 export interface BlogListPageProps {
-	posts: PostList[]
+  highlightPosts: PostList[];
+  nonHighlightPosts: PostList[];
 }
-export default function BlogListPage({ posts }: BlogListPageProps) {
+export default function BlogListPage({ highlightPosts, nonHighlightPosts }: BlogListPageProps) {
   return (
     <>
       <DefaultSeo {...SEO} title={"Danh sách bài viết"} />
@@ -26,9 +28,17 @@ export default function BlogListPage({ posts }: BlogListPageProps) {
           >
 
             <Grid container spacing={2}>
-              {posts.map((post: any, index: any) => (
+              {highlightPosts.map((post: any, index: any) => (
                 <Grid item xs={12} md={6} lg={4} key={index}>
                   <CardNews key={index} post={post} />
+                </Grid>
+              ))}
+            </Grid>
+
+            <Grid container spacing={2}>
+              {nonHighlightPosts.map((post: any, index: any) => (
+                <Grid item xs={12} md={6} lg={4} key={index}>
+                  <SmallNews key={index} post={post} />
                 </Grid>
               ))}
             </Grid>
@@ -41,12 +51,12 @@ export default function BlogListPage({ posts }: BlogListPageProps) {
 }
 
 export const getStaticProps: GetStaticProps<BlogListPageProps> = async () => {
-	// convert markdown files into list of javascript objects
-	const postList = await getPostsList()
+  const { highlightPosts, nonHighlightPosts } = getPostsList();
 
-	return {
-		props: {
-			posts: postList,
-		},
-	}
+  return {
+    props: {
+      highlightPosts: highlightPosts,
+      nonHighlightPosts: nonHighlightPosts,
+    },
+  };
 }

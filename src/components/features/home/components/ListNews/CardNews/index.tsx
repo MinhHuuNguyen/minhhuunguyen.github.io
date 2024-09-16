@@ -9,7 +9,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const CardNews =  ({ post }: { post: any }) => {
- console.log(post)
  const [loadedFile, setLoadedFile] = useState(false);
   return (
     <Stack
@@ -104,7 +103,7 @@ export const CardNews =  ({ post }: { post: any }) => {
               ...ellipsisText(1),
             }}
           >
-            {post.data.title}
+            {post.title}
           </Typography>
         </Link>
 
@@ -122,7 +121,7 @@ export const CardNews =  ({ post }: { post: any }) => {
               ...ellipsisText(2),
             }}
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio id eos sapiente. Cum, quas ut fuga ratione pariatur ipsum deleniti iusto saepe dolorum a? Perferendis tenetur aperiam id repellendus voluptates.
+            {post.description}
           </Typography>
 
           <ReadMore className="read-more">Đọc tiếp</ReadMore>

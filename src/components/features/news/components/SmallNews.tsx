@@ -6,24 +6,12 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import logoImg from "../../../../../public/ktcb-logo-512.png";
 
-interface Props {
-  title: string;
-  banner_url: string;
-  description: string;
-  slug: string;
-}
-
-export const SmallNews: React.FC<Props> = ({
-  title,
-  banner_url,
-  description,
-  slug,
-}) => {
+export const SmallNews= ({ post }: { post: any }) => {
   return (
     <Grid container spacing={1}>
       <Grid item xs={4}>
         <Link
-          href={`/${slug}`}
+           href={`blog/${post.slug}`}
           style={{
             ...imageRelative,
 
@@ -32,16 +20,11 @@ export const SmallNews: React.FC<Props> = ({
             borderRadius: "10px",
           }}
         >
-          <img
-            className="absolute top-1 left-1 w-10 h-10 object-cover z-10"
-            src={logoImg.src}
-            alt="banner"
-          />
 
           <Box
             component="img"
             alt="banner_url"
-            src={banner_url}
+            src={post.banner_url}
             sizes="100vw"
             sx={{
               ...imageAbsolute,
@@ -54,7 +37,7 @@ export const SmallNews: React.FC<Props> = ({
       </Grid>
       <Grid item xs={8}>
         <Stack>
-          <Link href={`/${slug}`}>
+          <Link href={`blog/${post.slug}`}>
             <Typography
               sx={{
                 fontSize: "18px",
@@ -63,7 +46,7 @@ export const SmallNews: React.FC<Props> = ({
                 ...ellipsisText(),
               }}
             >
-              {title}
+              {post.title}
             </Typography>
           </Link>
 
@@ -75,7 +58,7 @@ export const SmallNews: React.FC<Props> = ({
               ...ellipsisText(4),
             }}
           >
-            <Link href={`/${slug}`}>{description}</Link>
+            <Link href={`blog/${post.slug}`}>{post.description}</Link>
           </Typography>
         </Stack>
       </Grid>
