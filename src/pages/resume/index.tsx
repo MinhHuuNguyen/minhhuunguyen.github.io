@@ -1,76 +1,12 @@
 import React from 'react';
-import styles from '../../styles/Resume.module.css'; // adjust the path according to your project structure
+import styles from '../../styles/Resume.module.css';
 import data from '../../utils/data/resume.json';
-import { useEffect, useState } from 'react';
 import style from '../../styles/ResumeProject.module.css';
-
-
-interface JobTitle {
-  name: string;
-  titles: string[];
-}
-
-interface ImgArea {
-  imgSrc: string;
-}
-
-interface Social {
-  linkedin: string;
-  email: string;
-  phone: string;
-  location: string;
-}
-
-interface Header {
-  jobTitle: JobTitle;
-  imgArea: ImgArea;
-  social: Social;
-}
-
-interface Detail {
-  title: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  duration: string;
-  details: string[];
-}
-
-interface Education {
-  degree: string;
-  field: string;
-  school: string;
-  duration: string;
-}
-
-interface ResumeProjectProps {
-  projectName: string;
-  projectYear: number;
-  overall: string;
-  domain: string;
-  techStack: string[];
-}
-
-interface Resume {
-  header: Header;
-
-  main: {
-    left: {
-      Experience: Detail[];
-    };
-    right: {
-      Education: Education[];
-      Language: string;
-      Award: string[];
-      Skill: string[];
-    };
-  };
-}
 
 const Resume = () => {
   return (
-    <div id="resume">
-      <div className={styles.container}>
+    <div>
+      <div className={styles.container} id="resume">
         <div className={styles.header}>
           <section className={styles.jobTitle}>
             <h2>{data.personal.name}</h2>
@@ -153,10 +89,9 @@ const Resume = () => {
             </ul>
           </div>
         </div>
-
       </div>
 
-      <div className={style.container} >
+      <div className={style.container} id='project-details'>
         <h1>Project Detail</h1>
         {data.project.job.map((job, jobIndex) => (
           <div key={jobIndex}>

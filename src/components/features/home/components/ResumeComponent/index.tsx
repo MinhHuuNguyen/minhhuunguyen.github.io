@@ -4,15 +4,6 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import data from '../../../../../utils/data/resume.json';
 import { useRouter } from 'next/router';
 
-// type ResumeProps = {
-//   missionCartData: {
-//     title: string;
-//     imageUrl: string;
-//     description: string;
-//   }[];
-// };
-
-
 export const ResumeComponent = ({
 }) => {
   const router = useRouter();
