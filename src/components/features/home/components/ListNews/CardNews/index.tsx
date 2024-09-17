@@ -22,12 +22,6 @@ export const CardNews =  ({ post }: { post: any }) => {
         ...hoverReadMore,
       }}
     >
-      {/* <img
-        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
-        src={logoImg.src}
-        alt="banner"
-      /> */}
-
       <Link
         href={`blog/${post.slug}`}
         style={{
@@ -40,7 +34,7 @@ export const CardNews =  ({ post }: { post: any }) => {
 
         <Image
           alt="img"
-          src="https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh32.jpg"
+          src={post.banner_url}
           width={300}
           height={120}
           sizes="100vw"
