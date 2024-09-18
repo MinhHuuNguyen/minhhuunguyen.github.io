@@ -9,7 +9,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const CardNews =  ({ post }: { post: any }) => {
- console.log(post)
  const [loadedFile, setLoadedFile] = useState(false);
   return (
     <Stack
@@ -23,12 +22,6 @@ export const CardNews =  ({ post }: { post: any }) => {
         ...hoverReadMore,
       }}
     >
-      {/* <img
-        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
-        src={logoImg.src}
-        alt="banner"
-      /> */}
-
       <Link
         href={`blog/${post.slug}`}
         style={{
@@ -41,7 +34,7 @@ export const CardNews =  ({ post }: { post: any }) => {
 
         <Image
           alt="img"
-          src="https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh32.jpg"
+          src={post.banner_url}
           width={300}
           height={120}
           sizes="100vw"
@@ -104,7 +97,7 @@ export const CardNews =  ({ post }: { post: any }) => {
               ...ellipsisText(1),
             }}
           >
-            {post.data.title}
+            {post.title}
           </Typography>
         </Link>
 
@@ -122,7 +115,7 @@ export const CardNews =  ({ post }: { post: any }) => {
               ...ellipsisText(2),
             }}
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio id eos sapiente. Cum, quas ut fuga ratione pariatur ipsum deleniti iusto saepe dolorum a? Perferendis tenetur aperiam id repellendus voluptates.
+            {post.description}
           </Typography>
 
           <ReadMore className="read-more">Đọc tiếp</ReadMore>

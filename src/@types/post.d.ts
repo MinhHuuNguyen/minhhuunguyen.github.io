@@ -1,3 +1,5 @@
+import { is } from "date-fns/locale";
+
 export interface PostList {
   time: string;
   title: string;
@@ -7,4 +9,5 @@ export interface PostList {
   tags: string[];
   slug: string;
   filePath: string;
+  isHighlight?: boolean;
   }
