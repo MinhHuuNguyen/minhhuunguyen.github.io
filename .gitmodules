@@ -1,3 +1,6 @@
 [submodule "ai-lectures"]
 	path = posts/ai-lectures
 	url = git@github.com:MinhHuuNguyen/ai-lectures.git
+[submodule "posts/data-engineer-lectures"]
+	path = posts/data-engineer-lectures
+	url = git@github.com:MinhHuuNguyen/data-engineer-lectures.git
