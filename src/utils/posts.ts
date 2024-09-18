@@ -5,7 +5,7 @@ import { PostList } from '@/@types/post';
 
 const BLOG_FOLDER = path.join(process.cwd(), 'posts');
 
-export function getPostsList(): PostList[] {
+export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts: PostList[] } {
   const postList: PostList[] = [];
 
   const readFilesRecursively = (currentPath: string) => {
@@ -31,11 +31,17 @@ export function getPostsList(): PostList[] {
           tags: data.tags || null,
           slug,
           filePath: fullPath,
+          isHighlight: data.is_highlight || false, 
         });
       }
     }
   };
 
   readFilesRecursively(BLOG_FOLDER);
-  return postList;
+
+  // Phân loại bài viết nổi bật và bài viết khác
+  const highlightPosts = postList.filter(post => post.isHighlight).slice(0, 6);
+  const nonHighlightPosts = postList.filter(post => !post.isHighlight);
+
+  return { highlightPosts, nonHighlightPosts };
 }
