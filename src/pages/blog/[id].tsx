@@ -1,5 +1,5 @@
 import MarkdownIt from "markdown-it";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
 import { PostList } from "@/@types/post";
@@ -8,17 +8,15 @@ import path from "path";
 import fs from "fs";
 
 const md = new MarkdownIt({
-  html: true, 
+  html: true,
 });
 
 const innerHtmlStyle = {
   textAlign: "justify",
   fontSize: "20px",
-
   "& .image-wrapper": {
     background: "#ffffff",
     position: "relative",
-
     marginTop: "20px",
     marginBottom: "20px",
     maxWidth: "700px",
@@ -27,20 +25,17 @@ const innerHtmlStyle = {
     height: "auto",
     marginLeft: "auto",
     marginRight: "auto",
-
     "& .logo": {
       position: "absolute",
       top: "10px",
       left: "10px",
       width: "50px",
-      height: "50px"
+      height: "50px",
     },
   },
-
   "& ul": {
     listStyleType: "disc",
     listStylePosition: "inside",
-
     display: "block",
     marginBlockStart: "0.5em",
     marginBlockEnd: "0.5em",
@@ -53,7 +48,6 @@ const innerHtmlStyle = {
   "& ol": {
     listStyleType: "decimal",
     listStylePosition: "inside",
-
     display: "block",
     marginBlockStart: "1em",
     marginBlockEnd: "1em",
@@ -78,7 +72,7 @@ const innerHtmlStyle = {
     marginBottom: "10px",
   },
   "& p": {
-    marginTop: "15px"
+    marginTop: "15px",
   },
   "& em": {
     fontStyle: "italic",
@@ -101,13 +95,13 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
               </div>
               <h1 className="news-title text-4xl">{frontmatter.title}</h1>
               {content ? (
-                 <Box
-                 id="content"
-                 sx={innerHtmlStyle}
-                 dangerouslySetInnerHTML={{
-                   __html: md.render(content),
-                 }}
-               />
+                <Box
+                  id="content"
+                  sx={innerHtmlStyle}
+                  dangerouslySetInnerHTML={{
+                    __html: md.render(content),
+                  }}
+                />
               ) : null}
             </div>
           </div>
@@ -116,28 +110,32 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
     </div>
   );
 }
+
 export async function getStaticPaths() {
-  const posts = await getPostsList();
+  const { highlightPosts, nonHighlightPosts } = getPostsList();
+
+  const allPosts = [...highlightPosts, ...nonHighlightPosts];
+
   return {
-    paths: posts.map((post: PostList) => ({ params: { id: post.slug } })),
+    paths: allPosts.map((post: PostList) => ({ params: { id: post.slug } })),
     fallback: false, 
   };
 }
 
 export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  const posts = await getPostsList();
+  const { highlightPosts, nonHighlightPosts } = getPostsList();
 
-  const post = posts.find((post) => post.slug === id);
+  const post = [...highlightPosts, ...nonHighlightPosts].find((post) => post.slug === id);
   if (!post) {
     return {
-      notFound: true, 
+      notFound: true,
     };
   }
 
   const fileContents = fs.readFileSync(post.filePath, 'utf8');
   const parsedContent = matter(fileContents);
 
-  return { 
+  return {
     props: {
       frontmatter: {
         time: post.time,
@@ -147,7 +145,7 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
         banner_url: post.banner_url,
         tags: post.tags,
       },
-      content: parsedContent.content, 
+      content: parsedContent.content,
     },
   };
 }

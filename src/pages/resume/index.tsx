@@ -10,13 +10,13 @@ const Resume = () => {
         <div className={styles.header}>
           <section className={styles.jobTitle}>
             <h2>{data.personal.name}</h2>
-            {data.personal.work.map((title, index) => (
+            {data.personal.title.map((title, index) => (
               <h3 key={index}>{title}</h3>
             ))}
           </section>
 
           <section className={styles.imgArea}>
-            <img src={data.personal.imgSrc} alt="" />
+            <img src={data.personal.avatar} alt="" />
           </section>
 
           <section className={styles.social}>
@@ -53,9 +53,9 @@ const Resume = () => {
                   <p>{job.company}</p>
                   <p>{job.startDate} - {job.endDate} ({duration})</p>
                   <ul>
-                    {job.details.map((detail, i) => (
+                    {job.projects.map((detail, i) => (
                       <li key={i}>
-                        <a href={`#project-${i + 1}`}>{detail}</a>
+                        <a href={`#project-${detail.projectName}`}>{detail.projectName}</a>
                       </li>
                     ))}
                   </ul>
@@ -68,13 +68,24 @@ const Resume = () => {
             {data.education.map((education, index) => (
               <div key={index}>
                 <h3>{education.degree}</h3>
-                <p>{education.field}</p>
+                <p>{education.major}</p>
                 <p>{education.school}</p>
                 <p>{education.duration}</p>
               </div>
             ))}
             <h3>Language</h3>
             <p>{data.language}</p>
+            <h2>Other experience</h2>
+            <ul>
+              {data.other_experience.map((other, index) => (
+                <div key={index}>
+                  <h3>{other.title}</h3>
+                  <p>{other.company}</p>
+                  <p>{other.startDate} - {other.endDate}</p>
+                  <p>{other.details}</p>
+                </div>
+              ))}
+            </ul>
             <h2>Award</h2>
             <ul>
               {data.award.map((award, index) => (
@@ -91,26 +102,31 @@ const Resume = () => {
         </div>
       </div>
 
-      <div className={style.container} id='project-details'>
+      <div className={style.container}>
         <h1>Project Detail</h1>
-        {data.project.job.map((job, jobIndex) => (
-          <div key={jobIndex}>
-            <h2>{job.info.service}</h2>
-            <p>{job.info.company} ({job.info.startDate} - {job.info.endDate})</p>
-            {job.details.map((project, projectIndex) => (
-              <div key={projectIndex}>
-                <div className={style.project}>
-                  <h4 id={`project-${projectIndex + 1}`}>{projectIndex + 1}. {project.projectName} ({project.projectYear})</h4>
-                  <ul>
-                    <li>Overall: {project.overall}</li>
-                    <li>Domain: {project.domain}</li>
-                    <li>Techstack: {project.techStack.join(", ")}</li>
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
+        {data.experience.map((job, jobIndex) => {
+          const jobId = `job-${jobIndex}`;
+          return (
+            <div key={jobIndex} id={jobId}>
+              <h2>{job.title}</h2>
+              <p>{job.company} ({job.startDate} - {job.endDate})</p>
+              {job.projects.map((project, projectIndex) => {
+                return (
+                  <div key={projectIndex}>
+                    <div className={style.project}>
+                      <h4 id={`project-${project.projectName}`}>{projectIndex + 1}. {project.projectName} ({project.projectYear})</h4>
+                      <ul>
+                        <li>Overall: {project.overall}</li>
+                        <li>Domain: {project.domain}</li>
+                        <li>Techstack: {project.techStack.join(", ")}</li>
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
 
