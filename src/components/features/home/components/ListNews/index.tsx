@@ -1,7 +1,7 @@
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import { PostList } from "@/@types/post";
 import { CardNews } from "./CardNews"; // Import component CardNews
-import ktcbBackground from "../../../../../../public/posts-background.jpg"; // Đường dẫn tới ảnh nền
+import background from "../../../../../../public/default-background.jpg"; // Đường dẫn tới ảnh nền
 
 interface Props {
   highlightPosts: PostList[];
@@ -15,7 +15,7 @@ const ListNewsHome = ({ highlightPosts}: Props) => {
       sx={{
         maxWidth: "1900px !important",
         paddingTop: 0,
-        backgroundImage: `url(${ktcbBackground.src})`,
+        backgroundImage: `url(${background.src})`,
         backgroundSize: "100% 100%;",
         backgroundPosition: "center",
       }}
