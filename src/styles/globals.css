@@ -346,7 +346,7 @@ body {
 
 .background-intro {
   height: 60vh;
-  background-image: url(../../public/background2.jpg);
+  background-image: url(../../public/default-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

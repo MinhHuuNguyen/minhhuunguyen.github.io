@@ -1,5 +1,5 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
-import ktcbBackground from "../../../../../../public/background-dep-4k.jpg";
+import ktcbBackground from "../../../../../../public/default-background.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import data from '../../../../../utils/data/resume.json';
 import { useRouter } from 'next/router';
