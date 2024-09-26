@@ -1,86 +1,22 @@
 import React from 'react';
-import styles from '../../styles/Resume.module.css'; // adjust the path according to your project structure
+import styles from '../../styles/Resume.module.css';
 import data from '../../utils/data/resume.json';
-import { useEffect, useState } from 'react';
 import style from '../../styles/ResumeProject.module.css';
-
-
-interface JobTitle {
-  name: string;
-  titles: string[];
-}
-
-interface ImgArea {
-  imgSrc: string;
-}
-
-interface Social {
-  linkedin: string;
-  email: string;
-  phone: string;
-  location: string;
-}
-
-interface Header {
-  jobTitle: JobTitle;
-  imgArea: ImgArea;
-  social: Social;
-}
-
-interface Detail {
-  title: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  duration: string;
-  details: string[];
-}
-
-interface Education {
-  degree: string;
-  field: string;
-  school: string;
-  duration: string;
-}
-
-interface ResumeProjectProps {
-  projectName: string;
-  projectYear: number;
-  overall: string;
-  domain: string;
-  techStack: string[];
-}
-
-interface Resume {
-  header: Header;
-
-  main: {
-    left: {
-      Experience: Detail[];
-    };
-    right: {
-      Education: Education[];
-      Language: string;
-      Award: string[];
-      Skill: string[];
-    };
-  };
-}
 
 const Resume = () => {
   return (
-    <div id="resume">
-      <div className={styles.container}>
+    <div>
+      <div className={styles.container} id="resume">
         <div className={styles.header}>
           <section className={styles.jobTitle}>
             <h2>{data.personal.name}</h2>
-            {data.personal.work.map((title, index) => (
+            {data.personal.title.map((title, index) => (
               <h3 key={index}>{title}</h3>
             ))}
           </section>
 
           <section className={styles.imgArea}>
-            <img src={data.personal.imgSrc} alt="" />
+            <img src={data.personal.avatar} alt="" />
           </section>
 
           <section className={styles.social}>
@@ -117,9 +53,9 @@ const Resume = () => {
                   <p>{job.company}</p>
                   <p>{job.startDate} - {job.endDate} ({duration})</p>
                   <ul>
-                    {job.details.map((detail, i) => (
+                    {job.projects.map((detail, i) => (
                       <li key={i}>
-                        <a href={`#project-${i + 1}`}>{detail}</a>
+                        <a href={`#project-${detail.projectName}`}>{detail.projectName}</a>
                       </li>
                     ))}
                   </ul>
@@ -132,50 +68,59 @@ const Resume = () => {
             {data.education.map((education, index) => (
               <div key={index}>
                 <h3>{education.degree}</h3>
-                <p>{education.field}</p>
+                <p>{education.major}</p>
                 <p>{education.school}</p>
                 <p>{education.duration}</p>
               </div>
             ))}
             <h3>Language</h3>
             <p>{data.language}</p>
+            <h2>Other experience</h2>
+            <ul>
+              {data.other_experience.map((other, index) => (
+                <div key={index}>
+                  <h3>{other.title}</h3>
+                  <p>{other.company}</p>
+                  <p>{other.startDate} - {other.endDate}</p>
+                  <p>{other.details}</p>
+                </div>
+              ))}
+            </ul>
             <h2>Award</h2>
             <ul>
               {data.award.map((award, index) => (
                 <li key={index}>{award}</li>
               ))}
             </ul>
-            <h2>Skill</h2>
-            <ul className={styles.skill}>
-              {data.skill.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
-            </ul>
           </div>
         </div>
-
       </div>
 
-      <div className={style.container} >
+      <div className={style.container}>
         <h1>Project Detail</h1>
-        {data.project.job.map((job, jobIndex) => (
-          <div key={jobIndex}>
-            <h2>{job.info.service}</h2>
-            <p>{job.info.company} ({job.info.startDate} - {job.info.endDate})</p>
-            {job.details.map((project, projectIndex) => (
-              <div key={projectIndex}>
-                <div className={style.project}>
-                  <h4 id={`project-${projectIndex + 1}`}>{projectIndex + 1}. {project.projectName} ({project.projectYear})</h4>
-                  <ul>
-                    <li>Overall: {project.overall}</li>
-                    <li>Domain: {project.domain}</li>
-                    <li>Techstack: {project.techStack.join(", ")}</li>
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
+        {data.experience.map((job, jobIndex) => {
+          const jobId = `job-${jobIndex}`;
+          return (
+            <div key={jobIndex} id={jobId}>
+              <h2><b>{jobIndex + 1}. {job.title}</b></h2>
+              <p><i>{job.company} ({job.startDate} - {job.endDate})</i></p>
+              {job.projects.map((project, projectIndex) => {
+                return (
+                  <div key={projectIndex}>
+                    <div className={style.project}>
+                      <p id={`project-${project.projectName}`}><b>{jobIndex + 1}.{projectIndex + 1}. {project.projectName} ({project.projectYear})</b></p>
+                      <ul>
+                        <li><b>Overall:</b> {project.overall}</li>
+                        <li><b>Domain:</b> {project.domain}</li>
+                        <li><b>Techstack:</b> {project.techStack.join(", ")}</li>
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
 

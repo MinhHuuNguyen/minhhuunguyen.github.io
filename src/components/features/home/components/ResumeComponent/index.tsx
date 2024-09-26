@@ -4,14 +4,6 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import data from '../../../../../utils/data/resume.json';
 import { useRouter } from 'next/router';
 
-// type ResumeProps = {
-//   missionCartData: {
-//     title: string;
-//     imageUrl: string;
-//     description: string;
-//   }[];
-// };
-
 
 export const ResumeComponent = ({
 }) => {
@@ -47,7 +39,9 @@ export const ResumeComponent = ({
         </Typography>
 
         <Stack direction="row" justifyContent="space-between" spacing={10}>
-          <img src={data.personal.imgSrc} alt="Profile" style={{ width: '300px', height: '400px', borderRadius: '50%', border: '2px solid white' }} />
+          <Box flexBasis="30%" p={2}>
+            <img src={data.personal.avatar} alt="Profile" style={{ width: '350px', height: '350px', borderRadius: '50%', border: '2px solid white' }} />
+          </Box>
 
           <Box flexBasis="40%" p={2}  display="flex" flexWrap="wrap">
             {data.experience.slice(0, 5).map((job: { title: string; company: string; startDate: string; endDate: string; }, index: number) => {
@@ -78,10 +72,10 @@ export const ResumeComponent = ({
           </Box>
 
           <Box flexBasis="30%" p={2}>
-            {data.education.map((education: { degree: string; field: string; school: string; duration: string; }, index: number) => (
+            {data.education.map((education: { degree: string; major: string; school: string; duration: string; }, index: number) => (
               <Box key={index} style={{ margin: '10px 0', padding: '10px' }}>
                 <Typography variant="h6" style={{ fontWeight: 'bold',color: 'white' }}>{education.degree}</Typography>
-                <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.field}</Typography>
+                <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.major}</Typography>
                 <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.school}</Typography>
                 <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.duration}</Typography>
               </Box>

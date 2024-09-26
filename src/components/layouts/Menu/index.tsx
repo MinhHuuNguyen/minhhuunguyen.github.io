@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import GetAppIcon from '@mui/icons-material/GetApp';
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import data from '../../../utils/data/resume.json';
 
 type MenuSectionProps = {
   menuData: {
@@ -44,22 +45,58 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
     setAnchorEl(null);
   };
 
-  //download pdf
   const handleDownloadPDF = async () => {
-    const pdf = new jsPDF();
-    const element = document.getElementById('resume'); // The id of the Resume component's root element
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageHeight = pdf.internal.pageSize.getHeight(); 
+  
+    const addSectionToPDF = async (elementId: string, isLast: boolean) => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        const canvas = await html2canvas(element, {
+          scale: 2,
+        });
+        const imgData = canvas.toDataURL('image/png');
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  
+        if (pdfHeight > pageHeight) {
+          let remainingHeight = pdfHeight;
+          let yOffset = 0;
+  
+          while (remainingHeight > 0) {
+            const currentHeight = Math.min(remainingHeight, pageHeight); 
+            pdf.addImage(imgData, 'PNG', 0, yOffset, pdfWidth, currentHeight);
+  
+            remainingHeight -= currentHeight;
+            yOffset += currentHeight; 
+            
+            if (remainingHeight > 0) {
+              pdf.addPage(); 
+            }
+          }
+        } else {
 
-    if (element) {
-      const canvas = await html2canvas(element);
-      const imgData = canvas.toDataURL('image/png');
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, undefined, 'NONE');
-      pdf.save("resume.pdf");
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          
+          if (!isLast) {
+            pdf.addPage();
+          }
+        }
+      }
+    };
+  
+    await addSectionToPDF('resume', false);
+  
+    for (const [jobIndex] of data.experience.entries()) {
+      const jobId = `job-${jobIndex}`;
+      const isLastJob = jobIndex === data.experience.length - 1;
+      await addSectionToPDF(jobId, isLastJob);
     }
+    
+    pdf.save("resume.pdf");
   };
+  
 
   useEffect(() => {
     const handleMenuMouseEnter = () => {

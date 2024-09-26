@@ -7,18 +7,18 @@
 	height: auto;
 	padding: 20px;
 	line-height: 2;
-  }
+}
   
-  .project h4{
+.project h4{
 	font-size: 18px;
 	font-weight: bold;
-  }
+}
 
-  .project ul li{
+.project ul li{
 	list-style:circle;
 	list-style-position: inside;
 	margin-left: 20px;
-  }
+}
   
 .container h1{
 	font-size: 30px;
