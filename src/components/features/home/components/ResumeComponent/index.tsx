@@ -1,5 +1,5 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
-import ktcbBackground from "../../../../../../public/default-background.jpg";
+import background from "../../../../../../public/default-background.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import data from '../../../../../utils/data/resume.json';
 import { useRouter } from 'next/router';
@@ -23,7 +23,7 @@ export const ResumeComponent = ({
       paddingTop: 8,
       paddingBottom: 10,
       marginBottom: 5,
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${ktcbBackground.src})`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${background.src})`,
       backgroundSize: "100% 100%;",
       backgroundPosition: "center",
     }}
@@ -47,9 +47,7 @@ export const ResumeComponent = ({
         </Typography>
 
         <Stack direction="row" justifyContent="space-between" spacing={10}>
-          <Box flexBasis="30%" p={2}>
-            <img src={data.personal.imgSrc} alt="Profile" style={{ width: '350px', height: '350px', borderRadius: '50%', border: '2px solid white' }} />
-          </Box>
+          <img src={data.personal.imgSrc} alt="Profile" style={{ width: '300px', height: '400px', borderRadius: '50%', border: '2px solid white' }} />
 
           <Box flexBasis="40%" p={2}  display="flex" flexWrap="wrap">
             {data.experience.slice(0, 5).map((job: { title: string; company: string; startDate: string; endDate: string; }, index: number) => {
