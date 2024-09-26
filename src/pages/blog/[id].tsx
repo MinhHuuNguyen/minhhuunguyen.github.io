@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
 import { PostList } from "@/@types/post";
 import matter from "gray-matter";
-import path from "path";
+import styles from "@/styles/News.module.css";
 import fs from "fs";
 
 const md = new MarkdownIt({
@@ -82,6 +82,11 @@ const innerHtmlStyle = {
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
     <div className="w-100">
+      <img
+        className={styles.banner}
+        src={frontmatter.banner_url}
+        alt="banner"
+      />
       <Container maxWidth="xl">
         <section className="news lg:pt-4 pt-4 mb-5">
           <div className="flex flex-wrap">

@@ -27,7 +27,7 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
           title: data.title || null,
           description: data.description || null,
           author: data.author || null,
-          banner_url: data.banner_url || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKfYwYSdOzb_g_JJKD17oGpFZhjGl8aFTHMw&s",
+          banner_url: data.banner_url,
           tags: data.tags || null,
           slug,
           filePath: fullPath,
