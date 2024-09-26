@@ -4,7 +4,6 @@ import { imageAbsolute, imageRelative } from "@/styles/commonStyles";
 import { ellipsisText } from "@/utils/common";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 export const SmallNews= ({ post }: { post: any }) => {
   return (

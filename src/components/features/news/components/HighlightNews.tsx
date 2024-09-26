@@ -4,7 +4,6 @@ import { ellipsisText } from "@/utils/common";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { hoverReadMore } from "@/styles/commonStyles";
-import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 interface Props {
   title: string;

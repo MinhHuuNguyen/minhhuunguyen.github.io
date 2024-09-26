@@ -4,7 +4,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import logoImg from "../../../../../public/ktcb-logo-512.png";
 import React from "react";
 
 const styleBtn = {

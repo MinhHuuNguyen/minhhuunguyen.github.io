@@ -7,7 +7,6 @@ import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import logoImg from "../../../../../public/ktcb-logo-512.png";
 
 export const CardNews= ({ post }: { post: any }) => {
   console.log(post);
