@@ -92,12 +92,6 @@ const Resume = () => {
                 <li key={index}>{award}</li>
               ))}
             </ul>
-            <h2>Skill</h2>
-            <ul className={styles.skill}>
-              {data.skill.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
@@ -108,17 +102,17 @@ const Resume = () => {
           const jobId = `job-${jobIndex}`;
           return (
             <div key={jobIndex} id={jobId}>
-              <h2>{job.title}</h2>
-              <p>{job.company} ({job.startDate} - {job.endDate})</p>
+              <h2><b>{jobIndex + 1}. {job.title}</b></h2>
+              <p><i>{job.company} ({job.startDate} - {job.endDate})</i></p>
               {job.projects.map((project, projectIndex) => {
                 return (
                   <div key={projectIndex}>
                     <div className={style.project}>
-                      <h4 id={`project-${project.projectName}`}>{projectIndex + 1}. {project.projectName} ({project.projectYear})</h4>
+                      <p id={`project-${project.projectName}`}><b>{jobIndex + 1}.{projectIndex + 1}. {project.projectName} ({project.projectYear})</b></p>
                       <ul>
-                        <li>Overall: {project.overall}</li>
-                        <li>Domain: {project.domain}</li>
-                        <li>Techstack: {project.techStack.join(", ")}</li>
+                        <li><b>Overall:</b> {project.overall}</li>
+                        <li><b>Domain:</b> {project.domain}</li>
+                        <li><b>Techstack:</b> {project.techStack.join(", ")}</li>
                       </ul>
                     </div>
                   </div>
