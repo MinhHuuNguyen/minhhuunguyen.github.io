@@ -54,7 +54,7 @@ export const CardNews =  ({ post }: { post: any }) => {
       <Stack
         sx={{
           padding: "12px 16px 4px",
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(50px)",
           flex: 1,
           position: "absolute",
           bottom: 0,
@@ -68,7 +68,7 @@ export const CardNews =  ({ post }: { post: any }) => {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
             zIndex: -1,
           }}
         />
@@ -85,14 +85,9 @@ export const CardNews =  ({ post }: { post: any }) => {
               flex: 1,
               fontWeight: 600,
               fontSize: {
-                xs: "16px",
-                sm: "18px",
-                md: "20px",
-              },
-              lineHeight: {
-                xs: "26px",
-                sm: "28px",
-                md: "30px",
+                xs: "25px",
+                sm: "27px",
+                md: "29px",
               },
               ...ellipsisText(1),
             }}
@@ -111,6 +106,11 @@ export const CardNews =  ({ post }: { post: any }) => {
             sx={{
               color: "#fff",
               textAlign: "justify",
+              fontSize: {
+                xs: "15px",
+                sm: "17px",
+                md: "19px",
+              },
 
               ...ellipsisText(2),
             }}
@@ -118,7 +118,7 @@ export const CardNews =  ({ post }: { post: any }) => {
             {post.description}
           </Typography>
 
-          <ReadMore className="read-more">Đọc tiếp</ReadMore>
+          <ReadMore className="read-more">Load more</ReadMore>
         </Link>
       </Stack>
     </Stack>

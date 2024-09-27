@@ -25,7 +25,7 @@ const innerHtmlStyle = {
     height: "auto",
     marginLeft: "auto",
     marginRight: "auto",
-    "& .logo": {
+  "& .logo": {
       position: "absolute",
       top: "10px",
       left: "10px",
@@ -74,9 +74,6 @@ const innerHtmlStyle = {
   "& p": {
     marginTop: "15px",
   },
-  "& em": {
-    fontStyle: "italic",
-  },
 };
 
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
@@ -99,6 +96,7 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
                 <strong>{frontmatter.author}</strong>
               </div>
               <h1 className="news-title text-4xl">{frontmatter.title}</h1>
+              <em>{frontmatter.description}</em>
               {content ? (
                 <Box
                   id="content"

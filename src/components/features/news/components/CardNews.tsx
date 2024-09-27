@@ -11,12 +11,7 @@ import { useEffect, useState } from "react";
 export const CardNews= ({ post }: { post: any }) => {
   console.log(post);
   const [loadedFile, setLoadedFile] = useState(false);
-  // const [imgUrl, setImgUrl] = useState(banner_url);
-
-  // useEffect(() => {
-  //   setImgUrl(banner_url);
-  // }, [banner_url]);
-
+  
   return (
     <Stack
       sx={{

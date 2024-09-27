@@ -22,16 +22,10 @@ export const ResumeComponent = ({
     >
       <Stack alignItems="center">
         <Typography
-          variant="h3"
+          variant="h2"
           fontWeight="bold"
           textAlign="center"
           sx={{
-            fontSize: {
-              xs: "1.5rem",
-              sm: "2rem",
-              md: "3rem",
-            },
-
             color: "white",
           }}
         >

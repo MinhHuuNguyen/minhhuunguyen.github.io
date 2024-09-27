@@ -1,7 +1,6 @@
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import { PostList } from "@/@types/post";
 import { CardNews } from "./CardNews"; // Import component CardNews
-import background from "../../../../../../public/default-background.jpg"; // Đường dẫn tới ảnh nền
 
 interface Props {
   highlightPosts: PostList[];
@@ -15,25 +14,15 @@ const ListNewsHome = ({ highlightPosts}: Props) => {
       sx={{
         maxWidth: "1900px !important",
         paddingTop: 0,
-        backgroundImage: `url(${background.src})`,
-        backgroundSize: "100% 100%;",
-        backgroundPosition: "center",
       }}
     >
       <Stack alignItems="center">
         <Typography
-          variant="h3"
+          variant="h2"
           fontWeight="bold"
           textAlign="center"
-          sx={{
-            fontSize: {
-              xs: "1.5rem",
-              sm: "2rem",
-              md: "3rem",
-            },
-          }}
         >
-          FEATURED NEWS
+          BLOG POST
         </Typography>
       </Stack>
       <Stack
