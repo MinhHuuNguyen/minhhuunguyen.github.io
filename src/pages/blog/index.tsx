@@ -1,8 +1,8 @@
 import { DefaultSeo } from "next-seo";
 import { SEO } from "@/configs/seo.config";
-import { CardNews, HighlightNews } from "@/components/features/news";
+import { CardNews } from "@/components/features/news";
 import { CoverImageBrand } from "@/components/features/home/components/CoverImageBrand";
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Container, Grid, Stack } from "@mui/material";
 import { getPostsList } from '@/utils/posts';
 import { PostList } from '@/@types/post';
 import { GetStaticProps } from 'next';

@@ -6,7 +6,7 @@ import { ellipsisText } from "@/utils/common";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const CardNews= ({ post }: { post: any }) => {
   console.log(post);

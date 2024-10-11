@@ -1,6 +1,6 @@
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import { PostList } from "@/@types/post";
-import { CardNews } from "./CardNews"; // Import component CardNews
+import { CardNews } from "@/components/features/news";
 
 interface Props {
   highlightPosts: PostList[];
