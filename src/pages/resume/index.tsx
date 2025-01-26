@@ -82,7 +82,7 @@ const Resume = () => {
                 <div key={index}>
                   <h3>{other.title}</h3>
                   {other.info_list.map((info, index) => (
-                    <li>{info}</li>
+                    <li key={index}>{info}</li>
                   ))}
                 </div>
               ))}

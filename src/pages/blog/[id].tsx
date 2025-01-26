@@ -4,8 +4,9 @@ import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
 import { PostList } from "@/@types/post";
 import matter from "gray-matter";
-import styles from "@/styles/News.module.css";
+import newStyles from "@/styles/News.module.css";
 import fs from "fs";
+import Image from 'next/image';
 
 const md = new MarkdownIt({
   html: true,
@@ -79,11 +80,7 @@ const innerHtmlStyle = {
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
     <div className="w-100">
-      <img
-        className={styles.banner}
-        src={frontmatter.banner_url}
-        alt="banner"
-      />
+      <Image className={newStyles.banner} src={frontmatter.banner_url} alt="banner"/>
       <Container maxWidth="xl">
         <section className="news lg:pt-4 pt-4 mb-5">
           <div className="flex flex-wrap">
@@ -98,13 +95,7 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
               <h1 className="news-title text-4xl">{frontmatter.title}</h1>
               <em>{frontmatter.description}</em>
               {content ? (
-                <Box
-                  id="content"
-                  sx={innerHtmlStyle}
-                  dangerouslySetInnerHTML={{
-                    __html: md.render(content),
-                  }}
-                />
+                <Box id="content" sx={innerHtmlStyle} dangerouslySetInnerHTML={{ __html: md.render(content), }}/>
               ) : null}
             </div>
           </div>
