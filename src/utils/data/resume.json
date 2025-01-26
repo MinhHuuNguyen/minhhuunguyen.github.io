@@ -16,20 +16,18 @@
   },
   "education": [
     {
-      "degree": "Master of Science",
-      "major": "Mathematics and informatics",
+      "degree": "Master of science - Mathematics & Informatics",
       "school": "Hanoi University of Science and Technology",
       "duration": "Oct 2020 - Aug 2022"
     },
     {
-      "degree": "Engineer's degree",
-      "major": "Mathematics and informatics",
+      "degree": "Engineer's degree - Mathematics & Informatics",
       "school": "Hanoi University of Science and Technology",
       "duration": "Aug 2015 - June 2020"
     }
   ],
   "language": [
-    "English - TOEIC 755"
+    "English: TOEIC - 755"
   ],
   "award": [
     "Self-learner at PIXTA Vietnam Co. Ltd., in 2019",
@@ -49,6 +47,7 @@
       "company": "PIXTA Vietnam Co. Ltd.",
       "startDate": "May 2019",
       "endDate": "Present",
+      "logo": "pixta_vietnam_logo.jpf",
       "projects": [
         {
           "projectName": "Large language model finetunting",
@@ -171,9 +170,10 @@
     },
     {
       "title": "Lecturer",
-      "company": "MCI Vietnam Consultant Joint Stock Company",
+      "company": "MCI Academy",
       "startDate": "Nov 2021",
       "endDate": "Present",
+      "logo": "mci_academy_logo.png",
       "projects": [
         {
           "projectName": "Python for Data analyst course",
@@ -191,6 +191,7 @@
       "company": "ProtonX",
       "startDate": "Oct 2023",
       "endDate": "Present",
+      "logo": "protonx_logo.jpeg",
       "projects": [
         {
           "projectName": "Basic Pytorch course",
@@ -208,6 +209,7 @@
       "company": "Robiz Tech Academy",
       "startDate": "Oct 2023",
       "endDate": "Present",
+      "logo": "robiztech_logo.png",
       "projects": [
         {
           "projectName": "Python for Data analyst course",
