@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-
+import { DefaultSeo } from "next-seo";
+import { SEO } from "@/configs/seo.config";
 import data from '../../utils/data/resume.json';
 import resumeStyle from '../../styles/Resume.module.css';
 import resumeProjectStyle from '../../styles/ResumeProject.module.css';
@@ -8,6 +9,7 @@ import resumeProjectStyle from '../../styles/ResumeProject.module.css';
 const Resume = () => {
   return (
     <div>
+      <DefaultSeo {...SEO} title={"MY RESUME"} />
       <div className={resumeStyle.container} id="resume">
         <div className={resumeStyle.header}>
           <section className={resumeStyle.jobTitle}>

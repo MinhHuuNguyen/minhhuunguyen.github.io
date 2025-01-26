@@ -1,5 +1,6 @@
 .banner {
-  height: 40vh;
+  width: 100%;
+  height: 50vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -14,4 +15,12 @@
   .banner {
     height: 30vh;
   }
+}
+
+.container {
+	background: white;
+	max-width: 1600px;
+	margin: 60px auto;
+	padding: 10px;
+	height: auto;
 }

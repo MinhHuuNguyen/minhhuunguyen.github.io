@@ -80,7 +80,7 @@ const innerHtmlStyle = {
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
     <div className="w-100">
-      <Image className={newStyles.banner} src={frontmatter.banner_url} alt="banner"/>
+      <Image className={newStyles.banner} src={frontmatter.banner_url} alt="banner" width={1700} height={500}/>
       <Container maxWidth="xl">
         <section className="news lg:pt-4 pt-4 mb-5">
           <div className="flex flex-wrap">

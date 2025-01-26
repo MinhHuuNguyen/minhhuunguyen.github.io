@@ -17,21 +17,10 @@ const ListNewsHome = ({ highlightPosts}: Props) => {
       }}
     >
       <Stack alignItems="center">
-        <Typography
-          variant="h2"
-          fontWeight="bold"
-          textAlign="center"
-        >
-          BLOG POST
-        </Typography>
+        <Typography variant="h2" fontWeight="bold" textAlign="center">MY BLOG</Typography>
+        <br></br>
       </Stack>
-      <Stack
-        sx={{
-          paddingTop: "60px",
-          paddingBottom: "60px",
-          gap: "30px",
-        }}
-      >
+      <Stack>
         <Grid container spacing={2}>
           {listNew.map((post, index) => (
             <Grid item xs={12} md={6} lg={4} key={index}>

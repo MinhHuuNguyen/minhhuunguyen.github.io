@@ -1,12 +1,12 @@
 import { DefaultSeo } from "next-seo";
 import { SEO } from "@/configs/seo.config";
 import { CardNews } from "@/components/features/news";
-import { CoverImageBrand } from "@/components/features/home/components/CoverImageBrand";
-import { Container, Grid, Stack } from "@mui/material";
+import { Container, Grid, Stack, Typography } from "@mui/material";
 import { getPostsList } from '@/utils/posts';
 import { PostList } from '@/@types/post';
 import { GetStaticProps } from 'next';
 import { SmallNews } from "@/components/features/news/components/SmallNews";
+import newStyle from '../../styles/News.module.css';
 
 export interface BlogListPageProps {
   highlightPosts: PostList[];
@@ -14,10 +14,13 @@ export interface BlogListPageProps {
 }
 export default function BlogListPage({ highlightPosts, nonHighlightPosts }: BlogListPageProps) {
   return (
-    <>
-      <DefaultSeo {...SEO} title={"Danh sách bài viết"} />
+    <div className={newStyle.container}>
+      <DefaultSeo {...SEO} title={"MY BLOG"} />
       <Stack>
-        <CoverImageBrand />
+        <Stack alignItems="center">
+          <Typography variant="h2" fontWeight="bold" textAlign="center">MY BLOG</Typography>
+          <br></br>
+        </Stack>
         <Container maxWidth="xl">
           <Stack
             sx={{
@@ -29,7 +32,7 @@ export default function BlogListPage({ highlightPosts, nonHighlightPosts }: Blog
 
             <Grid container spacing={2}>
               {highlightPosts.map((post: any, index: any) => (
-                <Grid item xs={12} md={6} lg={4} key={index}>
+                <Grid item xs={12} md={6} lg={3} key={index}>
                   <CardNews key={index} post={post} />
                 </Grid>
               ))}
@@ -37,7 +40,7 @@ export default function BlogListPage({ highlightPosts, nonHighlightPosts }: Blog
 
             <Grid container spacing={2}>
               {nonHighlightPosts.map((post: any, index: any) => (
-                <Grid item xs={12} md={6} lg={4} key={index}>
+                <Grid item xs={12} md={6} lg={3} key={index}>
                   <SmallNews key={index} post={post} />
                 </Grid>
               ))}
@@ -45,8 +48,7 @@ export default function BlogListPage({ highlightPosts, nonHighlightPosts }: Blog
           </Stack>
         </Container>
       </Stack>
-
-    </>
+    </div>
   );
 }
 
