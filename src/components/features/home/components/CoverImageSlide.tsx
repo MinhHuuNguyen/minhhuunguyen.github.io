@@ -51,14 +51,8 @@ export const CoverImageSlide: React.FC<CoverImageSlideType> = ({
   coverImageData,
 }) => {
   const listImageCard = coverImageData.map((url, index) => (
-    <Box className="relative w-full h-[90vh]" key={`${index}${url}`}>
+    <Box className="relative w-full h-[85vh]" key={`${index}${url}`}>
       <Box component="img" width="100%" height="100%" src={url} />
-
-      {/* <img
-        className="absolute top-1 left-1 w-12 h-12 object-cover z-10"
-        src={logoImg.src}
-        alt="banner"
-      /> */}
     </Box>
   ));
 
