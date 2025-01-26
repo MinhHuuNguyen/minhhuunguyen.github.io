@@ -30,11 +30,12 @@
     "English: TOEIC - 755"
   ],
   "award": [
-    "Self-learner at PIXTA Vietnam Co. Ltd., in 2019",
-    "First Prize at HUST SAMI Student Scientific Research Contest, in 2020",
-    "Innovator of the Year at PIXTA Vietnam Co. Ltd., in 2021",
-    "Computer vision SaaS product - Project of the Quarter at PIXTA Vietnam Co. Ltd., in 2022",
-    "AutoReview - Project of the Quarter at PIXTA Vietnam Co. Ltd., in 2024"
+    "Mentor of the Year at PIXTA Vietnam Co. Ltd., 2024",
+    "Auto Review Project - Project of Quarter at PIXTA Vietnam Co. Ltd., 2024",
+    "CV SaaS Product - Project of Quarter at PIXTA Vietnam Co. Ltd., 2022",
+    "Review Assistant Project - Innovator of the Year at PIXTA Vietnam Co. Ltd., 2021",
+    "First Prize at HUST SAMI Student Scientific Research Contest, 2020",
+    "Self-learner of the Year at PIXTA Vietnam Co. Ltd., 2019"
   ],
   "skill": [
     "Research / Coding",
@@ -71,6 +72,12 @@
           "projectYear": "2022",
           "overall": "Understand and propose a set of criterias for objective image aesthetics assessment. Research and build a model to rank a list of images base on aesthetics aspects.",
           "techStack": ["AVA dataset", "AADB dataset", "NIMA", "Self-supervised aesthetic pretext tasks", "PyTorch"]
+        },
+        {
+          "projectName": "CV SaaS product",
+          "projectYear": "2022",
+          "overall": "Deploy and monitor computer vision models as a service. Present and discuss with customer about the product",
+          "techStack": ["Docker", "FlaskAPI", "Kubernetes", "AWS"]
         },
         {
           "projectName": "Face recognition and face attributes classification",
@@ -182,25 +189,29 @@
   ],
   "other_experience": [
     {
-      "title": "Founder & Chairman",
-      "company": "Khoang troi cua be",
-      "startDate": "Sep 2016",
-      "endDate": "Present",
-      "details": ""
+      "title": "Founder",
+      "info_list": ["Khoang Troi Cua Be (Sep 2016 - Present)"]
     },
     {
       "title": "Speaker",
-      "company": "",
-      "startDate": "",
-      "endDate": "",
-      "details": ""
+      "info_list": [
+        "NCT JOB FAIR 2024, National Economics University", 
+        "ProtonX: PyTorch 101",
+        "Data sience and Technology in start-up"
+      ]
     },
     {
       "title": "Examiner",
-      "company": "",
-      "startDate": "",
-      "endDate": "",
-      "details": ""
+      "info_list": [
+        "H4TF PROJECT - DATA ANALYSIS - UNVEIL DATA POWER",
+        "AI Hackathon: Face Analysis Challenge"
+      ]
+    },
+    {
+      "title": "Mentor",
+      "info_list": [
+        "NEU Daily Mentoring"
+      ]
     }
   ]
 }

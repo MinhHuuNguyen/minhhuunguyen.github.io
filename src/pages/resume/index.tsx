@@ -81,9 +81,9 @@ const Resume = () => {
               {data.other_experience.map((other, index) => (
                 <div key={index}>
                   <h3>{other.title}</h3>
-                  <p>{other.company}</p>
-                  <p>{other.startDate} - {other.endDate}</p>
-                  <p>{other.details}</p>
+                  {other.info_list.map((info, index) => (
+                    <li>{info}</li>
+                  ))}
                 </div>
               ))}
             </ul>

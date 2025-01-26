@@ -1,14 +1,12 @@
-/* styles/ResumeProject.module.css */
-
 .container {
-	background-color: white;
-	max-width: 1100px;
+	background: white;
+	max-width: 1200px;
 	margin: 60px auto;
+	padding: 10px;
 	height: auto;
-	padding: 20px;
 	line-height: 2;
 }
-  
+
 .project h4{
 	font-size: 18px;
 	font-weight: bold;
