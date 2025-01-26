@@ -1,8 +1,8 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
-import background from "../../../../../../public/default-background.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import data from '../../../../../utils/data/resume.json';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 
 export const ResumeComponent = ({
@@ -12,39 +12,22 @@ export const ResumeComponent = ({
     <Container
     sx={{
       maxWidth: "1900px !important",
-      paddingTop: 8,
-      paddingBottom: 10,
-      marginBottom: 5,
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${background.src})`,
-      backgroundSize: "100% 100%;",
-      backgroundPosition: "center",
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))`
     }}
     >
       <Stack alignItems="center">
-        <Typography
-          variant="h2"
-          fontWeight="bold"
-          textAlign="center"
-          sx={{
-            color: "white",
-          }}
-        >
-          ABOUT ME
-        </Typography>
-
-        <Stack direction="row" justifyContent="space-between" spacing={10}>
-          <Box flexBasis="30%" p={2}>
-            <img src={data.personal.avatar} alt="Profile" style={{ width: '350px', height: '350px', borderRadius: '50%', border: '2px solid white' }} />
+        <Typography variant="h2" fontWeight="bold" textAlign="center"> MY CAREER</Typography>
+        <Stack direction="row">
+          <Box flexBasis="20%" p={2}>
+            <Image src={data.personal.avatar} alt="Profile" width={300} height={300} style={{ borderRadius: '50%', border: '2px' }} />
           </Box>
 
-          <Box flexBasis="40%" p={2}  display="flex" flexWrap="wrap">
-            {data.experience.slice(0, 5).map((job: { title: string; company: string; startDate: string; endDate: string; }, index: number) => {
+          <Box flexBasis="50%" p={2} display="flex" flexWrap="wrap">
+            {data.experience.slice(0, 5).map((job: { title: string; company: string; startDate: string; endDate: string; logo: string}, index: number) => {
               const startDate = new Date(job.startDate);
               let endDate = new Date(); // Default to current date
 
-              if (job.endDate !== 'Present') {
-                endDate = new Date(job.endDate);
-              }
+              if (job.endDate !== 'Present') { endDate = new Date(job.endDate); }
 
               const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
               const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
@@ -56,22 +39,22 @@ export const ResumeComponent = ({
               const duration = [yearString, monthString].filter(Boolean).join(', ');
 
               return (
-                <Box key={index} flexBasis="50%" style={{ margin: '10px 0', padding: '10px' }}>
-                  <Typography variant="h6" style={{ fontWeight: 'bold',color: 'white' }}>{job.title}</Typography>
-                  <Typography style={{ fontStyle: 'italic', color: 'white' }}>{job.company}</Typography>
-                  <Typography style={{ fontStyle: 'italic',color: 'white' }}>{job.startDate} - {job.endDate} ({duration})</Typography>
+                <Box key={index} flexBasis="50%">
+                  <Typography variant="h6" style={{ fontWeight: 'bold', paddingTop: 7 }}>{job.title}</Typography>
+                  <Typography style={{ fontStyle: 'italic', paddingTop: 7 }}>{job.company}</Typography>
+                  <Typography style={{ fontStyle: 'italic', paddingTop: 7 }}>{job.startDate} - {job.endDate} ({duration})</Typography>
+                  <Image src={job.logo} alt="Company Logo" width={150} height={150} style={{ paddingTop: 7 }} />
                 </Box>
               );
             })}
           </Box>
 
-          <Box flexBasis="30%" p={2}>
-            {data.education.map((education: { degree: string; major: string; school: string; duration: string; }, index: number) => (
-              <Box key={index} style={{ margin: '10px 0', padding: '10px' }}>
-                <Typography variant="h6" style={{ fontWeight: 'bold',color: 'white' }}>{education.degree}</Typography>
-                <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.major}</Typography>
-                <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.school}</Typography>
-                <Typography style={{ fontStyle: 'italic',color: 'white' }}>{education.duration}</Typography>
+          <Box flexBasis="30%" p={2} display="flex" flexWrap="wrap">
+            {data.education.map((education: { degree: string; school: string; duration: string; }, index: number) => (
+              <Box key={index}>
+                <Typography variant="h6" style={{ fontWeight: 'bold'}}>{education.degree}</Typography>
+                <Typography style={{ fontStyle: 'italic'}}>{education.school}</Typography>
+                <Typography style={{ fontStyle: 'italic'}}>{education.duration}</Typography>
               </Box>
             ))}
           </Box>

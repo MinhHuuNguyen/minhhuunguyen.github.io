@@ -1,25 +1,27 @@
 import React from 'react';
-import styles from '../../styles/Resume.module.css';
+import Image from 'next/image';
+
 import data from '../../utils/data/resume.json';
-import style from '../../styles/ResumeProject.module.css';
+import resumeStyle from '../../styles/Resume.module.css';
+import resumeProjectStyle from '../../styles/ResumeProject.module.css';
 
 const Resume = () => {
   return (
     <div>
-      <div className={styles.container} id="resume">
-        <div className={styles.header}>
-          <section className={styles.jobTitle}>
+      <div className={resumeStyle.container} id="resume">
+        <div className={resumeStyle.header}>
+          <section className={resumeStyle.jobTitle}>
             <h2>{data.personal.name}</h2>
             {data.personal.title.map((title, index) => (
               <h3 key={index}>{title}</h3>
             ))}
           </section>
 
-          <section className={styles.imgArea}>
-            <img src={data.personal.avatar} alt="" />
+          <section className={resumeStyle.imgArea}>
+            <Image src={data.personal.avatar} alt="" width={180} height={240} />
           </section>
 
-          <section className={styles.social}>
+          <section className={resumeStyle.social}>
             <p>{data.personal.social.linkedin}<i className="fa-brands fa-linkedin-in"></i></p>
             <p>{data.personal.social.email}<i className="fa fa-envelope" aria-hidden="true"></i></p>
             <p>{data.personal.social.phone}<i className="fa fa-phone"></i></p>
@@ -27,8 +29,8 @@ const Resume = () => {
           </section>
         </div>
 
-        <div className={styles.main}>
-          <div className={styles.left}>
+        <div className={resumeStyle.main}>
+          <div className={resumeStyle.left}>
             <h2>Experience</h2>
             {data.experience.map((job, index) => {
               const startDate = new Date(job.startDate);
@@ -51,7 +53,7 @@ const Resume = () => {
                 <div key={index}>
                   <h3>{job.title}</h3>
                   <p>{job.company}</p>
-                  <p>{job.startDate} - {job.endDate} ({duration})</p>
+                  <p><b>{job.startDate} - {job.endDate} ({duration})</b></p>
                   <ul>
                     {job.projects.map((detail, i) => (
                       <li key={i}>
@@ -63,14 +65,13 @@ const Resume = () => {
               );
             })}
           </div>
-          <div className={styles.right}>
+          <div className={resumeStyle.right}>
             <h2>Education</h2>
             {data.education.map((education, index) => (
               <div key={index}>
                 <h3>{education.degree}</h3>
-                <p>{education.major}</p>
                 <p>{education.school}</p>
-                <p>{education.duration}</p>
+                <p><b>{education.duration}</b></p>
               </div>
             ))}
             <h3>Language</h3>
@@ -96,7 +97,7 @@ const Resume = () => {
         </div>
       </div>
 
-      <div className={style.container}>
+      <div className={resumeProjectStyle.container}>
         <h1>Project Detail</h1>
         {data.experience.map((job, jobIndex) => {
           const jobId = `job-${jobIndex}`;
@@ -107,7 +108,7 @@ const Resume = () => {
               {job.projects.map((project, projectIndex) => {
                 return (
                   <div key={projectIndex}>
-                    <div className={style.project}>
+                    <div className={resumeProjectStyle.project}>
                       <p id={`project-${project.projectName}`}><b>{jobIndex + 1}.{projectIndex + 1}. {project.projectName} ({project.projectYear})</b></p>
                       <ul>
                         <li><b>Overall:</b> {project.overall}</li>
