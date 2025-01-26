@@ -18,7 +18,7 @@ const Resume = () => {
           </section>
 
           <section className={resumeStyle.imgArea}>
-            <Image src={data.personal.avatar} alt="" width={180} height={240} />
+            <Image src={data.personal.avatar} alt="" width={200} height={200} />
           </section>
 
           <section className={resumeStyle.social}>
@@ -103,22 +103,22 @@ const Resume = () => {
           const jobId = `job-${jobIndex}`;
           return (
             <div key={jobIndex} id={jobId}>
-              <h2><b>{jobIndex + 1}. {job.title}</b></h2>
-              <p><i>{job.company} ({job.startDate} - {job.endDate})</i></p>
+              <h2><b>{jobIndex + 1}. {job.title}: {job.company} <i>({job.startDate} - {job.endDate})</i></b></h2>
               {job.projects.map((project, projectIndex) => {
                 return (
                   <div key={projectIndex}>
                     <div className={resumeProjectStyle.project}>
-                      <p id={`project-${project.projectName}`}><b>{jobIndex + 1}.{projectIndex + 1}. {project.projectName} ({project.projectYear})</b></p>
+                      <h3 id={`project-${project.projectName}`}><b>{jobIndex + 1}.{projectIndex + 1}. {project.projectName} ({project.projectYear})</b></h3>
                       <ul>
                         <li><b>Overall:</b> {project.overall}</li>
-                        <li><b>Domain:</b> {project.domain}</li>
                         <li><b>Techstack:</b> {project.techStack.join(", ")}</li>
                       </ul>
                     </div>
+                    <br></br>
                   </div>
                 );
               })}
+              <br></br>
             </div>
           );
         })}

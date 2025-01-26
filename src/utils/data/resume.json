@@ -50,175 +50,132 @@
       "logo": "pixta_vietnam_logo.jpf",
       "projects": [
         {
-          "projectName": "Large language model finetunting",
-          "projectYear": 2023,
-          "overall": "Research about LLMs, research and implement techniques to continue training and finetuning LLMs on specific domain dataset.",
-          "domain": "Natural language processing, large language model",
+          "projectName": "Auto Review system for Photo, Footage and Illustration data.",
+          "projectYear": "2023 - 2024 - 2025",
+          "overall": "Build a system which operates upto 15 AI models to handle vast of Computer vision problems, in order to automate Photo, Footage and Illustration reviewing process. Deploy the system and optimize running performance.",
           "techStack": [
-            "HuggingFace",
-            "LitGPT",
-            "Llama2",
-            "ChatGPT",
-            "LoRA",
-            "qLoRA",
-            "Pytorch"
-          ]
-        },
-        {
-          "projectName": "Multi-model image auto review",
-          "projectYear": 2023,
-          "overall": "Build a series of AI models to handle vast of Computer vision problems, in order to automate image reviewing process. Deploy the system and optimize running performance.",
-          "domain": "Object detection, image classification, NER, vision language, deployment",
-          "techStack": [
-            "BLIP2",
-            "Detic",
-            "YOLOv7",
-            "VisionTransformer",
-            "Docker",
-            "FlaskAPI",
-            "ClearML",
-            "Pytorch"
+            "BLIP2", "Detic", "YOLOv7", "VisionTransformer",
+            "Docker", "FlaskAPI", "TritonAPI", "PyTorch",
+            "ClearML", "Data Pipeline", "Training Pipeline", "Model Serving",
+            "AWS", "Kubernetes", "VectorDB Milvus", "VectorDB Weaviate"
           ]
         },
         {
           "projectName": "Text-to-image generation",
-          "projectYear": 2022,
+          "projectYear": "2022",
           "overall": "Research and understand some SOTA text-to-image generation models.",
-          "domain": "Computer vision, image generation",
-          "techStack": [
-            "Stable Diffusion",
-            "DreamBooth"
-          ]
+          "techStack": ["Stable Diffusion", "DreamBooth"]
         },
         {
           "projectName": "Image aesthetics assessment",
-          "projectYear": 2022,
-          "overall": "Understand and propose  a set of criterias for objective image aesthetics assessment. Research and build a model to rank a list of image base on their aesthetics.",
-          "domain": "Computer vision, self-supervised learning",
-          "techStack": [
-            "AVA dataset",
-            "AADB dataset",
-            "NIMA",
-            "self-supervised aesthetic pretext tasks",
-            "Pytorch"
-          ]
+          "projectYear": "2022",
+          "overall": "Understand and propose a set of criterias for objective image aesthetics assessment. Research and build a model to rank a list of images base on aesthetics aspects.",
+          "techStack": ["AVA dataset", "AADB dataset", "NIMA", "Self-supervised aesthetic pretext tasks", "PyTorch"]
         },
         {
-          "projectName": "Computer vision SaaS product",
-          "projectYear": 2022,
-          "overall": "Deploy and monitor computer vision models as a service.",
-          "domain": "Computer vision, deployment",
-          "techStack": [
-            "Docker",
-            "FlaskAPI",
-            "Kubernetes",
-            "AWS CloudWatch"
-          ]
-        },
-        {
-          "projectName": "Face recognition and classification",
-          "projectYear": 2021,
+          "projectName": "Face recognition and face attributes classification",
+          "projectYear": "2021",
           "overall": "Build face verification model and face analysis model which handles some attributes such as emotion, age, gender, race, hair, accessories …",
-          "domain": "Face recognition, face attribute classification",
-          "techStack": [
-            "ArcFace",
-            "RetinaFace",
-            "VGG2 face pretrained model",
-            "Pytorch"
-          ]
+          "techStack": ["ArcFace", "RetinaFace", "VGG2 face pretrained model", "PyTorch", "Flask API", "Docker"]
         },
         {
-          "projectName": "Face detection in high resolution images",
-          "projectYear": 2021,
-          "overall": "Build a solution to detect tiny face (~20 pixel) on high resolution image (~6000 pixel).",
-          "domain": "Face detection, High resolution image",
-          "techStack": [
-            "RetinaFace",
-            "SNIPER",
-            "AutoFocus",
-            "Docker",
-            "Pytorch",
-            "ONNX"
-          ]
+          "projectName": "Face detection in super-high-resolution images",
+          "projectYear": "2021",
+          "overall": "Build a solution to detect tiny face (~20 pixel) on super-high-resolution image (~6000 - ~8000 pixel).",
+          "techStack": ["RetinaFace", "SNIPER", "AutoFocus", "Docker", "PyTorch", "ONNX", "Docker"]
         },
         {
           "projectName": "Video and tags extractive summarization",
-          "projectYear": 2020,
-          "overall": "Build a model to extract feature from a video and summarize a long list of tags which describe the video into a shorter list.",
-          "domain": "Computer vision, video processing, natural language processing",
-          "techStack": [
-            "SlowFast",
-            "CSN",
-            "R(2+1)D Network",
-            "Attention mechanism",
-            "Docker"
-          ]
+          "projectYear": "2020",
+          "overall": "Build a model to extract features from a video and summarize a long list of tags which describe the video into a shorter list.",
+          "techStack": ["SlowFast", "Channel-Separated Convolutional Networks", "R(2+1)D Network", "Attention mechanism", "PyTorch", "Docker"]
         },
         {
-          "projectName": "Image synthesis and translation by GANs",
-          "projectYear": 2019,
-          "overall": "Generate and control high resolution image from noise vector or base on a given input image.",
-          "domain": "Computer vision, image synthesis, image-to-image translation",
-          "techStack": [
-            "StyleGAN2",
-            "CycleGAN",
-            "MUNIT",
-            "DRIT++"
-          ]
+          "projectName": "High resolution image synthesis and translation using GANs",
+          "projectYear": "2019",
+          "overall": "Generate and control high resolution image generation from noise vector or from a given input image.",
+          "techStack": ["StyleGAN2", "CycleGAN", "MUNIT", "PyTorch"]
         }
       ]
     },
     {
       "title": "Lecturer",
       "company": "MCI Academy",
-      "startDate": "Nov 2021",
+      "startDate": "Dec 2021",
       "endDate": "Present",
       "logo": "mci_academy_logo.png",
       "projects": [
         {
-          "projectName": "Python for Data analyst course",
-          "projectYear": 2021,
-          "overall": "",
-          "domain": "",
-          "techStack": [
-            "Python"
-          ]
+          "projectName": "Course: Python for Data analyst",
+          "projectYear": "2021",
+          "overall": "Introduce basic Python programming like data types, control flow, functions, and some libraries like Numpy, Pandas, Matplotlib, Seaborn, Scikit-learn for data analytics.",
+          "techStack": ["Python", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "Anaconda", "Jupyter Notebook"]
+        },
+        {
+          "projectName": "Course: Python for Machine Learning",
+          "projectYear": "2022",
+          "overall": "Introduce machine learning ideas and classic algorithms: supervised and un-supervised learning, gradient descent. Train and evaluate machine learning models using Scikit-learn.",
+          "techStack": ["Scikit-learn", "Regresion model", "Classification model", "Clustering model", "Dimensionality reduction model"]
+        },
+        {
+          "projectName": "Course: Mathmatics for Data analyst",
+          "projectYear": "2022",
+          "overall": "Review basic math knowledge about linear algebra, calculus, probability and statistics for data analyst and machine learning.",
+          "techStack": ["Linear algebra", "Calculus", "Probability and statistics", "MLE and MAP"]
+        },
+        {
+          "projectName": "Course: Python for Deep Learning",
+          "projectYear": "2023",
+          "overall": "Introduce simple deep learning models for each type of data: tabular data, computer vision, NLP, computer audition, time series. Introduce some other techniques likes reinforcement leanring, semi/self-supervised learning, model compression.",
+          "techStack": ["CNN", "RNN", "Transformer", "Spectrogram", "ARIMA", "Reinforcement learning", "Semi/Self-supervised learning"]
+        },
+        {
+          "projectName": "Course: Basic Data Lake with Hadoop",
+          "projectYear": "2023",
+          "overall": "Introduce some basic definition in big data and build some demos using Hadoop ecosystem: HDFS, Map-Reduce, YARN, Spark, Kafka.",
+          "techStack": ["Hadoop", "HDFS", "Map-Reduce", "YARN", "Spark", "Kafka"]
         }
       ]
     },
     {
       "title": "Lecturer",
       "company": "ProtonX",
-      "startDate": "Oct 2023",
+      "startDate": "Nov 2023",
       "endDate": "Present",
       "logo": "protonx_logo.jpeg",
       "projects": [
         {
-          "projectName": "Basic Pytorch course",
-          "projectYear": 2023,
-          "overall": "",
-          "domain": "",
-          "techStack": [
-            "Python"
-          ]
+          "projectName": "Course: Basic PyTorch",
+          "projectYear": "2023",
+          "overall": "Introduce basic PyTorch and PyTorch Lightning syntax to build Dataset, DataLoader, Model, API and use some model compression techniques.",
+          "techStack": ["PyTorch", "PyTorch Lightning", "FastAPI", "Model Compression"]
+        },
+        {
+          "projectName": "Course: Computer Vision",
+          "projectYear": "2024",
+          "overall": "Introduce vast of Computer Vision problems and models: classification, object detection, image segmentation, face ecosystem, contrastive learning, video processing.",
+          "techStack": ["PyTorch", "CNN", "Faster RCNN", "YOLO", "U-NET", "ArcFace", "3-D CNN"]
         }
       ]
     },
     {
       "title": "Lecturer",
       "company": "Robiz Tech Academy",
-      "startDate": "Oct 2023",
+      "startDate": "Mar 2024",
       "endDate": "Present",
       "logo": "robiztech_logo.png",
       "projects": [
         {
-          "projectName": "Python for Data analyst course",
-          "projectYear": 2021,
-          "overall": "",
-          "domain": "",
-          "techStack": [
-            "Python"
-          ]
+          "projectName": "Course: Python for Data analyst",
+          "projectYear": "2024",
+          "overall": "Introduce basic Python programming like data types, control flow, functions, and some libraries like Pandas, Matplotlib, Seaborn for data analytics.",
+          "techStack": ["Python", "Pandas", "Matplotlib", "Seaborn"]
+        },
+        {
+          "projectName": "Course: Python for Machine Learning",
+          "projectYear": "2024",
+          "overall": "Introduce machine learning ideas and classic algorithms: supervised and un-supervised learning. Train and evaluate machine learning models using Scikit-learn.",
+          "techStack": ["Scikit-learn", "Regresion model", "Classification model", "Clustering model", "Dimensionality reduction model"]
         }
       ]
     }

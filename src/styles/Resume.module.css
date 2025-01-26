@@ -46,15 +46,12 @@
 
 
 .imgArea {
-	width: 180px;
-	height: 240px;
 	border-radius: 50%;
 	overflow: hidden;
-	margin: 25px;
 }
 .imgArea img {
-	width: 180px;
-	height: 240px;
+	width: 200px;
+	height: 200px;
 }
 .main {
 	display: flex;
