@@ -3,7 +3,6 @@ import path from 'path';
 import matter from 'gray-matter';
 import { PostList } from '@/@types/post';
 
-const BLOG_FOLDER = path.join(process.cwd(), 'posts');
 
 export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts: PostList[] } {
   const postList: PostList[] = [];
@@ -20,14 +19,14 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const parsedContent = matter(fileContents);
         const { data } = parsedContent;
-        const slug = data.slug; // Lấy slug từ markdown
+        const slug = data.title ? data.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ /g, '-') : '';
 
         if (data.is_published === true) {
           postList.push({
             time: data.time || null,
             title: data.title || null,
             description: data.description || null,
-            author: data.author || null,
+            author: "Nguyễn Hữu Minh",
             banner_url: data.banner_url,
             tags: data.tags || null,
             slug,
@@ -39,7 +38,7 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
     }
   };
 
-  readFilesRecursively(BLOG_FOLDER);
+  readFilesRecursively(path.join(process.cwd(), 'posts'));
 
   // Phân loại bài viết nổi bật và bài viết khác
   const highlightPosts = postList.filter(post => post.isHighlight).slice(0, 6);
