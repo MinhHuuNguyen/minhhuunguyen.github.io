@@ -10,4 +10,4 @@ export interface PostList {
   slug: string;
   filePath: string;
   isHighlight?: boolean;
-  }
+}

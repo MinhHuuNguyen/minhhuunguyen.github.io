@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import logoSquare from "../../../public/minhhuunguyen-logo-square.jpg";
 import footerData from "../../utils/data/footer.json";
-import { COLORS } from "@/utils/constants";
+
 
 const TikTokIcon = ({ color = "#000000" }) => {
   return (
