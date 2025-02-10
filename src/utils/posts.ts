@@ -23,11 +23,11 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
 
         if (data.is_published === true) {
           postList.push({
-            time: data.time || null,
-            title: data.title || null,
-            description: data.description || null,
+            time: data.time || "11/15/1997",
+            title: data.title || "Untitled",
+            description: data.description || "No description",
             author: "Nguyễn Hữu Minh",
-            banner_url: data.banner_url,
+            banner_url: data.banner_url || "",
             tags: data.tags || null,
             slug,
             filePath: fullPath,
