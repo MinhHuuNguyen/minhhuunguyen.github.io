@@ -19,7 +19,15 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const parsedContent = matter(fileContents);
         const { data } = parsedContent;
-        const slug = data.title ? data.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ /g, '-') : '';
+        const slug = data.title 
+        ? data.title
+            .toLowerCase()                          // Convert to lowercase
+            .normalize('NFD')                        // Normalize accents
+            .replace(/đ/g, 'd')                      // Convert "đ" to "d"
+            .replace(/[\u0300-\u036f]/g, '')         // Remove diacritical marks
+            .replace(/[^a-z0-9 ]/g, '')              // Remove special characters, keep letters, digits, and spaces
+            .replace(/\s+/g, '-')                    // Replace spaces with hyphens
+        : '';                                        // Return empty string if no title
 
         if (data.is_published === true) {
           postList.push({
