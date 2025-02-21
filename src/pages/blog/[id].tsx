@@ -7,75 +7,14 @@ import matter from "gray-matter";
 import newStyles from "@/styles/News.module.css";
 import fs from "fs";
 import Image from 'next/image';
+import styles from "@/styles/markdownStyles.module.css";
+// @ts-ignore
+import katex from "markdown-it-katex";
+import "katex/dist/katex.min.css";
 
 const md = new MarkdownIt({
-  html: true,
-});
-
-const innerHtmlStyle = {
-  textAlign: "justify",
-  fontSize: "20px",
-  "& .image-wrapper": {
-    background: "#ffffff",
-    position: "relative",
-    marginTop: "20px",
-    marginBottom: "20px",
-    maxWidth: "700px",
-    width: "100%",
-    maxHeight: "675px",
-    height: "auto",
-    marginLeft: "auto",
-    marginRight: "auto",
-  "& .logo": {
-      position: "absolute",
-      top: "10px",
-      left: "10px",
-      width: "50px",
-      height: "50px",
-    },
-  },
-  "& ul": {
-    listStyleType: "disc",
-    listStylePosition: "inside",
-    display: "block",
-    marginBlockStart: "0.5em",
-    marginBlockEnd: "0.5em",
-    marginInlineStart: "0px",
-    marginInlineEnd: "0px",
-    paddingInlineStart: "40px",
-    margin: 0,
-    marginBottom: "8px",
-  },
-  "& ol": {
-    listStyleType: "decimal",
-    listStylePosition: "inside",
-    display: "block",
-    marginBlockStart: "1em",
-    marginBlockEnd: "1em",
-    marginInlineStart: "0px",
-    marginInlineEnd: "0px",
-    paddingInlineStart: "40px",
-  },
-  "& ul ul, ol ul": {
-    listStyleType: "circle",
-    listStylePosition: "inside",
-    marginLeft: "15px",
-  },
-  "& ol ol, ul ol": {
-    listStyleType: "lower-latin",
-    listStylePosition: "inside",
-    marginLeft: "15px",
-  },
-  "& h2, h3, h4, blockquote": {
-    fontWeight: "bold",
-    fontSize: "1.3em",
-    marginTop: "20px",
-    marginBottom: "10px",
-  },
-  "& p": {
-    marginTop: "15px",
-  },
-};
+  html: true, 
+}).use(katex);
 
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
@@ -95,7 +34,7 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
               <h1 className="news-title text-4xl">{frontmatter.title}</h1>
               <em>{frontmatter.description}</em>
               {content ? (
-                <Box id="content" sx={innerHtmlStyle} dangerouslySetInnerHTML={{ __html: md.render(content), }}/>
+                <Box id="content" className={styles.markdownBody} dangerouslySetInnerHTML={{ __html: md.render(content), }}/>
               ) : null}
             </div>
           </div>
