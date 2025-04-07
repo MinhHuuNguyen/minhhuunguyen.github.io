@@ -19,7 +19,7 @@ const md = new MarkdownIt({
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
     <div className="w-100">
-      <Image className={newStyles.banner} src={frontmatter.banner_url} alt="banner" width={1700} height={500}/>
+      <Image src={frontmatter.banner_url} alt="banner" width={0} height={0} style={{ width: "100vw", height: "60vh" }}/>
       <Container maxWidth="xl">
         <section className="news lg:pt-4 pt-4 mb-5">
           <div className="flex flex-wrap">
@@ -29,7 +29,6 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
                   {frontmatter.time &&
                     format(new Date(frontmatter.time), "dd/MM/yyyy")}
                 </span>
-                <strong>{frontmatter.author}</strong>
               </div>
               <h1 className="news-title text-4xl">{frontmatter.title}</h1>
               <em>{frontmatter.description}</em>
@@ -74,7 +73,6 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
         time: post.time,
         title: post.title,
         description: post.description,
-        author: post.author,
         banner_url: post.banner_url,
         tags: post.tags,
       },
