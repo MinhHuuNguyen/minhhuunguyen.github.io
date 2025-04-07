@@ -34,7 +34,6 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
             time: data.time || "11/15/1997",
             title: data.title || "Untitled",
             description: data.description || "No description",
-            author: "Nguyễn Hữu Minh",
             banner_url: data.banner_url || "",
             tags: data.tags || null,
             slug,
