@@ -18,6 +18,16 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Raleway:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
+
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-E7NY2W59JZ"/>
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${'${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}'});
+          `}
+        </Script>
       </Head>
       <body>
         <Main />

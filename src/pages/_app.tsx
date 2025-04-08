@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 const clientSideEmotionCache = createEmotionCache();
 export interface MyAppProps extends AppProps {
@@ -29,6 +30,19 @@ export default function App(props: MyAppProps) {
 
   return (
     <CacheProvider value={emotionCache}>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+         `}
+      </Script>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
