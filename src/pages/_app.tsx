@@ -31,11 +31,12 @@ export default function App(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Script
+        id="googletagmanager"
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
 
-      <Script strategy="lazyOnload">
+      <Script id="next_public_google_analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
