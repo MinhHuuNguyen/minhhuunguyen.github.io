@@ -51,5 +51,9 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
   const highlightPosts = postList.filter(post => post.isHighlight).slice(0, 6);
   const nonHighlightPosts = postList.filter(post => !post.isHighlight);
 
+  // Sắp xếp bài viết theo thời gian
+  highlightPosts.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+  nonHighlightPosts.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+
   return { highlightPosts, nonHighlightPosts };
 }
