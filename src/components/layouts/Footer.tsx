@@ -46,12 +46,6 @@ const Footer = () => {
         py={2}
       >
         <Stack direction={["column", "column", "row"]} flexWrap="wrap">
-          <Stack spacing={2} mr={[0, 0, 0, 20]}>
-            <Typography variant="h5" fontWeight="bold">
-              {footerData.title1}
-            </Typography>
-            <Typography color="GrayText">{footerData.content1}</Typography>
-          </Stack>
           <Stack spacing={2} ml={[0, 0, 4]} mt={[4, 4, 0]}>
             <Typography variant="h5" fontWeight="bold">
               {footerData.title2}
@@ -106,9 +100,6 @@ const Footer = () => {
         justifyContent={["center", "center", "center", "space-between"]}
         pt={2}
       >
-        <Typography color="GrayText">
-          © Copyright 2023. All Rights Reserved.
-        </Typography>
         <Box display={["none", "none", "none", "block"]}>
           <Stack direction={"row"} spacing={2}>
             {footerData.optionFooter.map((option, index) => (
