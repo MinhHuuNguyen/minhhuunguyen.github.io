@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage<HomePageProps> = ({ highlightPosts}) => {
   return (
     <>
-      <DefaultSeo {...SEO} />
+      <DefaultSeo {...SEO} title={"HOME"} />
       <HomeContent highlightPosts={highlightPosts}/>
     </>
   );

@@ -3,6 +3,8 @@ import { Box, Container } from "@mui/material";
 import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
 import { PostList } from "@/@types/post";
+import { SEO } from "@/configs/seo.config";
+import { DefaultSeo } from "next-seo";
 import matter from "gray-matter";
 import newStyles from "@/styles/News.module.css";
 import fs from "fs";
@@ -19,6 +21,7 @@ const md = new MarkdownIt({
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
     <div className="w-100">
+      <DefaultSeo {...SEO} title={frontmatter.title} />
       <Image src={frontmatter.banner_url} alt="banner" width={0} height={0} style={{ width: "100vw", height: "60vh" }}/>
       <Container maxWidth="xl">
         <section className="news lg:pt-4 pt-4 mb-5">
