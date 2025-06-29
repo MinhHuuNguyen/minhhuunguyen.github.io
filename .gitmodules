@@ -4,3 +4,6 @@
 [submodule "posts/data-engineer-lectures"]
 	path = posts/data-engineer-lectures
 	url = git@github.com:MinhHuuNguyen/data-engineer-lectures.git
+[submodule "posts/blog-sharing"]
+	path = posts/blog-sharing
+	url = git@github.com:MinhHuuNguyen/blog-sharing.git
