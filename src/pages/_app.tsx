@@ -34,7 +34,7 @@ export default function App(props: MyAppProps) {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      window.gtag?.("config", process.env.NEXT_PUBLIC_GA_ID, {
+      window.gtag?.("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
         page_path: url,
       });
     };
@@ -50,9 +50,17 @@ export default function App(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
+      {/* Google AdSense */}
+      <Script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT}`}
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
+
       {/* Google Analytics */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
         strategy="afterInteractive"
       />
       <Script id="gtag-init" strategy="afterInteractive">
@@ -60,7 +68,7 @@ export default function App(props: MyAppProps) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
             page_path: window.location.pathname,
           });
         `}
