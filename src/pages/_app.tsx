@@ -8,8 +8,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Hydrate, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 
@@ -44,8 +42,6 @@ export default function App(props: MyAppProps) {
           </ThemeProvider>
         </Hydrate>
       </QueryClientProvider>
-      <Analytics />
-      <SpeedInsights />
     </CacheProvider>
   );
 }
