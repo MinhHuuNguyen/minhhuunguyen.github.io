@@ -5,7 +5,6 @@ import { SEO } from "@/configs/seo.config";
 import { DefaultSeo } from "next-seo";
 import { getPostsList } from "@/utils/posts"; // Import hàm đọc markdown
 import { PostList } from "@/@types/post"; // Import kiểu PostList
-import AdBanner from "@/components/AdBanner";
 
 interface HomePageProps {
   highlightPosts: PostList[];
@@ -26,7 +25,6 @@ const Home: NextPage<HomePageProps> = ({ highlightPosts}) => {
     <>
       <DefaultSeo {...SEO} title={"HOME"} />
       <HomeContent highlightPosts={highlightPosts}/>
-      <AdBanner />
     </>
   );
 };
