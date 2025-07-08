@@ -53,8 +53,12 @@ export async function getStaticPaths() {
 
   const allPosts = [...highlightPosts, ...nonHighlightPosts];
 
+  const paths = allPosts
+    .filter((post: PostList) => post.slug !== '')
+    .map((post: PostList) => ({ params: { id: post.slug } }));
+  console.log('Static paths:', paths);
   return {
-    paths: allPosts.map((post: PostList) => ({ params: { id: post.slug } })),
+    paths,
     fallback: false, 
   };
 }
