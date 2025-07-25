@@ -43,7 +43,7 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
           </div>
         </section>
       </Container>
-      <AdBanner />
+      {/* <AdBanner /> */}
     </div>
   );
 }

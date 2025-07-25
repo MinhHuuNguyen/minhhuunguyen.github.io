@@ -19,12 +19,12 @@ export default function Document() {
           rel="stylesheet"
         />
         {/* Google AdSense */}
-        <Script
+        {/* <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8641089059133134`}
           crossOrigin="anonymous"
           strategy="afterInteractive"
-        />
+        /> */}
       </Head>
       <body>
         <Main />
