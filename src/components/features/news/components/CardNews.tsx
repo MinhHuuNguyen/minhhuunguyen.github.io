@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const CardNews= ({ post }: { post: any }) => {
-  console.log(post);
+  // console.log(post);
   const [loadedFile, setLoadedFile] = useState(false);
   
   return (

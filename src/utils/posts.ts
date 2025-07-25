@@ -15,7 +15,7 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
       const stat = fs.statSync(fullPath);
       if (stat.isDirectory()) {
         readFilesRecursively(fullPath);
-      } else if (filePath.endsWith('.md') && filePath !== 'README.md') {
+      } else if ((filePath.endsWith('.md') && filePath !== 'README.md') || fullPath.endsWith('posts/minhhuunguyen/README.md')) {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const parsedContent = matter(fileContents);
         const { data } = parsedContent;

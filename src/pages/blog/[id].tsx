@@ -16,7 +16,7 @@ import "katex/dist/katex.min.css";
 import AdBanner from "@/components/AdBanner";
 
 const md = new MarkdownIt({
-  html: true, 
+  html: true, linkify: true
 }).use(katex);
 
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
   const paths = allPosts
     .filter((post: PostList) => post.slug !== '')
     .map((post: PostList) => ({ params: { id: post.slug } }));
-  console.log('Static paths:', paths);
+  // console.log('Static paths:', paths);
   return {
     paths,
     fallback: false, 

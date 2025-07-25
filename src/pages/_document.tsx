@@ -18,13 +18,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Raleway:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
-        {/* Google AdSense */}
-        {/* <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8641089059133134`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        /> */}
         <meta name="google-adsense-account" content="ca-pub-8641089059133134"></meta>
       </Head>
       <body>
