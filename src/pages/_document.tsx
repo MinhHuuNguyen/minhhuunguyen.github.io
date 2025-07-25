@@ -25,6 +25,7 @@ export default function Document() {
           crossOrigin="anonymous"
           strategy="afterInteractive"
         /> */}
+        <meta name="google-adsense-account" content="ca-pub-8641089059133134"></meta>
       </Head>
       <body>
         <Main />
