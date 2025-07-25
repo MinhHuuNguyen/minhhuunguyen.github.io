@@ -7,3 +7,9 @@
 [submodule "posts/blog-sharing"]
 	path = posts/blog-sharing
 	url = git@github.com:MinhHuuNguyen/blog-sharing.git
+[submodule "posts/minhhuunguyen"]
+	path = posts/minhhuunguyen
+	url = git@github.com:MinhHuuNguyen/minhhuunguyen.git
+[submodule "posts/ai-practice-lectures"]
+	path = posts/ai-practice-lectures
+	url = git@github.com:MinhHuuNguyen/ai-practice-lectures.git
