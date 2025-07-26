@@ -16,7 +16,7 @@ import "katex/dist/katex.min.css";
 import AdBanner from "@/components/AdBanner";
 
 const md = new MarkdownIt({
-  html: true, linkify: true
+  html: true, 
 }).use(katex);
 
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
