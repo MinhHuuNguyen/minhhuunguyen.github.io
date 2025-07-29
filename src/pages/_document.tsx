@@ -19,12 +19,7 @@ export default function Document() {
           rel="stylesheet"
         />
         {/* Google AdSense */}
-        {/* <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8641089059133134`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        /> */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8641089059133134" crossorigin="anonymous"></script>
         <meta name="google-adsense-account" content="ca-pub-8641089059133134"></meta>
       </Head>
       <body>
