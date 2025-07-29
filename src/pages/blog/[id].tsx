@@ -13,7 +13,6 @@ import styles from "@/styles/markdownStyles.module.css";
 // @ts-ignore
 import katex from "markdown-it-katex";
 import "katex/dist/katex.min.css";
-import AdBanner from "@/components/AdBanner";
 
 const md = new MarkdownIt({
   html: true, linkify: true
