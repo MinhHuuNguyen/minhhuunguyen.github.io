@@ -34,7 +34,7 @@ export default function App(props: MyAppProps) {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      window.gtag?.("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
+      window.gtag?.("config", process.env.GOOGLE_ANALYTICS_ID, {
         page_path: url,
       });
     };
@@ -52,7 +52,7 @@ export default function App(props: MyAppProps) {
 
       {/* Google Analytics */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
         strategy="afterInteractive"
       />
       <Script id="gtag-init" strategy="afterInteractive">
@@ -60,7 +60,7 @@ export default function App(props: MyAppProps) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
+          gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}', {
             page_path: window.location.pathname,
           });
         `}

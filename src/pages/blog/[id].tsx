@@ -6,13 +6,13 @@ import { PostList } from "@/@types/post";
 import { SEO } from "@/configs/seo.config";
 import { DefaultSeo } from "next-seo";
 import matter from "gray-matter";
-import newStyles from "@/styles/News.module.css";
 import fs from "fs";
 import Image from 'next/image';
 import styles from "@/styles/markdownStyles.module.css";
 // @ts-ignore
 import katex from "markdown-it-katex";
 import "katex/dist/katex.min.css";
+import AdSenseAd from "@/components/AdSenseAd";
 
 const md = new MarkdownIt({
   html: true, linkify: true
@@ -39,10 +39,12 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
                 <Box id="content" className={styles.markdownBody} dangerouslySetInnerHTML={{ __html: md.render(content), }}/>
               ) : null}
             </div>
+            <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-1/4 pr-4 pl-4 w-full">
+              <AdSenseAd adSlot="4893845087" />
+            </div>
           </div>
         </section>
       </Container>
-      {/* <AdBanner /> */}
     </div>
   );
 }

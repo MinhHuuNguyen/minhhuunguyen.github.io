@@ -34,6 +34,23 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Assert required secrets are set
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+          GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.GOOGLE_ADSENSE_PUBLISHER_ID }}
+        run: |
+          # Safe check: do not print the secret value
+          if [ -z "${GOOGLE_ANALYTICS_ID:-}" ]; then
+            echo "::error::Required secret GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
+            exit 1
+          fi
+          if [ -z "${GOOGLE_ADSENSE_PUBLISHER_ID:-}" ]; then
+            echo "::error::Required secret GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
+            exit 1
+          fi
+          echo "All required secrets are set."
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -46,11 +63,13 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
@@ -59,6 +78,7 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
+
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -69,14 +89,16 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
       - name: Build and Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
-          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
-          NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT }}
-          NEXT_PUBLIC_GOOGLE_ADSENSE_SLOT: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_SLOT }}
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+          GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.GOOGLE_ADSENSE_PUBLISHER_ID }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
