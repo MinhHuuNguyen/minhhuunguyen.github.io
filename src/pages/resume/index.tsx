@@ -33,7 +33,7 @@ const Resume = () => {
 
         <div className={resumeStyle.main}>
           <div className={resumeStyle.left}>
-            <h2>Experience</h2>
+            <h2>Professional Experience</h2>
             {data.experience.map((job, index) => {
               const startDate = new Date(job.startDate);
               let endDate = new Date(); // Default to current date
@@ -68,7 +68,7 @@ const Resume = () => {
             })}
           </div>
           <div className={resumeStyle.right}>
-            <h2>Education</h2>
+            <h2>Education & Certifications</h2>
             {data.education.map((education, index) => (
               <div key={index}>
                 <h3>{education.degree}</h3>
@@ -78,7 +78,7 @@ const Resume = () => {
             ))}
             <h3>Language</h3>
             <p>{data.language}</p>
-            <h2>Other experience</h2>
+            <h2>Additional Experience</h2>
             <ul>
               {data.other_experience.map((other, index) => (
                 <div key={index}>
