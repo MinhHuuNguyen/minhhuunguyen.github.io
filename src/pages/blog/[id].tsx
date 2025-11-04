@@ -1,4 +1,3 @@
-import MarkdownIt from "markdown-it";
 import { Box, Container } from "@mui/material";
 import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
@@ -9,14 +8,13 @@ import matter from "gray-matter";
 import fs from "fs";
 import Image from 'next/image';
 import styles from "@/styles/markdownStyles.module.css";
-// @ts-ignore
-import katex from "markdown-it-katex";
-import "katex/dist/katex.min.css";
 import AdSenseAd from "@/components/AdSenseAd";
 
-const md = new MarkdownIt({
-  html: true, linkify: true
-}).use(katex);
+import MarkdownIt from "markdown-it";
+import markdownItKatex from "markdown-it-katex"; // prefer the plugin name
+import "katex/dist/katex.min.css";
+
+const md = new MarkdownIt({ html: true, linkify: true }).use(markdownItKatex);
 
 export default function Blog({ frontmatter, content }: { frontmatter: any, content: any }) {
   return (
@@ -50,9 +48,9 @@ export default function Blog({ frontmatter, content }: { frontmatter: any, conte
 }
 
 export async function getStaticPaths() {
-  const { highlightPosts, nonHighlightPosts } = getPostsList();
+  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
 
-  const allPosts = [...highlightPosts, ...nonHighlightPosts];
+  const allPosts = [...seriesPosts, ...highlightPostsNotSeries6, ...nonHighlightPostsNotSeries];
 
   const paths = allPosts
     .filter((post: PostList) => post.slug !== '')
@@ -65,9 +63,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  const { highlightPosts, nonHighlightPosts } = getPostsList();
+  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
 
-  const post = [...highlightPosts, ...nonHighlightPosts].find((post) => post.slug === id);
+  const post = [...seriesPosts, ...highlightPostsNotSeries6, ...nonHighlightPostsNotSeries].find((post) => post.slug === id);
   if (!post) {
     return {
       notFound: true,

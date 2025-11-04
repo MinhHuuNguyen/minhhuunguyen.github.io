@@ -60,7 +60,7 @@
   
   .markdownBody a {
     background-color: transparent;
-    color: var(--fgColor-accent);
+    color: #0000FF;
     text-decoration: none;
   }
   

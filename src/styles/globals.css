@@ -33,14 +33,6 @@ button {
   cursor: pointer;
 }
 
-/* a {
-  text-decoration: none !important;
-  color: unset;
-}
-a:hover {
-  color: unset;
-} */
-
 img {
   display: block;
   max-width: 100%;

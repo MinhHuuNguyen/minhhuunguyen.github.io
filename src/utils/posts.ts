@@ -4,7 +4,11 @@ import matter from 'gray-matter';
 import { PostList } from '@/@types/post';
 
 
-export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts: PostList[] } {
+export function getPostsList(): {
+  seriesPosts: PostList[],
+  highlightPostsNotSeries6: PostList[],
+  nonHighlightPostsNotSeries: PostList[]
+} {
   const postList: PostList[] = [];
 
   const readFilesRecursively = (currentPath: string) => {
@@ -47,13 +51,18 @@ export function getPostsList(): { highlightPosts: PostList[], nonHighlightPosts:
 
   readFilesRecursively(path.join(process.cwd(), 'posts'));
 
-  // Phân loại bài viết nổi bật và bài viết khác
-  const highlightPosts = postList.filter(post => post.isHighlight).slice(0, 6);
+  // Phân loại bài viết và sắp xếp bài viết theo thời gian
+  const seriesPosts = postList.filter(post => post.tags && post.tags.includes('series'));
+  seriesPosts.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+
+  const highlightPosts = postList.filter(post => post.isHighlight);
+  const highlightPostsNotSeries = highlightPosts.filter(post => !post.tags || !post.tags.includes('series'));
+  const highlightPostsNotSeries6 = highlightPostsNotSeries.slice(0, 6);
+  highlightPostsNotSeries6.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+
   const nonHighlightPosts = postList.filter(post => !post.isHighlight);
+  const nonHighlightPostsNotSeries = nonHighlightPosts.filter(post => !post.tags || !post.tags.includes('series'));
+  nonHighlightPostsNotSeries.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
 
-  // Sắp xếp bài viết theo thời gian
-  highlightPosts.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
-  nonHighlightPosts.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
-
-  return { highlightPosts, nonHighlightPosts };
+  return { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries };
 }

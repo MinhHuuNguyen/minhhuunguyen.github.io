@@ -9,27 +9,30 @@ import { SmallNews } from "@/components/features/news/components/SmallNews";
 import newStyle from '../../styles/News.module.css';
 
 export interface BlogListPageProps {
+  seriesPosts: PostList[];
   highlightPosts: PostList[];
   nonHighlightPosts: PostList[];
 }
-export default function BlogListPage({ highlightPosts, nonHighlightPosts }: BlogListPageProps) {
+export default function BlogListPage({ seriesPosts, highlightPosts, nonHighlightPosts }: BlogListPageProps) {
   return (
     <div className={newStyle.container}>
-      <DefaultSeo {...SEO} title={"MY BLOG"} />
+      <DefaultSeo {...SEO} title={"Bài viết của tôi"} />
       <Stack>
-        <Stack alignItems="center">
-          <Typography variant="h2" fontWeight="bold" textAlign="center">MY BLOG</Typography>
-          <br></br>
-        </Stack>
+        <Stack><Typography variant="h3" fontWeight="bold" textAlign="center">CÁC SERIES BÀI VIẾT</Typography></Stack>
         <Container maxWidth="xl">
-          <Stack
-            sx={{
-              paddingTop: "40px",
-              paddingBottom: "40px",
-              gap: "30px",
-            }}
-          >
-
+          <Stack sx={{paddingTop: "40px", paddingBottom: "40px", gap: "30px"}}>
+            <Grid container spacing={2}>
+              {seriesPosts.map((post: any, index: any) => (
+                <Grid item xs={12} md={6} lg={3} key={index}>
+                  <CardNews key={index} post={post} />
+                </Grid>
+              ))}
+            </Grid>
+          </Stack>
+        </Container>
+        <Stack><Typography variant="h3" fontWeight="bold" textAlign="center">DANH SÁCH BÀI VIẾT</Typography></Stack>
+        <Container maxWidth="xl">
+          <Stack sx={{paddingTop: "40px", paddingBottom: "40px", gap: "30px"}}>
             <Grid container spacing={2}>
               {highlightPosts.map((post: any, index: any) => (
                 <Grid item xs={12} md={6} lg={3} key={index}>
@@ -53,12 +56,13 @@ export default function BlogListPage({ highlightPosts, nonHighlightPosts }: Blog
 }
 
 export const getStaticProps: GetStaticProps<BlogListPageProps> = async () => {
-  const { highlightPosts, nonHighlightPosts } = getPostsList();
+  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
 
   return {
     props: {
-      highlightPosts: highlightPosts,
-      nonHighlightPosts: nonHighlightPosts,
+      seriesPosts: seriesPosts,
+      highlightPosts: highlightPostsNotSeries6,
+      nonHighlightPosts: nonHighlightPostsNotSeries,
     },
   };
 }

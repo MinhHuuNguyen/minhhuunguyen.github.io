@@ -11,11 +11,11 @@ interface HomePageProps {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { highlightPosts} = getPostsList();
+  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
 
   return {
     props: {
-      highlightPosts,
+      highlightPostsNotSeries6,
     },
   };
 };

@@ -14,7 +14,29 @@
     },
     {
       "name": "Blog",
-      "path": "/blog"
+      "path": "/blog",
+      "subMenus": [
+        {
+          "name": "Series Ngôn ngữ lập trình Python cơ bản",
+          "path": "/blog/series-ngon-ngu-lap-trinh-python-co-ban"
+        },
+        {
+          "name": "Series Phân tích dữ liệu với Python",
+          "path": "/blog/series-phan-tich-du-lieu-voi-python"
+        },
+        {
+          "name": "Series Machine Learning cơ bản",
+          "path": "/blog/series-machine-learning-co-ban"
+        },
+        {
+          "name": "Series Deep Learning cơ bản",
+          "path": "/blog/series-deep-learning-co-ban"
+        },
+        {
+          "name": "Series Toán trong Machine Learning",
+          "path": "/blog/series-toan-trong-machine-learning"
+        }
+      ]
     },
     {
       "name": "Github Stats",

@@ -16,8 +16,8 @@ export const ResumeComponent = ({
     }}
     >
       <Stack alignItems="center">
-        <Typography variant="h2" fontWeight="bold" textAlign="center"> MY CAREER</Typography>
-        <br></br>
+        {/* <Typography variant="h2" fontWeight="bold" textAlign="center"> MY CAREER</Typography> */}
+        {/* <br></br> */}
         <Stack direction="row">
           <Box flexBasis="20%" p={2}>
             <Image src={data.personal.avatar} alt="Profile" width={300} height={300} style={{ borderRadius: '50%', border: '2px' }} />
@@ -76,7 +76,7 @@ export const ResumeComponent = ({
             },
           }}
         >
-          Load More
+          Xem thêm
         </LoadingButton>
       </Stack>
     </Container>
