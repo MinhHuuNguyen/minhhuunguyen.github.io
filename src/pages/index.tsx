@@ -7,7 +7,9 @@ import { getPostsList } from "@/utils/posts"; // Import hàm đọc markdown
 import { PostList } from "@/@types/post"; // Import kiểu PostList
 
 interface HomePageProps {
+  seriesPosts: PostList[];
   highlightPosts: PostList[];
+  nonHighlightPosts: PostList[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -15,12 +17,14 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      highlightPostsNotSeries6,
+      seriesPosts: seriesPosts,
+      highlightPosts: highlightPostsNotSeries6,
+      nonHighlightPosts: nonHighlightPostsNotSeries,
     },
   };
 };
 
-const Home: NextPage<HomePageProps> = ({ highlightPosts}) => {
+const Home: NextPage<HomePageProps> = ({ seriesPosts, highlightPosts, nonHighlightPosts }) => {
   return (
     <>
       <DefaultSeo {...SEO} title={"HOME"} />
