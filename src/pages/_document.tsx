@@ -33,8 +33,8 @@ export default function Document() {
           crossOrigin="anonymous"
         />
         {/* Google AdSense */}
-        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADSENSE_PUBLISHER_ID}`} crossOrigin="anonymous"></script>
-        <meta name="google-adsense-account" content={process.env.GOOGLE_ADSENSE_PUBLISHER_ID}></meta>
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID}`} crossOrigin="anonymous"></script>
+        <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID}></meta>
       </Head>
       <body>
         <Main />

@@ -37,8 +37,8 @@ jobs:
 
       - name: Assert required secrets are set
         env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-          GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.GOOGLE_ADSENSE_PUBLISHER_ID }}
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+          NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
         run: |
           set -eu
 
@@ -49,26 +49,26 @@ jobs:
           }
 
           # existence checks (do not print values)
-          if [ -z "${GOOGLE_ANALYTICS_ID:-}" ]; then
-            fail "Required secret GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
+          if [ -z "${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-}" ]; then
+            fail "Required secret NEXT_PUBLIC_GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
           fi
 
-          if [ -z "${GOOGLE_ADSENSE_PUBLISHER_ID:-}" ]; then
-            fail "Required secret GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
+          if [ -z "${NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID:-}" ]; then
+            fail "Required secret NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
           fi
 
           # prefix checks (keep values private)
-          case "$GOOGLE_ANALYTICS_ID" in
+          case "$NEXT_PUBLIC_GOOGLE_ANALYTICS_ID" in
             G-*) ;;
             *)
-              fail "GOOGLE_ANALYTICS_ID does not start with 'G-'. Aborting workflow."
+              fail "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID does not start with 'G-'. Aborting workflow."
               ;;
           esac
 
-          case "$GOOGLE_ADSENSE_PUBLISHER_ID" in
+          case "$NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID" in
             ca-pub-*) ;;
             *)
-              fail "GOOGLE_ADSENSE_PUBLISHER_ID does not start with 'ca-pub-'. Aborting workflow."
+              fail "NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID does not start with 'ca-pub-'. Aborting workflow."
               ;;
           esac
 
@@ -118,8 +118,8 @@ jobs:
 
       - name: Build and Static HTML export with Next.js
         env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-          GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.GOOGLE_ADSENSE_PUBLISHER_ID }}
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+          NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact

@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const clientSideEmotionCache = createEmotionCache();
-const GA_ID = process.env.GOOGLE_ANALYTICS_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -48,9 +48,7 @@ export default function App(props: MyAppProps) {
       </Head>
 
       {/* Google Analytics */}
-      {GA_ID && (
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-      )}
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];

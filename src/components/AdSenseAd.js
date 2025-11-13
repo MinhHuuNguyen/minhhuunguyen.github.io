@@ -14,7 +14,7 @@ const AdSenseAd = ({ adSlot }) => {
     <ins
       className="adsbygoogle"
       style={{ display: 'block' }}
-      data-ad-client={process.env.GOOGLE_ADSENSE_PUBLISHER_ID}
+      data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID}
       data-ad-slot={adSlot}
       data-ad-format="auto"
       data-full-width-responsive="true"
