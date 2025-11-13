@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const clientSideEmotionCache = createEmotionCache();
+const GA_ID = process.env.GOOGLE_ANALYTICS_ID;
 
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -34,14 +35,10 @@ export default function App(props: MyAppProps) {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      window.gtag?.("config", process.env.GOOGLE_ANALYTICS_ID, {
-        page_path: url,
-      });
+      window.gtag?.("config", GA_ID, { page_path: url });
     };
     router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
   }, [router.events]);
 
   return (
@@ -51,16 +48,15 @@ export default function App(props: MyAppProps) {
       </Head>
 
       {/* Google Analytics */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
-        strategy="afterInteractive"
-      />
+      {GA_ID && (
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+      )}
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}', {
+          gtag('config', '${GA_ID}', {
             page_path: window.location.pathname,
           });
         `}

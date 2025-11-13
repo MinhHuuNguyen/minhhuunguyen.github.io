@@ -1,15 +1,15 @@
 [submodule "ai-lectures"]
 	path = posts/ai-lectures
 	url = git@github.com:MinhHuuNguyen/ai-lectures.git
-[submodule "posts/data-engineer-lectures"]
+[submodule "data-engineer-lectures"]
 	path = posts/data-engineer-lectures
 	url = git@github.com:MinhHuuNguyen/data-engineer-lectures.git
-[submodule "posts/blog-sharing"]
+[submodule "blog-sharing"]
 	path = posts/blog-sharing
 	url = git@github.com:MinhHuuNguyen/blog-sharing.git
-[submodule "posts/minhhuunguyen"]
+[submodule "minhhuunguyen"]
 	path = posts/minhhuunguyen
 	url = git@github.com:MinhHuuNguyen/minhhuunguyen.git
-[submodule "posts/ai-practice-lectures"]
+[submodule "ai-practice-lectures"]
 	path = posts/ai-practice-lectures
 	url = git@github.com:MinhHuuNguyen/ai-practice-lectures.git
