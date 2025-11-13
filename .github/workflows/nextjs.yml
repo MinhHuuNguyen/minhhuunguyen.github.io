@@ -40,16 +40,39 @@ jobs:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
           GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.GOOGLE_ADSENSE_PUBLISHER_ID }}
         run: |
-          # Safe check: do not print the secret value
+          set -eu
+
+          # helper to fail the step with a single masked message
+          fail() {
+            echo "::error::$1"
+            exit 1
+          }
+
+          # existence checks (do not print values)
           if [ -z "${GOOGLE_ANALYTICS_ID:-}" ]; then
-            echo "::error::Required secret GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
-            exit 1
+            fail "Required secret GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
           fi
+
           if [ -z "${GOOGLE_ADSENSE_PUBLISHER_ID:-}" ]; then
-            echo "::error::Required secret GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
-            exit 1
+            fail "Required secret GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
           fi
-          echo "All required secrets are set."
+
+          # prefix checks (keep values private)
+          case "$GOOGLE_ANALYTICS_ID" in
+            G-*) ;;
+            *)
+              fail "GOOGLE_ANALYTICS_ID does not start with 'G-'. Aborting workflow."
+              ;;
+          esac
+
+          case "$GOOGLE_ADSENSE_PUBLISHER_ID" in
+            ca-pub-*) ;;
+            *)
+              fail "GOOGLE_ADSENSE_PUBLISHER_ID does not start with 'ca-pub-'. Aborting workflow."
+              ;;
+          esac
+
+          echo "All required secrets are set and have the expected prefixes."
 
       - name: Detect package manager
         id: detect-package-manager
