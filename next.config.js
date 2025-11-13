@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = () => {
-  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+  const gaId = process.env.GOOGLE_ANALYTICS_ID;
 
   if (!gaId) {
-    throw new Error("❌ Environment variable NEXT_PUBLIC_GOOGLE_ANALYTICS_ID is not set.");
+    throw new Error("❌ Environment variable GOOGLE_ANALYTICS_ID is not set.");
   }
 
   if (!/^G-[A-Z0-9]+$/.test(gaId)) {
-    throw new Error(`❌ Invalid NEXT_PUBLIC_GOOGLE_ANALYTICS_ID '${gaId}'. It must start with 'G-' and contain only uppercase letters or digits.`);
+    throw new Error(`❌ Invalid GOOGLE_ANALYTICS_ID '${gaId}'. It must start with 'G-' and contain only uppercase letters or digits.`);
   }
 
   return {
