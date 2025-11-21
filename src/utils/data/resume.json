@@ -51,6 +51,15 @@
       "logo": "pixta_vietnam_logo.jpf",
       "projects": [
         {
+          "projectName": "AI Headshot Image Generation system",
+          "projectYear": "2025",
+          "overall": "Build a system which generates high-quality headshot images from input face images using some SOTA text-to-image generation models.",
+          "techStack": [
+            "DreamBooth", "LoRA", "Stable Diffusion", "Flux",
+            "NIMA", "TOPIQ", "ArcFace", "CLIP"
+          ]
+        },
+        {
           "projectName": "Auto Review system for Photo, Footage and Illustration data.",
           "projectYear": "2023 - 2024 - 2025",
           "overall": "Build a system which operates upto 15 AI models to handle vast of Computer vision problems, in order to automate Photo, Footage and Illustration reviewing process. Deploy the system and optimize running performance.",
