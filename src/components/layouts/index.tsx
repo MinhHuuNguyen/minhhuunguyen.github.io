@@ -1,4 +1,4 @@
-import ScrollToTop from "react-scroll-to-top";
+// import ScrollToTop from "react-scroll-to-top";
 import { MaterialSymbolsKeyboardArrowUp } from "../shared/icons/ChevronUpIcon";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -13,7 +13,7 @@ const Layout = ({ children }: any) => {
         </main>
       </div>
       <Footer />
-      <ScrollToTop
+      {/* <ScrollToTop
         smooth
         component={<MaterialSymbolsKeyboardArrowUp width={24} height={24} />}
         style={{
@@ -23,7 +23,7 @@ const Layout = ({ children }: any) => {
           alignItems: "center",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
         }}
-      />
+      /> */}
     </>
   );
 };
