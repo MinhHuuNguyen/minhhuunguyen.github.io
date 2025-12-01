@@ -17,7 +17,7 @@ export function getPostsList(): {
     for (const filePath of filePaths) {
       const fullPath = path.join(currentPath, filePath);
       const stat = fs.statSync(fullPath);
-      if (stat.isDirectory()) {
+      if (stat.isDirectory() && !filePath.startsWith('.')) {
         readFilesRecursively(fullPath);
       } else if ((filePath.endsWith('.md') && filePath !== 'README.md') || fullPath.endsWith('posts/minhhuunguyen/README.md')) {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
