@@ -3,11 +3,18 @@ import React, { useEffect } from 'react';
 
 const AdSenseAd = ({ adSlot }) => {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense error:", e);
-    }
+    if (typeof window === 'undefined') return;
+
+    const ads = document.querySelectorAll('.adsbygoogle');
+    ads.forEach(ad => {
+      if (!ad.getAttribute('data-adsbygoogle-status')) {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    });
   }, []);
 
   return (
