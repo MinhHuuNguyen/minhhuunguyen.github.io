@@ -6,36 +6,20 @@
     {
       "name": "Resume",
       "path": "/resume",
-      "subMenus": [
-        {
-          "name": "Download PDF"
-        }
-      ]
+      "subMenus": [{ "name": "Download PDF" }]
     },
     {
       "name": "Blog",
       "path": "/blog",
       "subMenus": [
-        {
-          "name": "Series Ngôn ngữ lập trình Python cơ bản",
-          "path": "/blog/series-ngon-ngu-lap-trinh-python-co-ban"
-        },
-        {
-          "name": "Series Phân tích dữ liệu với Python",
-          "path": "/blog/series-phan-tich-du-lieu-voi-python"
-        },
-        {
-          "name": "Series Machine Learning cơ bản",
-          "path": "/blog/series-machine-learning-co-ban"
-        },
-        {
-          "name": "Series Deep Learning cơ bản",
-          "path": "/blog/series-deep-learning-co-ban"
-        },
-        {
-          "name": "Series Toán trong Machine Learning",
-          "path": "/blog/series-toan-trong-machine-learning"
-        }
+        { "name": "Series Ngôn ngữ lập trình Python cơ bản", "path": "/blog/series-ngon-ngu-lap-trinh-python-co-ban" },
+        { "name": "Series Phân tích dữ liệu với Python", "path": "/blog/series-phan-tich-du-lieu-voi-python" },
+        { "name": "Series Deep Learning cơ bản", "path": "/blog/series-deep-learning-co-ban" },
+        { "name": "Series Thị giác máy tính", "path": "/blog/series-thi-giac-may-tinh-computer-vision" },
+        { "name": "Series Xử lý ngôn ngữ tự nhiên", "path": "/blog/series-xu-ly-ngon-ngu-tu-nhien-natural-language-processing" },
+        { "name": "Series Machine Learning cơ bản", "path": "/blog/series-machine-learning-co-ban" },
+        { "name": "Series Big Data cơ bản", "path": "/blog/series-big-data-co-ban" },
+        { "name": "Series Toán trong Machine Learning", "path": "/blog/series-toan-trong-machine-learning" }
       ]
     },
     {
