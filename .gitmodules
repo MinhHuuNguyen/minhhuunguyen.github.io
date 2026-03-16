@@ -1,6 +1,6 @@
 [submodule "ai-lectures"]
 	path = posts/ai-lectures
-	url = https://github.com/MinhHuuNguyen/ai-lectures.git minhhuunguyen.github.io.git
+	url = https://github.com/MinhHuuNguyen/ai-lectures.git
 [submodule "data-engineer-lectures"]
 	path = posts/data-engineer-lectures
 	url = https://github.com/MinhHuuNguyen/data-engineer-lectures.git
