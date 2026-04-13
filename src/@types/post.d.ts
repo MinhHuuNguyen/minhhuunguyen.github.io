@@ -9,4 +9,5 @@ export interface PostList {
   slug: string;
   filePath: string;
   isHighlight?: boolean;
+  content?: string;
 }

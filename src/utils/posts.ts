@@ -23,6 +23,26 @@ export function getPostsList(): {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const parsedContent = matter(fileContents);
         const { data } = parsedContent;
+
+        const banner_url = data.banner_url
+        const content = parsedContent.content
+
+        // Convert all github absolute links to relative links
+        // From https://raw.githubusercontent.com/MinhHuuNguyen/ai-lectures... to /posts/ai-lectures/...
+        // const banner_url = data.banner_url
+        // ? data.banner_url.replace(
+        //   /https:\/\/raw\.githubusercontent\.com\/MinhHuuNguyen\/([^"]+)/g,
+        //   '/api/posts-image/$1'
+        // ).replace('/refs/heads/master', '')
+        // : "";
+        // const content = parsedContent.content
+        // ? parsedContent.content.replace(
+        //   /https:\/\/raw\.githubusercontent\.com\/MinhHuuNguyen\/([^"]+)/g,
+        //   '/api/posts-image/$1'
+        // ).replace('/refs/heads/master', '')
+        // : "";
+        // console.log(content)
+
         const slug = data.title 
         ? data.title
             .toLowerCase()                          // Convert to lowercase
@@ -38,11 +58,12 @@ export function getPostsList(): {
             time: data.time || "11/15/1997",
             title: data.title || "Untitled",
             description: data.description || "No description",
-            banner_url: data.banner_url || "",
+            banner_url: banner_url || "",
             tags: data.tags || null,
             slug,
             filePath: fullPath,
-            isHighlight: data.is_highlight || false, 
+            isHighlight: data.is_highlight || false,
+            content: content || "",
           });
         }
       }

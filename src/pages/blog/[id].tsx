@@ -4,8 +4,6 @@ import { getPostsList } from "@/utils/posts";
 import { PostList } from "@/@types/post";
 import { SEO } from "@/configs/seo.config";
 import { DefaultSeo } from "next-seo";
-import matter from "gray-matter";
-import fs from "fs";
 import Image from 'next/image';
 import styles from "@/styles/markdownStyles.module.css";
 import AdSenseAd from "@/components/AdSenseAd";
@@ -72,9 +70,6 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
     };
   }
 
-  const fileContents = fs.readFileSync(post.filePath, 'utf8');
-  const parsedContent = matter(fileContents);
-
   return {
     props: {
       frontmatter: {
@@ -84,7 +79,7 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
         banner_url: post.banner_url,
         tags: post.tags,
       },
-      content: parsedContent.content,
+      content: post.content,
     },
   };
 }
