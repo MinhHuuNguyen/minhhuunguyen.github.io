@@ -3,8 +3,14 @@ import Script from 'next/script'
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="vi">
       <Head>
+        {/* Apply persisted language to <html lang> before paint to avoid mismatch */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var l=localStorage.getItem('locale');if(l==='vi'||l==='en'){document.documentElement.lang=l;}}catch(e){}})();`,
+          }}
+        />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"

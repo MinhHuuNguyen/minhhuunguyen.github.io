@@ -1,6 +1,7 @@
 import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, Button, IconButton, Stack } from "@mui/material";
+import { useI18n } from "@/libs/i18n/I18nContext";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import menuData from "../../utils/data/header.json";
@@ -15,6 +16,7 @@ export type MenuType = typeof menuData;
 
 const Header = () => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
+  const { locale, toggleLocale } = useI18n();
 
   const handleToggleSideMenu = () => {
     setOpenSideMenu((prev) => !prev);
@@ -57,9 +59,16 @@ const Header = () => {
           </Stack>
         </Box>
 
-        <IconButton>
-          <LanguageIcon sx={{ fontSize: 20 }} />
-        </IconButton>
+        <Button
+          onClick={toggleLocale}
+          startIcon={<LanguageIcon sx={{ fontSize: 20 }} />}
+          color="inherit"
+          size="small"
+          aria-label="Toggle language"
+          sx={{ textTransform: "uppercase", minWidth: 0 }}
+        >
+          {locale}
+        </Button>
       </Stack>
 
       <Drawer anchor="left" open={openSideMenu} onClose={handleToggleSideMenu}>

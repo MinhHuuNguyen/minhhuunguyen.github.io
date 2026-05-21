@@ -11,6 +11,7 @@ import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { QueryClientProvider, Hydrate } from "@tanstack/react-query";
+import { I18nProvider } from "@/libs/i18n/I18nContext";
 
 import Head from "next/head";
 import Script from "next/script";
@@ -62,14 +63,16 @@ export default function App(props: MyAppProps) {
 
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {hydrated && (
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            )}
-          </ThemeProvider>
+          <I18nProvider>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              {hydrated && (
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              )}
+            </ThemeProvider>
+          </I18nProvider>
         </Hydrate>
       </QueryClientProvider>
     </CacheProvider>
