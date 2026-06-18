@@ -86,7 +86,7 @@ const Resume = () => {
         </div>
       </div>
 
-      <div className={resumeProjectStyle.container}>
+      <div className={resumeProjectStyle.container} id="project-detail">
         <h1>Project Detail</h1>
         {data.experience.map((job, jobIndex) => {
           const jobId = `job-${jobIndex}`;

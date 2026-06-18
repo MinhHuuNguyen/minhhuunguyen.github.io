@@ -6,7 +6,7 @@
     {
       "name": "Resume",
       "path": "/resume",
-      "subMenus": [{ "name": "Download PDF" }]
+      "subMenus": [{ "name": "Download Resume" }, { "name": "Download Full" }]
     },
     {
       "name": "Blog",

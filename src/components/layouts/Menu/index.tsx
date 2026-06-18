@@ -5,9 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import GetAppIcon from '@mui/icons-material/GetApp';
-import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
-import data from '../../../utils/data/resume.json';
 
 type MenuSectionProps = {
   menuData: {
@@ -45,58 +42,16 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
     setAnchorEl(null);
   };
 
-  const handleDownloadPDF = async () => {
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const pageHeight = pdf.internal.pageSize.getHeight(); 
-  
-    const addSectionToPDF = async (elementId: string, isLast: boolean) => {
-      const element = document.getElementById(elementId);
-      if (element) {
-        const canvas = await html2canvas(element, {
-          scale: 2,
-        });
-        const imgData = canvas.toDataURL('image/png');
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  
-        if (pdfHeight > pageHeight) {
-          let remainingHeight = pdfHeight;
-          let yOffset = 0;
-  
-          while (remainingHeight > 0) {
-            const currentHeight = Math.min(remainingHeight, pageHeight); 
-            pdf.addImage(imgData, 'PNG', 0, yOffset, pdfWidth, currentHeight);
-  
-            remainingHeight -= currentHeight;
-            yOffset += currentHeight; 
-            
-            if (remainingHeight > 0) {
-              pdf.addPage(); 
-            }
-          }
-        } else {
-
-          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-          
-          if (!isLast) {
-            pdf.addPage();
-          }
-        }
-      }
-    };
-  
-    await addSectionToPDF('resume', false);
-  
-    for (const [jobIndex] of data.experience.entries()) {
-      const jobId = `job-${jobIndex}`;
-      const isLastJob = jobIndex === data.experience.length - 1;
-      await addSectionToPDF(jobId, isLastJob);
-    }
-    
-    pdf.save("resume.pdf");
+  const handleDownload = (file: string) => {
+    handleClose();
+    const link = document.createElement("a");
+    link.href = file;
+    link.download = file.split("/").pop() ?? "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   };
-  
+
 
   useEffect(() => {
     const handleMenuMouseEnter = () => {
@@ -172,9 +127,14 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
                 );
               }
 
-              if (subMenu.name === 'Download PDF') {
+              if (subMenu.name === 'Download Resume' || subMenu.name === 'Download Full') {
+                const file = subMenu.name === 'Download Resume' ? '/resume.pdf' : '/resume-full.pdf';
                 return (
-                  <MenuItem key={subMenu.name} onClick={handleDownloadPDF} sx={{ marginLeft: -0.5 }}>
+                  <MenuItem
+                    key={subMenu.name}
+                    onClick={() => handleDownload(file)}
+                    sx={{ marginLeft: -0.5 }}
+                  >
                     <GetAppIcon /> {subMenu.name}
                   </MenuItem>
                 );

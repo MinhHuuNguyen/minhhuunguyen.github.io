@@ -1460,3 +1460,42 @@ ul {
     transform: translate(-50%, 0) rotate(90deg);
   }
 }
+
+@media print {
+  /* ẩn chrome của site */
+  .site-header,
+  .site-footer,
+  #back-to-top,
+  .mobile__header-nav,
+  .modal__overlay {
+    display: none !important;
+  }
+
+  /* bỏ khoảng đệm/lề thừa, in sát trang */
+  html,
+  body {
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  /* chế độ chỉ in resume: ẩn phần project detail */
+  body.print-resume-only #project-detail {
+    display: none !important;
+  }
+
+  /* tránh cắt ngang khối khi sang trang */
+  #resume,
+  #project-detail [id^="job-"] {
+    break-inside: avoid;
+  }
+
+  /* giữ màu (link, nền) khi in */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    margin: 0;
+  }
+}
