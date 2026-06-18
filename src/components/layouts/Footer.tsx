@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import logoSquare from "../../../public/minhhuunguyen-logo-square.jpg";
+import logoSquare from "../../../public/minhhuunguyen-logo-square.jpeg";
 import footerData from "../../utils/data/footer.json";
 
 

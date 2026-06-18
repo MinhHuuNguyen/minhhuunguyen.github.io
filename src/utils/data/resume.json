@@ -6,7 +6,7 @@
       "MLOps Engineer",
       "Lecturer"
     ],
-    "avatar": "resume_avatar.jpg",
+    "avatar": "/resume_avatar.jpeg",
     "social": {
       "linkedin": "linkedin.com/in/minhhuunguyen",
       "email": "minhhuunguyen1511@gmail.com",
@@ -18,12 +18,14 @@
     {
       "degree": "Master of science - Mathematics & Informatics",
       "school": "Hanoi University of Science and Technology",
-      "duration": "Oct 2020 - Aug 2022"
+      "duration": "Oct 2020 - Aug 2022",
+      "logo": ["/hust_logo.jpeg"]
     },
     {
       "degree": "Engineer's degree - Mathematics & Informatics",
       "school": "Hanoi University of Science and Technology",
-      "duration": "Aug 2015 - June 2020"
+      "duration": "Aug 2015 - June 2020",
+      "logo": ["/hust_logo.jpeg"]
     }
   ],
   "language": [
@@ -44,11 +46,30 @@
   ],
   "experience": [
     {
+      "title": "AI Engineer",
+      "company": "FPT Software",
+      "startDate": "March 2026",
+      "endDate": "Present",
+      "logo": ["/fpt_logo.jpeg"],
+      "projects": [
+        {
+          "projectName": "AI Agent Chatbot for Agricultural Machinery",
+          "projectYear": "2026",
+          "overall": "Build a chatbot system which can answer questions about agricultural machinery and provide some recommendations for customers.",
+          "techStack": [
+            "LLM", "RAG", "OpenSearch", "Faiss",
+            "Langchain", "LangGraph", "LangFuse",
+            "Docker", "FastAPI", "AWS"
+          ]
+        }
+      ]
+    },
+    {
       "title": "AI Engineer - MLOps Engineer",
       "company": "PIXTA Vietnam Co. Ltd.",
       "startDate": "May 2019",
-      "endDate": "Present",
-      "logo": "pixta_vietnam_logo.jpf",
+      "endDate": "February 2026",
+      "logo": ["/pixta_vietnam_logo.jpeg"],
       "projects": [
         {
           "projectName": "AI Headshot Image Generation system",
@@ -116,82 +137,52 @@
     },
     {
       "title": "Lecturer",
-      "company": "MCI Academy",
+      "company": "MCI Academy - ProtonX - Robiz Tech Academy",
       "startDate": "Dec 2021",
       "endDate": "Present",
-      "logo": "mci_academy_logo.png",
+      "logo": ["/mci_academy_logo.jpeg", "/protonx_logo.jpeg", "/robiztech_logo.jpeg"],
       "projects": [
         {
-          "projectName": "Course: Python for Data analyst",
+          "projectName": "Python for Data analyst",
           "projectYear": "2021",
           "overall": "Introduce basic Python programming like data types, control flow, functions, and some libraries like Numpy, Pandas, Matplotlib, Seaborn, Scikit-learn for data analytics.",
           "techStack": ["Python", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "Anaconda", "Jupyter Notebook"]
         },
         {
-          "projectName": "Course: Python for Machine Learning",
+          "projectName": "Python for Machine Learning",
           "projectYear": "2022",
           "overall": "Introduce machine learning ideas and classic algorithms: supervised and un-supervised learning, gradient descent. Train and evaluate machine learning models using Scikit-learn.",
           "techStack": ["Scikit-learn", "Regresion model", "Classification model", "Clustering model", "Dimensionality reduction model"]
         },
         {
-          "projectName": "Course: Mathmatics for Data analyst",
+          "projectName": "Mathmatics for Data analyst",
           "projectYear": "2022",
           "overall": "Review basic math knowledge about linear algebra, calculus, probability and statistics for data analyst and machine learning.",
           "techStack": ["Linear algebra", "Calculus", "Probability and statistics", "MLE and MAP"]
         },
         {
-          "projectName": "Course: Python for Deep Learning",
+          "projectName": "Python for Deep Learning",
           "projectYear": "2023",
           "overall": "Introduce simple deep learning models for each type of data: tabular data, computer vision, NLP, computer audition, time series. Introduce some other techniques likes reinforcement leanring, semi/self-supervised learning, model compression.",
           "techStack": ["CNN", "RNN", "Transformer", "Spectrogram", "ARIMA", "Reinforcement learning", "Semi/Self-supervised learning"]
         },
         {
-          "projectName": "Course: Basic Data Lake with Hadoop",
+          "projectName": "Basic Data Lake with Hadoop",
           "projectYear": "2023",
           "overall": "Introduce some basic definition in big data and build some demos using Hadoop ecosystem: HDFS, Map-Reduce, YARN, Spark, Kafka.",
           "techStack": ["Hadoop", "HDFS", "Map-Reduce", "YARN", "Spark", "Kafka"]
-        }
-      ]
-    },
-    {
-      "title": "Lecturer",
-      "company": "ProtonX",
-      "startDate": "Nov 2023",
-      "endDate": "Jul 2024",
-      "logo": "protonx_logo.jpeg",
-      "projects": [
+        },
         {
-          "projectName": "Course: Basic PyTorch",
+          "projectName": "Basic PyTorch",
           "projectYear": "2023",
           "overall": "Introduce basic PyTorch and PyTorch Lightning syntax to build Dataset, DataLoader, Model, API and use some model compression techniques.",
           "techStack": ["PyTorch", "PyTorch Lightning", "FastAPI", "Model Compression"]
         },
         {
-          "projectName": "Course: Computer Vision",
+          "projectName": "Computer Vision",
           "projectYear": "2024",
           "overall": "Introduce vast of Computer Vision problems and models: classification, object detection, image segmentation, face ecosystem, contrastive learning, video processing.",
           "techStack": ["PyTorch", "CNN", "Faster RCNN", "YOLO", "U-NET", "ArcFace", "3-D CNN"]
-        }
-      ]
-    },
-    {
-      "title": "Lecturer",
-      "company": "Robiz Tech Academy",
-      "startDate": "Mar 2024",
-      "endDate": "Feb 2025",
-      "logo": "robiztech_logo.png",
-      "projects": [
-        {
-          "projectName": "Course: Python for Data analyst",
-          "projectYear": "2024",
-          "overall": "Introduce basic Python programming like data types, control flow, functions, and some libraries like Pandas, Matplotlib, Seaborn for data analytics.",
-          "techStack": ["Python", "Pandas", "Matplotlib", "Seaborn"]
-        },
-        {
-          "projectName": "Course: Python for Machine Learning",
-          "projectYear": "2024",
-          "overall": "Introduce machine learning ideas and classic algorithms: supervised and un-supervised learning. Train and evaluate machine learning models using Scikit-learn.",
-          "techStack": ["Scikit-learn", "Regresion model", "Classification model", "Clustering model", "Dimensionality reduction model"]
         }
       ]
     }
@@ -202,23 +193,13 @@
       "info_list": ["Khoang Troi Cua Be (Sep 2016 - Aug 2025)"]
     },
     {
-      "title": "Speaker",
+      "title": "Speaker - Examiner - Mentor",
       "info_list": [
         "NCT JOB FAIR 2024, National Economics University", 
         "ProtonX: PyTorch 101",
-        "Data sience and Technology in start-up"
-      ]
-    },
-    {
-      "title": "Examiner",
-      "info_list": [
+        "Data sience and Technology in start-up",
         "H4TF PROJECT - DATA ANALYSIS - UNVEIL DATA POWER",
-        "AI Hackathon: Face Analysis Challenge"
-      ]
-    },
-    {
-      "title": "Mentor",
-      "info_list": [
+        "AI Hackathon: Face Analysis Challenge",
         "NEU Daily Mentoring"
       ]
     }

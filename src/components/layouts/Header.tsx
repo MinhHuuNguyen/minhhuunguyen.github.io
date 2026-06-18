@@ -5,7 +5,7 @@ import { useI18n } from "@/libs/i18n/I18nContext";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import menuData from "../../utils/data/header.json";
-import logoRectangle from "../../../public/minhhuunguyen-logo-square.jpg";
+import logoRectangle from "../../../public/minhhuunguyen-logo-square.jpeg";
 
 import MenuSection from "./Menu";
 import { useState } from "react";

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { DefaultSeo } from "next-seo";
 import { SEO } from "@/configs/seo.config";
+import { getDuration } from "@/utils/common";
 import data from '../../utils/data/resume.json';
 import resumeStyle from '../../styles/Resume.module.css';
 import resumeProjectStyle from '../../styles/ResumeProject.module.css';
@@ -35,21 +36,7 @@ const Resume = () => {
           <div className={resumeStyle.left}>
             <h2>Professional Experience</h2>
             {data.experience.map((job, index) => {
-              const startDate = new Date(job.startDate);
-              let endDate = new Date(); // Default to current date
-
-              if (job.endDate !== 'Present') {
-                endDate = new Date(job.endDate);
-              }
-
-              const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
-              const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
-              const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30));
-
-              const yearString = diffYears > 1 ? `${diffYears} years` : diffYears === 1 ? `${diffYears} year` : '';
-              const monthString = diffMonths > 1 ? `${diffMonths} months` : diffMonths === 1 ? `${diffMonths} month` : '';
-
-              const duration = [yearString, monthString].filter(Boolean).join(', ');
+              const duration = getDuration(job.startDate, job.endDate);
 
               return (
                 <div key={index}>
