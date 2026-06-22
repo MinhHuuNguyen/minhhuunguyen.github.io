@@ -15,7 +15,7 @@ import { I18nProvider } from "@/libs/i18n/I18nContext";
 
 import Head from "next/head";
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -27,12 +27,7 @@ export interface MyAppProps extends AppProps {
 
 export default function App(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const [hydrated, setHydrated] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -66,11 +61,9 @@ export default function App(props: MyAppProps) {
           <I18nProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              {hydrated && (
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
-              )}
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
             </ThemeProvider>
           </I18nProvider>
         </Hydrate>
