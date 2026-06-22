@@ -11,42 +11,48 @@ export function getPostsList(): {
 } {
   const postList: PostList[] = [];
 
+  // Cross-platform check for the owner's profile README (path.sep aware).
+  const minhReadme = path.join('posts', 'minhhuunguyen', 'README.md');
+
   const readFilesRecursively = (currentPath: string) => {
-    const filePaths = fs.readdirSync(currentPath);
+    let filePaths: string[];
+    try {
+      filePaths = fs.readdirSync(currentPath);
+    } catch (err) {
+      console.warn(`[posts] Không đọc được thư mục: ${currentPath}`, err);
+      return;
+    }
 
     for (const filePath of filePaths) {
       const fullPath = path.join(currentPath, filePath);
-      const stat = fs.statSync(fullPath);
+
+      let stat: fs.Stats;
+      try {
+        stat = fs.statSync(fullPath);
+      } catch (err) {
+        console.warn(`[posts] Bỏ qua đường dẫn không truy cập được: ${fullPath}`, err);
+        continue;
+      }
+
       if (stat.isDirectory() && !filePath.startsWith('.')) {
         readFilesRecursively(fullPath);
       } else if (
         (filePath.endsWith('.md') && filePath !== 'README.md') ||
-        fullPath.endsWith('posts/minhhuunguyen/README.md')
-    ) {
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const parsedContent = matter(fileContents);
+        fullPath.endsWith(minhReadme)
+      ) {
+        let parsedContent: matter.GrayMatterFile<string>;
+        try {
+          parsedContent = matter(fs.readFileSync(fullPath, 'utf8'));
+        } catch (err) {
+          console.warn(`[posts] Bỏ qua file không đọc/parse được: ${fullPath}`, err);
+          continue;
+        }
         const { data } = parsedContent;
 
         const banner_url = data.banner_url
         const content = parsedContent.content
 
-        // Convert all github absolute links to relative links
-        // From https://raw.githubusercontent.com/MinhHuuNguyen/ai-lectures... to /posts/ai-lectures/...
-        // const banner_url = data.banner_url
-        // ? data.banner_url.replace(
-        //   /https:\/\/raw\.githubusercontent\.com\/MinhHuuNguyen\/([^"]+)/g,
-        //   '/api/posts-image/$1'
-        // ).replace('/refs/heads/master', '')
-        // : "";
-        // const content = parsedContent.content
-        // ? parsedContent.content.replace(
-        //   /https:\/\/raw\.githubusercontent\.com\/MinhHuuNguyen\/([^"]+)/g,
-        //   '/api/posts-image/$1'
-        // ).replace('/refs/heads/master', '')
-        // : "";
-        // console.log(content)
-
-        const slug = data.title 
+        const slug = data.title
         ? data.title
             .toLowerCase()                          // Convert to lowercase
             .normalize('NFD')                        // Normalize accents
@@ -58,7 +64,7 @@ export function getPostsList(): {
 
         if (data.is_published === true) {
           postList.push({
-            time: data.time || "11/15/1997",
+            time: data.time || new Date(0).toISOString(),
             title: data.title || "Untitled",
             description: data.description || "No description",
             banner_url: banner_url || "",
@@ -73,7 +79,14 @@ export function getPostsList(): {
     }
   };
 
-  readFilesRecursively(path.join(process.cwd(), 'posts'));
+  const postsRoot = path.join(process.cwd(), 'posts');
+  if (!fs.existsSync(postsRoot) || fs.readdirSync(postsRoot).length === 0) {
+    throw new Error(
+      "Thư mục 'posts/' rỗng hoặc chưa tồn tại. Hãy init submodule: " +
+        "git submodule update --init --recursive"
+    );
+  }
+  readFilesRecursively(postsRoot);
 
   // Phân loại bài viết và sắp xếp bài viết theo thời gian
   const seriesPosts = postList.filter(post => post.tags && post.tags.includes('series'));
