@@ -51,8 +51,7 @@ const Footer = () => {
               {footerData.title2}
             </Typography>
             <Typography color="GrayText">
-              {footerData.content2.mail} <br />
-              {footerData.content2.phone}
+              {footerData.content2.mail}
             </Typography>
           </Stack>
         </Stack>

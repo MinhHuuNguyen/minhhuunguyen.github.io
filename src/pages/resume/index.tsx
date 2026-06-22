@@ -27,7 +27,6 @@ const Resume = () => {
           <section className={resumeStyle.social}>
             <p>{data.personal.social.linkedin}<i className="fa-brands fa-linkedin-in"></i></p>
             <p>{data.personal.social.email}<i className="fa fa-envelope" aria-hidden="true"></i></p>
-            <p>{data.personal.social.phone}<i className="fa fa-phone"></i></p>
             <p>{data.personal.social.location}<i className="fa fa-map-marker" aria-hidden="true"></i></p>
           </section>
         </div>
