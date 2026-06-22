@@ -17,9 +17,9 @@
 }
 
 .container {
-	background: white;
-	max-width: var(--container-max-wide);
-	margin: 60px auto;
-	padding: 10px;
-	height: auto;
+  background: white;
+  max-width: var(--container-max-wide);
+  margin: 60px auto;
+  padding: 10px;
+  height: auto;
 }

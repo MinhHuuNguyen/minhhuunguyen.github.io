@@ -1,33 +1,33 @@
 .container {
-	background: white;
-	max-width: 1200px;
-	margin: 60px auto;
-	padding: 10px;
-	height: auto;
-	line-height: 2;
+  background: white;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 10px;
+  height: auto;
+  line-height: 2;
 }
 
 .project h4{
-	font-size: 18px;
-	font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .project ul li{
-	list-style:circle;
-	list-style-position: inside;
-	margin-left: 20px;
+  list-style:circle;
+  list-style-position: inside;
+  margin-left: 20px;
 }
-  
+
 .container h1{
-	font-size: 30px;
-	font-weight: 600;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .container h2{
-	font-size: 20px;
-	font-weight: 450;
+  font-size: 20px;
+  font-weight: 450;
 }
 
 .container p{
-	font-size: 16px;
+  font-size: 16px;
 }

@@ -1,144 +1,144 @@
 .container {
-	background: white;
-	max-width: var(--container-max);
-	margin: 60px auto;
-	padding: 10px;
-	height: auto;
+  background: white;
+  max-width: var(--container-max);
+  margin: 60px auto;
+  padding: 10px;
+  height: auto;
 }
 
 .header h2 {
-	margin-bottom: 10px;
-    font-size: 30px;
-    font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 
 .header{
-	display: flex;
+  display: flex;
 }
 .header h3 {
-	text-transform: uppercase;
-	font-size: 15px;
-	font-weight: 500;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .jobTitle{
-	text-align: left;
-	margin: 30px;
-    flex:1;
+  text-align: left;
+  margin: 30px;
+  flex:1;
 
 }
 
 .social {
-	margin: 30px;
-    flex:1;
+  margin: 30px;
+  flex:1;
 }
 
 .social i{
-	font-size: 20px;
-	margin-left: 10px;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .social p{
-	line-height: 2;
-	text-align: right;
+  line-height: 2;
+  text-align: right;
 }
 
 
 .imgArea {
-	border-radius: 50%;
-	overflow: hidden;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .imgArea img {
-	width: 200px;
-	height: 200px;
+  width: 200px;
+  height: 200px;
 }
 .main {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .left {
-	flex: 1;
+  flex: 1;
 }
 
 .left p {
-	line-height: 2;
+  line-height: 2;
 }
 .left ul li {
-	line-height: 2;
-	list-style-position: inside;
-	list-style-type: circle;
-	
+  line-height: 2;
+  list-style-position: inside;
+  list-style-type: circle;
+
 }
 .left h2 {
-	color: #0a0a0a;
-	margin: 20px 0;
-	font-size: 30px;	
-	font-weight: 550;
+  color: #0a0a0a;
+  margin: 20px 0;
+  font-size: 30px;
+  font-weight: 550;
 }
 
 .left h3 {
-	margin-top: 20px;
-	font-weight: 450;
-	font-size: 20px;
+  margin-top: 20px;
+  font-weight: 450;
+  font-size: 20px;
 }
 
 .left p{
-	font-style: italic;
+  font-style: italic;
 }
 
 .right h2 {
-	color: #0a0a0a;
-	margin: 20px 0;
-	font-size: 30px;
-	font-weight: 550;
+  color: #0a0a0a;
+  margin: 20px 0;
+  font-size: 30px;
+  font-weight: 550;
 }
 .right {
-	flex: 1;
+  flex: 1;
 }
 
 .right h3 {
-	margin-top: 20px;
-	font-weight: 450;
-	font-size: 20px;
+  margin-top: 20px;
+  font-weight: 450;
+  font-size: 20px;
 }
 
 .right p {
-	line-height: 2;
-	font-style: italic;
+  line-height: 2;
+  font-style: italic;
 }
 
 .right ul li {
-	line-height: 2;
-	list-style-position: inside;
-    list-style-type: circle;
+  line-height: 2;
+  list-style-position: inside;
+  list-style-type: circle;
 }
 
 .project{
-	line-height: 2;
+  line-height: 2;
 }
 
 .project h1{
-	font-size: 30px;
-	font-weight: 600;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .project h2{
-	font-size: 20px;
-	font-weight: 450;
+  font-size: 20px;
+  font-weight: 450;
 }
 
 .project p{
-	font-size: 16px;
+  font-size: 16px;
 }
 
 .detail ul li{
-	list-style:circle;
-	list-style-position: inside;
-	margin-left: 20px;
+  list-style:circle;
+  list-style-position: inside;
+  margin-left: 20px;
 }
 
 .detail h4{
-	font-size: 18px;
-	font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
