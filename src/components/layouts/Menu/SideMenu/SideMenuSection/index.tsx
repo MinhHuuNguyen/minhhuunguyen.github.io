@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React from "react";
 import {
   Accordion,
@@ -9,7 +8,21 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const MenuSection = ({ menuData }) => {
+type SubMenuItem = { name: string; path: string };
+
+type SubMenu = {
+  name: string;
+  path?: string;
+  subMenu2?: SubMenuItem[];
+};
+
+type MenuData = {
+  name: string;
+  path: string;
+  subMenus?: SubMenu[];
+};
+
+const MenuSection = ({ menuData }: { menuData: MenuData }) => {
   const { name, path, subMenus } = menuData;
 
   return (
@@ -36,34 +49,32 @@ const MenuSection = ({ menuData }) => {
 
       <AccordionDetails>
         {!!subMenus &&
-          subMenus.map((subMenu, index: number) => {
+          subMenus.map((subMenu) => {
             if (!subMenu.subMenu2) {
               return (
-                <MenuItem key={index} sx={{ py: 2 }}>
+                <MenuItem key={subMenu.name} sx={{ py: 2 }}>
                   <a href={subMenu.path}>{subMenu.name}</a>
                 </MenuItem>
               );
             }
             return (
-              <>
-                <Accordion key={subMenu.name}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    sx={{ boxShadow: "none" }}
-                  >
-                    <Typography mt={1}>{subMenu.name}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {subMenu.subMenu2.map((item: any) => {
-                      return (
-                        <MenuItem key={index} sx={{ py: 2 }}>
-                          <a href={item.path}>{item.name}</a>
-                        </MenuItem>
-                      );
-                    })}
-                  </AccordionDetails>
-                </Accordion>
-              </>
+              <Accordion key={subMenu.name}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  sx={{ boxShadow: "none" }}
+                >
+                  <Typography mt={1}>{subMenu.name}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {subMenu.subMenu2.map((item) => {
+                    return (
+                      <MenuItem key={`${subMenu.name}-${item.name}`} sx={{ py: 2 }}>
+                        <a href={item.path}>{item.name}</a>
+                      </MenuItem>
+                    );
+                  })}
+                </AccordionDetails>
+              </Accordion>
             );
           })}
       </AccordionDetails>
@@ -71,11 +82,11 @@ const MenuSection = ({ menuData }) => {
   );
 };
 
-const VerticalMenu = ({ menuDatas }) => {
+const VerticalMenu = ({ menuDatas }: { menuDatas: MenuData[] }) => {
   return (
     <div>
-      {menuDatas.map((menu, index) => (
-        <MenuSection key={index} menuData={menu} />
+      {menuDatas.map((menu) => (
+        <MenuSection key={menu.name} menuData={menu} />
       ))}
     </div>
   );
