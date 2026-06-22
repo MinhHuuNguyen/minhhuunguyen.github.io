@@ -16,11 +16,11 @@ const nextConfig = () => {
       remotePatterns: [
         {
           protocol: "https",
-          hostname: "*",
+          hostname: "raw.githubusercontent.com",
         },
         {
-          protocol: "http",
-          hostname: "*",
+          protocol: "https",
+          hostname: "cdn.pixabay.com",
         },
       ],
       unoptimized: true, // enables static exports
