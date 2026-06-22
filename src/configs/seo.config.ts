@@ -7,12 +7,10 @@ const SEO: DefaultSeoProps = {
   openGraph: {
     type: "website",
     locale: "en",
-    // url: 'https://nextjs-core-project.vercel.app',
-    // siteName: 'Nextjs Core Project',
+    url: "https://minhhuunguyen.github.io",
+    siteName: "MinhHuuNguyen",
   },
   twitter: {
-    handle: "@handle",
-    site: "@site",
     cardType: "summary_large_image",
   },
 };
