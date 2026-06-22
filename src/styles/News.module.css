@@ -18,7 +18,7 @@
 
 .container {
 	background: white;
-	max-width: 1600px;
+	max-width: var(--container-max-wide);
 	margin: 60px auto;
 	padding: 10px;
 	height: auto;

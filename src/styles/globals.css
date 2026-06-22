@@ -1025,6 +1025,10 @@ body {
   --color-accent: #f14658;
   --color-purple: #df98fa;
   --color-teal: #009292;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-max-wide: 1600px;
 }
 
 ul {
