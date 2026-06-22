@@ -1,5 +1,3 @@
-import { is } from "date-fns/locale";
-
 export interface PostList {
   time: string;
   title: string;
