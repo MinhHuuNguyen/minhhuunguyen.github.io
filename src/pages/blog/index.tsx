@@ -22,9 +22,9 @@ export default function BlogListPage({ seriesPosts, highlightPosts, nonHighlight
         <Container maxWidth="xl">
           <Stack sx={{paddingTop: "40px", paddingBottom: "40px", gap: "30px"}}>
             <Grid container spacing={2}>
-              {seriesPosts.map((post: any, index: any) => (
-                <Grid item xs={12} md={6} lg={3} key={index}>
-                  <CardNews key={index} post={post} />
+              {seriesPosts.map((post: PostList) => (
+                <Grid item xs={12} md={6} lg={3} key={post.slug}>
+                  <CardNews post={post} />
                 </Grid>
               ))}
             </Grid>
@@ -34,17 +34,17 @@ export default function BlogListPage({ seriesPosts, highlightPosts, nonHighlight
         <Container maxWidth="xl">
           <Stack sx={{paddingTop: "40px", paddingBottom: "40px", gap: "30px"}}>
             <Grid container spacing={2}>
-              {highlightPosts.map((post: any, index: any) => (
-                <Grid item xs={12} md={6} lg={3} key={index}>
-                  <CardNews key={index} post={post} />
+              {highlightPosts.map((post: PostList) => (
+                <Grid item xs={12} md={6} lg={3} key={post.slug}>
+                  <CardNews post={post} />
                 </Grid>
               ))}
             </Grid>
 
             <Grid container spacing={2}>
-              {nonHighlightPosts.map((post: any, index: any) => (
-                <Grid item xs={12} md={6} lg={3} key={index}>
-                  <SmallNews key={index} post={post} />
+              {nonHighlightPosts.map((post: PostList) => (
+                <Grid item xs={12} md={6} lg={3} key={post.slug}>
+                  <SmallNews post={post} />
                 </Grid>
               ))}
             </Grid>
