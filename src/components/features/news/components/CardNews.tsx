@@ -3,13 +3,13 @@
 import { hoverReadMore, imageAbsolute } from "@/styles/commonStyles";
 import { ImageLoader, ReadMore } from "@/styles/styled";
 import { ellipsisText } from "@/utils/common";
+import { PostList } from "@/@types/post";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export const CardNews= ({ post }: { post: any }) => {
-  // console.log(post);
+export const CardNews= ({ post }: { post: PostList }) => {
   const [loadedFile, setLoadedFile] = useState(false);
   
   return (

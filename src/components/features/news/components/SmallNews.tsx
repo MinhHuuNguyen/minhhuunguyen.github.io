@@ -2,10 +2,11 @@
 
 import { imageAbsolute, imageRelative } from "@/styles/commonStyles";
 import { ellipsisText } from "@/utils/common";
+import { PostList } from "@/@types/post";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
-export const SmallNews= ({ post }: { post: any }) => {
+export const SmallNews= ({ post }: { post: PostList }) => {
   return (
     <Grid container spacing={1}>
       <Grid item xs={4}>
