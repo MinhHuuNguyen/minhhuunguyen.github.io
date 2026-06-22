@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { NestedMenuItem } from "mui-nested-menu";
 import Link from "next/link";
@@ -54,19 +53,16 @@ const MenuSection: React.FC<MenuSectionProps> = ({ menuData }) => {
 
 
   useEffect(() => {
+    const node = menuRef.current;
     const handleMenuMouseEnter = () => {
       if (!anchorEl) return;
       setAnchorEl(null);
     };
 
-    if (menuRef.current) {
-      menuRef.current.addEventListener("mouseenter", handleMenuMouseEnter);
-    }
+    node?.addEventListener("mouseenter", handleMenuMouseEnter);
 
     return () => {
-      if (menuRef.current) {
-        menuRef.current.removeEventListener("mouseenter", handleMenuMouseEnter);
-      }
+      node?.removeEventListener("mouseenter", handleMenuMouseEnter);
     };
   }, [anchorEl]);
 
