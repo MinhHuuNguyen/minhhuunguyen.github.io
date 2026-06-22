@@ -31,7 +31,7 @@ function Error404() {
             </Grid>
             <Grid item xs={6}>
               <Image
-                src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
+                src="/404-illustration.svg"
                 alt="not-found"
                 width={500}
                 height={250}

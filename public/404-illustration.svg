@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" viewBox="0 0 500 250" fill="none" role="img" aria-label="Page not found illustration">
+  <rect width="500" height="250" rx="16" fill="#f7f9fc"/>
+  <circle cx="250" cy="125" r="92" fill="#eaf2fd"/>
+  <text x="250" y="150" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="86" font-weight="700" fill="#3ba9f8">404</text>
+  <g stroke="#fa4996" stroke-width="6" stroke-linecap="round">
+    <line x1="120" y1="60" x2="140" y2="80"/>
+    <line x1="140" y1="60" x2="120" y2="80"/>
+    <line x1="360" y1="170" x2="380" y2="190"/>
+    <line x1="380" y1="170" x2="360" y2="190"/>
+  </g>
+  <circle cx="100" cy="185" r="8" fill="#fa4996"/>
+  <circle cx="400" cy="70" r="8" fill="#3ba9f8"/>
+</svg>
