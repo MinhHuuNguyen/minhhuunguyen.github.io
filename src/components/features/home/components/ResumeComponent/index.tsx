@@ -6,144 +6,18 @@ import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { ReactNode } from "react";
 import data from "@/utils/data/resume.json";
 import { getDuration } from "@/utils/common";
-
-const BLUE = "linear-gradient(135deg, #84c8f8, #3ba9f8)";
-const PINK = "#fa4996";
-
-const gradientText = {
-  background: "linear-gradient(135deg, #3ba9f8, #1f74d0)",
-  backgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-} as const;
-
-const cardSx = {
-  bgcolor: "#fff",
-  borderRadius: 3,
-  boxShadow: "rgba(0, 0, 0, 0.08) 0px 4px 15px",
-  transition: "all 0.3s ease",
-  "&:hover": {
-    transform: "translateY(-6px)",
-    boxShadow: "rgba(59, 169, 248, 0.22) 0px 12px 28px",
-  },
-} as const;
-
-const datePill = {
-  mt: 1,
-  fontWeight: 600,
-  color: "#1f8ae0",
-  bgcolor: "rgba(59, 169, 248, 0.12)",
-  border: "1px solid rgba(59, 169, 248, 0.25)",
-} as const;
-
-const roleChip = {
-  fontWeight: 600,
-  color: "#1f8ae0",
-  bgcolor: "rgba(59, 169, 248, 0.12)",
-  border: "1px solid rgba(59, 169, 248, 0.25)",
-} as const;
-
-/** A row of circular logos that overlap slightly (close together). */
-const LogoCluster = ({
-  logos,
-  alt,
-  size = 56,
-}: {
-  logos: string[];
-  alt: string;
-  size?: number;
-}) => (
-  <Stack direction="row" sx={{ flexShrink: 0 }}>
-    {logos.map((src, i) => (
-      <Box
-        key={src}
-        sx={{
-          width: size,
-          height: size,
-          borderRadius: "50%",
-          bgcolor: "#fff",
-          border: "2px solid #fff",
-          boxShadow:
-            "0 0 0 2px rgba(59, 169, 248, 0.4), rgba(0, 0, 0, 0.12) 0px 4px 10px",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          ml: i === 0 ? 0 : `-${Math.round(size / 3)}px`,
-          zIndex: logos.length - i,
-        }}
-      >
-        <Image
-          src={src}
-          alt={`${alt} ${i + 1}`}
-          width={size}
-          height={size}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            padding: 6,
-          }}
-        />
-      </Box>
-    ))}
-  </Stack>
-);
-
-const SectionTitle = ({
-  icon,
-  eyebrow,
-  title,
-}: {
-  icon: ReactNode;
-  eyebrow: string;
-  title: string;
-}) => (
-  <Stack alignItems="center" spacing={1} sx={{ mb: { xs: 3, md: 4 } }}>
-    <Box
-      sx={{
-        width: 44,
-        height: 44,
-        borderRadius: "50%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "#fff",
-        background: BLUE,
-        boxShadow: "rgba(59, 169, 248, 0.4) 0px 6px 16px",
-      }}
-    >
-      {icon}
-    </Box>
-    <Typography
-      sx={{
-        letterSpacing: 3,
-        fontWeight: 700,
-        fontSize: 12,
-        color: "#1f8ae0",
-        textTransform: "uppercase",
-      }}
-    >
-      {eyebrow}
-    </Typography>
-    <Typography
-      variant="h4"
-      component="h2"
-      sx={{
-        fontWeight: 800,
-        fontFamily: '"Raleway", sans-serif',
-        textAlign: "center",
-        ...gradientText,
-      }}
-    >
-      {title}
-    </Typography>
-    <Box sx={{ width: 60, height: 4, borderRadius: 2, background: BLUE }} />
-  </Stack>
-);
+import {
+  BLUE,
+  PINK,
+  cardSx,
+  datePill,
+  gradientText,
+  roleChip,
+  LogoCluster,
+  SectionTitle,
+} from "../shared";
 
 export const ResumeComponent = () => {
   const router = useRouter();
@@ -301,9 +175,16 @@ export const ResumeComponent = () => {
                     </Typography>
                     <Chip
                       size="small"
-                      label={`${job.startDate} – ${job.endDate}${
-                        duration ? ` · ${duration}` : ""
-                      }`}
+                      label={
+                        <>
+                          {`${job.startDate} – ${job.endDate}`}
+                          {duration ? (
+                            // Duration of an ongoing role depends on "now", so the
+                            // statically exported value can differ at view time.
+                            <span suppressHydrationWarning>{` · ${duration}`}</span>
+                          ) : null}
+                        </>
+                      }
                       sx={datePill}
                     />
                   </Stack>

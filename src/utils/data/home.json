@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "tagline": "Xây dựng & vận hành hệ thống AI/ML từ nghiên cứu tới sản phẩm.",
+    "ctas": [
+      { "label": "Xem CV", "href": "/resume" },
+      { "label": "Đọc blog", "href": "/blog" }
+    ]
+  },
+  "skills": {
+    "areas": [
+      {
+        "name": "Research / Coding",
+        "desc": "Nghiên cứu, hiện thực hoá các mô hình SOTA cho bài toán thực tế."
+      },
+      {
+        "name": "Presentation / Training",
+        "desc": "Giảng dạy, đào tạo và chia sẻ kiến thức AI/ML cho cộng đồng."
+      },
+      {
+        "name": "Leadership",
+        "desc": "Dẫn dắt nhóm, định hướng kỹ thuật và mentor các kỹ sư trẻ."
+      }
+    ],
+    "stacks": [
+      "LLM",
+      "RAG",
+      "LangChain",
+      "Stable Diffusion",
+      "PyTorch",
+      "Computer Vision",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Triton",
+      "VectorDB",
+      "MLOps"
+    ]
+  },
+  "contact": {
+    "heading": "Cùng xây dựng điều gì đó?",
+    "desc": "Mình luôn sẵn sàng trao đổi về AI/ML, hợp tác dự án hoặc cơ hội đào tạo.",
+    "email": "minhhuunguyen1511@gmail.com",
+    "linkedin": "https://linkedin.com/in/minhhuunguyen",
+    "github": "https://github.com/minhhuunguyen"
+  }
+}
