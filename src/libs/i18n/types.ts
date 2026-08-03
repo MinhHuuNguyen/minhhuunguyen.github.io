@@ -28,6 +28,9 @@ export type Dictionary = {
     seoTitle: string;
     seriesTitle: string;
     listTitle: string;
+    searchPlaceholder: string;
+    searchResultsTitle: string;
+    searchNoResults: string;
   };
   resume: {
     seoTitle: string;

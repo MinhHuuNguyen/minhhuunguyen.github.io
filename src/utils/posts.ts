@@ -2,12 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { PostList } from '@/@types/post';
+import { normalizeText } from '@/utils/common';
 
 
 export function getPostsList(): {
   seriesPosts: PostList[],
   highlightPostsNotSeries6: PostList[],
-  nonHighlightPostsNotSeries: PostList[]
+  nonHighlightPostsNotSeries: PostList[],
+  allPosts: PostList[]
 } {
   const postList: PostList[] = [];
 
@@ -53,11 +55,7 @@ export function getPostsList(): {
         const content = parsedContent.content
 
         const slug = data.title
-        ? data.title
-            .toLowerCase()                          // Convert to lowercase
-            .normalize('NFD')                        // Normalize accents
-            .replace(/đ/g, 'd')                      // Convert "đ" to "d"
-            .replace(/[\u0300-\u036f]/g, '')         // Remove diacritical marks
+        ? normalizeText(data.title)                  // lowercase + bỏ dấu + "đ"->"d"
             .replace(/[^a-z0-9 ]/g, '')              // Remove special characters, keep letters, digits, and spaces
             .replace(/\s+/g, '-')                    // Replace spaces with hyphens
         : '';                                        // Return empty string if no title
@@ -88,18 +86,26 @@ export function getPostsList(): {
   }
   readFilesRecursively(postsRoot);
 
+  const byTimeDesc = (a: PostList, b: PostList) =>
+    new Date(b.time).getTime() - new Date(a.time).getTime();
+
   // Phân loại bài viết và sắp xếp bài viết theo thời gian
   const seriesPosts = postList.filter(post => post.tags && post.tags.includes('series'));
-  seriesPosts.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+  seriesPosts.sort(byTimeDesc);
 
   const highlightPosts = postList.filter(post => post.isHighlight);
   const highlightPostsNotSeries = highlightPosts.filter(post => !post.tags || !post.tags.includes('series'));
   const highlightPostsNotSeries6 = highlightPostsNotSeries.slice(0, 6);
-  highlightPostsNotSeries6.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+  highlightPostsNotSeries6.sort(byTimeDesc);
 
   const nonHighlightPosts = postList.filter(post => !post.isHighlight);
   const nonHighlightPostsNotSeries = nonHighlightPosts.filter(post => !post.tags || !post.tags.includes('series'));
-  nonHighlightPostsNotSeries.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+  nonHighlightPostsNotSeries.sort(byTimeDesc);
 
-  return { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries };
+  // Full deduplicated list (each post once) for the client-side search index.
+  // NOTE: `content` is kept here because the post detail page (blog/[id].tsx)
+  // reads it; the blog list page strips it in its own getStaticProps.
+  const allPosts = [...postList].sort(byTimeDesc);
+
+  return { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries, allPosts };
 }

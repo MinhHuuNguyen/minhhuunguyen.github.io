@@ -24,6 +24,9 @@ const vi: Dictionary = {
     seoTitle: "Bài viết của tôi",
     seriesTitle: "CÁC SERIES BÀI VIẾT",
     listTitle: "DANH SÁCH BÀI VIẾT",
+    searchPlaceholder: "Tìm bài viết...",
+    searchResultsTitle: "KẾT QUẢ TÌM KIẾM",
+    searchNoResults: "Không tìm thấy bài viết phù hợp.",
   },
   resume: {
     seoTitle: "Hồ sơ của tôi",

@@ -1,4 +1,17 @@
 
+/**
+ * Normalize text for accent-insensitive matching (Vietnamese-friendly):
+ * lowercase, strip diacritics, and map "đ" → "d".
+ * Used for both the search index and the user's query so e.g. "cong nghe"
+ * matches "Công nghệ" and "ai" matches "AI".
+ */
+export const normalizeText = (input: string): string =>
+  (input || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/đ/g, "d")
+    .replace(/[̀-ͯ]/g, "");
+
 export const ellipsisText = (lineClamp = 1) => {
   return {
     overflow: "hidden",

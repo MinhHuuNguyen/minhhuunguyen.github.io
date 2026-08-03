@@ -24,6 +24,9 @@ const en: Dictionary = {
     seoTitle: "My posts",
     seriesTitle: "ARTICLE SERIES",
     listTitle: "ARTICLE LIST",
+    searchPlaceholder: "Search posts...",
+    searchResultsTitle: "SEARCH RESULTS",
+    searchNoResults: "No matching posts found.",
   },
   resume: {
     seoTitle: "My resume",
