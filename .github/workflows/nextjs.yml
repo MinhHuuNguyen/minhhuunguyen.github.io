@@ -116,11 +116,15 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
+      - name: Test
+        run: ${{ steps.detect-package-manager.outputs.runner }} test
+
       - name: Build and Static HTML export with Next.js
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
           NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        # `build` runs prebuild (the sitemap) and postbuild (the checks of out/); a bare `next build` skipped both
+        run: ${{ steps.detect-package-manager.outputs.runner }} build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { PostList } from '@/@types/post';
-import { normalizeText } from '@/utils/common';
+import { slugify, toPostVideo } from '@/lib/seo.mjs';
 
 
 export function getPostsList(): {
@@ -54,11 +54,14 @@ export function getPostsList(): {
         const banner_url = data.banner_url
         const content = parsedContent.content
 
-        const slug = data.title
-        ? normalizeText(data.title)                  // lowercase + bỏ dấu + "đ"->"d"
-            .replace(/[^a-z0-9 ]/g, '')              // Remove special characters, keep letters, digits, and spaces
-            .replace(/\s+/g, '-')                    // Replace spaces with hyphens
-        : '';                                        // Return empty string if no title
+        // lowercase + bỏ dấu + "đ"->"d", keep letters/digits/spaces, spaces to hyphens; '' when there is no title
+        const slug = slugify(data.title);
+
+        // The `video` frontmatter written by the publish pipeline; a malformed one is dropped, never fatal.
+        const video = toPostVideo(data.video);
+        if (data.video !== undefined && video === null) {
+          console.warn(`[posts] Bỏ qua frontmatter video không hợp lệ: ${fullPath}`);
+        }
 
         if (data.is_published === true) {
           postList.push({
@@ -71,6 +74,7 @@ export function getPostsList(): {
             filePath: fullPath,
             isHighlight: data.is_highlight || false,
             content: content || "",
+            video,
           });
         }
       }

@@ -1,0 +1,6 @@
+# Same behaviour as having no robots.txt: every crawler may fetch everything.
+# A rule per crawler (GPTBot, ClaudeBot, PerplexityBot, Google-Extended ...) is the owner's choice; add the blocks here.
+User-agent: *
+Allow: /
+
+Sitemap: https://minhhuunguyen.github.io/sitemap.xml

@@ -122,10 +122,10 @@ export default function BlogListPage({ seriesPosts, highlightPosts, nonHighlight
 export const getStaticProps: GetStaticProps<BlogListPageProps> = async () => {
   const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries, allPosts } = getPostsList();
 
-  // The list page never renders post `content`/`filePath`; drop them so the full
+  // The list page never renders post `content`/`filePath`/`video`; drop them so the full
   // markdown of every post isn't shipped to the client as page data.
   const stripHeavy = (posts: PostList[]): PostList[] =>
-    posts.map(({ content, filePath, ...rest }) => ({ ...rest, filePath: "" }));
+    posts.map(({ content, filePath, video, ...rest }) => ({ ...rest, filePath: "", video: null }));
 
   return {
     props: {

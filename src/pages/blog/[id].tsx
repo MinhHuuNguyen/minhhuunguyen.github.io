@@ -3,46 +3,42 @@ import { format } from "date-fns";
 import { getPostsList } from "@/utils/posts";
 import { PostList } from "@/@types/post";
 import { SEO } from "@/configs/seo.config";
-import { DefaultSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 import Image from 'next/image';
 import styles from "@/styles/markdownStyles.module.css";
 import AdSenseAd from "@/components/AdSenseAd";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE, blogPostingLd, videoObjectLd } from "@/lib/seo.mjs";
+import type { PostVideo } from "@/lib/seo.mjs";
 
-import MarkdownIt from "markdown-it";
-import markdownItKatex from "markdown-it-katex"; // prefer the plugin name
 import "katex/dist/katex.min.css";
-import DOMPurify from "isomorphic-dompurify";
-
-const md = new MarkdownIt({ html: true, linkify: true }).use(markdownItKatex);
-
-// Allow only YouTube embeds; drop any other iframe to avoid XSS via untrusted frames.
-const YOUTUBE_EMBED = /^https:\/\/www\.youtube\.com\/embed\//;
-DOMPurify.addHook("uponSanitizeElement", (node, data) => {
-  if (data.tagName === "iframe") {
-    const src = (node as Element).getAttribute("src") || "";
-    if (!YOUTUBE_EMBED.test(src)) {
-      node.parentNode?.removeChild(node);
-    }
-  }
-});
-
-// Keep html:true (posts rely on raw <img>/<video>/<details>/YouTube), but strip
-// <script>, event handlers and javascript: URIs before injecting into the DOM.
-const renderMarkdown = (content: string) =>
-  DOMPurify.sanitize(md.render(content), {
-    ADD_TAGS: ["iframe"],
-    ADD_ATTR: ["allow", "allowfullscreen", "frameborder", "referrerpolicy", "target"],
-  });
+import { renderMarkdown } from "@/lib/render.mjs"; // markdown -> sanitized HTML (the YouTube-only iframe rule lives there)
 
 type BlogProps = {
   frontmatter: Pick<PostList, "time" | "title" | "description" | "banner_url" | "tags">;
   content: string;
+  slug: string;
+  video: PostVideo | null;
 };
 
-export default function Blog({ frontmatter, content }: BlogProps) {
+export default function Blog({ frontmatter, content, slug, video }: BlogProps) {
+  const url = `${SITE}/blog/${slug}`;
+  const structuredData = [blogPostingLd(frontmatter, url), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
     <div className="w-100">
       <DefaultSeo {...SEO} title={frontmatter.title} />
+      <NextSeo
+        canonical={url}
+        description={frontmatter.description}
+        openGraph={{
+          url,
+          type: "article",
+          title: frontmatter.title,
+          description: frontmatter.description,
+          images: frontmatter.banner_url ? [{ url: frontmatter.banner_url }] : [],
+        }}
+      />
+      <JsonLd data={structuredData} />
       <Image src={frontmatter.banner_url} alt="banner" width={0} height={0} style={{ width: "100vw", height: "60vh" }}/>
       <Container maxWidth="xl">
         <section className="news lg:pt-4 pt-4 mb-5">
@@ -71,9 +67,9 @@ export default function Blog({ frontmatter, content }: BlogProps) {
 }
 
 export async function getStaticPaths() {
-  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
-
-  const allPosts = [...seriesPosts, ...highlightPostsNotSeries6, ...nonHighlightPostsNotSeries];
+  // Every published post gets a page. The older list [...series, ...highlight6, ...non-highlight] left out the
+  // highlight posts after the sixth, so those posts had no page of their own.
+  const { allPosts } = getPostsList();
 
   const paths = allPosts
     .filter((post: PostList) => post.slug !== '')
@@ -86,9 +82,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
+  const { allPosts } = getPostsList();
 
-  const post = [...seriesPosts, ...highlightPostsNotSeries6, ...nonHighlightPostsNotSeries].find((post) => post.slug === id);
+  const post = allPosts.find((post) => post.slug === id);
   if (!post) {
     return {
       notFound: true,
@@ -105,6 +101,8 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
         tags: post.tags,
       },
       content: post.content,
+      slug: post.slug,
+      video: post.video ?? null,
     },
   };
 }

@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "next build",
+    "postbuild": "node scripts/check-out.mjs",
     "start": "next start",
     "lint": "next lint",
+    "test": "node --test scripts/seo.test.mjs scripts/posts.test.mjs scripts/embed.test.mjs",
     "generate:pdf": "node scripts/generate-pdf.mjs"
   },
   "dependencies": {
