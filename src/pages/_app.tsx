@@ -72,7 +72,7 @@ export default function App(props: MyAppProps) {
               <CssBaseline />
               <SearchProvider>
                 <ChatProvider>
-                  <SiteLayout>
+                  <SiteLayout navCounts={pageProps.navCounts}>
                     <Component {...pageProps} />
                   </SiteLayout>
                 </ChatProvider>

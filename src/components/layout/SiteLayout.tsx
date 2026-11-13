@@ -24,7 +24,7 @@ function useHreflang() {
   return hreflangLinks(vi, { enPath: en === localizePath(vi, "en") ? en : null });
 }
 
-export function SiteLayout({ children }: { children: ReactNode }) {
+export function SiteLayout({ children, navCounts }: { children: ReactNode; navCounts?: { videos: number } }) {
   const links = useHreflang();
   return (
     <>
@@ -34,7 +34,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         ))}
       </Head>
       <SkipLink />
-      <Header />
+      <Header navCounts={navCounts} />
       <main id="main">{children}</main>
       <Footer />
     </>

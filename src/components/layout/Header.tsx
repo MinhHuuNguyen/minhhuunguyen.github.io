@@ -21,7 +21,7 @@ export function CONTACT_HREF(isHome: boolean, locale: Locale): "#lien-he" | "/#l
   return locale === "en" ? "/en#lien-he" : "/#lien-he";
 }
 
-export function Header() {
+export function Header({ navCounts }: { navCounts?: { videos: number } }) {
   const { t, locale } = useI18n();
   const router = useRouter();
   const { open } = useSearch();
@@ -31,7 +31,7 @@ export function Header() {
   const items: NavItem[] = [
     { key: "blog", href: "/blog", label: t("nav.blog") },
     { key: "learn", href: "/learn", label: t("nav.learn") },
-    ...(site.nav.showVideosWhenEmpty ? [{ key: "videos", href: "/videos", label: t("nav.videos") }] : []),
+    ...(site.nav.showVideosWhenEmpty || (navCounts?.videos ?? 0) >= 1 ? [{ key: "videos", href: "/videos", label: t("nav.videos") }] : []),
     { key: "projects", href: "/projects", label: t("nav.projects") },
     { key: "resume", href: "/resume", label: t("nav.resume") },
   ];

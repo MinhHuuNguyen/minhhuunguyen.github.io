@@ -95,6 +95,21 @@ export type Dictionary = {
     storageBlocked: string;
     viOnly: string;
   };
+  videos: {
+    seoTitle: string;
+    heading: string;
+    lead: string;
+    empty: string;
+    filterLabel: string;
+    filterAll: string;
+    filterYoutube: string;
+    filterShorts: string;
+    filterTiktok: string;
+    play: string;
+    watchOn: string;
+    viewPost: string;
+    noThumb: string;
+  };
   footer: {
     contact: string;
     tagline: string;

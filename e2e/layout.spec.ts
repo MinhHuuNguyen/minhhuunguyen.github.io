@@ -1,6 +1,6 @@
 import { test, expect } from "./fixtures";
 
-test("desktop: menu ngang, không có mục Video khi chưa có video", async ({ page }) => {
+test("@static desktop: menu ngang, không có mục Video khi chưa có video", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/blog");
   const nav = page.getByRole("navigation", { name: "Chính" });
