@@ -15,9 +15,9 @@ export function Menu({ trigger, children, align = "end" }: { trigger: ReactNode;
   );
 }
 
-Menu.Item = function MenuItem({ onSelect, children }: { onSelect?: () => void; children: ReactNode }) {
+Menu.Item = function MenuItem({ onSelect, asChild, children }: { onSelect?: () => void; asChild?: boolean; children: ReactNode }) {
   return (
-    <DropdownMenu.Item onSelect={onSelect} className="cursor-pointer rounded-lg px-3 py-2 text-sm text-ink-900 outline-none data-[highlighted]:bg-surface-100">
+    <DropdownMenu.Item onSelect={onSelect} asChild={asChild} className="cursor-pointer rounded-lg px-3 py-2 text-sm text-ink-900 outline-none data-[highlighted]:bg-surface-100">
       {children}
     </DropdownMenu.Item>
   );

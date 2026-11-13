@@ -3,11 +3,7 @@ import { Menu } from "@/components/ui/Dropdown";
 import { useI18n } from "@/libs/i18n/I18nContext";
 import { track } from "@/lib/analytics";
 
-const PDFS = [
-  { variant: "ats", file: "/resume.pdf", label: "resume.atsShort" },
-  { variant: "ats_full", file: "/resume-full.pdf", label: "resume.atsFull" },
-  { variant: "designed", file: "/resume-designed.pdf", label: "resume.designed" },
-] as const;
+import { RESUME_PDFS } from "@/features/resume/pdfs";
 
 export function DownloadCvMenu() {
   const { t } = useI18n();
@@ -23,12 +19,12 @@ export function DownloadCvMenu() {
         </button>
       }
     >
-      {PDFS.map((pdf) => (
-        <Menu.Item key={pdf.variant}>
+      {RESUME_PDFS.map((pdf) => (
+        <Menu.Item key={pdf.variant} asChild>
           <a
             href={pdf.file}
             download
-            className="-mx-3 -my-2 block px-3 py-2"
+            className="block"
             onClick={() => track("resume_download", { variant: pdf.variant })}
           >
             {t(pdf.label)}
