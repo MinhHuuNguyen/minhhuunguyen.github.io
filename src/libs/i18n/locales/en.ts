@@ -38,6 +38,14 @@ const en: Dictionary = {
       cta: "Let's build your next project",
     },
     marquee: { photos: "Teaching & event moments", videos: "Latest videos" },
+    services: { label: "How I can help" },
+    paths: { label: "Featured learning paths", updated: "Updated", lessons: "{n} lessons", start: "Start the path", prev: "Previous path", next: "Next path" },
+    articles: {
+      label: "Featured articles",
+      intro: "Articles that explain AI from first principles: intuition first, then the math, then code to check it.",
+      viewAll: "View all articles",
+      read: "Read",
+    },
   },
   ads: {
     label: "Advertisement",

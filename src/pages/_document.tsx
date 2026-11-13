@@ -40,8 +40,7 @@ export default class MyDocument extends Document {
           href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
           crossOrigin="anonymous"
         />
-        {/* Google AdSense */}
-        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID}`} crossOrigin="anonymous"></script>
+        {/* Google AdSense: script chỉ nạp ở trang bài (AdsScript); ở đây giữ meta xác minh */}
         <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID}></meta>
       </Head>
       <body>

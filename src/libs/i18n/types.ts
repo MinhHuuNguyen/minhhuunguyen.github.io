@@ -37,6 +37,9 @@ export type Dictionary = {
     journey: { cta: string; stackLabel: string; awardsLabel: string; now: string };
     projects: { strong: string; muted: string; viewDetails: string; cta: string };
     marquee: { photos: string; videos: string };
+    services: { label: string };
+    paths: { label: string; updated: string; lessons: string; start: string; prev: string; next: string };
+    articles: { label: string; intro: string; viewAll: string; read: string };
   };
   ads: {
     label: string;

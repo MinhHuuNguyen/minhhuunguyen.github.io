@@ -38,6 +38,14 @@ const vi: Dictionary = {
       cta: "Cùng làm dự án tiếp theo",
     },
     marquee: { photos: "Khoảnh khắc giảng dạy & sự kiện", videos: "Video mới" },
+    services: { label: "Mình có thể giúp gì" },
+    paths: { label: "Lộ trình nổi bật", updated: "Cập nhật", lessons: "{n} bài", start: "Bắt đầu lộ trình", prev: "Lộ trình trước", next: "Lộ trình tiếp theo" },
+    articles: {
+      label: "Bài viết nổi bật",
+      intro: "Những bài mình viết để giải thích AI từ gốc: trực giác trước, công thức sau, code để kiểm chứng.",
+      viewAll: "Xem tất cả bài viết",
+      read: "Đọc bài",
+    },
   },
   ads: {
     label: "Quảng cáo",
