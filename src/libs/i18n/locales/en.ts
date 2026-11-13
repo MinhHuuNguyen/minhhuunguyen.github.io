@@ -50,6 +50,21 @@ const en: Dictionary = {
   ads: {
     label: "Advertisement",
   },
+  post: {
+    videoTitle: "Video lecture",
+    timestamps: "Timestamps",
+    readingTime: "{n} min read",
+    toc: "Contents",
+    related: "Related articles",
+    ask: "Ask about this article",
+    prev: "Previous lesson",
+    next: "Next lesson",
+    markDone: "Mark as learned",
+    done: "Learned ✓",
+    chapters: "Video chapters",
+    progress: "{done}/{total} lessons",
+    storageOff: "Your browser does not allow saving progress",
+  },
   news: {
     readMore: "Read more",
   },

@@ -1,108 +1,80 @@
-import { Box, Container } from "@mui/material";
-import { format } from "date-fns";
-import { getPostsList } from "@/utils/posts";
-import { PostList } from "@/@types/post";
-import { SEO } from "@/configs/seo.config";
+import type { GetStaticPaths } from "next";
 import { DefaultSeo, NextSeo } from "next-seo";
-import Image from 'next/image';
-import styles from "@/styles/markdownStyles.module.css";
-import AdSenseAd from "@/components/AdSenseAd";
-import JsonLd from "@/components/seo/JsonLd";
-import { SITE, blogPostingLd, videoObjectLd } from "@/lib/seo.mjs";
-import type { PostVideo } from "@/lib/seo.mjs";
-
 import "katex/dist/katex.min.css";
-import { renderMarkdown } from "@/lib/render.mjs"; // markdown -> sanitized HTML (the YouTube-only iframe rule lives there)
+import { SEO } from "@/configs/seo.config";
+import JsonLd from "@/components/seo/JsonLd";
+import { AdsScript } from "@/features/ads/AdsScript";
+import { PostLayout, type PostPageProps } from "@/features/blog/PostLayout";
+import { AD_PACKAGES, planInArticleAds } from "@/lib/ads.mjs";
+import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
+import { renderPost } from "@/lib/render.mjs";
+import { relatedPosts } from "@/lib/related.mjs";
+import { SITE, blogPostingLd, videoObjectLd } from "@/lib/seo.mjs";
+import { getSiteData, withNav } from "@/lib/site-data.mjs";
+import { withLocale } from "@/lib/with-locale";
+import adsConfig from "@/utils/data/ads.json";
 
-type BlogProps = {
-  frontmatter: Pick<PostList, "time" | "title" | "description" | "banner_url" | "tags">;
-  content: string;
-  slug: string;
-  video: PostVideo | null;
-};
+type Props = PostPageProps & { navCounts: { videos: number } };
 
-export default function Blog({ frontmatter, content, slug, video }: BlogProps) {
-  const url = `${SITE}/blog/${slug}`;
-  const structuredData = [blogPostingLd(frontmatter, url), ...(video ? [videoObjectLd(video, url)] : [])];
+export default function Blog({ post, sections, toc, adPlan, video, related, lessonNav }: Props) {
+  const url = `${SITE}/blog/${post.slug}`;
+  const structuredData = [blogPostingLd(post, url), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
-    <div className="w-100">
-      <DefaultSeo {...SEO} title={frontmatter.title} />
+    <>
+      <DefaultSeo {...SEO} title={post.title} />
       <NextSeo
         canonical={url}
-        description={frontmatter.description}
+        description={post.description}
         openGraph={{
           url,
           type: "article",
-          title: frontmatter.title,
-          description: frontmatter.description,
-          images: frontmatter.banner_url ? [{ url: frontmatter.banner_url }] : [],
+          title: post.title,
+          description: post.description,
+          images: post.banner_url ? [{ url: post.banner_url }] : [],
         }}
       />
       <JsonLd data={structuredData} />
-      <Image src={frontmatter.banner_url} alt="banner" width={0} height={0} style={{ width: "100vw", height: "60vh" }}/>
-      <Container maxWidth="xl">
-        <section className="news lg:pt-4 pt-4 mb-5">
-          <div className="flex flex-wrap">
-            <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-3/4 pr-4 pl-4 w-full">
-              <div className="flex justify-between items-center w-full">
-                <span className="news-posted">
-                  {frontmatter.time &&
-                    format(new Date(frontmatter.time), "dd/MM/yyyy")}
-                </span>
-              </div>
-              <h1 className="news-title text-4xl">{frontmatter.title}</h1>
-              <em>{frontmatter.description}</em>
-              {content ? (
-                <Box id="content" className={styles.markdownBody} dangerouslySetInnerHTML={{ __html: renderMarkdown(content), }}/>
-              ) : null}
-            </div>
-            <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-1/4 pr-4 pl-4 w-full">
-              <AdSenseAd adSlot="4893845087" />
-            </div>
-          </div>
-        </section>
-      </Container>
-    </div>
+      <AdsScript />
+      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} />
+    </>
   );
 }
 
-export async function getStaticPaths() {
-  // Every published post gets a page. The older list [...series, ...highlight6, ...non-highlight] left out the
-  // highlight posts after the sixth, so those posts had no page of their own.
-  const { allPosts } = getPostsList();
+// Mọi bài đã publish đều có trang riêng.
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: getSiteData()
+    .postsSummary.filter((p) => p.slug !== "")
+    .map((p) => ({ params: { id: p.slug } })),
+  fallback: false,
+});
 
-  const paths = allPosts
-    .filter((post: PostList) => post.slug !== '')
-    .map((post: PostList) => ({ params: { id: post.slug } }));
-  // console.log('Static paths:', paths);
+export const getStaticProps = withLocale<Props>("vi", async ({ params }) => {
+  const data = getSiteData();
+  const post = data.postBySlug(String(params?.id));
+  if (!post) return { notFound: true };
+  const { sections, toc } = renderPost(post.content ?? "");
+  const paths = data.paths as LearningPath[];
+  const pathOfSlug = (slug: string) => paths.find((p) => p.lessons.some((l) => l.slug === slug))?.slug ?? null;
+  const nav = buildLessonNav(paths, post.slug);
+  const lessons = nav ? paths.find((p) => p.slug === nav.path.slug)?.lessons ?? [] : [];
+  const relatedSlugs = relatedPosts(post, data.postsSummary, pathOfSlug, 3);
   return {
-    paths,
-    fallback: false, 
-  };
-}
-
-export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  const { allPosts } = getPostsList();
-
-  const post = allPosts.find((post) => post.slug === id);
-  if (!post) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      frontmatter: {
-        time: post.time,
+    props: withNav({
+      post: {
+        slug: post.slug,
         title: post.title,
         description: post.description,
         banner_url: post.banner_url,
-        tags: post.tags,
+        time: post.time,
+        tags: post.tags ?? [],
+        readingMinutes: post.readingMinutes,
       },
-      content: post.content,
-      slug: post.slug,
+      sections,
+      toc,
+      adPlan: planInArticleAds(sections, AD_PACKAGES[adsConfig.package as keyof typeof AD_PACKAGES]),
       video: post.video ?? null,
-    },
+      related: relatedSlugs.map((s) => data.postsSummary.find((p) => p.slug === s)!),
+      lessonNav: nav ? { ...nav, lessons: lessons.map((l) => ({ slug: l.slug, available: l.available })) } : null,
+    }),
   };
-}
+});

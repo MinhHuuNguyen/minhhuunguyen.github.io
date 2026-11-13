@@ -50,6 +50,21 @@ const vi: Dictionary = {
   ads: {
     label: "Quảng cáo",
   },
+  post: {
+    videoTitle: "Video bài giảng",
+    timestamps: "Mốc thời gian",
+    readingTime: "{n} phút đọc",
+    toc: "Mục lục",
+    related: "Bài liên quan",
+    ask: "Hỏi về bài này",
+    prev: "Bài trước",
+    next: "Bài tiếp",
+    markDone: "Đánh dấu đã học",
+    done: "Đã học ✓",
+    chapters: "Chương video",
+    progress: "{done}/{total} bài",
+    storageOff: "Trình duyệt không cho lưu tiến độ",
+  },
   news: {
     readMore: "Đọc tiếp",
   },

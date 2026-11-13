@@ -24,3 +24,12 @@ video:
 ---
 
 Đoạn mở đầu của bài fixture.
+<!-- publish:video:begin contract-fixture -->
+## Video bài giảng
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/AbCdEfGhIjK" title="Video giả cho hợp đồng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+**Mốc thời gian**
+- [00:00](https://www.youtube.com/watch?v=AbCdEfGhIjK&t=0s) Mở đầu
+- [00:30](https://www.youtube.com/watch?v=AbCdEfGhIjK&t=30s) Ý tưởng
+<!-- publish:video:end contract-fixture -->
+## Phần nội dung
+Nội dung bài.

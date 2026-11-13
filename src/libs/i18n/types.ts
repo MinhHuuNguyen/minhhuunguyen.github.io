@@ -44,6 +44,21 @@ export type Dictionary = {
   ads: {
     label: string;
   };
+  post: {
+    videoTitle: string;
+    timestamps: string;
+    readingTime: string;
+    toc: string;
+    related: string;
+    ask: string;
+    prev: string;
+    next: string;
+    markDone: string;
+    done: string;
+    chapters: string;
+    progress: string;
+    storageOff: string;
+  };
   news: {
     readMore: string;
   };

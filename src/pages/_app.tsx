@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/markdown.css";
 import { sans } from "@/styles/fonts";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { SearchProvider } from "@/features/search/SearchProvider";
