@@ -16,7 +16,9 @@ const BLOCK = `<!-- publish:video:begin x -->
 
 test("the YouTube iframe of the publish block keeps its attributes through the sanitizer", () => {
   const html = renderMarkdown(BLOCK);
-  assert.match(html, /<iframe[^>]*src="https:\/\/www\.youtube\.com\/embed\/AbCdEfGhIjK"/);
+  assert.match(html, /<iframe[^>]*src="https:\/\/www\.youtube\.com\/embed\/AbCdEfGhIjK(\?enablejsapi=1)?"/);
+  assert.ok(html.includes("youtube.com/embed/AbCdEfGhIjK"), "check_page của publish_pipeline tìm đúng chuỗi này");
+  assert.ok(html.includes('loading="lazy"'));
   for (const attr of ['width="100%"', 'height="480"', 'title="Âm thanh máy tính"', "allowfullscreen", 'referrerpolicy="strict-origin-when-cross-origin"']) {
     assert.ok(html.includes(attr), `lost ${attr}: ${html}`);
   }
