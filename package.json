@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/build-data.mjs --offline",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-sitemap.mjs",
+    "prebuild": "node scripts/build-data.mjs",
     "build": "next build",
     "postbuild": "node scripts/check-out.mjs",
     "start": "next start",
