@@ -1,0 +1,209 @@
+{
+  "meta": { "copyStatus": "draft" },
+  "person": {
+    "name": { "vi": "Nguyễn Hữu Minh", "en": "Nguyen Huu Minh" },
+    "roles": {
+      "vi": ["Kỹ sư AI", "Kỹ sư MLOps", "Giảng viên"],
+      "en": ["AI Engineer", "MLOps Engineer", "Lecturer"]
+    },
+    "location": { "vi": "Hà Nội, Việt Nam", "en": "Hanoi, Vietnam" },
+    "careerStart": "2019-05",
+    "email": "minhhuunguyen1511@gmail.com",
+    "portrait": "/img/portrait"
+  },
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/minhhuunguyen/",
+    "github": "https://github.com/minhhuunguyen",
+    "facebook": "https://www.facebook.com/minhhuunguyen1511/",
+    "youtube": null,
+    "tiktok": null
+  },
+  "nav": { "showVideosWhenEmpty": false, "githubStats": "/blog/my-github-stats" },
+  "hero": {
+    "topLine": { "vi": "Hơn {years} năm làm AI", "en": "{years}+ years in AI" },
+    "headline": {
+      "vi": ["Xây dựng AI", "Giảng dạy AI"],
+      "en": ["Building AI", "Teaching AI"]
+    },
+    "intro": {
+      "vi": "Chào bạn, mình là Minh, kỹ sư AI và giảng viên. Mình viết bài giảng và làm video để ai cũng học được AI từ nền tảng.",
+      "en": "Hi, I'm Minh, an AI engineer and lecturer. I write lectures and make videos so anyone can learn AI from the ground up."
+    },
+    "credentials": {
+      "vi": "Xây và vận hành hệ thống AI/ML tại PIXTA và FPT Software, 7 khoá đào tạo, 6 giải thưởng. Sẵn sàng đào tạo, tư vấn và cùng xây sản phẩm AI.",
+      "en": "Built and ran AI/ML systems at PIXTA and FPT Software, taught 7 courses, won 6 awards. Open to training, consulting and building AI products together."
+    }
+  },
+  "anchors": [
+    { "id": "cau-chuyen", "label": { "vi": "Câu chuyện", "en": "My story" } },
+    { "id": "hanh-trinh", "label": { "vi": "Hành trình", "en": "Journey" } },
+    { "id": "du-an", "label": { "vi": "Dự án nổi bật", "en": "Featured projects" } }
+  ],
+  "story": {
+    "label": { "vi": "Câu chuyện", "en": "My story" },
+    "strong": {
+      "vi": "Từ 2019, mình xây và vận hành các hệ thống AI tại PIXTA Việt Nam: từ nhận diện khuôn mặt, đánh giá thẩm mỹ ảnh tới hệ thống Auto Review chạy tới 15 mô hình. Nay mình làm chatbot agent tại FPT Software.",
+      "en": "Since 2019 I have built and run AI systems at PIXTA Vietnam, from face recognition and image aesthetics to an Auto Review system running up to 15 models. Now I build agentic chatbots at FPT Software."
+    },
+    "muted": {
+      "vi": "Song song, mình giảng dạy Python, Machine Learning, Deep Learning, Computer Vision và Big Data tại MCI Academy, ProtonX và Robiz Tech Academy.",
+      "en": "Alongside, I teach Python, Machine Learning, Deep Learning, Computer Vision and Big Data at MCI Academy, ProtonX and Robiz Tech Academy."
+    },
+    "logosLabel": {
+      "vi": "Nơi mình đã làm việc, học tập và giảng dạy",
+      "en": "Where I've worked, studied and taught"
+    }
+  },
+  "logos": [
+    { "name": "PIXTA Vietnam", "base": "/img/logos/pixta" },
+    { "name": "FPT Software", "base": "/img/logos/fpt" },
+    { "name": "MCI Academy", "base": "/img/logos/mci" },
+    { "name": "ProtonX", "base": "/img/logos/protonx" },
+    { "name": "Robiz Tech Academy", "base": "/img/logos/robiztech" },
+    { "name": "HUST", "base": "/img/logos/hust" }
+  ],
+  "pills": [
+    { "vi": "Biến nghiên cứu", "en": "Turning research" },
+    { "vi": "thành sản phẩm AI", "en": "into AI products" },
+    { "vi": "và bài giảng dễ hiểu", "en": "and clear lessons" }
+  ],
+  "stats": [
+    {
+      "source": "careerYears",
+      "suffix": "+",
+      "label": { "vi": "Năm kinh nghiệm", "en": "Years of experience" },
+      "desc": { "vi": "Xây và vận hành hệ thống AI/ML từ 2019.", "en": "Building and running AI/ML systems since 2019." }
+    },
+    {
+      "source": "engineeringProjects",
+      "label": { "vi": "Dự án AI/ML", "en": "AI/ML projects" },
+      "desc": { "vi": "Thị giác máy tính, AI tạo sinh, LLM/RAG.", "en": "Computer vision, generative AI, LLM/RAG." }
+    },
+    {
+      "source": "courses",
+      "label": { "vi": "Khoá đào tạo", "en": "Courses taught" },
+      "desc": { "vi": "Python, toán, ML, DL, Big Data, Computer Vision.", "en": "Python, math, ML, DL, Big Data, Computer Vision." }
+    },
+    {
+      "source": "posts",
+      "label": { "vi": "Bài giảng & bài viết", "en": "Lectures & articles" },
+      "desc": { "vi": "Miễn phí trên blog.", "en": "Free on the blog." }
+    }
+  ],
+  "journey": {
+    "label": { "vi": "Hành trình", "en": "Journey" },
+    "strong": {
+      "vi": "Mình tin AI tốt phải chạy được ngoài đời thật: đo được, giám sát được và người khác hiểu được.",
+      "en": "I believe good AI has to work in the real world: measurable, monitored and understandable by others."
+    },
+    "muted": {
+      "vi": "Vì vậy mỗi dự án mình đi từ nghiên cứu, thử nghiệm tới triển khai MLOps, rồi chia sẻ lại bằng bài giảng.",
+      "en": "So every project goes from research and experiments to MLOps deployment, then comes back as a lecture."
+    },
+    "steps": [
+      {
+        "match": "FPT",
+        "desc": {
+          "vi": "Xây chatbot agent trả lời câu hỏi về máy nông nghiệp (RAG trên OpenSearch, LangGraph, theo dõi chất lượng bằng Langfuse).",
+          "en": "Building an agentic chatbot for agricultural machinery (RAG on OpenSearch, LangGraph, quality tracking with Langfuse)."
+        }
+      },
+      {
+        "match": "MCI",
+        "desc": {
+          "vi": "7 khoá cho người đi làm và sinh viên.",
+          "en": "7 courses for professionals and students."
+        }
+      },
+      {
+        "match": "PIXTA",
+        "desc": {
+          "vi": "Gần 7 năm xây và vận hành hệ thống thị giác máy tính và AI tạo sinh.",
+          "en": "Nearly 7 years building and running computer vision and generative AI systems."
+        }
+      }
+    ]
+  },
+  "stack": [
+    { "name": "PyTorch" },
+    { "name": "LangChain" },
+    { "name": "LangGraph" },
+    { "name": "Langfuse" },
+    { "name": "OpenSearch" },
+    { "name": "Stable Diffusion" },
+    { "name": "Triton" },
+    { "name": "Docker" },
+    { "name": "Kubernetes" },
+    { "name": "AWS" }
+  ],
+  "awards": [
+    { "vi": "Mentor của năm, PIXTA Việt Nam, 2024", "en": "Mentor of the Year at PIXTA Vietnam Co. Ltd., 2024" },
+    { "vi": "Dự án của quý (Auto Review), 2024", "en": "Auto Review Project - Project of Quarter at PIXTA Vietnam Co. Ltd., 2024" },
+    { "vi": "Dự án của quý (CV SaaS), 2022", "en": "CV SaaS Product - Project of Quarter at PIXTA Vietnam Co. Ltd., 2022" },
+    { "vi": "Nhà đổi mới của năm (Review Assistant), 2021", "en": "Review Assistant Project - Innovator of the Year at PIXTA Vietnam Co. Ltd., 2021" },
+    { "vi": "Giải Nhất Nghiên cứu khoa học sinh viên, Viện SAMI, ĐH Bách khoa Hà Nội, 2020", "en": "First Prize at HUST SAMI Student Scientific Research Contest, 2020" },
+    { "vi": "Người tự học của năm, PIXTA Việt Nam, 2019", "en": "Self-learner of the Year at PIXTA Vietnam Co. Ltd., 2019" }
+  ],
+  "services": [
+    {
+      "title": { "vi": "Đào tạo AI", "en": "AI training" },
+      "desc": {
+        "vi": "Khoá học và workshop về Python, Machine Learning, Deep Learning, MLOps cho doanh nghiệp, trường học, trung tâm, kèm bài giảng mở trên blog.",
+        "en": "Courses and workshops on Python, Machine Learning, Deep Learning and MLOps for companies, universities and training centers, backed by open lectures."
+      }
+    },
+    {
+      "title": { "vi": "Tư vấn kiến trúc AI/MLOps", "en": "AI & MLOps architecture" },
+      "desc": {
+        "vi": "Đánh giá bài toán, chọn mô hình, thiết kế pipeline huấn luyện → triển khai → giám sát cho hệ thống chạy thật.",
+        "en": "Problem framing, model selection and training → deployment → monitoring pipelines for production systems."
+      }
+    },
+    {
+      "title": { "vi": "Xây hệ thống LLM/RAG/Agent", "en": "LLM, RAG & agent systems" },
+      "desc": {
+        "vi": "Chatbot tri thức, agent dùng công cụ, đánh giá chất lượng câu trả lời bằng bộ dữ liệu và tracing.",
+        "en": "Knowledge chatbots, tool-using agents, answer-quality evaluation with datasets and tracing."
+      }
+    },
+    {
+      "title": { "vi": "Mentoring & diễn giả", "en": "Mentoring & speaking" },
+      "desc": {
+        "vi": "Kèm cặp kỹ sư trẻ, chấm thi, chia sẻ tại hội thảo và ngày hội việc làm.",
+        "en": "Mentoring junior engineers, judging contests, speaking at conferences and job fairs."
+      }
+    }
+  ],
+  "featuredPaths": ["ngon-ngu-lap-trinh-python-co-ban", "machine-learning-co-ban", "deep-learning-co-ban"],
+  "featuredProjectsFallback": [
+    "AI Agent Chatbot for Agricultural Machinery",
+    "AI Headshot Image Generation system",
+    "Auto Review system for Photo, Footage and Illustration data.",
+    "CV SaaS product"
+  ],
+  "contact": {
+    "tagline": { "vi": "Cùng xây dựng điều gì đó?", "en": "Let's build something together" },
+    "availableLabel": { "vi": "Sẵn sàng cho", "en": "Available for" },
+    "available": {
+      "vi": ["Đào tạo", "Tư vấn", "Xây hệ thống", "Mentoring"],
+      "en": ["Training", "Consulting", "Building", "Mentoring"]
+    },
+    "prompt": {
+      "vi": "Có dự án hoặc lớp học cần người? Viết cho mình:",
+      "en": "Have a project or a class in mind? Write to me:"
+    },
+    "badge": { "vi": "Liên hệ ngay • Liên hệ ngay • ", "en": "Let's talk • Let's talk • " },
+    "socialTitle": { "vi": "Kết nối với mình", "en": "Find me online" },
+    "socialDesc": {
+      "vi": "Dù bạn cần giảng viên AI, kỹ sư MLOps hay chỉ muốn hỏi một câu, cứ nhắn qua các kênh dưới đây.",
+      "en": "Whether you need an AI lecturer, an MLOps engineer or just have a question, reach me on any channel below."
+    }
+  },
+  "marqueePhotos": [
+    { "base": "/img/photos/pixta-yep-2024", "alt": { "vi": "Tiệc cuối năm PIXTA 2024", "en": "PIXTA year-end party 2024" } },
+    { "base": "/img/photos/neu-2024", "alt": { "vi": "Chia sẻ tại ĐH Kinh tế Quốc dân 2024", "en": "Talk at National Economics University 2024" } },
+    { "base": "/img/photos/pixta-5-years", "alt": { "vi": "5 năm gắn bó PIXTA", "en": "Five years at PIXTA" } },
+    { "base": "/img/photos/pixta-horizon-2024", "alt": { "vi": "PIXTA Horizon 2024", "en": "PIXTA Horizon 2024" } },
+    { "base": "/img/photos/protonx-2024", "alt": { "vi": "Lớp học ProtonX 2024", "en": "ProtonX class 2024" } }
+  ]
+}

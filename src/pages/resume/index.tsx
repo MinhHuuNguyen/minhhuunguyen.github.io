@@ -4,6 +4,7 @@ import { DefaultSeo } from "next-seo";
 import { SEO } from "@/configs/seo.config";
 import { getDuration } from "@/utils/common";
 import data from '../../utils/data/resume.json';
+import { withLocale } from "@/lib/with-locale";
 import resumeStyle from '../../styles/Resume.module.css';
 import resumeProjectStyle from '../../styles/ResumeProject.module.css';
 
@@ -117,3 +118,5 @@ const Resume = () => {
 };
 
 export default Resume;
+
+export const getStaticProps = withLocale("vi");

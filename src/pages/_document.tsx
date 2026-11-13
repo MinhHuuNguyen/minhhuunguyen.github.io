@@ -1,19 +1,16 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { localeOf } from '@/lib/locale-routes.mjs'
 import Script from 'next/script'
 
-export default function Document() {
+export default class MyDocument extends Document {
+  render() {
+  const lang = localeOf(this.props.__NEXT_DATA__.page)
   return (
-    <Html lang="vi" className="no-js">
+    <Html lang={lang} className="no-js">
       <Head>
         <script
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.classList.replace('no-js','js');`,
-          }}
-        />
-        {/* Apply persisted language to <html lang> before paint to avoid mismatch */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var l=localStorage.getItem('locale');if(l==='vi'||l==='en'){document.documentElement.lang=l;}}catch(e){}})();`,
           }}
         />
         <link
@@ -54,4 +51,5 @@ export default function Document() {
       </body>
     </Html>
   )
+}
 }

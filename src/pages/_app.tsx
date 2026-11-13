@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { sans } from "@/styles/fonts";
-import Layout from "@/components/layouts";
+import { SiteLayout } from "@/components/layout/SiteLayout";
+import { SearchProvider } from "@/features/search/SearchProvider";
+import { ChatProvider } from "@/features/chat/ChatProvider";
 import createEmotionCache from "@/libs/mui/createEmotionCache";
 import theme from "@/libs/mui/theme";
 import { queryClient } from "@/libs/react-query";
@@ -65,12 +67,16 @@ export default function App(props: MyAppProps) {
 
       <QueryClientProvider client={queryClient}>
         <HydrationBoundary state={pageProps.dehydratedState}>
-          <I18nProvider>
+          <I18nProvider locale={pageProps.locale} alternates={pageProps.alternates}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
+              <SearchProvider>
+                <ChatProvider>
+                  <SiteLayout>
+                    <Component {...pageProps} />
+                  </SiteLayout>
+                </ChatProvider>
+              </SearchProvider>
             </ThemeProvider>
           </I18nProvider>
         </HydrationBoundary>

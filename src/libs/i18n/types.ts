@@ -17,6 +17,17 @@ export type Dictionary = {
     blog: string;
     githubStats: string;
     downloadPdf: string;
+    mainLabel: string;
+    learn: string;
+    videos: string;
+    projects: string;
+    ask: string;
+    search: string;
+    collab: string;
+    openMenu: string;
+    menuTitle: string;
+    changeLanguage: string;
+    skip: string;
   };
   home: {
     myBlog: string;
@@ -46,9 +57,26 @@ export type Dictionary = {
     years: string;
     month: string;
     months: string;
+    download: string;
+    atsShort: string;
+    atsFull: string;
+    designed: string;
   };
   footer: {
     contact: string;
+    tagline: string;
+    copyright: string;
+    privacy: string;
+    terms: string;
+    githubStats: string;
+  };
+  contact: {
+    availableLabel: string;
+    available: string;
+    prompt: string;
+    badge: string;
+    socialTitle: string;
+    socialDesc: string;
   };
   notFound: {
     title: string;

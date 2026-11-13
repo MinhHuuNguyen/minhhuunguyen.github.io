@@ -11,6 +11,7 @@ import { useI18n } from "@/libs/i18n/I18nContext";
 import { normalizeText } from "@/utils/common";
 import newStyle from '../../styles/News.module.css';
 import Fuse from "fuse.js";
+import { withLocale } from "@/lib/with-locale";
 import { useMemo, useState } from "react";
 
 export interface BlogListPageProps {
@@ -119,7 +120,7 @@ export default function BlogListPage({ seriesPosts, highlightPosts, nonHighlight
   );
 }
 
-export const getStaticProps: GetStaticProps<BlogListPageProps> = async () => {
+export const getStaticProps = withLocale<BlogListPageProps>("vi", async () => {
   const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries, allPosts } = getPostsList();
 
   // The list page never renders post `content`/`filePath`/`video`; drop them so the full
@@ -135,4 +136,4 @@ export const getStaticProps: GetStaticProps<BlogListPageProps> = async () => {
       allPosts: stripHeavy(allPosts),
     },
   };
-}
+});
