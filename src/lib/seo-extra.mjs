@@ -25,3 +25,15 @@ export function videoListLd(videos, pageUrl) {
     })),
   };
 }
+
+/** JSON-LD Person cho trang chủ; sameAs chỉ gồm các kênh đã cấu hình (khác null). */
+export function personLd(site) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.person.name.en,
+    url: SITE,
+    ...(site.person.roles?.en?.[0] ? { jobTitle: site.person.roles.en[0] } : {}),
+    sameAs: Object.values(site.socials).filter(Boolean),
+  };
+}

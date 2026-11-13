@@ -64,3 +64,35 @@ test("dự án nổi bật khi có case study: //1 và link Xem chi tiết @dev"
   await expect(items.first()).toContainText("//1");
   await expect(items.first().getByRole("link", { name: /Xem chi tiết/ })).toHaveAttribute("href", /^\/projects\//);
 });
+
+test("dịch vụ [1]–[4], bấm mở mô tả", async ({ page }) => {
+  await page.goto("/");
+  const s = page.locator('[data-section="services"] [data-service]');
+  await expect(s).toHaveCount(4);
+  await s.nth(2).getByRole("button").click();
+  await expect(s.nth(2).locator("[data-service-desc]")).toBeVisible();
+});
+
+test("slider lộ trình: 3 slide, mũi tên bàn phím, link tới /learn/", async ({ page }) => {
+  await page.goto("/");
+  const slider = page.locator('[data-section="paths"]');
+  await expect(slider.locator("[data-slide]")).toHaveCount(3);
+  await slider.getByRole("button", { name: "Lộ trình tiếp theo" }).press("Enter");
+  await expect(slider.locator('[data-slide][aria-hidden="false"] a', { hasText: "Bắt đầu lộ trình" })).toHaveAttribute("href", /^\/learn\//);
+});
+
+test("khu bài viết tối có 3 bài và số 01–03; liên hệ có id lien-he, mailto, 3 mạng xã hội", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator('[data-section="articles"] [data-article-card] a[href^="/blog/"]')).toHaveCount(3);
+  await expect(page.locator('[data-section="articles"] a[href="/blog"]')).toBeVisible();
+  await expect(page.locator('[data-section="articles"] [data-outline-number]')).toHaveText(["01", "02", "03"]);
+  const c = page.locator("#lien-he");
+  await expect(c.locator('a[href^="mailto:"]').first()).toBeVisible();
+  await expect(c.locator("[data-social]")).toHaveCount(3);
+});
+
+test("JSON-LD Person có trên trang chủ", async ({ page }) => {
+  await page.goto("/");
+  const types = await page.locator('script[type="application/ld+json"]').allTextContents();
+  expect(types.some((t) => t.includes('"@type":"Person"'))).toBe(true);
+});
