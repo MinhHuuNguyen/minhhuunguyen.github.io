@@ -110,6 +110,21 @@ export type Dictionary = {
     viewPost: string;
     noThumb: string;
   };
+  projects: {
+    seoTitle: string;
+    heading: string;
+    lead: string;
+    viewDetail: string;
+    allProjects: string;
+    otherTitle: string;
+    otherLead: string;
+    enMissing: string;
+    role: string;
+    company: string;
+    period: string;
+    stack: string;
+    links: string;
+  };
   footer: {
     contact: string;
     tagline: string;
