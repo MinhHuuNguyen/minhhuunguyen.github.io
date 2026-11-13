@@ -27,6 +27,12 @@ const en: Dictionary = {
   },
   home: {
     myBlog: "MY BLOG",
+    anchorsLabel: "On this page",
+    hero: { ctaLearn: "Learn AI", ctaCollab: "Work with me" },
+    stats: { title: "By the numbers" },
+  },
+  ads: {
+    label: "Advertisement",
   },
   news: {
     readMore: "Read more",
@@ -57,6 +63,33 @@ const en: Dictionary = {
     atsShort: "Short CV (PDF, ATS)",
     atsFull: "Full CV (PDF, ATS)",
     designed: "Designed CV (PDF)",
+    skills: "Skills",
+    projects: "Projects",
+    contact: "Contact",
+    present: "Present",
+  },
+  legal: {
+    updated: "Updated",
+    draftBanner: "Draft: this text is waiting for the site owner's review.",
+  },
+  learn: {
+    seoTitle: "Learning paths",
+    heading: "Learning paths",
+    lead: "Pick a path and learn lesson by lesson, from the basics to hands-on practice.",
+    pathPrefix: "Learning path",
+    meta: "{lessons} lessons · {minutes} min",
+    videoCount: "{n} videos",
+    progress: "{done}/{total} lessons done",
+    start: "Start learning",
+    continue: "Continue",
+    completed: "Path completed",
+    comingSoon: "Coming soon",
+    hasVideo: "Has video",
+    lessonsHeading: "Lessons",
+    allPaths: "All paths",
+    viewPath: "View path",
+    storageBlocked: "Your browser does not allow saving progress. You can still learn, but progress is lost when you close the page.",
+    viOnly: "Lesson titles and content are in Vietnamese for now.",
   },
   footer: {
     contact: "Contact",
@@ -77,6 +110,8 @@ const en: Dictionary = {
   notFound: {
     title: "Page not found",
     backHome: "Back to home",
+    hint: "The link may have changed or been mistyped. Go back home or search for what you need.",
+    search: "Search",
   },
 };
 

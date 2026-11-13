@@ -27,6 +27,12 @@ const vi: Dictionary = {
   },
   home: {
     myBlog: "BÀI VIẾT CỦA TÔI",
+    anchorsLabel: "Trong trang này",
+    hero: { ctaLearn: "Học AI", ctaCollab: "Hợp tác" },
+    stats: { title: "Con số" },
+  },
+  ads: {
+    label: "Quảng cáo",
   },
   news: {
     readMore: "Đọc tiếp",
@@ -57,6 +63,33 @@ const vi: Dictionary = {
     atsShort: "CV gọn (PDF, ATS)",
     atsFull: "CV đầy đủ (PDF, ATS)",
     designed: "CV bản thiết kế (PDF)",
+    skills: "Kỹ năng",
+    projects: "Dự án",
+    contact: "Liên hệ",
+    present: "Hiện tại",
+  },
+  legal: {
+    updated: "Cập nhật",
+    draftBanner: "Bản nháp: nội dung này đang chờ chủ website duyệt.",
+  },
+  learn: {
+    seoTitle: "Lộ trình học",
+    heading: "Lộ trình học",
+    lead: "Chọn một lộ trình và học theo từng bài, từ nền tảng tới thực hành.",
+    pathPrefix: "Lộ trình",
+    meta: "{lessons} bài · {minutes} phút",
+    videoCount: "{n} video",
+    progress: "{done}/{total} bài đã học",
+    start: "Bắt đầu học",
+    continue: "Tiếp tục",
+    completed: "Đã hoàn thành lộ trình",
+    comingSoon: "Sắp ra mắt",
+    hasVideo: "Có video",
+    lessonsHeading: "Danh sách bài học",
+    allPaths: "Tất cả lộ trình",
+    viewPath: "Xem lộ trình",
+    storageBlocked: "Trình duyệt không cho lưu tiến độ. Bạn vẫn học bình thường, nhưng tiến độ sẽ mất khi đóng trang.",
+    viOnly: "",
   },
   footer: {
     contact: "Liên hệ",
@@ -75,8 +108,10 @@ const vi: Dictionary = {
     socialDesc: "Dù bạn cần giảng viên AI, kỹ sư MLOps hay chỉ muốn hỏi một câu, cứ nhắn qua các kênh dưới đây.",
   },
   notFound: {
-    title: "Trang tìm kiếm không tồn tại",
-    backHome: "Quay lại trang chủ",
+    title: "Trang này không tồn tại",
+    backHome: "Về trang chủ",
+    hint: "Đường dẫn có thể đã đổi hoặc gõ nhầm. Về trang chủ hoặc thử tìm nội dung bạn cần.",
+    search: "Tìm kiếm",
   },
 };
 

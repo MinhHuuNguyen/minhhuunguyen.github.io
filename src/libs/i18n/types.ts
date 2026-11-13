@@ -31,6 +31,12 @@ export type Dictionary = {
   };
   home: {
     myBlog: string;
+    anchorsLabel: string;
+    hero: { ctaLearn: string; ctaCollab: string };
+    stats: { title: string };
+  };
+  ads: {
+    label: string;
   };
   news: {
     readMore: string;
@@ -61,6 +67,33 @@ export type Dictionary = {
     atsShort: string;
     atsFull: string;
     designed: string;
+    skills: string;
+    projects: string;
+    contact: string;
+    present: string;
+  };
+  legal: {
+    updated: string;
+    draftBanner: string;
+  };
+  learn: {
+    seoTitle: string;
+    heading: string;
+    lead: string;
+    pathPrefix: string;
+    meta: string;
+    videoCount: string;
+    progress: string;
+    start: string;
+    continue: string;
+    completed: string;
+    comingSoon: string;
+    hasVideo: string;
+    lessonsHeading: string;
+    allPaths: string;
+    viewPath: string;
+    storageBlocked: string;
+    viOnly: string;
   };
   footer: {
     contact: string;
@@ -81,5 +114,7 @@ export type Dictionary = {
   notFound: {
     title: string;
     backHome: string;
+    hint: string;
+    search: string;
   };
 };
