@@ -69,6 +69,14 @@ export type Dictionary = {
     searchPlaceholder: string;
     searchResultsTitle: string;
     searchNoResults: string;
+    title: string;
+    count: string;
+    search: string;
+    topics: string;
+    all: string;
+    paths: string;
+    more: string;
+    enComing: string;
   };
   resume: {
     seoTitle: string;
