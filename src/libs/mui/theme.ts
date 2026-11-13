@@ -22,7 +22,8 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    // Tạm dùng font mới cho MUI cũ (CssBaseline đặt font cho body) tới khi T25 gỡ MUI.
+    fontFamily: "var(--font-sans), sans-serif",
   },
 });
 

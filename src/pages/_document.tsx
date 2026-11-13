@@ -3,8 +3,13 @@ import Script from 'next/script'
 
 export default function Document() {
   return (
-    <Html lang="vi">
+    <Html lang="vi" className="no-js">
       <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.replace('no-js','js');`,
+          }}
+        />
         {/* Apply persisted language to <html lang> before paint to avoid mismatch */}
         <script
           dangerouslySetInnerHTML={{

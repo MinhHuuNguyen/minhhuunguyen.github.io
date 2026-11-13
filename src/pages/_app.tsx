@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { sans } from "@/styles/fonts";
 import Layout from "@/components/layouts";
 import createEmotionCache from "@/libs/mui/createEmotionCache";
 import theme from "@/libs/mui/theme";
@@ -43,7 +44,8 @@ export default function App(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-
+      {/* Biến font ở :root để cả portal của Radix cũng nhận font */}
+      <style jsx global>{`:root{--font-sans:${sans.style.fontFamily};}`}</style>
       {/* Google Analytics */}
       {GA_ID && (
         <>
