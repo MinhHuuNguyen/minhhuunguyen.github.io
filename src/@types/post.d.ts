@@ -10,5 +10,6 @@ export interface PostList {
   filePath: string;
   isHighlight?: boolean;
   content?: string;
+  readingMinutes: number;
   video: PostVideo | null; // the `video` frontmatter; null when it is missing or malformed
 }
