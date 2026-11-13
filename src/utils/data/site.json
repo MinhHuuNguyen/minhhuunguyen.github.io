@@ -59,7 +59,7 @@
     { "name": "FPT Software", "base": "/img/logos/fpt" },
     { "name": "MCI Academy", "base": "/img/logos/mci" },
     { "name": "ProtonX", "base": "/img/logos/protonx" },
-    { "name": "Robiz Tech Academy", "base": "/img/logos/robiztech" },
+    { "name": "Robiz Tech Academy", "base": "/img/logos/robiz" },
     { "name": "HUST", "base": "/img/logos/hust" }
   ],
   "pills": [
@@ -200,10 +200,10 @@
     }
   },
   "marqueePhotos": [
-    { "base": "/img/photos/pixta-yep-2024", "alt": { "vi": "Tiệc cuối năm PIXTA 2024", "en": "PIXTA year-end party 2024" } },
-    { "base": "/img/photos/neu-2024", "alt": { "vi": "Chia sẻ tại ĐH Kinh tế Quốc dân 2024", "en": "Talk at National Economics University 2024" } },
-    { "base": "/img/photos/pixta-5-years", "alt": { "vi": "5 năm gắn bó PIXTA", "en": "Five years at PIXTA" } },
-    { "base": "/img/photos/pixta-horizon-2024", "alt": { "vi": "PIXTA Horizon 2024", "en": "PIXTA Horizon 2024" } },
-    { "base": "/img/photos/protonx-2024", "alt": { "vi": "Lớp học ProtonX 2024", "en": "ProtonX class 2024" } }
+    { "base": "/img/events/pixta-yep-2024", "alt": { "vi": "Tiệc cuối năm PIXTA 2024", "en": "PIXTA year-end party 2024" } },
+    { "base": "/img/events/neu-2024", "alt": { "vi": "Chia sẻ tại ĐH Kinh tế Quốc dân 2024", "en": "Talk at National Economics University 2024" } },
+    { "base": "/img/events/pixta-5-years", "alt": { "vi": "5 năm gắn bó PIXTA", "en": "Five years at PIXTA" } },
+    { "base": "/img/events/pixta-horizon-2024", "alt": { "vi": "PIXTA Horizon 2024", "en": "PIXTA Horizon 2024" } },
+    { "base": "/img/events/protonx-2024", "alt": { "vi": "Lớp học ProtonX 2024", "en": "ProtonX class 2024" } }
   ]
 }

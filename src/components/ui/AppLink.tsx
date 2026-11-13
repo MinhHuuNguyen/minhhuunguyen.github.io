@@ -23,7 +23,7 @@ export function AppLink({ href: rawHref, localize = true, children, ...rest }: A
       </a>
     );
   }
-  if (/^(https?:|mailto:|tel:|\/\/)/.test(href)) {
+  if (/^(https?:|mailto:|tel:|\/\/|#)/.test(href)) {
     return (
       <a href={href} {...rest}>
         {children}
