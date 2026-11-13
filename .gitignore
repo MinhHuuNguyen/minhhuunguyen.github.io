@@ -41,3 +41,9 @@ next-env.d.ts
 
 # editor
 .vscode
+# playwright / generated
+/test-results
+/playwright-report
+/src/generated
+/public/search-index.json
+/public/video-thumbs
