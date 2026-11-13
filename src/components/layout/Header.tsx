@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { Search } from "lucide-react";
 import { AppLink } from "@/components/ui/AppLink";
+import { Img } from "@/components/ui/Img";
 import { useI18n } from "@/libs/i18n/I18nContext";
 import { pick } from "@/libs/i18n/pick";
 import type { Locale } from "@/libs/i18n/types";
@@ -39,7 +40,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-line bg-white/85 font-sans backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8">
         <AppLink href="/" aria-label={pick(site.person.name, locale)} className="flex shrink-0 items-center">
-          <img src="/minhhuunguyen-logo-square.jpeg" alt="" width={40} height={40} className="size-10 rounded-full" />
+          <Img base="/img/logo/logo-square" alt="" widths={[64, 128]} sizes="40px" fallback="png" width={40} height={40} className="size-10 rounded-full" />
         </AppLink>
         <nav aria-label={t("nav.mainLabel")} className="hidden lg:block">
           <ul className="flex items-center gap-1">
