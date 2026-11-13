@@ -30,6 +30,14 @@ const vi: Dictionary = {
     anchorsLabel: "Trong trang này",
     hero: { ctaLearn: "Học AI", ctaCollab: "Hợp tác" },
     stats: { title: "Con số" },
+    journey: { cta: "Xem CV", stackLabel: "Công cụ & công nghệ mình dùng", awardsLabel: "Giải thưởng & ghi nhận", now: "nay" },
+    projects: {
+      strong: "Mỗi dự án là một bài toán thật: dữ liệu lộn xộn, ràng buộc chi phí và người dùng đang chờ kết quả.",
+      muted: "Đây là vài dự án mình đã dẫn dắt hoặc tham gia chính.",
+      viewDetails: "Xem chi tiết",
+      cta: "Cùng làm dự án tiếp theo",
+    },
+    marquee: { photos: "Khoảnh khắc giảng dạy & sự kiện", videos: "Video mới" },
   },
   ads: {
     label: "Quảng cáo",

@@ -30,6 +30,14 @@ const en: Dictionary = {
     anchorsLabel: "On this page",
     hero: { ctaLearn: "Learn AI", ctaCollab: "Work with me" },
     stats: { title: "By the numbers" },
+    journey: { cta: "View resume", stackLabel: "Tools & technologies I use", awardsLabel: "Awards & recognition", now: "now" },
+    projects: {
+      strong: "Every project is a real problem: messy data, cost limits and users waiting for results.",
+      muted: "Here are a few projects I led or took a major part in.",
+      viewDetails: "View details",
+      cta: "Let's build your next project",
+    },
+    marquee: { photos: "Teaching & event moments", videos: "Latest videos" },
   },
   ads: {
     label: "Advertisement",

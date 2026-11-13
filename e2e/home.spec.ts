@@ -32,3 +32,35 @@ test("360px: không cuộn ngang", async ({ page }) => {
   await page.goto("/");
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
 });
+
+test("hành trình 3 chặng, stack ≥ 10 icon, 6 giải thưởng", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator('[data-section="journey"] [data-step]')).toHaveCount(3);
+  await expect(page.locator('[data-section="journey"] [data-step]').first()).toContainText("[2026 – nay]");
+  expect(await page.locator('[data-section="stack"] [data-tech]').count()).toBeGreaterThanOrEqual(10);
+  await expect(page.locator('[data-section="awards"] [data-award]')).toHaveCount(6);
+});
+
+test("dự án nổi bật: //1–//4, chưa có case study thì không có Xem chi tiết @static", async ({ page }) => {
+  await page.goto("/");
+  const items = page.locator('[data-section="projects"] [data-project]');
+  await expect(items).toHaveCount(4);
+  await expect(items.first()).toContainText("//1");
+  await expect(page.locator('[data-section="projects"] a', { hasText: "Xem chi tiết" })).toHaveCount(0);
+});
+
+test("dải chạy: 0 video thì dùng 5 ảnh sự kiện, bản nhân đôi bị ẩn khỏi trình đọc màn hình, dừng khi rê chuột", async ({ page }) => {
+  await page.goto("/");
+  const m = page.locator('[data-section="marquee"]');
+  await expect(m.locator('[data-marquee-item]:not([aria-hidden="true"]) img')).toHaveCount(5);
+  await m.hover();
+  expect(await m.locator("[data-marquee-track]").evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
+});
+
+// Môi trường dev nạp thêm case study mẫu (PROJECTS_EXTRA_ROOT): có case study thì chỉ hiện các case study đó, có link chi tiết.
+test("dự án nổi bật khi có case study: //1 và link Xem chi tiết @dev", async ({ page }) => {
+  await page.goto("/");
+  const items = page.locator('[data-section="projects"] [data-project]');
+  await expect(items.first()).toContainText("//1");
+  await expect(items.first().getByRole("link", { name: /Xem chi tiết/ })).toHaveAttribute("href", /^\/projects\//);
+});

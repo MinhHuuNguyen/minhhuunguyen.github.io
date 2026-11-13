@@ -9,10 +9,10 @@ export function Marquee({ items, speedSec = 40, label }: { items: ReactNode[]; s
         style={{ animationDuration: `${speedSec}s` }}
       >
         {items.map((it, i) => (
-          <div key={`a${i}`}>{it}</div>
+          <div key={`a${i}`} data-marquee-item="">{it}</div>
         ))}
         {items.map((it, i) => (
-          <div key={`b${i}`} aria-hidden="true">
+          <div key={`b${i}`} data-marquee-item="" aria-hidden="true">
             {it}
           </div>
         ))}
