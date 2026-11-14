@@ -71,13 +71,14 @@ export default function App(props: MyAppProps) {
           <I18nProvider locale={pageProps.locale} alternates={pageProps.alternates}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <SearchProvider>
-                <ChatProvider>
+              {/* ChatProvider bọc ngoài: bảng ⌘K (trong SearchProvider) cần mở chat */}
+              <ChatProvider>
+                <SearchProvider>
                   <SiteLayout navCounts={pageProps.navCounts}>
                     <Component {...pageProps} />
                   </SiteLayout>
-                </ChatProvider>
-              </SearchProvider>
+                </SearchProvider>
+              </ChatProvider>
             </ThemeProvider>
           </I18nProvider>
         </HydrationBoundary>

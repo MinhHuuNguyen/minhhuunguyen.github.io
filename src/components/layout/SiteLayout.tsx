@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useI18n } from "@/libs/i18n/I18nContext";
 import { counterpartUrl, hreflangLinks, localizePath } from "@/lib/locale-routes.mjs";
+import { ChatLauncher } from "@/features/chat/ChatLauncher";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { SkipLink } from "./SkipLink";
@@ -37,6 +38,7 @@ export function SiteLayout({ children, navCounts }: { children: ReactNode; navCo
       <Header navCounts={navCounts} />
       <main id="main">{children}</main>
       <Footer />
+      <ChatLauncher />
     </>
   );
 }
