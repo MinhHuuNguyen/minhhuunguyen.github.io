@@ -31,7 +31,7 @@ export function Services() {
                   onClick={() => setOpen(i)}
                   className="w-full text-left text-service lg:text-right"
                 >
-                  <span className="mr-3 text-blue-500">[{i + 1}]</span>
+                  <span className="mr-3 text-blue-600">[{i + 1}]</span>
                   {pick(s.title, locale)}
                 </button>
                 <div id={`service-desc-${i}`} data-service-desc="" hidden={!isOpen} className="mt-3 lg:ml-auto lg:max-w-xl">

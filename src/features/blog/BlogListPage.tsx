@@ -66,7 +66,7 @@ export function BlogListPage({ posts, paths, topTags }: BlogListProps) {
               type="button"
               aria-pressed={tag === null}
               onClick={() => setTag(null)}
-              className="rounded-pill bg-white px-4 py-1.5 text-[14px] font-medium text-ink-700 shadow-card aria-pressed:bg-blue-500 aria-pressed:text-white"
+              className="rounded-pill bg-white px-4 py-1.5 text-[14px] font-medium text-ink-700 shadow-card aria-pressed:bg-blue-600 aria-pressed:text-white"
             >
               {t("blog.all")}
             </button>
@@ -77,7 +77,7 @@ export function BlogListPage({ posts, paths, topTags }: BlogListProps) {
                 type="button"
                 aria-pressed={tag === x.tag}
                 onClick={() => setTag(tag === x.tag ? null : x.tag)}
-                className="group rounded-pill bg-white px-4 py-1.5 text-[14px] font-medium text-ink-700 shadow-card aria-pressed:bg-blue-500 aria-pressed:text-white"
+                className="group rounded-pill bg-white px-4 py-1.5 text-[14px] font-medium text-ink-700 shadow-card aria-pressed:bg-blue-600 aria-pressed:text-white"
               >
                 {x.tag} <span className="text-ink-500 group-aria-pressed:text-white">{x.count}</span>
               </button>
