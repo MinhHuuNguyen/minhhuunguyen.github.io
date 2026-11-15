@@ -28,6 +28,60 @@ for (const f of ["privacy.html", "terms.html"]) {
   if (!fs.existsSync(path.join(OUT, f))) problems.push(`thiếu out/${f}`);
 }
 
+// Mọi trang HTML đã xuất (trừ 404, bản in CV, styleguide, trang bài đã kiểm ở trên) phải có trong sitemap; trang tạm không được có.
+const htmlFiles = [];
+const walk = (dir) => {
+  for (const e of fs.readdirSync(path.join(OUT, dir), { withFileTypes: true })) {
+    const rel = path.posix.join(dir, e.name);
+    if (e.isDirectory()) { if (rel !== "_next") walk(rel); } else if (e.name.endsWith(".html")) htmlFiles.push(rel);
+  }
+};
+walk(".");
+const NOT_IN_SITEMAP = ["404.html", "resume/print.html", "styleguide.html"];
+for (const f of htmlFiles.map((x) => x.replace(/^\.\//, ""))) {
+  if (NOT_IN_SITEMAP.includes(f) || /^blog\/[^/]+\.html$/.test(f) || /^en\/blog\//.test(f)) continue;
+  const loc = f === "index.html" ? `${SITE}/` : `${SITE}/${f.slice(0, -5)}`;
+  if (!locs.includes(loc)) problems.push(`out/${f} không có trong sitemap (${loc})`);
+}
+for (const f of NOT_IN_SITEMAP) {
+  const loc = `${SITE}/${f.slice(0, -5)}`;
+  if (locs.includes(loc)) problems.push(`sitemap không được chứa ${loc}`);
+}
+// Bài fixture hợp đồng chỉ được xuất khi đặt POSTS_EXTRA_ROOT.
+if (!process.env.POSTS_EXTRA_ROOT && fs.existsSync(path.join(OUT, "blog", "contract-fixture-video-post.html"))) {
+  problems.push("out/blog/contract-fixture-video-post.html lọt vào bản build khi không có POSTS_EXTRA_ROOT");
+}
+// hreflang đối xứng: vi <-> en trỏ ngược lại nhau.
+const hreflangOf = (html) => {
+  const out = {};
+  for (const [tag] of html.matchAll(/<link\b[^>]*>/gi)) {
+    const lang = /hreflang="([^"]+)"/i.exec(tag)?.[1];
+    const href = /href="([^"]+)"/i.exec(tag)?.[1];
+    if (lang && href) out[lang] = href;
+  }
+  return out;
+};
+const viOf = (f) => (f === "en.html" ? "index.html" : f.replace(/^en\//, ""));
+const enOf = (f) => (f === "index.html" ? "en.html" : `en/${f}`);
+for (const raw of htmlFiles) {
+  const f = raw.replace(/^\.\//, "");
+  if (NOT_IN_SITEMAP.includes(f)) continue;
+  const isEn = f === "en.html" || f.startsWith("en/");
+  const mine = hreflangOf(read(f));
+  const wantSelf = isEn ? "vi" : "en";
+  if (!mine[wantSelf]) continue;
+  const other = isEn ? viOf(f) : enOf(f);
+  if (!fs.existsSync(path.join(OUT, other))) { problems.push(`out/${f} có hreflang="${wantSelf}" nhưng thiếu out/${other}`); continue; }
+  const back = hreflangOf(read(other))[isEn ? "en" : "vi"];
+  if (!back) problems.push(`out/${other} thiếu hreflang="${isEn ? "en" : "vi"}" trỏ ngược lại out/${f}`);
+}
+// Cổng chữ (C19): trên CI, site.json phải được duyệt.
+const copyStatus = JSON.parse(fs.readFileSync("src/utils/data/site.json", "utf8")).meta?.copyStatus;
+if (copyStatus !== "approved") {
+  const msg = `site.json meta.copyStatus là "${copyStatus}": cần bạn duyệt chữ (cổng G2) trước khi deploy`;
+  if (process.env.CI === "true") problems.push(msg);
+  else console.warn(`cảnh báo: ${msg}`);
+}
 if (problems.length) {
   console.error(problems.join("\n"));
   process.exit(1);

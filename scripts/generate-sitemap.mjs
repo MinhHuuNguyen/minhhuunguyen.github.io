@@ -5,14 +5,20 @@ import { SITE, sitemapXml, toIsoDate } from "../src/lib/seo.mjs";
 import { readAllPosts } from "../src/lib/posts-reader.mjs";
 import { buildPaths } from "../src/lib/learn.mjs";
 import { readProjects } from "../src/lib/projects.mjs";
+import { localizePath } from "../src/lib/locale-routes.mjs";
 
 const STATIC = ["/", "/blog", "/resume", "/learn", "/videos", "/projects", "/ask", "/privacy", "/terms"];
 /** public/sitemap.xml liệt kê các trang build sẽ xuất (file git-ignored, sinh lại mỗi lần). */
 export function writeSitemap({ posts = [], paths = [], projects = [] }, publicDir = "public") {
+  const vi = [
+    ...STATIC.map((p) => ({ path: p })),
+    ...paths.map((p) => ({ path: `/learn/${p.slug}`, lastmod: toIsoDate(p.updated) })),
+    ...projects.map((p) => ({ path: `/projects/${p.slug}` })),
+  ];
   const entries = [
-    ...STATIC.map((p) => ({ loc: `${SITE}${p === "/" ? "/" : p}` })),
-    ...paths.map((p) => ({ loc: `${SITE}/learn/${p.slug}`, lastmod: toIsoDate(p.updated) })),
-    ...projects.map((p) => ({ loc: `${SITE}/projects/${p.slug}` })),
+    ...vi.map(({ path: p, lastmod }) => ({ loc: `${SITE}${p}`, lastmod })),
+    // Bản /en của từng trang (bài viết EN thêm ở T32).
+    ...vi.map(({ path: p, lastmod }) => ({ loc: `${SITE}${localizePath(p, "en")}`, lastmod })),
     ...posts.map((p) => ({ loc: `${SITE}/blog/${p.slug}`, lastmod: toIsoDate(p.time) })),
   ];
   fs.mkdirSync(publicDir, { recursive: true });
