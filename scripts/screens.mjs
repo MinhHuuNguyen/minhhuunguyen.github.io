@@ -4,7 +4,7 @@ import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 
-const BASE = process.env.BASE_URL ?? "http://localhost:4173"\;
+const BASE = process.env.BASE_URL ?? "http://localhost:4173";
 const OUT = join(process.env.TMPDIR ?? tmpdir(), "screens");
 const ROUTES = ["/", "/blog", "/learn", "/videos", "/projects", "/resume", "/ask", "/privacy", "/terms",
   "/en", "/en/learn", "/en/videos", "/en/resume", "/en/ask"];
