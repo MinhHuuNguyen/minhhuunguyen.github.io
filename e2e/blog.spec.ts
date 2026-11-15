@@ -10,8 +10,7 @@ test("lọc theo tag cập nhật URL và giảm số thẻ", async ({ page }) =
   expect(await cards.count()).toBeLessThan(all);
 });
 
-// Chạy trọn sau T22 (bảng ⌘K); ở T17 ô tìm chỉ gọi useSearch().open("blog_field").
-test.fixme("có khu Lộ trình với 8 thẻ; ô tìm mở bảng ⌘K", async ({ page }) => {
+test("có khu Lộ trình với 8 thẻ; ô tìm mở bảng ⌘K", async ({ page }) => {
   await page.goto("/blog");
   await expect(page.locator("[data-path-card]")).toHaveCount(8);
   await page.getByRole("button", { name: /Tìm bài viết/ }).click();

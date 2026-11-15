@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Search } from "lucide-react";
 import { AppLink } from "@/components/ui/AppLink";
@@ -25,6 +26,10 @@ export function Header({ navCounts }: { navCounts?: { videos: number } }) {
   const { t, locale } = useI18n();
   const router = useRouter();
   const { open } = useSearch();
+  const [kbd, setKbd] = useState<string | null>(null);
+  useEffect(() => {
+    setKbd(/mac|iphone|ipad/i.test(navigator.platform) ? "⌘K" : "Ctrl K");
+  }, []);
   const isHome = router.pathname === "/" || router.pathname === "/en";
   const contactHref = CONTACT_HREF(isHome, locale);
 
@@ -61,9 +66,14 @@ export function Header({ navCounts }: { navCounts?: { videos: number } }) {
             type="button"
             aria-label={t("nav.search")}
             onClick={() => open("button")}
-            className="grid size-10 place-items-center rounded-full text-ink-900 hover:bg-surface-100"
+            className="inline-flex h-10 items-center gap-2 rounded-full px-2.5 text-ink-900 hover:bg-surface-100"
           >
             <Search size={20} aria-hidden="true" />
+            {kbd && (
+              <kbd aria-hidden="true" className="hidden rounded-md border border-line-light px-1.5 py-0.5 font-sans text-xs font-medium text-ink-500 sm:inline">
+                {kbd}
+              </kbd>
+            )}
           </button>
           <div className="hidden items-center gap-1 lg:flex">
             <DownloadCvMenu />
