@@ -6,7 +6,6 @@ import { useI18n } from "@/libs/i18n/I18nContext";
 import { localizePath } from "@/lib/locale-routes.mjs";
 import { SITE } from "@/lib/seo.mjs";
 import type { Project } from "@/lib/projects.mjs";
-import styles from "@/styles/markdownStyles.module.css";
 
 export function ProjectPage({ project }: { project: Project }) {
   const { t, locale } = useI18n();
@@ -63,7 +62,7 @@ export function ProjectPage({ project }: { project: Project }) {
           ))}
         </ul>
       )}
-      <div className={`${styles.markdownBody} mt-8`} dangerouslySetInnerHTML={{ __html: data.html }} />
+      <div className={`post-body prose prose-lg max-w-none text-ink-900 mt-8`} dangerouslySetInnerHTML={{ __html: data.html }} />
       {data.links && data.links.length > 0 && (
         <ul aria-label={t("projects.links")} className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
           {data.links.map((l) => (
