@@ -20,7 +20,7 @@ const out = (src, base, widths, formats) =>
 export const OUTPUTS = [
   ...out(PORTRAIT_SRC, "public/img/portrait/minh-cutout", [400, 800, 1600], ["avif", "webp", "png"]),
   ...Object.entries(EVENTS).flatMap(([n, s]) => out(s, `public/img/events/${n}`, [800, 1600], ["avif", "webp", "jpg"])),
-  ...Object.entries(LOGOS).flatMap(([n, s]) => out(s, `public/img/logos/${n}`, [96, 192], ["webp", "png"])),
-  ...out("public/minhhuunguyen-logo-square.jpeg", "public/img/logo/logo-square", [64, 128], ["webp", "png"]),
+  ...Object.entries(LOGOS).flatMap(([n, s]) => out(s, `public/img/logos/${n}`, [96, 192], ["avif", "webp", "png"])),
+  ...out("public/minhhuunguyen-logo-square.jpeg", "public/img/logo/logo-square", [64, 128], ["avif", "webp", "png"]),
   { src: PORTRAIT_SRC, file: "public/img/og-default.jpg", width: 1200, format: "og" },
 ];

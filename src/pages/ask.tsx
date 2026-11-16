@@ -16,7 +16,7 @@ export default function AskPage() {
   const canonical = `${SITE}${localizePath("/ask", locale)}`;
   return (
     <Container size="prose" className="py-8 sm:py-12">
-      <NextSeo title={t("chat.title")} canonical={canonical} openGraph={{ url: canonical, title: t("chat.title") }} />
+      <NextSeo title={t("chat.title")} description={t("chat.greeting")} canonical={canonical} openGraph={{ url: canonical, title: t("chat.title"), description: t("chat.greeting") }} />
       <div className="h-[calc(100dvh-14rem)] min-h-[480px] overflow-hidden rounded-card border border-line-light shadow-card">
         <ChatSurface variant="page" />
       </div>
