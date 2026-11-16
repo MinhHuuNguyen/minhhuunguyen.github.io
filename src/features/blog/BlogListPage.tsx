@@ -18,11 +18,13 @@ export type BlogListProps = {
   posts: PostListItem[];
   paths: PathSummary[];
   topTags: { tag: string; count: number }[];
+  /** Số bài chưa có bản dịch (chỉ trang EN): còn thì hiện ghi chú bài VI. */
+  untranslated?: number;
 };
 
 const PAGE_SIZE = 24;
 
-export function BlogListPage({ posts, paths, topTags }: BlogListProps) {
+export function BlogListPage({ posts, paths, topTags, untranslated = 0 }: BlogListProps) {
   const { t, locale } = useI18n();
   const router = useRouter();
   const { open } = useSearch();
@@ -48,7 +50,7 @@ export function BlogListPage({ posts, paths, topTags }: BlogListProps) {
       <SectionLabel>{t("blog.title")}</SectionLabel>
       <h1 className="mt-4 text-4xl font-semibold text-ink-900 sm:text-5xl">{t("blog.title")}</h1>
       <p className="mt-3 text-lead text-ink-500">{t("blog.count").replace("{n}", String(posts.length))}</p>
-      {locale === "en" && <p className="mt-2 text-sm text-ink-500">{t("blog.enComing")}</p>}
+      {locale === "en" && untranslated > 0 && <p className="mt-2 text-sm text-ink-500">{t("blog.enComing")}</p>}
 
       <button
         type="button"

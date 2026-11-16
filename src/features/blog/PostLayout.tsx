@@ -15,6 +15,7 @@ import { PostSections } from "./PostSections";
 import { ReadingProgress } from "./ReadingProgress";
 import { RelatedPosts } from "./RelatedPosts";
 import { Toc, useActiveHeading } from "./Toc";
+import { VideoBlock } from "./VideoBlock";
 import { VideoChapters } from "./VideoChapters";
 
 export type PostHead = {
@@ -35,10 +36,14 @@ export type PostPageProps = {
   video: PostVideo | null;
   related: PostSummary[];
   lessonNav: LessonNavProps | null;
+  /** false: không quảng cáo (mặc định true). */
+  ads?: boolean;
+  /** true: dựng khối video từ `video` (bài EN; bài VI có khối video trong nội dung). */
+  videoBlock?: boolean;
 };
 
 /** Bố cục trang bài: mục lục 240px / bài ≤ 720px / quảng cáo 300px (≥ 1280px); hẹp hơn thì một cột. */
-export function PostLayout({ post, sections, toc, adPlan, video, related, lessonNav }: PostPageProps): ReactNode {
+export function PostLayout({ post, sections, toc, adPlan, video, related, lessonNav, ads = true, videoBlock = false }: PostPageProps): ReactNode {
   const { t, locale } = useI18n();
   const [active, pick] = useActiveHeading(toc);
   const clips = video?.clips ?? [];
@@ -46,7 +51,7 @@ export function PostLayout({ post, sections, toc, adPlan, video, related, lesson
     <>
       <ReadingProgress />
       <Container size="wide" className="py-8 lg:py-12">
-        <div className="xl:grid xl:grid-cols-[240px_minmax(0,720px)_300px] xl:justify-center xl:gap-10">
+        <div className={ads ? "xl:grid xl:grid-cols-[240px_minmax(0,720px)_300px] xl:justify-center xl:gap-10" : "xl:grid xl:grid-cols-[240px_minmax(0,720px)] xl:justify-center xl:gap-10"}>
           <aside className="hidden xl:block">
             <div className="sticky top-24 space-y-6">
               <Toc toc={toc} active={active} onPick={pick} variant="rail" />
@@ -93,15 +98,15 @@ export function PostLayout({ post, sections, toc, adPlan, video, related, lesson
             )}
             <Toc toc={toc} active={active} onPick={pick} variant="inline" />
             <VideoChapters clips={clips} className="mb-6 rounded-card bg-white p-3 shadow-card xl:hidden" />
-            <PostSections sections={sections} adPlan={adPlan} />
+            <PostSections sections={sections} adPlan={ads ? adPlan : []} lead={videoBlock && video ? <VideoBlock video={video} /> : undefined} />
             {lessonNav && <LessonNav nav={lessonNav} slug={post.slug} />}
             <div className="mt-8 xl:hidden">
               <AskAboutPost slug={post.slug} title={post.title} />
             </div>
             <RelatedPosts posts={related} />
-            <AdSlot slot="multiplex" />
+            {ads && <AdSlot slot="multiplex" />}
           </article>
-          <AdRail />
+          {ads && <AdRail />}
         </div>
       </Container>
     </>

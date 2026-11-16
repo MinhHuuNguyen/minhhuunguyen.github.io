@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import { parseArgs } from "node:util";
 import { readAllPosts } from "../src/lib/posts-reader.mjs";
-import { buildPaths } from "../src/lib/learn.mjs";
+import { buildPaths, buildEnPaths } from "../src/lib/learn.mjs";
+import { readEnPosts } from "../src/lib/posts-en-reader.mjs";
 import { validateManualVideos, collectVideos } from "../src/lib/videos.mjs";
 import { readProjects, resumeEngineeringProjects } from "../src/lib/projects.mjs";
 import { fetchVideoMeta } from "./fetch-video-meta.mjs";
@@ -38,6 +39,13 @@ const tiktoks = collectVideos(posts, manual, {})
 const meta = await fetchVideoMeta(tiktoks, { publicDir: args["public-dir"], generatedDir: args["generated-dir"], offline });
 
 const paths = buildPaths(posts);
+const enRoots = ["posts-en", ...(process.env.POSTS_EN_EXTRA_ROOT ? [process.env.POSTS_EN_EXTRA_ROOT] : [])];
+const { enPosts, pairs, errors: enErrors } = readEnPosts(enRoots, posts);
+if (enErrors.length) {
+  console.error("[posts-en]");
+  for (const e of enErrors) console.error(`  ${e}`);
+  process.exit(1);
+}
 const videos = collectVideos(posts, manual, meta);
 const resume = readJson("src/utils/data/resume.json");
 const resumeNames = resumeEngineeringProjects(resume).map((p) => p.projectName);
@@ -54,7 +62,7 @@ if (projectErrors.length) {
   process.exit(1);
 }
 
-writeSitemap({ posts, paths, videos, projects }, args["public-dir"]);
+writeSitemap({ posts, paths, videos, projects, enPosts }, args["public-dir"]);
 
 const bi = (vi, en) => ({ vi, en });
 const resumeText = [
@@ -69,4 +77,10 @@ const pages = [
   { url: "/projects", title: bi("Dự án", "Projects"), text: "Dự án case study projects" },
   { url: "/ask", title: bi("Hỏi đáp", "Ask"), text: "Hỏi đáp trợ lý chat ask" },
 ];
-writeSearchIndex({ posts, paths, videos, projects, pages }, args["public-dir"], process.env.GITHUB_SHA ?? String(Date.now()));
+const buildId = process.env.GITHUB_SHA ?? String(Date.now());
+writeSearchIndex({ posts, paths, videos, projects, pages }, args["public-dir"], buildId);
+// Chỉ mục EN: bài đã dịch thay bản VI; bài chưa dịch giữ nguyên (không mất kết quả khi tìm bằng tiếng Anh).
+writeSearchIndex(
+  { posts: [...enPosts, ...posts.filter((p) => !pairs.viToEn[p.slug])], paths: buildEnPaths(paths, enPosts, pairs), videos, projects, pages },
+  args["public-dir"], buildId, "search-index.en.json",
+);

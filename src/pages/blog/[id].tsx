@@ -14,7 +14,7 @@ import { getSiteData, withNav } from "@/lib/site-data.mjs";
 import { withLocale } from "@/lib/with-locale";
 import adsConfig from "@/utils/data/ads.json";
 
-type Props = PostPageProps & { navCounts: { videos: number } };
+type Props = PostPageProps & { navCounts: { videos: number }; alternates?: { vi: string; en: string } };
 
 export default function Blog({ post, sections, toc, adPlan, video, related, lessonNav }: Props) {
   const url = `${SITE}/blog/${post.slug}`;
@@ -75,6 +75,8 @@ export const getStaticProps = withLocale<Props>("vi", async ({ params }) => {
       video: post.video ?? null,
       related: relatedSlugs.map((s) => data.postsSummary.find((p) => p.slug === s)!),
       lessonNav: nav ? { ...nav, lessons: lessons.map((l) => ({ slug: l.slug, available: l.available })) } : null,
+      // Chỉ bài đã có bản dịch mới khai báo hreflang/nút ngôn ngữ theo cặp.
+      ...(data.postPairs.viToEn[post.slug] ? { alternates: { vi: `/blog/${post.slug}`, en: `/en/blog/${data.postPairs.viToEn[post.slug]}` } } : {}),
     }),
   };
 });

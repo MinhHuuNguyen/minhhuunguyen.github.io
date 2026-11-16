@@ -26,3 +26,7 @@ test("shouldHardNavigate khi đi vào hoặc ra khỏi trang có quảng cáo", 
     assert.equal(shouldHardNavigate(cur, href, live), want, `${cur} -> ${href} (live=${live})`);
   }
 });
+test("isAdRoute nhận trang bài EN, không nhận danh sách EN", () => {
+  assert.equal(isAdRoute("/en/blog/loops"), true);
+  assert.equal(isAdRoute("/en/blog"), false);
+});

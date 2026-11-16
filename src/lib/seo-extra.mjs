@@ -1,4 +1,4 @@
-import { SITE } from "./seo.mjs";
+import { SITE, blogPostingLd } from "./seo.mjs";
 
 const FALLBACK_THUMB = `${SITE}/img/og-default.jpg`;
 
@@ -35,5 +35,13 @@ export function personLd(site) {
     url: SITE,
     ...(site.person.roles?.en?.[0] ? { jobTitle: site.person.roles.en[0] } : {}),
     sameAs: Object.values(site.socials).filter(Boolean),
+  };
+}
+/** BlogPosting của bài EN: inLanguage en, trỏ về bài VI gốc (nếu có). */
+export function blogPostingLdEn(post, url, viUrl) {
+  return {
+    ...blogPostingLd(post, url),
+    inLanguage: "en",
+    ...(viUrl ? { translationOfWork: { "@type": "BlogPosting", url: viUrl, inLanguage: "vi" } } : {}),
   };
 }

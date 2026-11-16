@@ -32,7 +32,7 @@ export function LessonNav({ nav, slug }: { nav: LessonNavProps; slug: string }) 
       {!available && <p className="mt-2 text-[13px] text-ink-500">{t("post.storageOff")}</p>}
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {nav.prev ? (
-          <AppLink href={`/blog/${nav.prev.slug}`} localize={false} className="rounded-lg border border-line p-3 transition hover:bg-surface-100">
+          <AppLink href={nav.prev.href ?? `/blog/${nav.prev.slug}`} localize={false} className="rounded-lg border border-line p-3 transition hover:bg-surface-100">
             <span className="block text-[12px] uppercase tracking-[.06em] text-ink-500">{t("post.prev")}</span>
             <span className="text-[15px] font-semibold text-ink-900">{nav.prev.title ?? nav.prev.label}</span>
           </AppLink>
@@ -40,7 +40,7 @@ export function LessonNav({ nav, slug }: { nav: LessonNavProps; slug: string }) 
           <span />
         )}
         {nav.next ? (
-          <AppLink href={`/blog/${nav.next.slug}`} localize={false} className="rounded-lg border border-line p-3 text-right transition hover:bg-surface-100 sm:col-start-2">
+          <AppLink href={nav.next.href ?? `/blog/${nav.next.slug}`} localize={false} className="rounded-lg border border-line p-3 text-right transition hover:bg-surface-100 sm:col-start-2">
             <span className="block text-[12px] uppercase tracking-[.06em] text-ink-500">{t("post.next")}</span>
             <span className="text-[15px] font-semibold text-ink-900">{nav.next.title ?? nav.next.label}</span>
           </AppLink>

@@ -18,3 +18,13 @@ test("personLd: sameAs chỉ chứa kênh đã cấu hình", async () => {
   assert.equal(ld.url, "https://minhhuunguyen.github.io");
   assert.deepEqual(ld.sameAs, ["https://www.linkedin.com/in/minhhuunguyen/", "https://github.com/minhhuunguyen"]);
 });
+test("blogPostingLdEn: inLanguage en và trỏ về bài VI gốc", async () => {
+  const { blogPostingLdEn } = await import("../src/lib/seo-extra.mjs");
+  const post = { title: "Loops", description: "d", time: "01/01/2022", tags: ["python"] };
+  const ld = blogPostingLdEn(post, "https://minhhuunguyen.github.io/en/blog/loops", "https://minhhuunguyen.github.io/blog/vong-lap");
+  assert.equal(ld["@type"], "BlogPosting");
+  assert.equal(ld.inLanguage, "en");
+  assert.equal(ld.url, "https://minhhuunguyen.github.io/en/blog/loops");
+  assert.equal(ld.translationOfWork.url, "https://minhhuunguyen.github.io/blog/vong-lap");
+  assert.equal(ld.translationOfWork.inLanguage, "vi");
+});

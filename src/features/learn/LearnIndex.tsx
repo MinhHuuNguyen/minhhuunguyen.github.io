@@ -18,7 +18,7 @@ export function LearnIndex({ paths }: { paths: LearningPath[] }) {
       <SectionLabel>{t("learn.heading")}</SectionLabel>
       <h1 className="mt-4 text-4xl font-semibold text-ink-900 sm:text-5xl">{t("learn.heading")}</h1>
       <p className="mt-3 max-w-prose text-lead text-ink-500">{t("learn.lead")}</p>
-      {locale === "en" && <p className="mt-2 text-sm text-ink-500">{t("learn.viOnly")}</p>}
+      {locale === "en" && paths.some((p) => p.lessons.some((l) => l.lang !== "en")) && <p className="mt-2 text-sm text-ink-500">{t("learn.viOnly")}</p>}
       <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {paths.map((p) => {
           const info = percent(p);

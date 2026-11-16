@@ -12,9 +12,11 @@ export type PostCardData = {
   tags: string[];
   readingMinutes: number;
   hasVideo: boolean;
+  /** Mặc định /blog/<slug>; bài EN truyền /en/blog/<slug>. */
+  href?: string;
 };
 
-/** Thẻ bài viết ở danh sách blog. Link trỏ thẳng /blog/<slug> (bài EN chưa có, nên không gắn /en). */
+/** Thẻ bài viết ở danh sách blog. Link trỏ thẳng href (mặc định /blog/<slug>), không tự gắn /en. */
 export function PostCard({ post, featured = false }: { post: PostCardData; featured?: boolean }) {
   const { t, locale } = useI18n();
   return (
@@ -31,7 +33,7 @@ export function PostCard({ post, featured = false }: { post: PostCardData; featu
           {formatDate(post.time, locale)} · {t("post.readingTime").replace("{n}", String(post.readingMinutes))}
         </p>
         <h3 className="text-lg font-semibold leading-snug text-ink-900">
-          <AppLink href={`/blog/${post.slug}`} localize={false} className="after:absolute after:inset-0 after:content-['']">
+          <AppLink href={post.href ?? `/blog/${post.slug}`} localize={false} className="after:absolute after:inset-0 after:content-['']">
             {post.title}
           </AppLink>
         </h3>
