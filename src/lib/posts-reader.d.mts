@@ -7,6 +7,7 @@ export interface FullPost {
   tags: string[] | null;
   slug: string;
   filePath: string;
+  relPath: string;
   isHighlight: boolean;
   content: string;
   video: PostVideo | null;

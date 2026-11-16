@@ -42,3 +42,18 @@ export function lessonNav(paths, postSlug) {
   }
   return null;
 }
+/** Lộ trình bản EN: nhãn/tiêu đề lấy từ bản dịch; mỗi bài học có href và lang (en nếu đã dịch, vi nếu chưa). */
+export function buildEnPaths(viPaths, enPosts, pairs) {
+  const enBySlug = new Map(enPosts.map((p) => [p.slug, p]));
+  return viPaths.map((vp) => {
+    const enSeries = enBySlug.get(pairs.viToEn[vp.seriesSlug]);
+    const enLabels = new Map(enSeries ? parseSeriesLessons(enSeries.content).map((l) => [l.slug, l.label]) : []);
+    const lessons = vp.lessons.map((l) => {
+      const enSlug = pairs.viToEn[l.slug];
+      return enSlug
+        ? { ...l, label: enLabels.get(l.slug) ?? l.label, title: enBySlug.get(enSlug)?.title ?? l.title, href: `/en/blog/${enSlug}`, lang: "en" }
+        : { ...l, href: l.available ? `/blog/${l.slug}` : null, lang: "vi" };
+    });
+    return { ...vp, title: enSeries ? cleanTitle(enSeries.title) : vp.title, description: enSeries?.description ?? vp.description, lessons };
+  });
+}

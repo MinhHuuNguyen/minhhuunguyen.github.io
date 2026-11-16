@@ -1,9 +1,12 @@
 import type { PostList } from "@/@types/post";
+import type { EnPost, PostPairs } from "./posts-en-reader.mjs";
 
 export type PostSummary = Omit<PostList, "content" | "video"> & { hasVideo: boolean };
 export interface SiteData {
   postsSummary: PostSummary[];
   postBySlug(slug: string): PostList | null;
+  postPairs: PostPairs;
+  en: { posts: EnPost[]; pairs: PostPairs; paths: any[]; stale: string[] };
   paths: any[];
   videos: any[];
   projects: any[];

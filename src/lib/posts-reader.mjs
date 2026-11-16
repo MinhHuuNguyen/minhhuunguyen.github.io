@@ -5,15 +5,15 @@ import { slugify, toPostVideo } from "./seo.mjs";
 import { readingMinutes } from "./reading.mjs";
 
 const OWN_README = path.join("posts", "minhhuunguyen", "README.md");
-function walk(dir, out) {
+function walk(dir, out, root = dir) {
   let names;
   try { names = fs.readdirSync(dir); } catch (e) { console.warn(`[posts] Không đọc được thư mục: ${dir}`, e); return; }
   for (const name of names) {
     const full = path.join(dir, name);
     let st;
     try { st = fs.statSync(full); } catch { continue; }
-    if (st.isDirectory()) { if (!name.startsWith(".")) walk(full, out); continue; }
-    if ((name.endsWith(".md") && name !== "README.md") || full.endsWith(OWN_README)) out.push(full);
+    if (st.isDirectory()) { if (!name.startsWith(".")) walk(full, out, root); continue; }
+    if ((name.endsWith(".md") && name !== "README.md") || full.endsWith(OWN_README)) out.push({ full, root });
   }
 }
 export function readAllPosts(root = "posts", extraRoot = process.env.POSTS_EXTRA_ROOT) {
@@ -23,7 +23,7 @@ export function readAllPosts(root = "posts", extraRoot = process.env.POSTS_EXTRA
   walk(root, files);
   if (extraRoot) walk(extraRoot, files);
   const posts = [];
-  for (const file of files) {
+  for (const { full: file, root: base } of files) {
     let parsed;
     try { parsed = matter(fs.readFileSync(file, "utf8")); } catch (e) { console.warn(`[posts] Bỏ qua file không đọc/parse được: ${file}`, e); continue; }
     const d = parsed.data;
@@ -34,7 +34,7 @@ export function readAllPosts(root = "posts", extraRoot = process.env.POSTS_EXTRA
     if (!slug) continue;
     posts.push({
       time: d.time || new Date(0).toISOString(), title: d.title || "Untitled", description: d.description || "No description",
-      banner_url: d.banner_url || "", tags: d.tags || null, slug, filePath: file, isHighlight: d.is_highlight || false,
+      banner_url: d.banner_url || "", tags: d.tags || null, slug, filePath: file, relPath: path.relative(base, file).split(path.sep).join("/"), isHighlight: d.is_highlight || false,
       content: parsed.content || "", video, readingMinutes: readingMinutes(parsed.content),
     });
   }

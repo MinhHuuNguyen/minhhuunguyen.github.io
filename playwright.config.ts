@@ -32,7 +32,7 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
     env: STATIC ? {} : {
-      POSTS_EXTRA_ROOT: "test/fixtures/posts", PROJECTS_EXTRA_ROOT: "test/fixtures/projects",
+      POSTS_EXTRA_ROOT: "test/fixtures/posts", POSTS_EN_EXTRA_ROOT: "test/fixtures/posts-en", PROJECTS_EXTRA_ROOT: "test/fixtures/projects",
       NEXT_PUBLIC_ADS_MODE: "placeholder", NEXT_PUBLIC_CHAT_MODE: "coming-soon", NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "",
     },
   },
