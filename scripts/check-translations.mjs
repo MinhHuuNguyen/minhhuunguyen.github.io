@@ -20,14 +20,14 @@ const logFile = value("--log");
 const inScope = (rel) => !folder || rel === folder || rel.startsWith(`${folder}/`);
 const toRel = (file) => path.relative(POSTS_ROOT, file).split(path.sep).join("/");
 
-function walk(dir, out) {
+function walk(dir, out, root = dir) {
   let names;
   try { names = fs.readdirSync(dir); } catch { return; }
   for (const name of names) {
     const full = path.join(dir, name);
     const st = fs.statSync(full);
-    if (st.isDirectory()) { if (!name.startsWith(".")) walk(full, out); continue; }
-    if (name.endsWith(".md") && name !== "README.md") out.push(full);
+    if (st.isDirectory()) { if (!name.startsWith(".")) walk(full, out, root); continue; }
+    if (name.endsWith(".md") && (name !== "README.md" || path.relative(root, full).split(path.sep).join("/") === "minhhuunguyen/README.md")) out.push(full);
   }
 }
 
@@ -66,7 +66,7 @@ for (const { file, parsed, error } of sorted) {
       source_slug: vi.slug, source_hash: bodyHash(vi.content), translated_at: today,
     };
     Object.keys(stamped).forEach((k) => stamped[k] === undefined && delete stamped[k]);
-    fs.writeFileSync(file, matter.stringify(parsed.content, stamped));
+    fs.writeFileSync(file, matter.stringify({ content: parsed.content }, stamped));
     Object.assign(fm, stamped);
   }
 

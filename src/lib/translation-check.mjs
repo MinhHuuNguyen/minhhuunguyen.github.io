@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import { slugify } from "./seo.mjs";
 
 export const EN_FM_KEYS = ["title", "description", "source_path", "source_slug", "source_hash", "translated_at"];
-export const ALLOWLIST = ["Nguyễn", "Hữu", "Minh", "Hà", "Nội", "Bách", "Khoa", "Kinh", "tế", "Quốc", "dân", "Khoang", "Trời", "Của", "Bé", "Việt", "Nam"];
+export const ALLOWLIST = ["Nguyễn", "Hữu", "Minh", "Hà", "Nội", "Bách", "Khoa", "Kinh", "tế", "Quốc", "dân", "Khoang", "Trời", "Của", "Bé", "Việt", "Nam", "Hiếu", "Phùng"];
 const VI_CHARS = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
 const PIPE = /<!-- publish:video:begin[\s\S]*?<!-- publish:video:end[^>]*-->\n?/g;
 
