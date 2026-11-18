@@ -77,3 +77,9 @@ test("chương video (fixture): bấm chương thì gửi seekTo tới iframe", 
   await page.getByRole("button", { name: /00:30 Ý tưởng/ }).click();
   await expect(page.locator("#content iframe").first()).toHaveAttribute("data-last-seek", "30");
 });
+test("slug được link mà chưa có bài: trang placeholder noindex", async ({ page }) => {
+  await page.goto("/blog/cac-phan-phoi-xac-suat");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Bài này sẽ được viết trong thời gian tới");
+  await expect(page.getByText("This article will be written soon.")).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+});

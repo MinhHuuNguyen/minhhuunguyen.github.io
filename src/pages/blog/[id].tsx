@@ -4,6 +4,7 @@ import "katex/dist/katex.min.css";
 import { SEO } from "@/configs/seo.config";
 import JsonLd from "@/components/seo/JsonLd";
 import { AdsScript } from "@/features/ads/AdsScript";
+import { PostPlaceholder } from "@/features/blog/PostPlaceholder";
 import { PostLayout, type PostPageProps } from "@/features/blog/PostLayout";
 import { AD_PACKAGES, planInArticleAds } from "@/lib/ads.mjs";
 import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
@@ -15,8 +16,11 @@ import { withLocale } from "@/lib/with-locale";
 import adsConfig from "@/utils/data/ads.json";
 
 type Props = PostPageProps & { navCounts: { videos: number }; alternates?: { vi: string; en: string } };
+type PlaceholderProps = { placeholder: true; slug: string; navCounts: { videos: number } };
 
-export default function Blog({ post, sections, toc, adPlan, video, related, lessonNav }: Props) {
+export default function Blog(props: Props | PlaceholderProps) {
+  if ("placeholder" in props) return <PostPlaceholder slug={props.slug} />;
+  const { post, sections, toc, adPlan, video, related, lessonNav } = props;
   const url = `${SITE}/blog/${post.slug}`;
   const structuredData = [blogPostingLd(post, url), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
@@ -40,18 +44,25 @@ export default function Blog({ post, sections, toc, adPlan, video, related, less
   );
 }
 
-// Mọi bài đã publish đều có trang riêng.
+// Mọi bài đã publish đều có trang riêng; slug được link mà chưa có bài có trang placeholder.
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: getSiteData()
-    .postsSummary.filter((p) => p.slug !== "")
-    .map((p) => ({ params: { id: p.slug } })),
+  paths: [
+    ...getSiteData()
+      .postsSummary.filter((p) => p.slug !== "")
+      .map((p) => ({ params: { id: p.slug } })),
+    ...getSiteData().missingSlugs.map((slug) => ({ params: { id: slug } })),
+  ],
   fallback: false,
 });
 
-export const getStaticProps = withLocale<Props>("vi", async ({ params }) => {
+export const getStaticProps = withLocale<Props | PlaceholderProps>("vi", async ({ params }) => {
   const data = getSiteData();
   const post = data.postBySlug(String(params?.id));
-  if (!post) return { notFound: true };
+  if (!post) {
+    const slug = String(params?.id);
+    if (!data.missingSlugs.includes(slug)) return { notFound: true };
+    return { props: withNav({ placeholder: true as const, slug }) };
+  }
   const { sections, toc } = renderPost(post.content ?? "");
   const paths = data.paths as LearningPath[];
   const pathOfSlug = (slug: string) => paths.find((p) => p.lessons.some((l) => l.slug === slug))?.slug ?? null;

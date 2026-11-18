@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { SITE } from "../src/lib/seo.mjs";
+import { getSiteData } from "../src/lib/site-data.mjs";
 
 // Runs as `postbuild`: the exported site in out/ must agree with the sitemap and carry the structured data.
 const OUT = "out";
@@ -26,8 +27,15 @@ for (const loc of locs) {
 }
 
 const pages = fs.readdirSync(path.join(OUT, "blog")).filter((f) => f.endsWith(".html"));
+const missing = new Set(getSiteData().missingSlugs);
 for (const f of pages) {
   const url = `${SITE}/blog/${f.slice(0, -5)}`;
+  if (missing.has(f.slice(0, -5))) {
+    // Trang placeholder: noindex và không được vào sitemap.
+    if (!/<meta name="robots" content="[^"]*noindex/.test(read(`blog/${f}`))) problems.push(`out/blog/${f} (placeholder) thiếu noindex`);
+    if (locs.includes(url)) problems.push(`sitemap không được chứa placeholder ${url}`);
+    continue;
+  }
   if (!locs.includes(url)) problems.push(`trang ${url} không có trong sitemap`);
   if (!read(`blog/${f}`).includes('"@type":"BlogPosting"')) problems.push(`out/blog/${f} thiếu BlogPosting`);
 }
@@ -54,7 +62,7 @@ const walk = (dir) => {
   }
 };
 walk(".");
-const NOT_IN_SITEMAP = ["404.html", "resume/print.html", "styleguide.html"];
+const NOT_IN_SITEMAP = ["404.html", "styleguide.html"];
 for (const f of htmlFiles.map((x) => x.replace(/^\.\//, ""))) {
   if (NOT_IN_SITEMAP.includes(f) || /^blog\/[^/]+\.html$/.test(f) || /^en\/blog\//.test(f)) continue;
   const loc = f === "index.html" ? `${SITE}/` : `${SITE}/${f.slice(0, -5)}`;

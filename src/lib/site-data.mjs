@@ -3,6 +3,7 @@ import { readAllPosts } from "./posts-reader.mjs";
 import { buildPaths, buildEnPaths } from "./learn.mjs";
 import { readEnPosts } from "./posts-en-reader.mjs";
 import { validateManualVideos, collectVideos } from "./videos.mjs";
+import { missingPostSlugs } from "./missing-posts.mjs";
 import { readProjects, featuredProjects, resumeEngineeringProjects } from "./projects.mjs";
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
@@ -37,6 +38,7 @@ export function getSiteData(opts = {}) {
     postsSummary: posts.map(summary),
     postBySlug: (slug) => posts.find((p) => p.slug === slug) ?? null,
     postPairs: pairs,
+    missingSlugs: missingPostSlugs(posts, enPosts),
     en: { posts: enPosts, pairs, paths: enPaths, stale: enPosts.filter((p) => p.stale).map((p) => p.slug) },
     paths, videos, projects, resume, resumeProjects,
     counts: {
