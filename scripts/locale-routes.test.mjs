@@ -21,7 +21,7 @@ test("counterpartUrl: bài viết đi theo cặp slug, thiếu cặp thì về d
   assert.equal(counterpartUrl("/blog/chua-dich", "en", { postPairs }), "/en/blog");
   assert.equal(counterpartUrl("/en/blog/loops-in-python", "vi", { postPairs }), "/blog/vong-lap");
   assert.equal(counterpartUrl("/en/learn/x", "vi"), "/learn/x");
-  assert.equal(counterpartUrl("/resume/print", "en"), "/en");
+  assert.equal(counterpartUrl("/styleguide", "en"), "/en");
   assert.equal(counterpartUrl("/projects/demo#a", "en"), "/en/projects/demo");
 });
 

@@ -21,7 +21,7 @@ function useHreflang() {
   if (/^(\/en)?\/blog\/[^/]+$/.test(path)) return [];
   const vi = counterpartUrl(path, "vi");
   const en = counterpartUrl(path, "en");
-  // Trang không có bản EN (resume/print, styleguide) được counterpartUrl đưa về /en: không phải bản tương ứng.
+  // Trang không có bản EN (styleguide) được counterpartUrl đưa về /en: không phải bản tương ứng.
   return hreflangLinks(vi, { enPath: en === localizePath(vi, "en") ? en : null });
 }
 

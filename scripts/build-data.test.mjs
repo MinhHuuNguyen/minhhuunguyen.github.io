@@ -16,6 +16,6 @@ test("build-data --offline trên fixture ghi đủ 3 đầu ra hợp lệ", () =
   const sitemap = fs.readFileSync(path.join(pub, "sitemap.xml"), "utf8");
   assert.match(sitemap, /<loc>https:\/\/minhhuunguyen\.github\.io\/learn\/python-co-ban<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/minhhuunguyen\.github\.io\/videos<\/loc>/);
-  assert.doesNotMatch(sitemap, /resume\/print|styleguide/);
+  assert.doesNotMatch(sitemap, /styleguide/);
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(gen, "video-meta.json"), "utf8")), {});
 });

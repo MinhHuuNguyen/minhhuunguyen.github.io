@@ -3,7 +3,12 @@ import { Download } from "lucide-react";
 import { Menu } from "@/components/ui/Dropdown";
 import { useI18n } from "@/libs/i18n/I18nContext";
 import { track } from "@/lib/analytics";
-import { RESUME_PDFS } from "@/features/resume/pdfs";
+/** Hai bản PDF cũ của CV (sinh từ trang /resume bằng scripts/generate-pdf.mjs). */
+const RESUME_PDFS = [
+  { variant: "resume", file: "/resume.pdf", label: "CV (PDF)" },
+  { variant: "resume_full", file: "/resume-full.pdf", label: "CV + Project Detail (PDF)" },
+] as const;
+
 const CV_TRIGGER_CLASS =
   "inline-flex items-center gap-1.5 rounded-pill px-3 py-2 text-sm font-semibold text-ink-900 transition hover:bg-surface-100";
 /** Menu Tải CV đầy đủ (Radix). Chỉ được tải lười từ DownloadCvMenu. */
@@ -31,7 +36,7 @@ export function DownloadCvMenuRadix({ defaultOpen, focusTrigger }: { defaultOpen
             className="block"
             onClick={() => track("resume_download", { variant: pdf.variant })}
           >
-            {t(pdf.label)}
+            {pdf.label}
           </a>
         </Menu.Item>
       ))}
