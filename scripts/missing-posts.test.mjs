@@ -13,7 +13,7 @@ test("missingPostSlugs: link markdown, tuyệt đối, href HTML, có hash; slug
 });
 
 test("getSiteData trên fixture trả missingSlugs là mảng", () => {
-  const d = getSiteData({ postsRoot: "scripts/fixtures/posts", projectsRoot: "scripts/fixtures/projects-empty", today: "2026-11-13" });
+  const d = getSiteData({ postsRoot: "scripts/fixtures/posts", enRoot: "scripts/fixtures/posts-en-empty", projectsRoot: "scripts/fixtures/projects-empty", today: "2026-11-13" });
   assert.ok(Array.isArray(d.missingSlugs));
   assert.ok(d.missingSlugs.every((s) => !d.postBySlug(s)));
 });

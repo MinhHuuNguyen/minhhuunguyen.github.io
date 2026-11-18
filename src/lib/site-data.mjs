@@ -25,7 +25,7 @@ export function getSiteData(opts = {}) {
   const roots = [opts.projectsRoot ?? "src/content/projects", ...(process.env.PROJECTS_EXTRA_ROOT ? [process.env.PROJECTS_EXTRA_ROOT] : [])];
   const projects = roots.flatMap((r) => readProjects(r, { resumeProjectNames: resumeProjects.map((p) => p.projectName), publicDir: "public" }).projects);
   const paths = buildPaths(posts);
-  const enRoots = ["posts-en", ...(process.env.POSTS_EN_EXTRA_ROOT ? [process.env.POSTS_EN_EXTRA_ROOT] : [])];
+  const enRoots = [opts.enRoot ?? "posts-en", ...(process.env.POSTS_EN_EXTRA_ROOT ? [process.env.POSTS_EN_EXTRA_ROOT] : [])];
   const { enPosts, pairs, errors: enErrors } = readEnPosts(enRoots, posts);
   if (enErrors.length) throw new Error(`[posts-en]\n${enErrors.join("\n")}`);
   const enPaths = buildEnPaths(paths, enPosts, pairs);

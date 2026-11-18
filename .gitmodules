@@ -13,3 +13,7 @@
 [submodule "ai-practice-lectures"]
 	path = posts/ai-practice-lectures
 	url = https://github.com/MinhHuuNguyen/ai-practice-lectures.git
+[submodule "posts-en"]
+	path = posts-en
+	url = https://github.com/MinhHuuNguyen/posts-en.git
+	branch = main

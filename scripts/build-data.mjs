@@ -15,6 +15,7 @@ const { values: args } = parseArgs({
     "posts-root": { type: "string", default: "posts" },
     "public-dir": { type: "string", default: "public" },
     "generated-dir": { type: "string", default: "src/generated" },
+    "en-root": { type: "string", default: "posts-en" },
     "projects-root": { type: "string", default: "src/content/projects" },
   },
 });
@@ -39,7 +40,7 @@ const tiktoks = collectVideos(posts, manual, {})
 const meta = await fetchVideoMeta(tiktoks, { publicDir: args["public-dir"], generatedDir: args["generated-dir"], offline });
 
 const paths = buildPaths(posts);
-const enRoots = ["posts-en", ...(process.env.POSTS_EN_EXTRA_ROOT ? [process.env.POSTS_EN_EXTRA_ROOT] : [])];
+const enRoots = [args["en-root"], ...(process.env.POSTS_EN_EXTRA_ROOT ? [process.env.POSTS_EN_EXTRA_ROOT] : [])];
 const { enPosts, pairs, errors: enErrors } = readEnPosts(enRoots, posts);
 if (enErrors.length) {
   console.error("[posts-en]");

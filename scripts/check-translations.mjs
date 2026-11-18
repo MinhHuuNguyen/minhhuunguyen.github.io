@@ -33,7 +33,9 @@ function walk(dir, out, root = dir) {
 
 const enRoots = ["posts-en", process.env.POSTS_EN_EXTRA_ROOT].filter((r) => r && fs.existsSync(r));
 const enFiles = [];
-for (const r of enRoots) walk(r, enFiles);
+const rootOf = new Map();
+for (const r of enRoots) { const found = []; walk(r, found); for (const f of found) rootOf.set(f, r); enFiles.push(...found); }
+const strict = flag("--strict");
 
 const viPosts = readAllPosts().map((p) => ({ ...p, relPath: toRel(p.filePath) }));
 const viBySourcePath = new Map(viPosts.map((p) => [p.relPath, p]));
@@ -79,7 +81,14 @@ for (const { file, parsed, error } of sorted) {
     const pair = checkPair(vi.content, fs.readFileSync(file, "utf8"));
     errors.push(...pair.errors);
     warnings.push(...pair.warnings);
-    if (fm.source_hash !== undefined && fm.source_hash !== bodyHash(vi.content)) { stale = true; warnings.push("bản dịch cũ (stale): bài VI đã đổi"); }
+    if (fm.source_hash !== undefined && fm.source_hash !== bodyHash(vi.content)) {
+      stale = true;
+      if (strict) errors.push("bản dịch cũ (stale): bài VI đã đổi, dịch lại rồi chạy --stamp"); else warnings.push("bản dịch cũ (stale): bài VI đã đổi");
+    }
+  }
+  if (strict && sourcePath) {
+    const here = path.relative(rootOf.get(file), file).split(path.sep).join("/");
+    if (here !== sourcePath) errors.push(`đường dẫn file EN "${here}" phải bằng source_path "${sourcePath}" (cây posts-en đối xứng với posts)`);
   }
   results.push({ file, sourcePath, group: sourcePath ? groupOf(sourcePath) : "(thiếu source_path)", errors, warnings, stale });
 }
@@ -100,7 +109,7 @@ if (logFile) {
 }
 
 const globalErrors = [];
-if (flag("--require-all")) for (const p of missing) globalErrors.push(`thiếu bản EN: ${p.relPath}`);
+if (flag("--require-all") || strict) for (const p of missing) globalErrors.push(`thiếu bản EN: ${p.relPath}`);
 
 const errorCount = results.reduce((n, r) => n + r.errors.length, 0) + globalErrors.length;
 const staleCount = results.filter((r) => r.stale).length;
@@ -121,7 +130,7 @@ if (flag("--json")) {
     for (const w of r.warnings) console.warn(`  ! ${r.sourcePath ?? r.file}: ${w}`);
   }
   for (const e of globalErrors) console.error(`  ✖ ${e}`);
-  if (!flag("--require-all") && missing.length) console.warn(`  ! ${missing.length} bài VI chưa có bản EN (dùng --list-missing để xem)`);
+  if (!flag("--require-all") && !strict && missing.length) console.warn(`  ! ${missing.length} bài VI chưa có bản EN (dùng --list-missing để xem)`);
   console.log(`[translations] tổng: ${have}/${viScope.length} có bản EN, ${errorCount} lỗi, ${staleCount} cũ`);
 }
 process.exit(errorCount ? 1 : 0);
