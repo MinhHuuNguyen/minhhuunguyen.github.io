@@ -1,10 +1,10 @@
 import { test, expect } from "./fixtures";
 
-test("privacy/terms hiện tiêu đề và nhãn Bản nháp khi draft=true", async ({ page }) => {
+test("privacy/terms hiện tiêu đề và không còn nhãn Bản nháp", async ({ page }) => {
   for (const url of ["/privacy", "/terms", "/en/privacy", "/en/terms"]) {
     await page.goto(url);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-    await expect(page.locator("[data-draft-banner]")).toBeVisible();
+    await expect(page.locator("[data-draft-banner]")).toHaveCount(0);
   }
 });
 
