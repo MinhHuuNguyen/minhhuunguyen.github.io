@@ -11,6 +11,8 @@ export type EventMap = {
   chat_open: { location: "launcher" | "ask_page" | "post" | "palette" };
   chat_send: { mode: "coming-soon" | "mock" | "agent"; has_context: boolean };
   chat_citation_click: { position: number };
+  comments_view: { lang: "vi" | "en" };
+  comments_report_click: { lang: "vi" | "en" };
   resume_download: { variant: "resume" | "resume_full" };
 };
 

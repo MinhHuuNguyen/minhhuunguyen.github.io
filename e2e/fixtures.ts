@@ -3,7 +3,7 @@ import { test as base, expect } from "@playwright/test";
 
 export const test = base.extend<{ guard: void }>({
   guard: [async ({ page }, use) => {
-    for (const host of ["pagead2.googlesyndication.com", "googletagmanager.com", "google-analytics.com"]) {
+    for (const host of ["pagead2.googlesyndication.com", "googletagmanager.com", "google-analytics.com", "giscus.app"]) {
       await page.route(`**://*${host}/**`, (r) => r.abort());
     }
     await page.addInitScript(() => {

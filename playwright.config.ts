@@ -36,6 +36,7 @@ export default defineConfig({
     env: STATIC ? {} : {
       POSTS_EXTRA_ROOT: "test/fixtures/posts", POSTS_EN_EXTRA_ROOT: "test/fixtures/posts-en", PROJECTS_EXTRA_ROOT: "test/fixtures/projects",
       NEXT_PUBLIC_ADS_MODE: "placeholder", NEXT_PUBLIC_CHAT_MODE: "coming-soon", NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "",
+      COMMENTS_CONFIG: "test/fixtures/comments.json",
     },
   },
 });

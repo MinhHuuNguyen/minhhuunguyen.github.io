@@ -59,6 +59,13 @@ export type Dictionary = {
     progress: string;
     storageOff: string;
   };
+  comments: {
+    title: string;
+    report: string;
+    hint: string;
+    openOnGithub: string;
+    noscript: string;
+  };
   news: {
     readMore: string;
   };

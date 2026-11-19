@@ -65,6 +65,13 @@ const vi: Dictionary = {
     progress: "{done}/{total} bài",
     storageOff: "Trình duyệt không cho lưu tiến độ",
   },
+  comments: {
+    title: "Thảo luận",
+    report: "Báo lỗi bài này",
+    hint: "Đăng nhập GitHub để hỏi, trả lời hoặc góp ý. Bình luận được lưu công khai trên GitHub Discussions.",
+    openOnGithub: "Mở thread trên GitHub",
+    noscript: "Cần bật JavaScript để xem bình luận ở đây. Bạn vẫn đọc và viết được bình luận trên",
+  },
   news: {
     readMore: "Đọc tiếp",
   },

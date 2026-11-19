@@ -65,6 +65,13 @@ const en: Dictionary = {
     progress: "{done}/{total} lessons",
     storageOff: "Your browser does not allow saving progress",
   },
+  comments: {
+    title: "Discussion",
+    report: "Report an error",
+    hint: "Sign in with GitHub to ask, answer or give feedback. Comments are stored publicly in GitHub Discussions.",
+    openOnGithub: "Open the thread on GitHub",
+    noscript: "Turn on JavaScript to see comments here. You can still read and write them on",
+  },
   news: {
     readMore: "Read more",
   },

@@ -6,6 +6,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { AdsScript } from "@/features/ads/AdsScript";
 import { PostLayout, type PostPageProps } from "@/features/blog/PostLayout";
 import { AD_PACKAGES, planInArticleAds } from "@/lib/ads.mjs";
+import { commentsProps } from "@/lib/comments.mjs";
+import { readCommentsConfig } from "@/lib/comments-config.mjs";
 import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
 import { rewritePostLinks } from "@/lib/links.mjs";
 import { renderPost } from "@/lib/render.mjs";
@@ -16,7 +18,7 @@ import { getSiteData, withNav } from "@/lib/site-data.mjs";
 import { withLocale } from "@/lib/with-locale";
 import adsConfig from "@/utils/data/ads.json";
 type Props = PostPageProps & { navCounts: { videos: number }; alternates: { vi: string; en: string }; viSlug: string };
-export default function EnBlog({ post, sections, toc, adPlan, video, related, lessonNav, ads, viSlug }: Props) {
+export default function EnBlog({ post, sections, toc, adPlan, video, related, lessonNav, ads, viSlug, comments }: Props) {
   const url = `${SITE}/en/blog/${post.slug}`;
   const structuredData = [blogPostingLdEn(post, url, `${SITE}/blog/${viSlug}`), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
@@ -29,7 +31,7 @@ export default function EnBlog({ post, sections, toc, adPlan, video, related, le
       />
       <JsonLd data={structuredData} />
       {ads && <AdsScript />}
-      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} ads={ads} videoBlock />
+      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} ads={ads} videoBlock comments={comments} />
     </>
   );
 }
@@ -56,6 +58,8 @@ export const getStaticProps = withLocale<Props>("en", async ({ params }) => {
   };
   const relatedSlugs = relatedPosts(post, enSummary, pathOfSlug, 3);
   const ads = !!(adsConfig as { enPosts?: boolean }).enPosts;
+  // Bản EN dùng chung thread với bản VI: khóa tính từ bài VI gốc.
+  const viPost = data.postBySlug(post.viSlug);
   return {
     props: withNav({
       post: {
@@ -76,6 +80,17 @@ export const getStaticProps = withLocale<Props>("en", async ({ params }) => {
       ads,
       viSlug: post.viSlug,
       alternates: { vi: `/blog/${post.viSlug}`, en: `/en/blog/${post.slug}` },
+      comments: viPost
+        ? commentsProps({
+            config: readCommentsConfig(),
+            post: viPost,
+            locale: "en",
+            title: post.title,
+            pageUrl: `${SITE}/en/blog/${post.slug}`,
+            sourceFile: `posts-en/${post.relPath}`,
+            backLink: `${SITE}/blog/${post.viSlug}`,
+          })
+        : null,
     }),
   };
 });

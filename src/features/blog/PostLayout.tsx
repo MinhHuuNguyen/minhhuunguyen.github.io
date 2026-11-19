@@ -6,10 +6,12 @@ import { AdRail } from "@/features/ads/AdRail";
 import { AdSlot } from "@/features/ads/AdSlot";
 import { useI18n } from "@/libs/i18n/I18nContext";
 import { formatDate } from "@/lib/format.mjs";
+import type { CommentsProps } from "@/lib/comments.mjs";
 import type { PostVideo } from "@/lib/seo.mjs";
 import type { PostSection, TocItem } from "@/lib/render.mjs";
 import type { PostSummary } from "@/lib/site-data.mjs";
 import { AskAboutPost } from "./AskAboutPost";
+import { Comments } from "./Comments";
 import { LessonNav, type LessonNavProps } from "./LessonNav";
 import { PostSections } from "./PostSections";
 import { ReadingProgress } from "./ReadingProgress";
@@ -40,10 +42,12 @@ export type PostPageProps = {
   ads?: boolean;
   /** true: dựng khối video từ `video` (bài EN; bài VI có khối video trong nội dung). */
   videoBlock?: boolean;
+  /** Khối thảo luận giscus; null khi bài bị loại hoặc bình luận đang tắt. */
+  comments?: CommentsProps | null;
 };
 
 /** Bố cục trang bài: mục lục 240px / bài ≤ 720px / quảng cáo 300px (≥ 1280px); hẹp hơn thì một cột. */
-export function PostLayout({ post, sections, toc, adPlan, video, related, lessonNav, ads = true, videoBlock = false }: PostPageProps): ReactNode {
+export function PostLayout({ post, sections, toc, adPlan, video, related, lessonNav, ads = true, videoBlock = false, comments = null }: PostPageProps): ReactNode {
   const { t, locale } = useI18n();
   const [active, pick] = useActiveHeading(toc);
   const clips = video?.clips ?? [];
@@ -103,6 +107,7 @@ export function PostLayout({ post, sections, toc, adPlan, video, related, lesson
             <div className="mt-8 xl:hidden">
               <AskAboutPost slug={post.slug} title={post.title} />
             </div>
+            {comments && <Comments {...comments} />}
             <RelatedPosts posts={related} />
             {ads && <AdSlot slot="multiplex" />}
           </article>

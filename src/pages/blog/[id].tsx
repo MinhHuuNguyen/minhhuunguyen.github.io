@@ -7,6 +7,8 @@ import { AdsScript } from "@/features/ads/AdsScript";
 import { PostPlaceholder } from "@/features/blog/PostPlaceholder";
 import { PostLayout, type PostPageProps } from "@/features/blog/PostLayout";
 import { AD_PACKAGES, planInArticleAds } from "@/lib/ads.mjs";
+import { commentsProps } from "@/lib/comments.mjs";
+import { readCommentsConfig } from "@/lib/comments-config.mjs";
 import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
 import { renderPost } from "@/lib/render.mjs";
 import { relatedPosts } from "@/lib/related.mjs";
@@ -20,7 +22,7 @@ type PlaceholderProps = { placeholder: true; slug: string; navCounts: { videos: 
 
 export default function Blog(props: Props | PlaceholderProps) {
   if ("placeholder" in props) return <PostPlaceholder slug={props.slug} />;
-  const { post, sections, toc, adPlan, video, related, lessonNav } = props;
+  const { post, sections, toc, adPlan, video, related, lessonNav, comments } = props;
   const url = `${SITE}/blog/${post.slug}`;
   const structuredData = [blogPostingLd(post, url), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
@@ -39,7 +41,7 @@ export default function Blog(props: Props | PlaceholderProps) {
       />
       <JsonLd data={structuredData} />
       <AdsScript />
-      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} />
+      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} comments={comments} />
     </>
   );
 }
@@ -86,6 +88,16 @@ export const getStaticProps = withLocale<Props | PlaceholderProps>("vi", async (
       video: post.video ?? null,
       related: relatedSlugs.map((s) => data.postsSummary.find((p) => p.slug === s)!),
       lessonNav: nav ? { ...nav, lessons: lessons.map((l) => ({ slug: l.slug, available: l.available })) } : null,
+      // Khối thảo luận: khóa thread là đường dẫn file bài VI (không đổi khi đổi tiêu đề).
+      comments: commentsProps({
+        config: readCommentsConfig(),
+        post,
+        locale: "vi",
+        title: post.title,
+        pageUrl: `${SITE}/blog/${post.slug}`,
+        sourceFile: `posts/${post.relPath}`,
+        backLink: `${SITE}/blog/${post.slug}`,
+      }),
       // Chỉ bài đã có bản dịch mới khai báo hreflang/nút ngôn ngữ theo cặp.
       ...(data.postPairs.viToEn[post.slug] ? { alternates: { vi: `/blog/${post.slug}`, en: `/en/blog/${data.postPairs.viToEn[post.slug]}` } } : {}),
     }),
