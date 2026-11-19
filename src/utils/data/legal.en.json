@@ -2,7 +2,7 @@
   "privacy": {
     "draft": false,
     "title": "Privacy policy",
-    "updated": "2026-11-12",
+    "updated": "2026-11-19",
     "sections": [
       {
         "heading": "Scope",
@@ -15,7 +15,17 @@
         "paragraphs": [
           "The website uses Google Analytics to count visits (pages viewed, device, approximate location). Google Analytics sets cookies in your browser.",
           "The website shows Google AdSense ads. Google and its partners may use cookies to choose and show ads. You can manage personalized ads in the ad settings of your Google account, or turn cookies off in your browser.",
-          "The website has no sign-up form, no user accounts, and does not collect any other personally identifiable information."
+          "Apart from the comments described below, the website has no sign-up form, no user accounts of its own, and does not collect any other personally identifiable information."
+        ]
+      },
+      {
+        "heading": "Comments",
+        "paragraphs": [
+          "The discussion under each post uses giscus (giscus.app), an open-source service built on GitHub Discussions. The comment box is an iframe from giscus.app and loads only when you scroll to the discussion.",
+          "To comment or react, you sign in with your GitHub account and authorize the giscus app. Comments are stored publicly in the Discussions of the MinhHuuNguyen/minhhuunguyen.github.io repository on GitHub, together with your GitHub username and avatar. GitHub's privacy statement applies to this data.",
+          "After you sign in, your browser keeps a giscus session token in this website's localStorage (key giscus-session) so that you stay signed in. Signing out in the comment box removes it.",
+          "The “Report an error” button opens GitHub's new-issue page. Issues you submit are public too.",
+          "The site owner may hide or delete spam, abusive or off-topic comments. To delete your own comment, delete it on GitHub or contact the site owner."
         ]
       },
       {
@@ -35,7 +45,7 @@
   "terms": {
     "draft": false,
     "title": "Terms of use",
-    "updated": "2026-11-12",
+    "updated": "2026-11-19",
     "sections": [
       {
         "heading": "Scope",
@@ -48,6 +58,13 @@
         "paragraphs": [
           "Articles and videos on the website are meant for sharing knowledge. The content is provided as is, with no guarantee of accuracy or fitness for a particular purpose.",
           "You may read, watch and share links to the content. To copy or republish the content, please ask the site owner for permission."
+        ]
+      },
+      {
+        "heading": "Comments",
+        "paragraphs": [
+          "Keep comments polite and on topic. Do not post spam, ads, unlawful content or other people's personal information.",
+          "The site owner may hide or delete comments, or block accounts that break these rules, without notice. Comments are also subject to GitHub's Terms of Service."
         ]
       },
       {

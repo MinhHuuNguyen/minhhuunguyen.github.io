@@ -2,7 +2,7 @@
   "privacy": {
     "draft": false,
     "title": "Chính sách quyền riêng tư",
-    "updated": "2026-11-12",
+    "updated": "2026-11-19",
     "sections": [
       {
         "heading": "Phạm vi",
@@ -15,7 +15,17 @@
         "paragraphs": [
           "Website dùng Google Analytics để thống kê lượt truy cập (trang đã xem, thiết bị, vị trí ước lượng). Google Analytics đặt cookie trên trình duyệt của bạn.",
           "Website hiển thị quảng cáo Google AdSense. Google và đối tác của Google có thể dùng cookie để chọn và hiển thị quảng cáo. Bạn có thể quản lý quảng cáo cá nhân hóa trong phần cài đặt quảng cáo của tài khoản Google, hoặc tắt cookie trong trình duyệt.",
-          "Website không có biểu mẫu đăng ký, không có tài khoản người dùng và không thu thập thông tin nhận dạng cá nhân nào khác."
+          "Ngoài phần bình luận nói ở mục dưới, website không có biểu mẫu đăng ký, không có tài khoản người dùng riêng và không thu thập thông tin nhận dạng cá nhân nào khác."
+        ]
+      },
+      {
+        "heading": "Bình luận",
+        "paragraphs": [
+          "Phần thảo luận dưới mỗi bài dùng giscus (giscus.app), một dịch vụ mã nguồn mở chạy trên GitHub Discussions. Khung bình luận là một iframe của giscus.app và chỉ được nạp khi bạn cuộn tới phần thảo luận.",
+          "Muốn bình luận hoặc thả cảm xúc, bạn đăng nhập bằng tài khoản GitHub và cho phép ứng dụng giscus. Bình luận được lưu công khai trong mục Discussions của repo MinhHuuNguyen/minhhuunguyen.github.io trên GitHub, kèm tên tài khoản và ảnh đại diện GitHub của bạn. Chính sách quyền riêng tư của GitHub áp dụng cho dữ liệu này.",
+          "Sau khi bạn đăng nhập, trình duyệt lưu mã phiên của giscus trong localStorage của website (khóa giscus-session) để bạn không phải đăng nhập lại. Đăng xuất trong khung bình luận sẽ xóa mã này.",
+          "Nút “Báo lỗi bài này” mở trang tạo issue trên GitHub. Issue bạn gửi cũng công khai.",
+          "Chủ website có thể ẩn hoặc xóa bình luận spam, xúc phạm hoặc lạc đề. Muốn xóa bình luận của mình, bạn xóa trực tiếp trên GitHub hoặc liên hệ chủ website."
         ]
       },
       {
@@ -35,7 +45,7 @@
   "terms": {
     "draft": false,
     "title": "Điều khoản sử dụng",
-    "updated": "2026-11-12",
+    "updated": "2026-11-19",
     "sections": [
       {
         "heading": "Phạm vi",
@@ -48,6 +58,13 @@
         "paragraphs": [
           "Bài viết và video trên website nhằm mục đích chia sẻ kiến thức. Nội dung được cung cấp như hiện có, không kèm bảo đảm về độ chính xác hay sự phù hợp cho một mục đích cụ thể.",
           "Bạn được đọc, xem và chia sẻ liên kết tới nội dung. Muốn sao chép hoặc đăng lại nội dung, hãy xin phép chủ website."
+        ]
+      },
+      {
+        "heading": "Bình luận",
+        "paragraphs": [
+          "Bình luận cần lịch sự và đúng chủ đề bài. Không đăng spam, quảng cáo, nội dung vi phạm pháp luật hoặc thông tin cá nhân của người khác.",
+          "Chủ website có thể ẩn, xóa bình luận hoặc chặn tài khoản vi phạm mà không cần báo trước. Bình luận còn chịu Điều khoản dịch vụ của GitHub."
         ]
       },
       {
