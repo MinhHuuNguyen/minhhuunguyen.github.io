@@ -17,7 +17,7 @@ const hasEn = () => fs.existsSync("posts-en") && fs.readdirSync("posts-en").some
 
 test("posts/ và posts-en/ thật: mỗi bài VI có bản EN cùng đường dẫn, không thừa, không cũ", (t) => {
   if (!hasEn()) {
-    if (process.env.CI === "true") assert.fail("posts-en trống: kiểm secret POSTS_EN_TOKEN và submodule posts-en");
+    if (process.env.CI === "true") assert.fail("posts-en trống: kiểm secret POSTS_EN_DEPLOY_KEY, deploy key của posts-en và submodule posts-en");
     return t.skip("posts-en chưa được checkout (git submodule update --init posts-en)");
   }
   const r = run(process.cwd(), ["--json"]);

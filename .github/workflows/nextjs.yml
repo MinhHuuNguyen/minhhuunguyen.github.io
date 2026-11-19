@@ -30,22 +30,32 @@ jobs:
     runs-on: ubuntu-latest
     environment: github-pages  # <-- This must match your environment name
     steps:
-      - name: Assert POSTS_EN_TOKEN is set
+      - name: Assert POSTS_EN_DEPLOY_KEY is set
         env:
-          POSTS_EN_TOKEN: ${{ secrets.POSTS_EN_TOKEN }}
+          POSTS_EN_DEPLOY_KEY: ${{ secrets.POSTS_EN_DEPLOY_KEY }}
         run: |
-          if [ -z "${POSTS_EN_TOKEN:-}" ]; then
-            echo "::error::Required secret POSTS_EN_TOKEN (read access to the private posts-en repo) is not set or is empty. Aborting workflow."
+          if [ -z "${POSTS_EN_DEPLOY_KEY:-}" ]; then
+            echo "::error::Required secret POSTS_EN_DEPLOY_KEY (read-only deploy key of the private posts-en repo) is not set or is empty. Aborting workflow."
             exit 1
           fi
+
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          token: ${{ secrets.POSTS_EN_TOKEN }}
+
+      - name: Fetch the submodules, posts-en with its deploy key
+        env:
+          POSTS_EN_DEPLOY_KEY: ${{ secrets.POSTS_EN_DEPLOY_KEY }}
+        run: |
+          set -eu
+          key="$RUNNER_TEMP/posts_en_deploy_key"
+          trap 'rm -f "$key"' EXIT
+          (umask 077; printf '%s\n' "$POSTS_EN_DEPLOY_KEY" > "$key")
+          export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$RUNNER_TEMP/known_hosts"
+          git -c "url.git@github.com:MinhHuuNguyen/posts-en.git.insteadOf=https://github.com/MinhHuuNguyen/posts-en.git" submodule update --init --recursive
+
       - name: Assert posts-en is checked out
         run: |
-          test -n "$(ls -A posts-en)" || { echo "::error::posts-en is empty: check the POSTS_EN_TOKEN secret"; exit 1; }
+          test -n "$(ls -A posts-en)" || { echo "::error::posts-en is empty: check the POSTS_EN_DEPLOY_KEY secret and the deploy key of posts-en"; exit 1; }
 
       - name: Assert required variables are set
         env:
