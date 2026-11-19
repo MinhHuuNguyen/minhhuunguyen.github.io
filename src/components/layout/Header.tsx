@@ -45,7 +45,7 @@ export function Header({ navCounts }: { navCounts?: { videos: number } }) {
     <header className="sticky top-0 z-40 border-b border-line bg-white/85 font-sans backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8">
         <AppLink href="/" aria-label={pick(site.person.name, locale)} className="flex shrink-0 items-center">
-          <Img base="/img/logo/logo-square" alt="" widths={[64, 128]} sizes="40px" fallback="png" width={40} height={40} className="size-10 rounded-full" />
+          <Img base="/img/logo/logo-square" alt="" widths={[64, 128]} sizes="48px" fallback="png" width={48} height={48} className="size-12 rounded-md" />
         </AppLink>
         <nav aria-label={t("nav.mainLabel")} className="hidden lg:block">
           <ul className="flex items-center gap-1">
