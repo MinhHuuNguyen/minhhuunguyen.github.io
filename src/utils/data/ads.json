@@ -1,6 +1,6 @@
 {
   "package": "max",
-  "enPosts": false,
+  "enPosts": true,
   "slots": {
     "rail": "8586339430",
     "inArticle": "3737337436",
