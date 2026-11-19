@@ -1,5 +1,7 @@
 # Translation Plan — Chuẩn hoá hard-code string + Song ngữ toàn site (VI + EN)
 
+> **Ghi chú:** Phase 3–5 đã chuyển sang `plans/https-dribbble-com-shots-27844428-person-memoized-brook.md` Phần C; agent thực hiện plan tự dịch, không dùng script provider.
+
 > Checklist theo dõi tiến độ. Tick `[x]` khi xong từng mục. Code **từng phần nhỏ**, chờ duyệt + commit rồi mới đi tiếp.
 
 ## Context

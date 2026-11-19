@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, type MouseEvent } from "react";
+import { Fragment, useEffect, useRef, type MouseEvent, type ReactNode } from "react";
 import { AdSlot } from "@/features/ads/AdSlot";
 import { track } from "@/lib/analytics";
 import { listen, seekTo } from "@/lib/youtube-control";
@@ -7,7 +7,7 @@ import type { PostSection } from "@/lib/render.mjs";
 const idOf = (iframe: HTMLIFrameElement) => iframe.getAttribute("src")?.match(/\/embed\/([A-Za-z0-9_-]{11})/)?.[1] ?? "";
 
 /** Thân bài: mỗi section là một khối HTML đã sanitize lúc build; quảng cáo xen sau các section trong adPlan. */
-export function PostSections({ sections, adPlan }: { sections: PostSection[]; adPlan: number[] }) {
+export function PostSections({ sections, adPlan, lead }: { sections: PostSection[]; adPlan: number[]; lead?: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
 
   // video_play: bắt thông điệp onStateChange của từng iframe YouTube (state 1 = đang phát), mỗi iframe báo một lần.
@@ -45,6 +45,7 @@ export function PostSections({ sections, adPlan }: { sections: PostSection[]; ad
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div id="content" ref={root} onClick={onClick} className="post-body prose prose-lg max-w-none text-ink-900">
+      {lead}
       {sections.map((s, i) => (
         <Fragment key={i}>
           <section data-post-section dangerouslySetInnerHTML={{ __html: s.html }} />

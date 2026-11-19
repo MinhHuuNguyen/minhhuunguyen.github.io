@@ -15,6 +15,8 @@ Object.assign(process.env, {
   E2E_SLUG_YT: slugOf("data-engineer-lectures/5_databricks/2-architecture.md"),
   E2E_SLUG_LONG: slugOf("ai-lectures/4_deep_learning/markdown/5-transfer-weakly-semi-un-self-supervised-learning.md"),
   E2E_SLUG_SHORT: slugOf("blog-sharing/1_pixta_seminar/10_llm_instruction_finetuning/llm_instruction_finetuning.md"),
+  E2E_SLUG_STATS: slugOf("ai-lectures/11_math/markdown/5-statistics.md"),
+  E2E_SLUG_OD: slugOf("ai-lectures/5_computer_vision/markdown/4-object-detection.md"),
   E2E_SLUG_LESSON: slugOf("ai-lectures/1_python_basic/markdown/4-loop.md"),
   E2E_PATH_PYTHON: slugOf("ai-lectures/0_series/markdown/1-python-basic.md").replace(/^series-/, ""),
 });
@@ -32,7 +34,7 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
     env: STATIC ? {} : {
-      POSTS_EXTRA_ROOT: "test/fixtures/posts", PROJECTS_EXTRA_ROOT: "test/fixtures/projects",
+      POSTS_EXTRA_ROOT: "test/fixtures/posts", POSTS_EN_EXTRA_ROOT: "test/fixtures/posts-en", PROJECTS_EXTRA_ROOT: "test/fixtures/projects",
       NEXT_PUBLIC_ADS_MODE: "placeholder", NEXT_PUBLIC_CHAT_MODE: "coming-soon", NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "",
     },
   },

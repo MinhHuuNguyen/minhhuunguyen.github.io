@@ -8,6 +8,8 @@ export interface Lesson extends SeriesLesson {
   title: string | null;
   minutes: number | null;
   hasVideo: boolean;
+  href?: string | null;
+  lang?: "en" | "vi";
 }
 export interface PathInputPost {
   slug: string;
@@ -42,3 +44,4 @@ export declare function parseSeriesLessons(markdown: string | null | undefined):
 export declare const pathSlugOf: (seriesSlug: string) => string;
 export declare function buildPaths(posts: PathInputPost[]): LearningPath[];
 export declare function lessonNav(paths: LearningPath[], postSlug: string): LessonNav | null;
+export declare function buildEnPaths(viPaths: LearningPath[], enPosts: { slug: string; title: string; description?: string; content?: string }[], pairs: { viToEn: Record<string, string>; enToVi: Record<string, string> }): LearningPath[];

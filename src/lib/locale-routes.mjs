@@ -7,7 +7,7 @@ export function localizePath(path, locale) {
   const base = stripEn(p);
   return (locale === "en" ? (base === "/" ? "/en" : `/en${base}`) : base) + rest;
 }
-const NO_EN = [/^\/resume\/print$/, /^\/styleguide$/];
+const NO_EN = [/^\/styleguide$/];
 /** Trang tương ứng ở ngôn ngữ kia (bỏ ?query và #hash). Bài viết đi theo cặp slug; thiếu cặp thì về danh sách blog. */
 export function counterpartUrl(path, target, { postPairs = { viToEn: {}, enToVi: {} } } = {}) {
   const base = stripEn(parts(path)[0]);

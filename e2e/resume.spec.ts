@@ -1,18 +1,18 @@
 import { test, expect } from "./fixtures";
 
-test("menu Tải CV có 3 bản PDF và bắn resume_download", async ({ page }) => {
+test("menu Tải CV có 2 bản PDF cũ và bắn resume_download", async ({ page }) => {
   await page.goto("/resume");
   await page.getByRole("button", { name: "Tải CV" }).click();
   const items = page.getByRole("menuitem");
-  await expect(items).toHaveCount(3);
-  await expect(items.nth(2)).toHaveAttribute("href", "/resume-designed.pdf");
+  await expect(items).toHaveCount(2);
+  await expect(items.nth(0)).toHaveAttribute("href", "/resume.pdf");
+  await expect(items.nth(1)).toHaveAttribute("href", "/resume-full.pdf");
   await items.nth(0).click();
-  expect(await page.evaluate(() => (window as any).__ev.some((e: any[]) => e[1] === "resume_download" && e[2].variant === "ats"))).toBe(true);
+  expect(await page.evaluate(() => (window as any).__ev.some((e: any[]) => e[1] === "resume_download" && e[2].variant === "resume"))).toBe(true);
 });
 
-test("/resume/print: noindex, một cột, không ảnh", async ({ page }) => {
-  await page.goto("/resume/print");
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-  await expect(page.locator("main img")).toHaveCount(0);
-  expect(await page.locator("main").evaluate((el) => getComputedStyle(el).columnCount)).toBe("auto");
+test("/resume giữ body CV cũ: #resume và #project-detail", async ({ page }) => {
+  await page.goto("/resume");
+  await expect(page.locator("#resume")).toBeVisible();
+  await expect(page.locator("#project-detail")).toBeVisible();
 });

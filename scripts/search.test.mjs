@@ -39,3 +39,7 @@ test("doc bài: url, snippet ≤ 160 ký tự, text tối đa PLAIN_TEXT_WORDS t
   assert.ok(d.text.split(/\s+/).length <= PLAIN_TEXT_WORDS + 10);
   assert.deepEqual(d.headings, ["Định nghĩa"]);
 });
+test("buildSearchDocs: bài EN (có viSlug) trỏ /en/blog, bài VI giữ /blog", () => {
+  const d = buildSearchDocs({ posts: [{ slug: "loops", viSlug: "vong-lap", title: "Loops", content: "", tags: [], time: "01/01/2022" }, { slug: "chua-dich", title: "C", content: "", tags: [], time: "01/01/2022" }] });
+  assert.deepEqual(d.map((x) => x.url), ["/en/blog/loops", "/blog/chua-dich"]);
+});

@@ -48,7 +48,7 @@ export function Contact() {
             <a
               href="/resume.pdf"
               download
-              onClick={() => track("resume_download", { variant: "ats" })}
+              onClick={() => track("resume_download", { variant: "resume" })}
               className="inline-flex items-center gap-2 rounded-pill border border-white/30 bg-white/10 py-1.5 pl-5 pr-1.5 font-semibold backdrop-blur transition hover:-translate-y-0.5"
             >
               {t("resume.download")}

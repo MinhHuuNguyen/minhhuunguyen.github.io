@@ -93,9 +93,6 @@ export type Dictionary = {
     month: string;
     months: string;
     download: string;
-    atsShort: string;
-    atsFull: string;
-    designed: string;
     skills: string;
     projects: string;
     contact: string;

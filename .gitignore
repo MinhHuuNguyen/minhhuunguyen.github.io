@@ -46,4 +46,5 @@ next-env.d.ts
 /playwright-report
 /src/generated
 /public/search-index.json
+/public/search-index.en.json
 /public/video-thumbs

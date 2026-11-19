@@ -9,7 +9,7 @@ import { useChat } from "./ChatProvider";
 // Khung chat (Radix Dialog, thread, composer) chỉ tải khi mở lần đầu để giữ ngân sách bundle.
 const ChatPanel = dynamic(() => import("./ChatPanel").then((m) => m.ChatPanel), { ssr: false });
 
-const HIDDEN_ON = new Set(["/ask", "/en/ask", "/resume/print"]);
+const HIDDEN_ON = new Set(["/ask", "/en/ask"]);
 
 /** Nút nổi "Hỏi AI" + nơi tải lười khung chat (khung cũng mở được từ ⌘K và "Hỏi về bài này"). */
 export function ChatLauncher() {

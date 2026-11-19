@@ -26,3 +26,12 @@
   .ad-wrap:has(ins.adsbygoogle[data-ad-status="unfilled"]) { display: none; }
   ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 }
+/* In/PDF CV (scripts/generate-pdf.mjs): ẩn khung site, giữ nguyên body CV như bản cũ */
+@media print {
+  header, footer, [data-chat-launcher], a[href="#main"] { display: none !important; }
+  html, body { background: #fff !important; }
+  body.print-resume-only #project-detail { display: none !important; }
+  #resume, #project-detail [id^="job-"] { break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 0; }
+}

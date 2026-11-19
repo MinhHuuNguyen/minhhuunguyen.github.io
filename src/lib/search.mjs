@@ -15,9 +15,11 @@ export function miniSearchOptions() {
 }
 const snippet = (s) => { const t = String(s ?? "").replace(/\s+/g, " ").trim(); return t.length > 160 ? t.slice(0, 157) + "…" : t; };
 const headingsOf = (md) => [...String(md ?? "").matchAll(/^#{2,3}\s+(.+?)\s*#*\s*$/gm)].map((m) => plainText(m[1]));
+// Bài EN (có viSlug) nằm dưới /en/blog; bài VI chưa dịch giữ /blog.
+const postUrl = (p) => (p.viSlug ? `/en/blog/${p.slug}` : `/blog/${p.slug}`);
 export function buildSearchDocs({ posts = [], paths = [], videos = [], projects = [], pages = [] }) {
   return [
-    ...posts.map((p) => ({ id: `post:${p.slug}`, type: "post", title: p.title, titleEn: p.title, url: `/blog/${p.slug}`,
+    ...posts.map((p) => ({ id: `post:${p.slug}`, type: "post", title: p.title, titleEn: p.title, url: postUrl(p),
       tags: (p.tags ?? []).filter((t) => t !== "series"), headings: headingsOf(p.content),
       text: `${p.description ?? ""} ${plainText(p.content, PLAIN_TEXT_WORDS)}`.trim(), snippet: snippet(p.description), date: toIsoDate(p.time) })),
     ...paths.map((p) => ({ id: `path:${p.slug}`, type: "path", title: p.title, titleEn: p.title, url: `/learn/${p.slug}`,
@@ -35,5 +37,5 @@ export function buildSuggestions({ paths = [], posts = [] }) {
   const t = (p) => Date.parse(toIsoDate(p.time) ?? "1970-01-01");
   const latest = [...posts].sort((a, b) => t(b) - t(a)).slice(0, 5);
   return [...paths.slice(0, 3).map((p) => ({ type: "path", title: p.title, url: `/learn/${p.slug}` })),
-          ...latest.map((p) => ({ type: "post", title: p.title, url: `/blog/${p.slug}` }))];
+          ...latest.map((p) => ({ type: "post", title: p.title, url: postUrl(p) }))];
 }

@@ -14,6 +14,7 @@ export function PathPage({ path }: { path: LearningPath }) {
   const info = percent(path);
   const done = progress.paths[path.slug] ?? {};
   const next = path.lessons.find((l) => l.available && !done[l.slug]);
+  const hrefOf = (l: { slug: string; href?: string | null }) => l.href ?? `/blog/${l.slug}`;
   const title = `${t("learn.pathPrefix")}: ${path.title}`;
   const canonical = `${SITE}${localizePath(`/learn/${path.slug}`, locale)}`;
   return (
@@ -31,7 +32,7 @@ export function PathPage({ path }: { path: LearningPath }) {
         {t("learn.meta").replace("{lessons}", String(path.stats.total)).replace("{minutes}", String(path.stats.minutes))}
         {path.stats.videos > 0 ? ` · ${t("learn.videoCount").replace("{n}", String(path.stats.videos))}` : ""}
       </p>
-      {locale === "en" && <p className="mt-2 text-sm text-ink-500">{t("learn.viOnly")}</p>}
+      {locale === "en" && path.lessons.some((l) => l.lang !== "en") && <p className="mt-2 text-sm text-ink-500">{t("learn.viOnly")}</p>}
       {!available && (
         <p role="note" className="mt-4 rounded-lg bg-surface-100 px-4 py-3 text-sm text-ink-700">
           {t("learn.storageBlocked")}
@@ -44,7 +45,7 @@ export function PathPage({ path }: { path: LearningPath }) {
           </span>
         )}
         {next && (
-          <AppLink href={`/blog/${next.slug}`} localize={false} className="inline-flex rounded-pill bg-pill-dark px-6 py-2.5 text-[15px] font-semibold text-white">
+          <AppLink href={hrefOf(next)} localize={false} className="inline-flex rounded-pill bg-pill-dark px-6 py-2.5 text-[15px] font-semibold text-white">
             {info.done > 0 ? t("learn.continue") : t("learn.start")}
           </AppLink>
         )}
@@ -57,7 +58,7 @@ export function PathPage({ path }: { path: LearningPath }) {
             <span className="flex items-center gap-3">
               <span className="w-6 text-sm text-ink-500">{l.order}</span>
               {l.available ? (
-                <AppLink href={`/blog/${l.slug}`} localize={false} className="font-medium text-ink-900 hover:text-blue-700">
+                <AppLink href={hrefOf(l)} localize={false} className="font-medium text-ink-900 hover:text-blue-700">
                   {l.title ?? l.label}
                 </AppLink>
               ) : (

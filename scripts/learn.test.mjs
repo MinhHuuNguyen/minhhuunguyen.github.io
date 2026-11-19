@@ -42,3 +42,17 @@ test("lessonNav bỏ qua bài chưa có", () => {
   assert.deepEqual([nav.position, nav.total], [1, 2]);
   assert.equal(lessonNav(buildPaths(posts), "khong-co"), null);
 });
+test("buildEnPaths: nhãn EN từ series EN, href /en/blog khi có cặp, bài chưa dịch về /blog", async () => {
+  const { buildEnPaths } = await import("../src/lib/learn.mjs");
+  const viPaths = buildPaths(posts);
+  const enSeries = { slug: "series-python-basics", title: "[SERIES] Python basics", description: "EN desc", content: "### [Lesson 0: Setup](/blog/cai-dat-moi-truong)\n#### [Lesson 2: Types](/blog/kieu-du-lieu)" };
+  const enPosts = [enSeries, { slug: "setup", title: "Setup" }];
+  const pairs = { viToEn: { "series-python": "series-python-basics", "cai-dat-moi-truong": "setup" }, enToVi: {} };
+  const [p] = buildEnPaths(viPaths, enPosts, pairs);
+  assert.equal(p.title, "Python basics");
+  assert.equal(p.description, "EN desc");
+  assert.equal(p.slug, "python");
+  const l0 = p.lessons.find((l) => l.slug === "cai-dat-moi-truong"), l1 = p.lessons.find((l) => l.slug === "kieu-du-lieu");
+  assert.deepEqual([l0.label, l0.title, l0.href, l0.lang], ["Lesson 0: Setup", "Setup", "/en/blog/setup", "en"]);
+  assert.deepEqual([l1.href, l1.lang], ["/blog/kieu-du-lieu", "vi"]);
+});

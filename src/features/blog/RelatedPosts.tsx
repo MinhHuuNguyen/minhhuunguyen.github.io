@@ -4,7 +4,7 @@ import { formatDate } from "@/lib/format.mjs";
 import type { PostSummary } from "@/lib/site-data.mjs";
 
 /** 3 bài liên quan (đã chọn lúc build bằng relatedPosts). */
-export function RelatedPosts({ posts }: { posts: PostSummary[] }) {
+export function RelatedPosts({ posts }: { posts: (PostSummary & { href?: string })[] }) {
   const { t, locale } = useI18n();
   if (!posts.length) return null;
   return (
@@ -16,7 +16,7 @@ export function RelatedPosts({ posts }: { posts: PostSummary[] }) {
         {posts.map((p) => (
           <li key={p.slug}>
             <AppLink
-              href={`/blog/${p.slug}`}
+              href={p.href ?? `/blog/${p.slug}`}
               localize={false}
               className="block h-full overflow-hidden rounded-card bg-white shadow-card transition hover:-translate-y-0.5"
             >

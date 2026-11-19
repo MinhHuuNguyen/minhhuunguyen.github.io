@@ -30,10 +30,22 @@ jobs:
     runs-on: ubuntu-latest
     environment: github-pages  # <-- This must match your environment name
     steps:
+      - name: Assert POSTS_EN_TOKEN is set
+        env:
+          POSTS_EN_TOKEN: ${{ secrets.POSTS_EN_TOKEN }}
+        run: |
+          if [ -z "${POSTS_EN_TOKEN:-}" ]; then
+            echo "::error::Required secret POSTS_EN_TOKEN (read access to the private posts-en repo) is not set or is empty. Aborting workflow."
+            exit 1
+          fi
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          token: ${{ secrets.POSTS_EN_TOKEN }}
+      - name: Assert posts-en is checked out
+        run: |
+          test -n "$(ls -A posts-en)" || { echo "::error::posts-en is empty: check the POSTS_EN_TOKEN secret"; exit 1; }
 
       - name: Assert required variables are set
         env:
