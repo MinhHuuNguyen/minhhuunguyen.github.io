@@ -35,10 +35,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Assert required secrets are set
+      - name: Assert required variables are set
         env:
-          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
-          NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+          NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
         run: |
           set -eu
 
@@ -50,14 +50,14 @@ jobs:
 
           # existence checks (do not print values)
           if [ -z "${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-}" ]; then
-            fail "Required secret NEXT_PUBLIC_GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
+            fail "Required variable NEXT_PUBLIC_GOOGLE_ANALYTICS_ID is not set or is empty. Aborting workflow."
           fi
 
           if [ -z "${NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID:-}" ]; then
-            fail "Required secret NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
+            fail "Required variable NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID is not set or is empty. Aborting workflow."
           fi
 
-          # prefix checks (keep values private)
+          # prefix checks
           case "$NEXT_PUBLIC_GOOGLE_ANALYTICS_ID" in
             G-*) ;;
             *)
@@ -72,7 +72,7 @@ jobs:
               ;;
           esac
 
-          echo "All required secrets are set and have the expected prefixes."
+          echo "All required variables are set and have the expected prefixes."
 
       - name: Detect package manager
         id: detect-package-manager
@@ -121,8 +121,8 @@ jobs:
 
       - name: Build and Static HTML export with Next.js
         env:
-          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
-          NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+          NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
           NEXT_PUBLIC_ADS_MODE: live
           NEXT_PUBLIC_CHAT_MODE: ${{ vars.CHAT_MODE || 'coming-soon' }}
           NEXT_PUBLIC_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
