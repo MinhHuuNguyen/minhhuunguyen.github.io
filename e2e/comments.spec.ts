@@ -124,3 +124,19 @@ test("@dev sang bài liên quan: widget nạp lại với khóa của bài mới
   await section.scrollIntoViewIfNeeded();
   await second;
 });
+
+// T4
+test("@dev giscus.app bị chặn: vẫn có tiêu đề, nút báo lỗi, link GitHub, không lỗi JS", async ({ page }) => {
+  await page.unroute("https://giscus.app/**");
+  await page.route("https://giscus.app/**", (r) => r.abort());
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto(LESSON);
+  const section = page.locator("[data-comments]");
+  await section.scrollIntoViewIfNeeded();
+  await expect(page.locator("giscus-widget")).toHaveCount(1);
+  await expect(section.getByRole("heading", { name: "Thảo luận" })).toBeVisible();
+  await expect(section.locator("[data-comments-report]")).toBeVisible();
+  await expect(section.locator("[data-comments-github]")).toHaveAttribute("href", DISCUSSIONS);
+  expect(errors).toEqual([]);
+});

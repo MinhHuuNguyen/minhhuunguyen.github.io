@@ -15,3 +15,10 @@ test("không có JS: trang chủ vẫn có H1 hero và 4 số liệu là số cu
   await expect(stats).toHaveCount(4);
   await expect(stats.first()).toHaveText(/^\d+\+$/);
 });
+test("không có JS: trang bài vẫn có phần thảo luận, link GitHub Discussions và nút báo lỗi", async ({ page }) => {
+  await page.goto("/blog/" + process.env.E2E_SLUG_LESSON);
+  const section = page.locator("[data-comments]");
+  await expect(section.getByRole("heading", { name: "Thảo luận" })).toBeVisible();
+  await expect(section.getByRole("link", { name: "GitHub Discussions" })).toHaveAttribute("href", "https://github.com/MinhHuuNguyen/minhhuunguyen.github.io/discussions");
+  await expect(section.locator("[data-comments-report]")).toHaveAttribute("href", /\/issues\/new\?template=bao-loi-bai\.yml&/);
+});

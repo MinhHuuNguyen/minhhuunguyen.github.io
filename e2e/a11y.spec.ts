@@ -16,3 +16,9 @@ test("link Bỏ qua tới nội dung là phần tử focus đầu tiên", async 
   await page.keyboard.press("Tab");
   await expect(page.locator(":focus")).toHaveText("Bỏ qua tới nội dung");
 });
+test("axe: phần thảo luận ở trang bài không có lỗi serious/critical", async ({ page }) => {
+  await page.route("https://giscus.app/**", (r) => r.abort());
+  await page.goto("/blog/" + process.env.E2E_SLUG_LESSON);
+  const r = await new AxeBuilder({ page }).include("[data-comments]").withTags(["wcag2a", "wcag2aa"]).analyze();
+  expect(r.violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => v.id)).toEqual([]);
+});
