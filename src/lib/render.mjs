@@ -26,6 +26,8 @@ DOMPurify.addHook("uponSanitizeElement", (node, data) => {
   if (data.tagName === "iframe" && !YOUTUBE_EMBED.test(node.getAttribute("src") || "")) node.parentNode?.removeChild(node);
 });
 DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+  // <img> HTML thô trong bài thiếu alt: gán alt="" như markdown-it làm với ![](src) (Lighthouse image-alt).
+  if (node.nodeName === "IMG" && !node.hasAttribute("alt")) node.setAttribute("alt", "");
   if (node.nodeName !== "IFRAME") return;
   const src = node.getAttribute("src") || "";
   if (!YOUTUBE_EMBED.test(src)) return;
