@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { SITE } from "../src/lib/seo.mjs";
 import { getSiteData } from "../src/lib/site-data.mjs";
+import { readCommentsConfig } from "../src/lib/comments-config.mjs";
+import { commentsKey, isReady } from "../src/lib/comments.mjs";
 
 // Runs as `postbuild`: the exported site in out/ must agree with the sitemap and carry the structured data.
 const OUT = "out";
@@ -88,6 +90,32 @@ for (const raw of htmlFiles) {
   if (!fs.existsSync(path.join(OUT, other))) { problems.push(`out/${f} có hreflang="${wantSelf}" nhưng thiếu out/${other}`); continue; }
   const back = hreflangOf(read(other))[isEn ? "en" : "vi"];
   if (!back || fileOf(back) !== f) problems.push(`out/${other} thiếu hreflang="${isEn ? "en" : "vi"}" trỏ ngược lại out/${f}`);
+}
+// Bình luận (giscus): trang bài mang đúng khóa thread; bản EN dùng khóa của bản VI; bài bị loại thì không có khối.
+const commentsCfg = readCommentsConfig();
+const termIn = (html) => /data-comments-term="([^"]*)"/.exec(html)?.[1] ?? null;
+const wantTerm = (vi) => {
+  const key = commentsKey(vi);
+  return commentsCfg.enabled && !commentsCfg.exclude.includes(key) ? key : null;
+};
+const siteData = getSiteData();
+for (const f of pages) {
+  const vi = missing.has(f.slice(0, -5)) ? null : siteData.postBySlug(f.slice(0, -5));
+  if (!vi) continue;
+  const got = termIn(read(`blog/${f}`));
+  if (got !== wantTerm(vi)) problems.push(`out/blog/${f}: khóa bình luận "${got}" khác "${wantTerm(vi)}"`);
+}
+for (const f of enPages) {
+  const en = siteData.en.posts.find((p) => p.slug === f.slice(0, -5));
+  const vi = en ? siteData.postBySlug(en.viSlug) : null;
+  if (!vi) continue;
+  const got = termIn(read(`en/blog/${f}`));
+  if (got !== wantTerm(vi)) problems.push(`out/en/blog/${f}: khóa bình luận "${got}" khác "${wantTerm(vi)}" (khóa của bản VI)`);
+}
+if (commentsCfg.enabled && !isReady(commentsCfg)) {
+  const msg = "src/utils/data/comments.json thiếu repoId/categoryId: làm bước B4 trước khi deploy";
+  if (process.env.CI === "true") problems.push(msg);
+  else console.warn(`cảnh báo: ${msg}`);
 }
 // Cổng chữ (C19): trên CI, site.json phải được duyệt.
 const copyStatus = JSON.parse(fs.readFileSync("src/utils/data/site.json", "utf8")).meta?.copyStatus;
