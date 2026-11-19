@@ -1,110 +1,80 @@
-import { Box, Container } from "@mui/material";
-import { format } from "date-fns";
-import { getPostsList } from "@/utils/posts";
-import { PostList } from "@/@types/post";
-import { SEO } from "@/configs/seo.config";
-import { DefaultSeo } from "next-seo";
-import Image from 'next/image';
-import styles from "@/styles/markdownStyles.module.css";
-import AdSenseAd from "@/components/AdSenseAd";
-
-import MarkdownIt from "markdown-it";
-import markdownItKatex from "markdown-it-katex"; // prefer the plugin name
+import type { GetStaticPaths } from "next";
+import { DefaultSeo, NextSeo } from "next-seo";
 import "katex/dist/katex.min.css";
-import DOMPurify from "isomorphic-dompurify";
+import { SEO } from "@/configs/seo.config";
+import JsonLd from "@/components/seo/JsonLd";
+import { AdsScript } from "@/features/ads/AdsScript";
+import { PostLayout, type PostPageProps } from "@/features/blog/PostLayout";
+import { AD_PACKAGES, planInArticleAds } from "@/lib/ads.mjs";
+import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
+import { renderPost } from "@/lib/render.mjs";
+import { relatedPosts } from "@/lib/related.mjs";
+import { SITE, blogPostingLd, videoObjectLd } from "@/lib/seo.mjs";
+import { getSiteData, withNav } from "@/lib/site-data.mjs";
+import { withLocale } from "@/lib/with-locale";
+import adsConfig from "@/utils/data/ads.json";
 
-const md = new MarkdownIt({ html: true, linkify: true }).use(markdownItKatex);
+type Props = PostPageProps & { navCounts: { videos: number } };
 
-// Allow only YouTube embeds; drop any other iframe to avoid XSS via untrusted frames.
-const YOUTUBE_EMBED = /^https:\/\/www\.youtube\.com\/embed\//;
-DOMPurify.addHook("uponSanitizeElement", (node, data) => {
-  if (data.tagName === "iframe") {
-    const src = (node as Element).getAttribute("src") || "";
-    if (!YOUTUBE_EMBED.test(src)) {
-      node.parentNode?.removeChild(node);
-    }
-  }
-});
-
-// Keep html:true (posts rely on raw <img>/<video>/<details>/YouTube), but strip
-// <script>, event handlers and javascript: URIs before injecting into the DOM.
-const renderMarkdown = (content: string) =>
-  DOMPurify.sanitize(md.render(content), {
-    ADD_TAGS: ["iframe"],
-    ADD_ATTR: ["allow", "allowfullscreen", "frameborder", "referrerpolicy", "target"],
-  });
-
-type BlogProps = {
-  frontmatter: Pick<PostList, "time" | "title" | "description" | "banner_url" | "tags">;
-  content: string;
-};
-
-export default function Blog({ frontmatter, content }: BlogProps) {
+export default function Blog({ post, sections, toc, adPlan, video, related, lessonNav }: Props) {
+  const url = `${SITE}/blog/${post.slug}`;
+  const structuredData = [blogPostingLd(post, url), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
-    <div className="w-100">
-      <DefaultSeo {...SEO} title={frontmatter.title} />
-      <Image src={frontmatter.banner_url} alt="banner" width={0} height={0} style={{ width: "100vw", height: "60vh" }}/>
-      <Container maxWidth="xl">
-        <section className="news lg:pt-4 pt-4 mb-5">
-          <div className="flex flex-wrap">
-            <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-3/4 pr-4 pl-4 w-full">
-              <div className="flex justify-between items-center w-full">
-                <span className="news-posted">
-                  {frontmatter.time &&
-                    format(new Date(frontmatter.time), "dd/MM/yyyy")}
-                </span>
-              </div>
-              <h1 className="news-title text-4xl">{frontmatter.title}</h1>
-              <em>{frontmatter.description}</em>
-              {content ? (
-                <Box id="content" className={styles.markdownBody} dangerouslySetInnerHTML={{ __html: renderMarkdown(content), }}/>
-              ) : null}
-            </div>
-            <div className="flex flex-col align-center justify-start gap-4 lg:ps-6 lg:pe-6 lg:w-1/4 pr-4 pl-4 w-full">
-              <AdSenseAd adSlot="4893845087" />
-            </div>
-          </div>
-        </section>
-      </Container>
-    </div>
+    <>
+      <DefaultSeo {...SEO} title={post.title} />
+      <NextSeo
+        canonical={url}
+        description={post.description}
+        openGraph={{
+          url,
+          type: "article",
+          title: post.title,
+          description: post.description,
+          images: post.banner_url ? [{ url: post.banner_url }] : [],
+        }}
+      />
+      <JsonLd data={structuredData} />
+      <AdsScript />
+      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} />
+    </>
   );
 }
 
-export async function getStaticPaths() {
-  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
+// Mọi bài đã publish đều có trang riêng.
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: getSiteData()
+    .postsSummary.filter((p) => p.slug !== "")
+    .map((p) => ({ params: { id: p.slug } })),
+  fallback: false,
+});
 
-  const allPosts = [...seriesPosts, ...highlightPostsNotSeries6, ...nonHighlightPostsNotSeries];
-
-  const paths = allPosts
-    .filter((post: PostList) => post.slug !== '')
-    .map((post: PostList) => ({ params: { id: post.slug } }));
-  // console.log('Static paths:', paths);
+export const getStaticProps = withLocale<Props>("vi", async ({ params }) => {
+  const data = getSiteData();
+  const post = data.postBySlug(String(params?.id));
+  if (!post) return { notFound: true };
+  const { sections, toc } = renderPost(post.content ?? "");
+  const paths = data.paths as LearningPath[];
+  const pathOfSlug = (slug: string) => paths.find((p) => p.lessons.some((l) => l.slug === slug))?.slug ?? null;
+  const nav = buildLessonNav(paths, post.slug);
+  const lessons = nav ? paths.find((p) => p.slug === nav.path.slug)?.lessons ?? [] : [];
+  const relatedSlugs = relatedPosts(post, data.postsSummary, pathOfSlug, 3);
   return {
-    paths,
-    fallback: false, 
-  };
-}
-
-export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  const { seriesPosts, highlightPostsNotSeries6, nonHighlightPostsNotSeries } = getPostsList();
-
-  const post = [...seriesPosts, ...highlightPostsNotSeries6, ...nonHighlightPostsNotSeries].find((post) => post.slug === id);
-  if (!post) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      frontmatter: {
-        time: post.time,
+    props: withNav({
+      post: {
+        slug: post.slug,
         title: post.title,
         description: post.description,
         banner_url: post.banner_url,
-        tags: post.tags,
+        time: post.time,
+        tags: post.tags ?? [],
+        readingMinutes: post.readingMinutes,
       },
-      content: post.content,
-    },
+      sections,
+      toc,
+      adPlan: planInArticleAds(sections, AD_PACKAGES[adsConfig.package as keyof typeof AD_PACKAGES]),
+      video: post.video ?? null,
+      related: relatedSlugs.map((s) => data.postsSummary.find((p) => p.slug === s)!),
+      lessonNav: nav ? { ...nav, lessons: lessons.map((l) => ({ slug: l.slug, available: l.available })) } : null,
+    }),
   };
-}
+});

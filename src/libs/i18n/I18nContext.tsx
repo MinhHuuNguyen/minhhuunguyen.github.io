@@ -4,17 +4,18 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
 
-import { DEFAULT_LOCALE, LOCALES, type Dictionary, type Locale } from "./types";
+import { useRouter } from "next/router";
+import { counterpartUrl, localeOf } from "@/lib/locale-routes.mjs";
+import { navigate } from "@/components/ui/AppLink";
+import { LOCALES, type Dictionary, type Locale } from "./types";
 import vi from "./locales/vi";
 import en from "./locales/en";
 
 const dictionaries: Record<Locale, Dictionary> = { vi, en };
 
-const STORAGE_KEY = "locale";
 
 type TranslateKey = string;
 
@@ -22,6 +23,7 @@ interface I18nContextValue {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   toggleLocale: () => void;
+  alternates?: Partial<Record<Locale, string | null>>;
   /** Active dictionary — use for typed access, e.g. `dict.resume.award`. */
   dict: Dictionary;
   /** Dot-path lookup, e.g. `t("resume.award")`. Falls back to the key. */
@@ -45,32 +47,32 @@ function resolve(dict: Dictionary, key: TranslateKey): string {
   return typeof value === "string" ? value : key;
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
+export function I18nProvider({
+  children,
+  locale: localeProp,
+  alternates,
+}: {
+  children: ReactNode;
+  /** `pageProps.locale`; thiếu thì suy ra từ URL. */
+  locale?: Locale;
+  /** `pageProps.alternates`: URL tương ứng ở từng ngôn ngữ (chỉ trang bài cần). */
+  alternates?: Partial<Record<Locale, string | null>>;
+}) {
+  const router = useRouter();
+  const locale: Locale = isLocale(localeProp) ? localeProp : localeOf(router.asPath);
 
-  // Read persisted preference after mount to stay hydration-safe.
+  // Client-side navigation giữ nguyên <html>, nên cập nhật lang khi đổi ngôn ngữ.
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (isLocale(stored)) {
-        setLocaleState(stored);
-      }
-    } catch {
-      /* localStorage unavailable — keep default */
-    }
-  }, []);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      /* ignore persistence errors */
-    }
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = next;
-    }
-  }, []);
+  const setLocale = useCallback(
+    (next: Locale) => {
+      if (next === locale) return;
+      navigate(router, alternates?.[next] ?? counterpartUrl(router.asPath, next));
+    },
+    [alternates, locale, router],
+  );
 
   const toggleLocale = useCallback(() => {
     setLocale(locale === "vi" ? "en" : "vi");
@@ -82,10 +84,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       locale,
       setLocale,
       toggleLocale,
+      alternates,
       dict,
       t: (key: TranslateKey) => resolve(dict, key),
     };
-  }, [locale, setLocale, toggleLocale]);
+  }, [alternates, locale, setLocale, toggleLocale]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }

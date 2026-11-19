@@ -116,11 +116,19 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
+      - name: Test
+        run: ${{ steps.detect-package-manager.outputs.runner }} test
+
       - name: Build and Static HTML export with Next.js
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
           NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ADSENSE_PUBLISHER_ID }}
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+          NEXT_PUBLIC_ADS_MODE: live
+          NEXT_PUBLIC_CHAT_MODE: ${{ vars.CHAT_MODE || 'coming-soon' }}
+          NEXT_PUBLIC_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
+          VIDEO_META_FETCH: "1"
+        # `build` runs prebuild (the sitemap) and postbuild (the checks of out/); a bare `next build` skipped both
+        run: ${{ steps.detect-package-manager.outputs.runner }} build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

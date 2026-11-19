@@ -4,13 +4,9 @@
  * lowercase, strip diacritics, and map "đ" → "d".
  * Used for both the search index and the user's query so e.g. "cong nghe"
  * matches "Công nghệ" and "ai" matches "AI".
+ * The one implementation lives in src/lib/seo.mjs, because the post slug (and so the sitemap) is built from it too.
  */
-export const normalizeText = (input: string): string =>
-  (input || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/đ/g, "d")
-    .replace(/[̀-ͯ]/g, "");
+export { normalizeText } from "@/lib/seo.mjs";
 
 export const ellipsisText = (lineClamp = 1) => {
   return {

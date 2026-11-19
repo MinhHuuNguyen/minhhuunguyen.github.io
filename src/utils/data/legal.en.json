@@ -1,0 +1,74 @@
+{
+  "privacy": {
+    "draft": true,
+    "title": "Privacy policy",
+    "updated": "2026-11-12",
+    "sections": [
+      {
+        "heading": "Scope",
+        "paragraphs": [
+          "This page applies to the website minhhuunguyen.github.io (the personal blog of Nguyen Huu Minh) and to two personal tools of the site owner: \"Agent Video Editor\" (connected to Google) and \"Rabbit Studio\" (connected to TikTok)."
+        ]
+      },
+      {
+        "heading": "Data the website collects",
+        "paragraphs": [
+          "The website uses Google Analytics to count visits (pages viewed, device, approximate location). Google Analytics sets cookies in your browser.",
+          "The website shows Google AdSense ads. Google and its partners may use cookies to choose and show ads. You can manage personalized ads in the ad settings of your Google account, or turn cookies off in your browser.",
+          "The website has no sign-up form, no user accounts, and does not collect any other personally identifiable information."
+        ]
+      },
+      {
+        "heading": "Personal tools connected to Google and TikTok",
+        "paragraphs": [
+          "The two tools above were written by the site owner, are used only by the site owner, and are not offered to anyone else. They work only with the site owner's own accounts: uploading videos to the owner's YouTube and TikTok channels and reading the statistics of those channels (YouTube Analytics, Search Console, Google Analytics, TikTok).",
+          "Access tokens are stored in the Keychain on the site owner's computer. The tools do not collect, share or sell anyone else's data, and do not send viewers' data to third parties."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": [
+          "Use the Contact section on the home page of minhhuunguyen.github.io to reach the site owner about this policy."
+        ]
+      },
+      {
+        "heading": "Changes",
+        "paragraphs": [
+          "The content may be updated. The date at the top of the page is the date of the latest edit."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "draft": true,
+    "title": "Terms of use",
+    "updated": "2026-11-12",
+    "sections": [
+      {
+        "heading": "Scope",
+        "paragraphs": [
+          "These terms apply to the website minhhuunguyen.github.io and to the site owner's two personal tools, \"Agent Video Editor\" and \"Rabbit Studio\"."
+        ]
+      },
+      {
+        "heading": "Website content",
+        "paragraphs": [
+          "Articles and videos on the website are meant for sharing knowledge. The content is provided as is, with no guarantee of accuracy or fitness for a particular purpose.",
+          "You may read, watch and share links to the content. To copy or republish the content, please ask the site owner for permission."
+        ]
+      },
+      {
+        "heading": "Personal tools",
+        "paragraphs": [
+          "\"Agent Video Editor\" and \"Rabbit Studio\" are the site owner's personal tools, not services offered to the public. They have no users other than the site owner."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": [
+          "Use the Contact section on the home page of minhhuunguyen.github.io to reach the site owner."
+        ]
+      }
+    ]
+  }
+}

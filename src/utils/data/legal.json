@@ -1,0 +1,74 @@
+{
+  "privacy": {
+    "draft": true,
+    "title": "Chính sách quyền riêng tư",
+    "updated": "2026-11-12",
+    "sections": [
+      {
+        "heading": "Phạm vi",
+        "paragraphs": [
+          "Trang này áp dụng cho website minhhuunguyen.github.io (blog cá nhân của Nguyen Huu Minh) và cho hai công cụ cá nhân của chủ website: \"Agent Video Editor\" (kết nối Google) và \"Rabbit Studio\" (kết nối TikTok)."
+        ]
+      },
+      {
+        "heading": "Dữ liệu mà website thu thập",
+        "paragraphs": [
+          "Website dùng Google Analytics để thống kê lượt truy cập (trang đã xem, thiết bị, vị trí ước lượng). Google Analytics đặt cookie trên trình duyệt của bạn.",
+          "Website hiển thị quảng cáo Google AdSense. Google và đối tác của Google có thể dùng cookie để chọn và hiển thị quảng cáo. Bạn có thể quản lý quảng cáo cá nhân hóa trong phần cài đặt quảng cáo của tài khoản Google, hoặc tắt cookie trong trình duyệt.",
+          "Website không có biểu mẫu đăng ký, không có tài khoản người dùng và không thu thập thông tin nhận dạng cá nhân nào khác."
+        ]
+      },
+      {
+        "heading": "Công cụ cá nhân kết nối Google và TikTok",
+        "paragraphs": [
+          "Hai công cụ trên do chủ website tự viết, chỉ chủ website dùng, và không cung cấp cho người khác. Chúng chỉ làm việc với tài khoản của chính chủ website: tải video lên kênh YouTube và TikTok của chủ website, đọc số liệu của các kênh đó (YouTube Analytics, Search Console, Google Analytics, TikTok).",
+          "Các khóa truy cập (token) được lưu trong Keychain trên máy tính của chủ website. Công cụ không thu thập, không chia sẻ, không bán dữ liệu của người khác, và không gửi dữ liệu của người xem sang bên thứ ba."
+        ]
+      },
+      {
+        "heading": "Liên hệ",
+        "paragraphs": [
+          "Dùng phần Contact ở trang chủ minhhuunguyen.github.io để liên hệ với chủ website về chính sách này."
+        ]
+      },
+      {
+        "heading": "Thay đổi",
+        "paragraphs": [
+          "Nội dung có thể được cập nhật. Ngày ở đầu trang là ngày sửa gần nhất."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "draft": true,
+    "title": "Điều khoản sử dụng",
+    "updated": "2026-11-12",
+    "sections": [
+      {
+        "heading": "Phạm vi",
+        "paragraphs": [
+          "Điều khoản này áp dụng cho website minhhuunguyen.github.io và cho hai công cụ cá nhân \"Agent Video Editor\" và \"Rabbit Studio\" của chủ website."
+        ]
+      },
+      {
+        "heading": "Nội dung website",
+        "paragraphs": [
+          "Bài viết và video trên website nhằm mục đích chia sẻ kiến thức. Nội dung được cung cấp như hiện có, không kèm bảo đảm về độ chính xác hay sự phù hợp cho một mục đích cụ thể.",
+          "Bạn được đọc, xem và chia sẻ liên kết tới nội dung. Muốn sao chép hoặc đăng lại nội dung, hãy xin phép chủ website."
+        ]
+      },
+      {
+        "heading": "Công cụ cá nhân",
+        "paragraphs": [
+          "\"Agent Video Editor\" và \"Rabbit Studio\" là công cụ cá nhân của chủ website, không phải dịch vụ cung cấp cho công chúng. Chúng không có người dùng nào khác ngoài chủ website."
+        ]
+      },
+      {
+        "heading": "Liên hệ",
+        "paragraphs": [
+          "Dùng phần Contact ở trang chủ minhhuunguyen.github.io để liên hệ với chủ website."
+        ]
+      }
+    ]
+  }
+}
