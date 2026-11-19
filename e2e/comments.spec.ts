@@ -45,7 +45,7 @@ test("@dev chỉ nạp giscus khi cuộn tới, với đúng tham số", async (
   expect(p.get("strict")).toBe("1");
   expect(p.get("repo")).toBe("MinhHuuNguyen/minhhuunguyen.github.io");
   expect(p.get("repoId")).toBe("R_test_repo");
-  expect(p.get("category")).toBe("Blog comments");
+  expect(p.get("category")).toBe("General");
   expect(p.get("categoryId")).toBe("DIC_test_category");
   expect(p.get("reactionsEnabled")).toBe("1");
   expect(p.get("emitMetadata")).toBe("1");

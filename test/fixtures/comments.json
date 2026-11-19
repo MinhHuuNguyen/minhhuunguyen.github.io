@@ -2,7 +2,7 @@
   "enabled": true,
   "repo": "MinhHuuNguyen/minhhuunguyen.github.io",
   "repoId": "R_test_repo",
-  "category": "Blog comments",
+  "category": "General",
   "categoryId": "DIC_test_category",
   "exclude": ["minhhuunguyen/README.md"],
   "report": {

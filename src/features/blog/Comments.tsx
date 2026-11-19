@@ -6,7 +6,7 @@ import { track } from "@/lib/analytics";
 import { WIDGET_ID, parseGiscusMessage, wantsImmediateMount, type CommentsProps } from "@/lib/comments.mjs";
 
 /**
- * Phần thảo luận dưới bài: giscus trên GitHub Discussions (repo site, category "Blog comments").
+ * Phần thảo luận dưới bài: giscus trên GitHub Discussions (repo site, category "General").
  * Chỉ nạp iframe khi người đọc cuộn gần tới, hoặc ngay khi vừa quay về từ trang đăng nhập GitHub.
  */
 export function Comments({ term, repo, repoId, category, categoryId, ready, backLink, reportUrl, discussionsUrl }: CommentsProps) {

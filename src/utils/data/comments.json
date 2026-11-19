@@ -2,8 +2,8 @@
   "enabled": true,
   "repo": "MinhHuuNguyen/minhhuunguyen.github.io",
   "repoId": "R_kgDOLmpRDQ",
-  "category": "Blog comments",
-  "categoryId": "",
+  "category": "General",
+  "categoryId": "DIC_kwDOLmpRDc4Ctd6o",
   "exclude": ["minhhuunguyen/README.md"],
   "report": {
     "template": "bao-loi-bai.yml",

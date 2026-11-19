@@ -7,7 +7,7 @@ import {
 } from "../src/lib/comments.mjs";
 
 const RAW = {
-  enabled: true, repo: "MinhHuuNguyen/minhhuunguyen.github.io", repoId: " R_x ", category: " Blog comments ", categoryId: "DIC_y",
+  enabled: true, repo: "MinhHuuNguyen/minhhuunguyen.github.io", repoId: " R_x ", category: " General ", categoryId: "DIC_y",
   exclude: ["minhhuunguyen/README.md"], report: { template: "bao-loi-bai.yml", titlePrefix: { vi: "[Báo lỗi] ", en: "[Error report] " } },
 };
 const CFG = validateCommentsConfig(RAW).config;
@@ -46,7 +46,7 @@ test("validateCommentsConfig: cấu hình đúng được chuẩn hóa (trim id 
   const { config, errors } = validateCommentsConfig({ ...RAW, exclude: undefined });
   assert.deepEqual(errors, []);
   assert.equal(config.repoId, "R_x");
-  assert.equal(config.category, "Blog comments");
+  assert.equal(config.category, "General");
   assert.deepEqual(config.exclude, []);
 });
 
@@ -103,7 +103,7 @@ test("commentsProps: bản VI và bản EN của cùng bài có cùng term; repo
   assert.match(en.reportUrl, /source_file=posts-en%2Fai-lectures/);
   const { reportUrl: _ignored, ...rest } = vi;
   assert.deepEqual(rest, {
-    term: VI.relPath, repo: "MinhHuuNguyen/minhhuunguyen.github.io", repoId: "R_x", category: "Blog comments", categoryId: "DIC_y",
+    term: VI.relPath, repo: "MinhHuuNguyen/minhhuunguyen.github.io", repoId: "R_x", category: "General", categoryId: "DIC_y",
     ready: true, backLink: VI_URL, discussionsUrl: "https://github.com/MinhHuuNguyen/minhhuunguyen.github.io/discussions",
   });
 });

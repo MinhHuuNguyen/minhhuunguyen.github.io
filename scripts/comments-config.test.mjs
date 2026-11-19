@@ -11,7 +11,7 @@ test("comments.json của site hợp lệ, loại trang My GitHub Stats, đúng 
   const c = readCommentsConfig(COMMENTS_CONFIG_FILE);
   assert.equal(typeof c.enabled, "boolean"); // không ép true: "enabled": false là cách tắt hợp lệ, CI vẫn phải xanh
   assert.equal(c.repo, "MinhHuuNguyen/minhhuunguyen.github.io");
-  assert.equal(c.category, "Blog comments");
+  assert.equal(c.category, "General");
   assert.deepEqual(c.exclude, ["minhhuunguyen/README.md"]);
   assert.equal(c.report.template, "bao-loi-bai.yml");
 });

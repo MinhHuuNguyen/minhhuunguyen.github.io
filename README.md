@@ -58,7 +58,7 @@ git submodule update --remote --merge
 ## Comments (giscus)
 
 Every blog post (Vietnamese and English) ends with a discussion thread powered by
-[giscus](https://giscus.app). Comments live in the **Blog comments** category of this
+[giscus](https://giscus.app). Comments live in the **General** category of this
 repository's GitHub Discussions, and readers sign in with GitHub to post.
 
 - Config: `src/utils/data/comments.json`. `repoId` and `categoryId` come from giscus.app or
