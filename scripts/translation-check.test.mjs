@@ -54,3 +54,8 @@ test("bodyHash bỏ khối video pipeline (C28)", () => {
   assert.equal(bodyHash("A\n<!-- publish:video:begin x -->\nV\n<!-- publish:video:end x -->\nB"), bodyHash("A\nB"));
   assert.notEqual(bodyHash("A\nB"), bodyHash("A\nC"));
 });
+test("docstring trong code được dịch -> không lỗi", () => {
+  const vi = '```python\ndef f():\n    """\n    Hàm in ra\n    """\n    print(1)\n```\n';
+  const en = FM + '```python\ndef f():\n    """\n    Prints\n    """\n    print(1)\n```\n';
+  assert.deepEqual(checkPair(vi, en).errors, []);
+});

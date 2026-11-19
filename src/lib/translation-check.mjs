@@ -3,15 +3,15 @@ import matter from "gray-matter";
 import { slugify } from "./seo.mjs";
 
 export const EN_FM_KEYS = ["title", "description", "source_path", "source_slug", "source_hash", "translated_at"];
-export const ALLOWLIST = ["Nguyễn", "Hữu", "Minh", "Hà", "Nội", "Bách", "Khoa", "Kinh", "tế", "Quốc", "dân", "Khoang", "Trời", "Của", "Bé", "Việt", "Nam", "Hiếu", "Phùng"];
+export const ALLOWLIST = ["Nguyễn", "Hữu", "Minh", "Hà", "Nội", "Bách", "Khoa", "Kinh", "tế", "Quốc", "dân", "Khoang", "Trời", "Của", "Bé", "Việt", "Nam", "Hiếu", "Phùng", "Théâtre", "opéra"];
 const VI_CHARS = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
 const PIPE = /<!-- publish:video:begin[\s\S]*?<!-- publish:video:end[^>]*-->\n?/g;
 
 export const stripPipelineVideoBlock = (body) => String(body ?? "").replace(PIPE, "");
 export const bodyHash = (viBody) =>
   crypto.createHash("sha256").update(stripPipelineVideoBlock(viBody).replace(/\r\n/g, "\n").trim()).digest("hex");
-/** Bỏ chú thích (# hoặc // tới cuối dòng) để so code: áp dụng giống nhau cho cả 2 bên nên '#' trong chuỗi không gây lệch. */
-export const stripCodeComments = (code) => code.split("\n").map((l) => l.replace(/\s*(#|\/\/).*$/, "")).join("\n").trim();
+/** Bỏ docstring """...""" và chú thích (# hoặc // tới cuối dòng) để so code: áp dụng giống nhau cho cả 2 bên nên '#' trong chuỗi không gây lệch. */
+export const stripCodeComments = (code) => code.replace(/"""[\s\S]*?"""/g, "").split("\n").map((l) => l.replace(/\s*(#|\/\/).*$/, "")).join("\n").trim();
 
 const fences = (s) => [...s.matchAll(/^```[^\n]*\n([\s\S]*?)^```/gm)].map((m) => m[1]);
 const withoutCode = (s) => s.replace(/^```[\s\S]*?^```/gm, " ").replace(/`[^`\n]*`/g, " ");
