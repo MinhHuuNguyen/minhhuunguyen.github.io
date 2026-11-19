@@ -12,5 +12,6 @@ export interface FullPost {
   content: string;
   video: PostVideo | null;
   readingMinutes: number;
+  commentsKey: string | null;
 }
 export declare function readAllPosts(root?: string, extraRoot?: string): FullPost[];

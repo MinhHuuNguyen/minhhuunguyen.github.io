@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "repo": "MinhHuuNguyen/minhhuunguyen.github.io",
+  "repoId": "R_kgDOLmpRDQ",
+  "category": "Blog comments",
+  "categoryId": "",
+  "exclude": ["minhhuunguyen/README.md"],
+  "report": {
+    "template": "bao-loi-bai.yml",
+    "titlePrefix": { "vi": "[Báo lỗi] ", "en": "[Error report] " }
+  }
+}

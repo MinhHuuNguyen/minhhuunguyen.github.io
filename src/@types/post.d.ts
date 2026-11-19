@@ -8,6 +8,8 @@ export interface PostList {
   tags: string[];
   slug: string;
   filePath: string;
+  relPath: string; // đường dẫn file so với posts/ (khóa thread bình luận mặc định)
+  commentsKey?: string | null; // frontmatter comments_key, giữ thread khi dời file
   isHighlight?: boolean;
   content?: string;
   readingMinutes: number;

@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { slugify, toPostVideo } from "./seo.mjs";
 import { readingMinutes } from "./reading.mjs";
+import { assertUniqueCommentKeys } from "./comments.mjs";
 
 const OWN_README = path.join("posts", "minhhuunguyen", "README.md");
 function walk(dir, out, root = dir) {
@@ -36,6 +37,7 @@ export function readAllPosts(root = "posts", extraRoot = process.env.POSTS_EXTRA
       time: d.time || new Date(0).toISOString(), title: d.title || "Untitled", description: d.description || "No description",
       banner_url: d.banner_url || "", tags: d.tags || null, slug, filePath: file, relPath: path.relative(base, file).split(path.sep).join("/"), isHighlight: d.is_highlight || false,
       content: parsed.content || "", video, readingMinutes: readingMinutes(parsed.content),
+      commentsKey: typeof d.comments_key === "string" ? d.comments_key : null,
     });
   }
   const seen = new Map();
@@ -43,5 +45,6 @@ export function readAllPosts(root = "posts", extraRoot = process.env.POSTS_EXTRA
     if (seen.has(p.slug)) throw new Error(`slug trùng "${p.slug}": ${seen.get(p.slug)} và ${p.filePath}`);
     seen.set(p.slug, p.filePath);
   }
+  assertUniqueCommentKeys(posts);
   return posts;
 }
