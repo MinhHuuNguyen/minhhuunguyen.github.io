@@ -10,6 +10,7 @@ import { commentsProps } from "@/lib/comments.mjs";
 import { readCommentsConfig } from "@/lib/comments-config.mjs";
 import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
 import { rewritePostLinks } from "@/lib/links.mjs";
+import { pdfHrefFor } from "@/lib/pdf.mjs";
 import { renderPost } from "@/lib/render.mjs";
 import { relatedPosts } from "@/lib/related.mjs";
 import { SITE, videoObjectLd } from "@/lib/seo.mjs";
@@ -18,7 +19,7 @@ import { getSiteData, withNav } from "@/lib/site-data.mjs";
 import { withLocale } from "@/lib/with-locale";
 import adsConfig from "@/utils/data/ads.json";
 type Props = PostPageProps & { navCounts: { videos: number }; alternates: { vi: string; en: string }; viSlug: string };
-export default function EnBlog({ post, sections, toc, adPlan, video, related, lessonNav, ads, viSlug, comments }: Props) {
+export default function EnBlog({ post, sections, toc, adPlan, video, related, lessonNav, ads, viSlug, comments, pdf }: Props) {
   const url = `${SITE}/en/blog/${post.slug}`;
   const structuredData = [blogPostingLdEn(post, url, `${SITE}/blog/${viSlug}`), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
@@ -31,7 +32,7 @@ export default function EnBlog({ post, sections, toc, adPlan, video, related, le
       />
       <JsonLd data={structuredData} />
       {ads && <AdsScript />}
-      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} ads={ads} videoBlock comments={comments} />
+      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} ads={ads} videoBlock comments={comments} pdf={pdf} />
     </>
   );
 }
@@ -75,6 +76,7 @@ export const getStaticProps = withLocale<Props>("en", async ({ params }) => {
       toc,
       adPlan: ads ? planInArticleAds(sections, AD_PACKAGES[adsConfig.package as keyof typeof AD_PACKAGES]) : [],
       video: post.video ?? null,
+      pdf: pdfHrefFor(post, "en"),
       related: relatedSlugs.map((s) => ({ ...enSummary.find((p) => p.slug === s)!, href: `/en/blog/${s}` })),
       lessonNav: nav ? { ...nav, lessons: lessons.map((l) => ({ slug: l.slug, available: l.available })) } : null,
       ads,

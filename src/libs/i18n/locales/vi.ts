@@ -64,6 +64,8 @@ const vi: Dictionary = {
     chapters: "Chương video",
     progress: "{done}/{total} bài",
     storageOff: "Trình duyệt không cho lưu tiến độ",
+    downloadPdf: "Tải PDF",
+    downloadPdfLabel: "Tải PDF: {title}",
   },
   comments: {
     title: "Thảo luận",

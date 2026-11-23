@@ -64,6 +64,8 @@ const en: Dictionary = {
     chapters: "Video chapters",
     progress: "{done}/{total} lessons",
     storageOff: "Your browser does not allow saving progress",
+    downloadPdf: "Download PDF",
+    downloadPdfLabel: "Download PDF: {title}",
   },
   comments: {
     title: "Discussion",

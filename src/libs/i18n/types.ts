@@ -58,6 +58,8 @@ export type Dictionary = {
     chapters: string;
     progress: string;
     storageOff: string;
+    downloadPdf: string;
+    downloadPdfLabel: string;
   };
   comments: {
     title: string;

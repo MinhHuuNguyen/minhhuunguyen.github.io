@@ -1,6 +1,8 @@
-# Same behaviour as having no robots.txt: every crawler may fetch everything.
+# Every crawler may fetch everything except the PDF copies of posts (/pdf/).
 # A rule per crawler (GPTBot, ClaudeBot, PerplexityBot, Google-Extended ...) is the owner's choice; add the blocks here.
 User-agent: *
 Allow: /
+# Bản PDF của bài viết trùng nội dung trang HTML: không cho index.
+Disallow: /pdf/
 
 Sitemap: https://minhhuunguyen.github.io/sitemap.xml

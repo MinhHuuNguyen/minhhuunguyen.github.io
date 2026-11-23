@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Download } from "lucide-react";
 import { AppLink } from "@/components/ui/AppLink";
 import { Container } from "@/components/ui/Container";
 import { TagChip } from "@/components/ui/Chip";
@@ -6,6 +7,7 @@ import { AdRail } from "@/features/ads/AdRail";
 import { AdSlot } from "@/features/ads/AdSlot";
 import { useI18n } from "@/libs/i18n/I18nContext";
 import { formatDate } from "@/lib/format.mjs";
+import { track } from "@/lib/analytics";
 import type { CommentsProps } from "@/lib/comments.mjs";
 import type { PostVideo } from "@/lib/seo.mjs";
 import type { PostSection, TocItem } from "@/lib/render.mjs";
@@ -44,10 +46,12 @@ export type PostPageProps = {
   videoBlock?: boolean;
   /** Khối thảo luận giscus; null khi bài bị loại hoặc bình luận đang tắt. */
   comments?: CommentsProps | null;
+  /** Đường dẫn PDF tạo lúc build (scripts/build-pdfs.mjs); null khi bài không có PDF (series...). */
+  pdf?: string | null;
 };
 
 /** Bố cục trang bài: mục lục 240px / bài ≤ 720px / quảng cáo 300px (≥ 1280px); hẹp hơn thì một cột. */
-export function PostLayout({ post, sections, toc, adPlan, video, related, lessonNav, ads = true, videoBlock = false, comments = null }: PostPageProps): ReactNode {
+export function PostLayout({ post, sections, toc, adPlan, video, related, lessonNav, ads = true, videoBlock = false, comments = null, pdf = null }: PostPageProps): ReactNode {
   const { t, locale } = useI18n();
   const [active, pick] = useActiveHeading(toc);
   const clips = video?.clips ?? [];
@@ -88,6 +92,20 @@ export function PostLayout({ post, sections, toc, adPlan, video, related, lesson
                 .map((tag) => (
                   <TagChip key={tag}>{tag}</TagChip>
                 ))}
+              {pdf && (
+                <a
+                  href={pdf}
+                  download
+                  type="application/pdf"
+                  data-post-pdf
+                  aria-label={t("post.downloadPdfLabel").replace("{title}", post.title)}
+                  onClick={() => track("post_pdf_download", { slug: post.slug, lang: locale })}
+                  className="inline-flex items-center gap-1.5 rounded-pill border border-blue-700/25 bg-white px-3 py-1 text-[13px] font-semibold text-blue-700 transition hover:border-blue-700 hover:bg-surface-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+                >
+                  <Download size={14} aria-hidden="true" />
+                  {t("post.downloadPdf")}
+                </a>
+              )}
             </div>
             {post.banner_url && (
               // eslint-disable-next-line @next/next/no-img-element

@@ -10,6 +10,7 @@ import { AD_PACKAGES, planInArticleAds } from "@/lib/ads.mjs";
 import { commentsProps } from "@/lib/comments.mjs";
 import { readCommentsConfig } from "@/lib/comments-config.mjs";
 import { lessonNav as buildLessonNav, type LearningPath } from "@/lib/learn.mjs";
+import { pdfHrefFor } from "@/lib/pdf.mjs";
 import { renderPost } from "@/lib/render.mjs";
 import { relatedPosts } from "@/lib/related.mjs";
 import { SITE, blogPostingLd, videoObjectLd } from "@/lib/seo.mjs";
@@ -22,7 +23,7 @@ type PlaceholderProps = { placeholder: true; slug: string; navCounts: { videos: 
 
 export default function Blog(props: Props | PlaceholderProps) {
   if ("placeholder" in props) return <PostPlaceholder slug={props.slug} />;
-  const { post, sections, toc, adPlan, video, related, lessonNav, comments } = props;
+  const { post, sections, toc, adPlan, video, related, lessonNav, comments, pdf } = props;
   const url = `${SITE}/blog/${post.slug}`;
   const structuredData = [blogPostingLd(post, url), ...(video ? [videoObjectLd(video, url)] : [])];
   return (
@@ -41,7 +42,7 @@ export default function Blog(props: Props | PlaceholderProps) {
       />
       <JsonLd data={structuredData} />
       <AdsScript />
-      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} comments={comments} />
+      <PostLayout post={post} sections={sections} toc={toc} adPlan={adPlan} video={video} related={related} lessonNav={lessonNav} comments={comments} pdf={pdf} />
     </>
   );
 }
@@ -86,6 +87,7 @@ export const getStaticProps = withLocale<Props | PlaceholderProps>("vi", async (
       toc,
       adPlan: planInArticleAds(sections, AD_PACKAGES[adsConfig.package as keyof typeof AD_PACKAGES]),
       video: post.video ?? null,
+      pdf: pdfHrefFor(post, "vi"),
       related: relatedSlugs.map((s) => data.postsSummary.find((p) => p.slug === s)!),
       lessonNav: nav ? { ...nav, lessons: lessons.map((l) => ({ slug: l.slug, available: l.available })) } : null,
       // Khối thảo luận: khóa thread là đường dẫn file bài VI (không đổi khi đổi tiêu đề).

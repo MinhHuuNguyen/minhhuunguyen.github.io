@@ -14,6 +14,7 @@ export type EventMap = {
   comments_view: { lang: "vi" | "en" };
   comments_report_click: { lang: "vi" | "en" };
   resume_download: { variant: "resume" | "resume_full" };
+  post_pdf_download: { slug: string; lang: "vi" | "en" };
 };
 
 /**
