@@ -47,6 +47,8 @@
     "@axe-core/playwright": "4.14.0",
     "@fontsource/be-vietnam-pro": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/noto-emoji": "^5.3.2",
+    "@fontsource/noto-sans-sc": "^5.3.1",
     "@playwright/test": "1.65.0",
     "@tailwindcss/typography": "0.5.20",
     "@types/markdown-it": "^14.1.1",

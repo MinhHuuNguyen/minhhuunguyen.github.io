@@ -18,6 +18,9 @@ const read = (p) => fs.readFileSync(p, "utf8");
 export const FONT_PACKAGES = [
   ["be-vietnam-pro", ["400", "400-italic", "600", "700", "800"]],
   ["jetbrains-mono", ["400", "700"]],
+  // Dự phòng cho chữ Hán và emoji có trong vài bài: chia theo unicode-range nên Chromium chỉ tải phần cần.
+  ["noto-sans-sc", ["400"]],
+  ["noto-emoji", ["400"]],
 ];
 export const KATEX_DIST = path.join(ROOT, "node_modules/katex/dist");
 export const FONTSOURCE_DIR = path.join(ROOT, "node_modules/@fontsource");

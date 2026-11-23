@@ -10,8 +10,8 @@
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
   margin: 0;
-  /* Font dự phòng tường minh: Chromium headless không tự tìm font CJK/emoji của hệ thống. CI cài Noto (nextjs.yml). */
-  font-family: "Be Vietnam Pro", "Noto Sans CJK SC", "Hiragino Sans GB", "Heiti SC", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+  /* Font dự phòng tường minh (nhúng từ @fontsource): Chromium headless không tự tìm font CJK/emoji của hệ thống. */
+  font-family: "Be Vietnam Pro", "Noto Emoji", "Noto Sans SC", sans-serif;
   font-size: 10pt;
   line-height: 1.62;
   color: var(--ink);
@@ -69,7 +69,7 @@ a { color: var(--accent); text-decoration: none; }
 .post blockquote { margin: 0 0 3mm; padding: 1.5mm 4mm; border-left: 1.2mm solid #b6c4da; background: #f7f9fc; color: #374151; break-inside: avoid; }
 .post blockquote > :last-child { margin-bottom: 0; }
 
-.post code, .post kbd, .post samp { font-family: "JetBrains Mono", Menlo, "DejaVu Sans Mono", "Noto Sans Mono CJK SC", "Hiragino Sans GB", "Heiti SC", "Noto Color Emoji", "Apple Color Emoji", monospace; font-size: 0.86em; }
+.post code, .post kbd, .post samp { font-family: "JetBrains Mono", "Noto Emoji", "Noto Sans SC", monospace; font-size: 0.86em; }
 .post :not(pre) > code { background: var(--code-bg); border-radius: 1mm; padding: 0.3mm 1.2mm; }
 .post pre {
   margin: 0 0 4mm; padding: 3mm 4mm;

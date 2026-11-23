@@ -160,13 +160,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} build
 
       # PDF bài viết (out/pdf/): nút "Tải PDF" trên trang bài trỏ tới các file này, nên bước này phải chạy trước khi upload.
-      # Font dự phòng cho emoji và chữ CJK có trong vài bài (font chính được nhúng từ node_modules).
-      - name: Install fallback fonts for PDF
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends fonts-noto-color-emoji fonts-noto-cjk > /dev/null
-          fc-cache -f > /dev/null
-
+      # Mọi font (kể cả dự phòng CJK/emoji) được nhúng từ node_modules/@fontsource: không cài font hệ thống.
       # Cache xoay vòng: actions/cache không ghi đè key cũ, nên key theo commit và khôi phục bản gần nhất qua restore-keys.
       - name: Restore PDF cache
         uses: actions/cache@v4
