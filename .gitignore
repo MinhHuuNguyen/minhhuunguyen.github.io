@@ -48,3 +48,6 @@ next-env.d.ts
 /public/search-index.json
 /public/search-index.en.json
 /public/video-thumbs
+
+# PDF cache (scripts/build-pdfs.mjs)
+/.pdf-cache
