@@ -102,6 +102,30 @@ yarn generate:pdf   # render /resume via headless Chromium ->
 > Run `yarn generate:pdf` and commit the generated PDFs before building if the
 > resume changed — the download buttons serve the pre-rendered files.
 
+### Post PDFs
+
+Every post (VI and EN) has a "Tải PDF / Download PDF" button that links to a PDF
+generated at build time. Series index posts (`series-*`) and `my-github-stats`
+have no PDF (`src/lib/pdf.mjs` decides, for both the button and the script).
+
+```bash
+yarn build && yarn build:pdf   # -> out/pdf/<slug>.pdf and out/pdf/en/<slug>.pdf
+node scripts/build-pdfs.mjs --slug <slug> [--lang vi|en]   # a single post
+yarn test:pdf                  # integration test (needs Chromium + network)
+```
+
+- The print HTML is built straight from the markdown (`scripts/pdf/template.mjs`,
+  `scripts/pdf/print.css`), not from the Next page: A4, cover with banner and a QR
+  code to the online post, linked table of contents, PDF bookmarks, page numbers.
+  Text is real text (copyable); KaTeX formulas copy as loose characters.
+- Images are fetched through a local proxy (`scripts/pdf/images.mjs`) that retries
+  and downsizes them to 1500 px wide. An image returning 404 is dropped with a
+  warning; any other image failure fails the build.
+- PDFs are cached in `.pdf-cache/` by a hash of the print HTML, template, scripts
+  and the current month, so unchanged posts are copied instead of re-rendered.
+  CI restores this cache with `actions/cache`.
+- `/pdf/` is disallowed in `robots.txt` (the PDFs duplicate the HTML pages).
+
 ## Deployment
 
 `yarn build` produces a static site in `out/`, which is published to GitHub Pages.

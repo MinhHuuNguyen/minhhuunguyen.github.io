@@ -135,6 +135,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
+      # Chromium của Puppeteer (tải trong `yarn install`) dùng để tạo PDF bài viết.
+      - name: Restore Puppeteer browser cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: ${{ runner.os }}-puppeteer-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
@@ -151,6 +158,26 @@ jobs:
           VIDEO_META_FETCH: "1"
         # `build` runs prebuild (the sitemap) and postbuild (the checks of out/); a bare `next build` skipped both
         run: ${{ steps.detect-package-manager.outputs.runner }} build
+
+      # PDF bài viết (out/pdf/): nút "Tải PDF" trên trang bài trỏ tới các file này, nên bước này phải chạy trước khi upload.
+      # Font dự phòng cho emoji và chữ CJK có trong vài bài (font chính được nhúng từ node_modules).
+      - name: Install fallback fonts for PDF
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends fonts-noto-color-emoji fonts-noto-cjk > /dev/null
+          fc-cache -f > /dev/null
+
+      # Cache xoay vòng: actions/cache không ghi đè key cũ, nên key theo commit và khôi phục bản gần nhất qua restore-keys.
+      - name: Restore PDF cache
+        uses: actions/cache@v4
+        with:
+          path: .pdf-cache
+          key: ${{ runner.os }}-pdf-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-pdf-
+
+      - name: Build post PDFs
+        run: time ${{ steps.detect-package-manager.outputs.runner }} build:pdf
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
