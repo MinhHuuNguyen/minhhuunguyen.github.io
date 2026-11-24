@@ -37,7 +37,7 @@ export function Footer() {
               <li><AppLink href="/learn" className={linkCls}>{t("nav.learn")}</AppLink></li>
               <li><AppLink href="/projects" className={linkCls}>{t("nav.projects")}</AppLink></li>
               <li><AppLink href="/resume" className={linkCls}>{t("nav.resume")}</AppLink></li>
-              <li><AppLink href={site.nav.githubStats} localize={false} className={linkCls}>{t("footer.githubStats")}</AppLink></li>
+              <li><AppLink href={site.nav.githubStats} className={linkCls}>{t("footer.githubStats")}</AppLink></li>
               <li><AppLink href="/privacy" localize={false} className={linkCls}>{t("footer.privacy")}</AppLink></li>
               <li><AppLink href="/terms" localize={false} className={linkCls}>{t("footer.terms")}</AppLink></li>
             </ul>

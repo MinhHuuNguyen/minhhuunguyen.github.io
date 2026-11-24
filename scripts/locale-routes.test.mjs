@@ -10,6 +10,8 @@ test("localeOf", () => {
 test("localizePath", () => {
   assert.equal(localizePath("/learn/python", "en"), "/en/learn/python");
   assert.equal(localizePath("/", "en"), "/en");
+  assert.equal(localizePath("/blog/my-github-stats", "en"), "/en/blog/my-github-stats");
+  assert.equal(localizePath("/en/blog/my-github-stats", "vi"), "/blog/my-github-stats");
   assert.equal(localizePath("/#lien-he", "en"), "/en#lien-he");
   assert.equal(localizePath("/en/videos", "vi"), "/videos");
   assert.equal(localizePath("/en", "vi"), "/");

@@ -35,6 +35,11 @@ test("footer: tên cỡ lớn, không có icon kênh chưa cấu hình", async (
   await expect(page.locator('footer a[href*="youtube.com"], footer a[href*="tiktok.com"]')).toHaveCount(0);
   await expect(page.locator('footer a[href="/blog/my-github-stats"]')).toBeVisible();
 });
+test("footer: link GitHub Stats theo ngôn ngữ trang", async ({ page }) => {
+  await page.goto("/en");
+  await expect(page.locator('footer a[href="/en/blog/my-github-stats"]')).toBeVisible();
+  await expect(page.locator('footer a[href="/blog/my-github-stats"]')).toHaveCount(0);
+});
 
 test("sự kiện GA: bấm Hợp tác bắn cta_click", async ({ page }) => {
   // fixture e2e/fixtures.ts (T01) đã gom mọi sự kiện "site:analytics" vào window.__ev dạng ["event", tên, params]
