@@ -27,7 +27,7 @@ function walk(dir, out, root = dir) {
     const full = path.join(dir, name);
     const st = fs.statSync(full);
     if (st.isDirectory()) { if (!name.startsWith(".")) walk(full, out, root); continue; }
-    if (name.endsWith(".md") && (name !== "README.md" || path.relative(root, full).split(path.sep).join("/") === "minhhuunguyen/README.md")) out.push(full);
+    if (name.endsWith(".md") && name !== "README.md") out.push(full);
   }
 }
 

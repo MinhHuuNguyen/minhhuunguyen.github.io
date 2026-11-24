@@ -18,12 +18,13 @@ function postsTree(files) {
 
 const md = (title, published = true) => `---\ntitle: "${title}"\nis_published: ${published}\ntime: 05/13/2022\n---\nbody\n`;
 
-test("readPosts takes published posts, skips README.md and hidden folders, keeps the owner's README", () => {
+test("readPosts takes published posts, skips README.md and hidden folders, keeps the blog post my-github-stats.md", () => {
   const root = postsTree({
     "ai/markdown/1-a.md": md("Âm thanh máy tính"),
     "ai/markdown/2-draft.md": md("Chưa xong", false),
     "ai/README.md": md("Không lấy README này"),
-    "minhhuunguyen/README.md": md("Giới thiệu"),
+    "minhhuunguyen/README.md": md("Không lấy README profile"),
+    "minhhuunguyen/my-github-stats.md": md("Giới thiệu"),
     ".git/hooks/x.md": md("Trong thư mục ẩn"),
   });
   const slugs = readPosts(root).map((p) => p.slug).sort();

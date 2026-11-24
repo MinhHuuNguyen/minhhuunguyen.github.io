@@ -8,7 +8,7 @@ import {
 
 const RAW = {
   enabled: true, repo: "MinhHuuNguyen/minhhuunguyen.github.io", repoId: " R_x ", category: " General ", categoryId: "DIC_y",
-  exclude: ["minhhuunguyen/README.md"], report: { template: "bao-loi-bai.yml", titlePrefix: { vi: "[Báo lỗi] ", en: "[Error report] " } },
+  exclude: ["minhhuunguyen/my-github-stats.md"], report: { template: "bao-loi-bai.yml", titlePrefix: { vi: "[Báo lỗi] ", en: "[Error report] " } },
 };
 const CFG = validateCommentsConfig(RAW).config;
 const VI = { relPath: "ai-lectures/1_python_basic/markdown/4-loop.md", commentsKey: null };
@@ -111,7 +111,7 @@ test("commentsProps: bản VI và bản EN của cùng bài có cùng term; repo
 test("commentsProps: null khi tắt bình luận hoặc bài nằm trong exclude", () => {
   const args = { post: VI, locale: "vi", title: "t", pageUrl: "p", sourceFile: "s", backLink: "b" };
   assert.equal(commentsProps({ ...args, config: { ...CFG, enabled: false } }), null);
-  assert.equal(commentsProps({ ...args, config: CFG, post: { relPath: "minhhuunguyen/README.md" } }), null);
+  assert.equal(commentsProps({ ...args, config: CFG, post: { relPath: "minhhuunguyen/my-github-stats.md" } }), null);
 });
 
 test("parseGiscusMessage: chỉ nhận tin từ giscus.app có discussion và URL GitHub; cộng bình luận với trả lời", () => {

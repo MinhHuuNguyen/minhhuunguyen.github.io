@@ -4,7 +4,7 @@
   "repoId": "R_kgDOLmpRDQ",
   "category": "General",
   "categoryId": "DIC_kwDOLmpRDc4Ctd6o",
-  "exclude": ["minhhuunguyen/README.md"],
+  "exclude": ["minhhuunguyen/my-github-stats.md"],
   "report": {
     "template": "bao-loi-bai.yml",
     "titlePrefix": { "vi": "[Báo lỗi] ", "en": "[Error report] " }

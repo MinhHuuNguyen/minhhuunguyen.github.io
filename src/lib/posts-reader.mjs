@@ -5,7 +5,6 @@ import { slugify, toPostVideo } from "./seo.mjs";
 import { readingMinutes } from "./reading.mjs";
 import { assertUniqueCommentKeys } from "./comments.mjs";
 
-const OWN_README = path.join("posts", "minhhuunguyen", "README.md");
 function walk(dir, out, root = dir) {
   let names;
   try { names = fs.readdirSync(dir); } catch (e) { console.warn(`[posts] Không đọc được thư mục: ${dir}`, e); return; }
@@ -14,7 +13,7 @@ function walk(dir, out, root = dir) {
     let st;
     try { st = fs.statSync(full); } catch { continue; }
     if (st.isDirectory()) { if (!name.startsWith(".")) walk(full, out, root); continue; }
-    if ((name.endsWith(".md") && name !== "README.md") || full.endsWith(OWN_README)) out.push({ full, root });
+    if (name.endsWith(".md") && name !== "README.md") out.push({ full, root });
   }
 }
 export function readAllPosts(root = "posts", extraRoot = process.env.POSTS_EXTRA_ROOT) {

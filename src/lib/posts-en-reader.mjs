@@ -9,7 +9,7 @@ function walk(dir, root, out) {
     const full = path.join(dir, name);
     if (fs.statSync(full).isDirectory()) { if (!name.startsWith(".")) walk(full, root, out); continue; }
     const rel = path.relative(root, full).split(path.sep).join("/");
-    if (name.endsWith(".md") && (name !== "README.md" || rel === "minhhuunguyen/README.md")) out.push({ full, rel });
+    if (name.endsWith(".md") && name !== "README.md") out.push({ full, rel });
   }
 }
 /** Đọc bản dịch EN từ các gốc, ghép cặp với bài VI qua source_path. Bỏ qua gốc không tồn tại. */
